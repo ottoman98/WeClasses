@@ -1,0 +1,20 @@
+.main-story {
+
+    width: 80%;
+    margin: 0 auto;
+
+}
+
+.main-story h2 {
+    padding: 40px;
+}
+
+
+.story {
+    padding: 40px;
+}
+
+.story p {
+    padding: 10px;
+    border-bottom: 1px dotted black;
+}

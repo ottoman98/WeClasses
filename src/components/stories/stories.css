@@ -1,7 +1,23 @@
 .card {
-
-    background-color: red;
+    color: black;
     width: 50%;
     margin: 3rem;
+    display: flex;
 
+
+}
+
+.card a {
+    color: black;
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: underline;
+}
+
+.card h3,
+i {
+    padding: 10px;
+    border: 1px solid black;
 }
