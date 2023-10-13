@@ -8,6 +8,28 @@
 
 }
 
+.form-toggle {
+
+    display: flex;
+    justify-content: space-around;
+    height: 2rem;
+    width: 100%;
+    align-items: center;
+    gap: 10px
+}
+
+.form-toggle div {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+
+}
+
+
+
 .form-info {
 
     display: flex;

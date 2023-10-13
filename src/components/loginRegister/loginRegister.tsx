@@ -6,6 +6,14 @@ function LoginRegister() {
     return (
       <>
         <div className="main-form">
+          <div className="form-toggle">
+            <div>
+              <p>Login</p>{" "}
+            </div>
+            <div>
+              <p>Sign Up</p>
+            </div>
+          </div>
           <div className="form-info">
             <h2>LOGIN</h2>
             <i>Please enter your Email and password!</i>
