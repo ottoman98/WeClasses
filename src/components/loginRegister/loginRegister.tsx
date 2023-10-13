@@ -8,7 +8,7 @@ function LoginRegister() {
         <div className="main-form">
           <div className="form-info">
             <h2>LOGIN</h2>
-            <i>Please enter your login and password!</i>
+            <i>Please enter your Email and password!</i>
           </div>
 
           <form action="">
