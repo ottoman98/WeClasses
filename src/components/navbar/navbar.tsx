@@ -1,10 +1,10 @@
 import "../navbar/navbar.css";
 import { Link } from "react-router-dom";
 
-import flag1 from "../../imgs/Custom-Icon-Design-Flag-3-United-States-Flag.256.png";
+//import flag1 from "../../imgs/Custom-Icon-Design-Flag-3-United-States-Flag.256.png";
 import logo from "../../imgs/weclasses-low-resolution-color-logo-removebg-preview.png";
 import arrow from "../../imgs/down-chevron.png";
-import login from "../../imgs/login.png";
+//import login from "../../imgs/login.png";
 
 function NavBar() {
   return (
@@ -36,11 +36,11 @@ function NavBar() {
         </div>
         <div className="nav-section">
           <ul>
-            <Link to="loginRegister">
-              <li className="item">
-                <img id="language" src={flag1} alt="" />
-                Login <img className="info-ico" src={login} alt="" />
-              </li>
+            <Link to="login">
+              <li className="item">Login</li>
+            </Link>
+            <Link to="Register">
+              <li className="item">Sign Up</li>
             </Link>
           </ul>
         </div>
