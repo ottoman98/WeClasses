@@ -4,8 +4,8 @@ function Stories() {
   return (
     <>
       <div className="stories">
-        <h2>Stories</h2>
-        <h3>13/10/2023</h3>
+        <h2 className="header">Stories</h2>
+        <h3 className="header">13/10/2023</h3>
 
         <div className="card">
           <Link to="storydeprueba">

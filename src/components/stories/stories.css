@@ -16,8 +16,7 @@
     text-decoration: underline;
 }
 
-.card h3,
-i {
+.header {
     padding: 10px;
     border: 1px solid black;
 }
