@@ -1,7 +1,15 @@
 import "./loginRegister.css";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+
+import requests from "../../api/requests";
 
 function Register() {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = handleSubmit(async (values) => {
+    await requests.registerRequestStudent(values);
+  });
   return (
     <>
       <div className="main-form">
@@ -10,33 +18,55 @@ function Register() {
           <i>Please enter required data</i>
         </div>
 
-        <form action="">
-          <input id="name" type="text" placeholder="name" required />
-          <input id="lastName" type="text" placeholder="LastName" required />
-          <input id="email" type="email" placeholder="Email" required />
-          <input id="country" type="text" placeholder="Country" required />
-          <input id="phone" type="number" placeholder="Phone" required />
+        <form onSubmit={onSubmit}>
           <input
-            id="languageToLearn"
             type="text"
-            placeholder="Email"
+            placeholder="name"
+            {...register("name", { required: true })}
             required
           />
-          <input id="lanaguageLevel" type="text" placeholder="Text" required />
           <input
-            id="password"
+            type="text"
+            placeholder="LastName"
+            {...register("lastName", { required: true })}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            {...register("email", { required: true })}
+          />
+          <input
+            type="text"
+            placeholder="Country"
+            {...register("country", { required: true })}
+          />
+          <input
+            type="number"
+            placeholder="Phone"
+            {...register("phone", { required: true })}
+          />
+          <input
             type="password"
             placeholder="Password"
-            required
+            {...register("password", { required: true })}
           />
           <input
-            id="password2"
             type="password"
             placeholder="Repeat Password"
-            required
+            {...register("password2", { required: true })}
+          />
+          <input
+            type="text"
+            placeholder="languageToLearn"
+            {...register("languageToLearn", { required: true })}
+          />
+          <input
+            type="text"
+            placeholder="englishLevel"
+            {...register("languageLevel", { required: true })}
           />
 
-          <input type="button" value="Sign Up" />
+          <input type="submit" value="Sign Up" />
         </form>
 
         <i>
