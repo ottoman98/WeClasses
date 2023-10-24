@@ -2,7 +2,7 @@ import "./loginRegister.css";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import requests from "../../api/requests";
+import requests from "../../api/requestsUser";
 
 function Register() {
   const { register, handleSubmit } = useForm();

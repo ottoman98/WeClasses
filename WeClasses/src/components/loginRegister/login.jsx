@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import "./loginRegister.css";
-import requests from "../../api/requests";
+import requests from "../../api/requestsUser";
 
 function Login() {
   const { register, handleSubmit } = useForm();
@@ -13,12 +13,11 @@ function Login() {
 
   const onSubmit = handleSubmit(async (values) => {
     setData(await requests.loginRequestStudent(values));
-   
   });
 
   useEffect(() => {
     if (data && data.message == "tas logeado rey") {
-      localStorage.setItem('user',JSON.stringify(data))
+      localStorage.setItem("user", JSON.stringify(data));
       navigate("/profile");
     }
   }, [data]);

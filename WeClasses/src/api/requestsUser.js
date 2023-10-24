@@ -5,8 +5,8 @@ const baseURL = 'http://localhost:3000/';
 
 
 
-async function loginRequestStudent(user: object) {
-    return axios.post(`${baseURL}v1/students_login`, user)
+async function loginRequestStudent(user) {
+    return axios.post(`${baseURL}v1/students_login`, user,{ withCredentials: true })
         .then(response => {
             return response.data
         })
@@ -16,7 +16,7 @@ async function loginRequestStudent(user: object) {
         });
 }
 
-async function registerRequestStudent(user: object) {
+async function registerRequestStudent(user) {
 
     return axios.post(`${baseURL}v1/students_register`, user)
         .then(response => {
@@ -27,6 +27,8 @@ async function registerRequestStudent(user: object) {
             throw error;
         });
 }
+
+
 
 
 const requests = { loginRequestStudent, registerRequestStudent }
