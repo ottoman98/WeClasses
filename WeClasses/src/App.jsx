@@ -6,6 +6,7 @@ import Login from "./components/loginRegister/login";
 import Register from "./components/loginRegister/register";
 import Story from "./components/story/story";
 import { AuthProvider } from "./context/userAuth";
+import AdminPanel from "./components/adminPanel";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="stories/storydeprueba" element={<Story />} />
+            <Route path="profile" element={<AdminPanel/>} />
+
           </Routes>
         </BrowserRouter>
       </AuthProvider>

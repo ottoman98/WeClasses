@@ -4,18 +4,25 @@ import requests from "../api/requests";
 
 const context = {
   userData: {},
-  signUp: (): void => {},
+  signUp: (): object => {
+    return {};
+  },
 };
 
 export const AuthContext = createContext<AuthContextType>(context);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [userData, setUserData] = useState(Object);
+  const [userData, setUserData] = useState({});
 
   async function signUp(values: object) {
-    const data = await requests.loginRequestStudent(values);
+    try {
+      const data = await requests.loginRequestStudent(values);
 
-    setUserData(data);
+      setUserData(data);
+      return data;
+    } catch (error) {
+      error;
+    }
   }
 
   return (

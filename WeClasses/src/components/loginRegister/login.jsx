@@ -1,24 +1,38 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 import "./loginRegister.css";
-import useAuth from "../../hooks/useContext";
+import requests from "../../api/requests";
 
 function Login() {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+  navigate;
 
-  const { signUp } = useAuth();
+  const [data, setData] = useState();
 
   const onSubmit = handleSubmit(async (values) => {
-    signUp(values);
+    setData(await requests.loginRequestStudent(values));
+   
   });
+
+  useEffect(() => {
+    if (data && data.message == "tas logeado rey") {
+      localStorage.setItem('user',JSON.stringify(data))
+      navigate("/profile");
+    }
+  }, [data]);
+
   return (
     <>
       <div className="main-form">
         <div className="form-info">
           <h2>LOGIN</h2>
-          <i>Please enter your Email and password!</i>
-        </div>
 
+          <i>Please enter your Email and password!</i>
+          {data ? data.message : null}
+        </div>
+        {}
         <form onSubmit={onSubmit}>
           <input
             type="text"
@@ -40,7 +54,7 @@ function Login() {
         </form>
 
         <i>
-          Don't have account?<Link to="/register"> Sign Up</Link>
+          Do not have account?<Link to="/register"> Sign Up</Link>
         </i>
       </div>
     </>
