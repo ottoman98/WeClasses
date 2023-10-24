@@ -1,12 +1,14 @@
 import "../navbar/navbar.css";
 import { Link } from "react-router-dom";
-
-
 import logo from "../../imgs/weclasses-low-resolution-color-logo-removebg-preview.png";
 import arrow from "../../imgs/down-chevron.png";
-
+import { useContext } from "react";
+import { DataContext } from "../../context/userAuth";
 
 function NavBar() {
+  const { isCookie } = useContext(DataContext);
+  console.log(isCookie);
+
   return (
     <>
       <nav>
@@ -35,14 +37,25 @@ function NavBar() {
           </ul>
         </div>
         <div className="nav-section">
-          <ul>
-            <Link to="login">
-              <li className="item">Login</li>
-            </Link>
-            <Link to="Register">
-              <li className="item">Sign Up</li>
-            </Link>
-          </ul>
+          {isCookie ? (
+            <>
+              <ul>
+                <li>Profile</li>
+                <li>SignOut</li>
+              </ul>
+            </>
+          ) : (
+            <>
+              <ul>
+                <Link to="login">
+                  <li className="item">Login</li>
+                </Link>
+                <Link to="Register">
+                  <li className="item">Sign Up</li>
+                </Link>
+              </ul>
+            </>
+          )}
         </div>
       </nav>
     </>
