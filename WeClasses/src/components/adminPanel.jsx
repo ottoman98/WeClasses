@@ -12,19 +12,17 @@ function AdminPanel() {
       <section className="main">
         <aside>
           <ul>
-            <Link>
-              <li>Teachers</li>
-            </Link>
-            <Link>
-              <li>Students</li>
-            </Link>
-            <Link>
-              <li>Stories</li>
-            </Link>
-            <Link>
-              <li>more...</li>
-            </Link>
-            <Link></Link>
+            <li>
+              <h2>Stories</h2>
+              <ul>
+                <Link to="/storyPost">
+                  <li>Agregar Story</li>
+                </Link>
+                <Link to="/storiesList">
+                  <li>Todas las stories</li>
+                </Link>
+              </ul>
+            </li>
           </ul>
         </aside>
 

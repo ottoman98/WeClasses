@@ -6,8 +6,7 @@ import { useContext } from "react";
 import { DataContext } from "../../context/userAuth";
 
 function NavBar() {
-  const { isCookie } = useContext(DataContext);
-  console.log(isCookie);
+  const { isCookie, deleteCookie } = useContext(DataContext);
 
   return (
     <>
@@ -25,6 +24,7 @@ function NavBar() {
                 <img className="info-ico arrow" src={arrow} alt="" />
               </li>
               <ul className="dropdown-hide">
+                {isCookie && <>isCookie</>}
                 <Link to="stories">
                   <li>Beginners Learners A1-A2</li>
                 </Link>
@@ -36,12 +36,22 @@ function NavBar() {
             <li className="item">Teach with us</li>
           </ul>
         </div>
+
         <div className="nav-section">
           {isCookie ? (
             <>
               <ul>
-                <li>Profile</li>
-                <li>SignOut</li>
+                <Link to="/profile">
+                  <li>Profile</li>
+                </Link>
+
+                <li
+                  onClick={() => {
+                    deleteCookie();
+                  }}
+                >
+                  <a href="/">SignOut</a>
+                </li>
               </ul>
             </>
           ) : (

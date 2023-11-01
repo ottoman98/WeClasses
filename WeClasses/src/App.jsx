@@ -9,6 +9,7 @@ import Story from "./components/story/story";
 import AdminPanel from "./components/adminPanel";
 import PostStory from "./components/storiesPost";
 import { DataProvider } from "./context/userAuth";
+import StoriesAdmin from "./components/storiesAdmin";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="stories/storydeprueba" element={<Story />} />
             <Route path="/profile" element={<AdminPanel />} />
             <Route path="/storyPost" element={<PostStory />} />
+            <Route path="/storiesList" element={<StoriesAdmin />} />
           </Routes>
         </BrowserRouter>
       </DataProvider>
