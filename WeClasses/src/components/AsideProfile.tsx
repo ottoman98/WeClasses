@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import {
   HiChartPie,
   HiInformationCircle,
-  HiLogin,
-  HiPencil,
   HiSearch,
   HiBookOpen,
   HiUsers,
@@ -45,7 +43,7 @@ const AsideProfile: FC = function () {
                 Dashboard
               </Sidebar.Item>
               <Sidebar.Item
-                href="/e-commerce/products"
+                href="/dashboard"
                 icon={HiBookOpen}
                 className={
                   "/e-commerce/products" === currentPage
@@ -65,12 +63,6 @@ const AsideProfile: FC = function () {
                 }
               >
                 Users list
-              </Sidebar.Item>
-              <Sidebar.Item href="/authentication/sign-in" icon={HiLogin}>
-                Sign in
-              </Sidebar.Item>
-              <Sidebar.Item href="/authentication/sign-up" icon={HiPencil}>
-                Sign up
               </Sidebar.Item>
             </Sidebar.ItemGroup>
             <Sidebar.ItemGroup>
