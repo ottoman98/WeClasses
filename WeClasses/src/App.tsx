@@ -12,6 +12,7 @@ function App() {
         <NavBar />
 
         <Routes>
+          <Route path="/" element={<Leaks />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/dashboard" element={<Dashboard />} />
