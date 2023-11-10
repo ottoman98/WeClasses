@@ -1,9 +1,19 @@
 type login = {
     email: string,
-    passsword: string
+    password: string
+
+}
+
+type contact = {
+    name: string,
+    lastName: string,
+    email: string,
+    phone: string,
+    nativeLanguage: string,
+    languageToLearn: string
 
 }
 
 
 
-export { login }
+export { login, contact }

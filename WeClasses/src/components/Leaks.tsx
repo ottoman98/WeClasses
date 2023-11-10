@@ -1,4 +1,26 @@
+import { contact } from "../types/userTypes";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { axiosContact } from "../api/axios";
 function Leaks() {
+  const [serverResponse, setServerResponse] = useState<{
+    message: string;
+  } | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<contact>();
+
+  const navigate = useNavigate();
+
+  if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
+    navigate("/dashboard");
+    console.log(serverResponse.message);
+  }
+
   return (
     <>
       <div className="flex justify-center items-center w-screen h-screen bg-white">
@@ -9,47 +31,129 @@ function Leaks() {
                 Inscribete <br /> pa mañana es tarde
               </h1>
             </div>
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="First Name*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Last Name*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="email"
-                placeholder="Email*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number"
-                placeholder="Idioma nativo*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number"
-                placeholder="Phone*"
-              />
-              <input
-                className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                type="number"
-                placeholder="Idioma  aprender*"
-              />
-            </div>
+            <form
+              onSubmit={handleSubmit(async (x) => {
+                const data = await axiosContact(x);
+                setServerResponse(data);
+                console.log(serverResponse);
+              })}
+              className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5"
+            >
+              <div>
+                <input
+                  id="name"
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "Required ",
+                    },
+                  })}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="Name*"
+                />
+                <p className="text-xs italic text-red-500">
+                  {errors.name?.message}
+                </p>
+              </div>
+              <div>
+                <input
+                  {...register("lastName", {
+                    required: {
+                      value: true,
+                      message: "Required ",
+                    },
+                  })}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="Last Name*"
+                />
 
-            <div className="my-2 w-1/2 lg:w-1/4">
+                <p className="text-xs italic text-red-500">
+                  {errors.lastName?.message}
+                </p>
+              </div>
+              <div>
+                <input
+                  {...register("email", {
+                    required: {
+                      value: true,
+                      message: "Required field",
+                    },
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message:
+                        "Debe ingresar un correo de la forma Ej. example@examples.ex",
+                    },
+                  })}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="email"
+                  placeholder="Email*"
+                />
+                <p className="text-xs italic text-red-500">
+                  {errors.email?.message}
+                </p>
+              </div>
+              <div>
+                <input
+                  {...register("nativeLanguage", {
+                    required: {
+                      value: true,
+                      message: "Required",
+                    },
+                  })}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="Idioma nativo*"
+                />
+
+                <p className="text-xs italic text-red-500">
+                  {errors.nativeLanguage?.message}
+                </p>
+              </div>
+
+              <div>
+                <input
+                  {...register("phone", {
+                    required: {
+                      value: true,
+                      message: "Required",
+                    },
+                  })}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="number"
+                  placeholder="Phone*"
+                />
+
+                <p className="text-xs italic text-red-500">
+                  {errors.phone?.message}
+                </p>
+              </div>
+
+              <div>
+                <input
+                  {...register("languageToLearn", {
+                    required: {
+                      value: true,
+                      message: "Required ",
+                    },
+                  })}
+                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  type="text"
+                  placeholder="Idioma  aprender*"
+                />
+                <p className="text-xs italic text-red-500">
+                  {errors.languageToLearn?.message}
+                </p>
+              </div>
+
               <button
                 className="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
               >
-                Send Message
+                Submit
               </button>
-            </div>
+            </form>
           </div>
 
           <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">

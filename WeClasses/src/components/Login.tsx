@@ -1,13 +1,26 @@
 import { useForm } from "react-hook-form";
 import { login } from "../types/userTypes";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { axiosLogin } from "../api/axios";
 
 function Login() {
+  const [serverResponse, setServerResponse] = useState<{
+    message: string;
+  } | null>(null);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<login>();
-  console.log(errors);
+
+  const navigate = useNavigate();
+
+  if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
+    navigate("/dashboard");
+    console.log(serverResponse.message);
+  }
 
   return (
     <>
@@ -23,12 +36,23 @@ function Login() {
 
             <div className="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
               <h3 className="pt-4 text-2xl text-center">Welcome Back!</h3>
+
               <form
-                onSubmit={handleSubmit((x) => {
-                  console.log(x);
+                onSubmit={handleSubmit(async (x) => {
+                  const data = await axiosLogin(x);
+                  setServerResponse(data.data);
                 })}
                 className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
               >
+                {!serverResponse ? (
+                  ""
+                ) : (
+                  <>
+                    <p className="text-xs italic text-red-500">
+                      {serverResponse.message}
+                    </p>
+                  </>
+                )}
                 <div className="mb-4">
                   <label
                     htmlFor="email"
@@ -40,14 +64,22 @@ function Login() {
                     {...register("email", {
                       required: {
                         value: true,
-                        message: "ingrese un coprreo valido",
+                        message: "Required field",
+                      },
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message:
+                          "Debe ingresar un correo de la forma Ej. example@examples.ex",
                       },
                     })}
                     className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="email"
                     type="email"
-                    placeholder="Username"
+                    placeholder="Email"
                   />
+                  <p className="text-xs italic text-red-500">
+                    {errors.email?.message}
+                  </p>
                 </div>
                 <div className="mb-4">
                   <label
@@ -57,14 +89,20 @@ function Login() {
                     Password
                   </label>
                   <input
-                    {...register("passsword", { required: true })}
+                    {...register("password", {
+                      required: { value: true, message: "Ingrese un password" },
+                      minLength: {
+                        value: 4,
+                        message: "debe ser superior a 8 la longitud sea serio",
+                      },
+                    })}
                     className="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="password"
                     type="password"
                     placeholder="******************"
                   />
                   <p className="text-xs italic text-red-500">
-                    Please choose a password.
+                    {errors.password?.message}
                   </p>
                 </div>
                 <div className="mb-4">
@@ -82,20 +120,20 @@ function Login() {
                 </div>
                 <hr className="mb-6 border-t" />
                 <div className="text-center">
-                  <a
+                  <Link
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    href="#"
+                    to="/register"
                   >
                     Create an Account!
-                  </a>
+                  </Link>
                 </div>
                 <div className="text-center">
-                  <a
+                  <Link
                     className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                    href="#"
+                    to="/recover"
                   >
                     Forgot Password?
-                  </a>
+                  </Link>
                 </div>
               </form>
             </div>
