@@ -41,6 +41,7 @@ function AsideProfile() {
               >
                 <Link to="/dashboard"> Dashboard</Link>
               </Sidebar.Item>
+
               <Sidebar.Item
                 icon={HiBookOpen}
                 className={
@@ -49,7 +50,7 @@ function AsideProfile() {
                     : ""
                 }
               >
-                <Link to="/classes">Classes</Link>
+                <Link to="/classes">Add story</Link>
               </Sidebar.Item>
               <Sidebar.Item
                 icon={HiUsers}
@@ -61,6 +62,24 @@ function AsideProfile() {
               >
                 <Link to=""> Users list</Link>
               </Sidebar.Item>
+              <Sidebar.Item
+                icon={HiBookOpen}
+                className={
+                  "/e-commerce/products" === currentPage
+                    ? "bg-gray-100 dark:bg-gray-700"
+                    : ""
+                }
+              >
+                <Link to="/allstories">All stories</Link>
+              </Sidebar.Item>
+              <Sidebar.Item
+                icon={HiUsers}
+                className={
+                  "/users/list" === currentPage
+                    ? "bg-gray-100 dark:bg-gray-700"
+                    : ""
+                }
+              ></Sidebar.Item>
             </Sidebar.ItemGroup>
             <Sidebar.ItemGroup>
               <Sidebar.Item
