@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Editor } from "draft-js";
+
 import { story } from "../types/storyTypes";
 import { GetStoryById, putStory } from "../api/axiosStories";
 import { useParams } from "react-router-dom";
