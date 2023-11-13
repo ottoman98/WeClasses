@@ -4,19 +4,28 @@ import Login from "./components/Login";
 
 import Dashboard from "./pages/Dashboard";
 import Leaks from "./components/Leaks";
+import UserRemainingForm from "./components/UserRemainingForm";
+import { DataProvider } from "./context/session";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
+      <DataProvider>
+        <BrowserRouter>
+          <NavBar />
 
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/contact" element={<Leaks />} />
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+
+            <Route path="/contact" element={<Leaks />} />
+            <Route path="/data/:id" element={<UserRemainingForm />} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </DataProvider>
     </>
   );
 }

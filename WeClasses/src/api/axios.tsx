@@ -1,5 +1,6 @@
 import axios from "axios";
-import { login } from "../types/userTypes";
+import { login, contact, fullContact } from "../types/userTypes";
+import { useEffect, useState } from "react";
 
 const URL = "http://localhost:3000/v1";
 
@@ -9,10 +10,44 @@ async function axiosLogin(credentials: login) {
   });
 }
 
-async function axiosContact(credentials: login) {
-  return axios.post(`${URL}/students_register`, credentials, {
+async function axiosContact(data: contact) {
+  return axios.post(`${URL}/students_register`, data, {
     withCredentials: true,
   });
 }
 
-export { axiosLogin, axiosContact };
+function AxiosGetRemainingData(id: string | undefined) {
+  const [data, setData] = useState<fullContact>();
+
+  try {
+    useEffect(() => {
+      axios
+        .get(`${URL}/user/${id}`, {
+          withCredentials: true,
+        })
+        .then((x) => {
+          setData(x.data);
+        });
+    }, [id]);
+  } catch (error) {
+    console.log(error);
+  }
+
+  return data;
+}
+
+async function axiosPutRemainingData(
+  id: string | undefined,
+  remainingData: contact
+) {
+  return axios.put(`${URL}/user/${id}`, remainingData, {
+    withCredentials: true,
+  });
+}
+
+export {
+  axiosLogin,
+  axiosContact,
+  AxiosGetRemainingData,
+  axiosPutRemainingData,
+};

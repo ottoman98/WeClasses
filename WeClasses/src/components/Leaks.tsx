@@ -1,11 +1,13 @@
 import { contact } from "../types/userTypes";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { axiosContact } from "../api/axios";
+import ModalWithButton from "./ModalWithButton";
 function Leaks() {
   const [serverResponse, setServerResponse] = useState<{
     message: string;
+    valid: string;
   } | null>(null);
 
   const {
@@ -14,15 +16,20 @@ function Leaks() {
     formState: { errors },
   } = useForm<contact>();
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
-    navigate("/dashboard");
+  let bool = false;
+
+  if (serverResponse !== null && serverResponse.valid == "siu") {
+    //navigate("/dashboard");
+    bool = true;
+
     console.log(serverResponse.message);
   }
 
   return (
     <>
+      <ModalWithButton show={bool} message={serverResponse?.message} />
       <div className="flex justify-center items-center w-screen h-screen bg-white">
         <div className="container mx-auto my-4 px-4 lg:px-20">
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
@@ -34,7 +41,7 @@ function Leaks() {
             <form
               onSubmit={handleSubmit(async (x) => {
                 const data = await axiosContact(x);
-                setServerResponse(data);
+                setServerResponse(data.data);
                 console.log(serverResponse);
               })}
               className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5"
@@ -95,17 +102,29 @@ function Leaks() {
                 </p>
               </div>
               <div>
-                <input
+                <select
                   {...register("nativeLanguage", {
-                    required: {
-                      value: true,
-                      message: "Required",
-                    },
+                    required: { value: true, message: "Required" },
                   })}
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Idioma nativo*"
-                />
+                  id="name"
+                >
+                  <option value="">Seleccione su idioma nativo</option>
+                  <option value="es">Español</option>
+                  <option value="en">English</option>
+                  <option value="fr">Français</option>
+                  <option value="zh">中文 (Chino Mandarín)</option>
+                  <option value="hi">हिन्दी (Hindi)</option>
+                  <option value="ar">العربية (Árabe)</option>
+                  <option value="pt">Português</option>
+                  <option value="bn">বাংলা (Bengalí)</option>
+                  <option value="ru">Русский (Ruso)</option>
+                  <option value="ur">اردو (Urdu)</option>
+                  <option value="de">Deutsch</option>
+                  <option value="ja">日本語 (Japonés)</option>
+                  <option value="ko">한국어 (Coreano)</option>
+                  <option value="vi">Tiếng Việt (Vietnamita)</option>
+                </select>
 
                 <p className="text-xs italic text-red-500">
                   {errors.nativeLanguage?.message}
@@ -131,17 +150,17 @@ function Leaks() {
               </div>
 
               <div>
-                <input
+                <select
                   {...register("languageToLearn", {
-                    required: {
-                      value: true,
-                      message: "Required ",
-                    },
+                    required: { value: true, message: "Required" },
                   })}
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Idioma  aprender*"
-                />
+                  id="name"
+                >
+                  <option value="">Select a language</option>
+                  <option value="es">Español</option>
+                  <option value="en">English</option>
+                </select>
                 <p className="text-xs italic text-red-500">
                   {errors.languageToLearn?.message}
                 </p>

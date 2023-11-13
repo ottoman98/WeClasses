@@ -14,6 +14,15 @@ type contact = {
 
 }
 
+type fullContact = contact & {
+
+    country: string,
+    languageLevel: string,
+    password: string
+    password2: string
+
+}
 
 
-export { login, contact }
+
+export { login, contact, fullContact }

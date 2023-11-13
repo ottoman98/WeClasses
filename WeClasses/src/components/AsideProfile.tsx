@@ -1,5 +1,4 @@
 import { Sidebar, TextInput } from "flowbite-react";
-import type { FC } from "react";
 import { useEffect, useState } from "react";
 import {
   HiChartPie,
@@ -8,8 +7,9 @@ import {
   HiBookOpen,
   HiUsers,
 } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
-const AsideProfile: FC = function () {
+function AsideProfile() {
   const [currentPage, setCurrentPage] = useState("");
 
   useEffect(() => {
@@ -34,16 +34,14 @@ const AsideProfile: FC = function () {
           <Sidebar.Items>
             <Sidebar.ItemGroup>
               <Sidebar.Item
-                href="/"
                 icon={HiChartPie}
                 className={
                   "/" === currentPage ? "bg-gray-100 dark:bg-gray-700" : ""
                 }
               >
-                Dashboard
+                <Link to="/dashboard"> Dashboard</Link>
               </Sidebar.Item>
               <Sidebar.Item
-                href="/dashboard"
                 icon={HiBookOpen}
                 className={
                   "/e-commerce/products" === currentPage
@@ -51,10 +49,9 @@ const AsideProfile: FC = function () {
                     : ""
                 }
               >
-                Classes
+                <Link to="/classes">Classes</Link>
               </Sidebar.Item>
               <Sidebar.Item
-                href="/users/list"
                 icon={HiUsers}
                 className={
                   "/users/list" === currentPage
@@ -62,7 +59,7 @@ const AsideProfile: FC = function () {
                     : ""
                 }
               >
-                Users list
+                <Link to=""> Users list</Link>
               </Sidebar.Item>
             </Sidebar.ItemGroup>
             <Sidebar.ItemGroup>
@@ -78,6 +75,6 @@ const AsideProfile: FC = function () {
       </div>
     </Sidebar>
   );
-};
+}
 
 export default AsideProfile;

@@ -1,7 +1,16 @@
 import { Navbar, Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 
+import { useContext, useEffect } from "react";
+import { DataContext } from "../context/session";
+import { removeCookies } from "../utils/cookies";
+
 function NavBar() {
+  const { cookie, setCookie } = useContext(DataContext);
+
+  useEffect(() => {
+    console.log(cookie);
+  }, []);
   return (
     <>
       <Navbar fluid rounded>
@@ -20,7 +29,9 @@ function NavBar() {
           <Navbar.Link active>
             <Link to="/">Home</Link>
           </Navbar.Link>
-
+          <Navbar.Link>
+            <Link to="/login">Stories</Link>
+          </Navbar.Link>
           <Navbar.Link>
             <Dropdown label="Contact Us" inline>
               <Dropdown.Item>
@@ -39,9 +50,20 @@ function NavBar() {
             <Link to="about"> About Us</Link>
           </Navbar.Link>
 
-          <Navbar.Link>
-            <Link to="/login">Login/Register</Link>
-          </Navbar.Link>
+          {!cookie ? (
+            <Navbar.Link>
+              <Link to="/login">Login/Register</Link>
+            </Navbar.Link>
+          ) : (
+            <Navbar.Link
+              onClick={() => {
+                removeCookies("token");
+                setCookie("");
+              }}
+            >
+              LogOut
+            </Navbar.Link>
+          )}
         </Navbar.Collapse>
       </Navbar>
     </>

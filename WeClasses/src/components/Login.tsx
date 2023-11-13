@@ -3,6 +3,9 @@ import { login } from "../types/userTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { axiosLogin } from "../api/axios";
+import { useContext } from "react";
+import { DataContext } from "../context/session";
+import { getCookies } from "../utils/cookies";
 
 function Login() {
   const [serverResponse, setServerResponse] = useState<{
@@ -16,12 +19,14 @@ function Login() {
   } = useForm<login>();
 
   const navigate = useNavigate();
+  const { cookie, setCookie } = useContext(DataContext);
 
   if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
     navigate("/dashboard");
-    console.log(serverResponse.message);
+    setCookie(getCookies("token"));
   }
 
+  console.log(cookie);
   return (
     <>
       <div className="container mx-auto">
