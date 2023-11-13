@@ -5,11 +5,7 @@ import { story } from "../types/storyTypes";
 
 function StoriesForm() {
   const [response, setResponse] = useState<null | object>(null);
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm<story>();
+  const { handleSubmit, register } = useForm<story>();
   return (
     <>
       <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 w-100 mx-auto">
@@ -35,7 +31,7 @@ function StoriesForm() {
             />
           </div>
           <div>
-            <label htmlFor="language">Language</label>
+            <label htmlFor="language">Language.</label>
             <input
               className="flex flex-col "
               type="text"

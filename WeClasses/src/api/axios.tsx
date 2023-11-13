@@ -1,8 +1,7 @@
 import axios from "axios";
 import { login, contact, fullContact } from "../types/userTypes";
 import { useEffect, useState } from "react";
-
-const URL = "http://localhost:3000/v1";
+import URL from "./url";
 
 async function axiosLogin(credentials: login) {
   return axios.post(`${URL}/students_login`, credentials, {

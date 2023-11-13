@@ -1,9 +1,14 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, Dispatch, SetStateAction } from "react";
 import { getCookies } from "../utils/cookies";
+
 import { useEffect, useState } from "react";
 
-const DataContext = createContext<{ cookie: string | undefined }>({
+const DataContext = createContext<{
+  cookie: string | undefined;
+  setCookie: Dispatch<SetStateAction<string | undefined>>;
+}>({
   cookie: "",
+  setCookie: () => {},
 });
 
 function DataProvider({ children }: { children: ReactNode }) {

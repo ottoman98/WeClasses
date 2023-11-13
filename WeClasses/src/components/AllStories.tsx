@@ -1,10 +1,10 @@
 import React from "react";
-import { GetAllStories, deleteStory } from "../api/axiosStories";
+import { GetAllStories } from "../api/axiosStories";
 import { story } from "../types/storyTypes";
 import { Link } from "react-router-dom";
 
 function AllStories() {
-  const response = GetAllStories();
+  const response: Array<story> | undefined = GetAllStories();
   console.log(response);
 
   return (
@@ -22,7 +22,7 @@ function AllStories() {
                 <p>Language:{x.language}</p>
                 <p>Status:{x.status}</p>
                 <p>{x.dialogue}</p>
-                <p>{x._id}</p>
+
                 <p
                   onClick={() => {
                     console.log("agrega la funcion de borrado");

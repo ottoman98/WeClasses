@@ -9,7 +9,7 @@ import { DataProvider } from "./context/session";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import StoriesForm from "./components/StoriesForm";
 import AllStories from "./components/AllStories";
-import EditStory from "./components/editStory";
+import EditStory from "./components/EditStory";
 
 function App() {
   return (

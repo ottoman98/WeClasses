@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { story } from "../types/storyTypes";
-const URL = "http://localhost:3000/v1";
+import URL from "./url";
 
 function postStory(data: story) {
   return axios.post(`${URL}/story`, data, {
@@ -9,7 +9,7 @@ function postStory(data: story) {
   });
 }
 
-function GetAllStories() {
+function GetAllStories(): Array<story> | undefined {
   const [first, setfirst] = useState();
   useEffect(() => {
     axios
@@ -24,8 +24,8 @@ function GetAllStories() {
   return first;
 }
 
-function GetStoryById(id: string | undefined) {
-  const [first, setfirst] = useState();
+function GetStoryById(id: string | undefined): story | undefined {
+  const [first, setfirst] = useState<story>();
   useEffect(() => {
     axios
       .get(`${URL}/story/${id}`, {
@@ -38,7 +38,7 @@ function GetStoryById(id: string | undefined) {
 
   return first;
 }
-function putStory(id: string, data: story) {
+function putStory(id: string | undefined, data: story) {
   return axios.put(`${URL}/story/${id}`, data, {
     withCredentials: true,
   });

@@ -15,7 +15,7 @@ function EditStory() {
   } = useForm<story>();
   const { id } = useParams();
 
-  const data: story = GetStoryById(id);
+  const data: story | undefined = GetStoryById(id);
 
   useEffect(() => {
     if (data) {
@@ -35,6 +35,7 @@ function EditStory() {
           onSubmit={handleSubmit((x) => {
             const data = putStory(id, x);
             setResponse(data);
+            console.log(response);
           })}
         >
           <div>
