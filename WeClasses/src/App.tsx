@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Leaks from "./components/Leaks";
 import UserRemainingForm from "./components/UserRemainingForm";
 import { DataProvider } from "./context/session";
-import ProtectedRoutes from "./pages/ProtectedRoutes";
+//import ProtectedRoutes from "./pages/ProtectedRoutes";
 import StoriesForm from "./components/StoriesForm";
 import AllStories from "./components/AllStories";
 import EditStory from "./components/EditStory";
