@@ -23,12 +23,11 @@ function App() {
 
             <Route path="/contact" element={<Leaks />} />
             <Route path="/data/:id" element={<UserRemainingForm />} />
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/classes" element={<StoriesForm />} />
-              <Route path="/allStories" element={<AllStories />} />
-              <Route path="/editstory/:id" element={<EditStory />} />
-            </Route>
+
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/classes" element={<StoriesForm />} />
+            <Route path="/allStories" element={<AllStories />} />
+            <Route path="/editstory/:id" element={<EditStory />} />
           </Routes>
         </BrowserRouter>
       </DataProvider>
