@@ -5,9 +5,10 @@ import NavBarProfile from "../components/NavBarProfile";
 function Dashboard() {
   return (
     <>
-      <NavBarProfile />
-      <AsideProfile />
-      <Outlet />
+      <div className=" flex">
+        <AsideProfile />
+        <Outlet />
+      </div>
     </>
   );
 }

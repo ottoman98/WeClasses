@@ -35,7 +35,7 @@ function AllStories() {
                     console.log("agrega la funcion de borrado");
                   }}
                 >
-                  <Link to={`/editstory/${x._id}`}>Edit</Link>
+                  <Link to={`/dashboard/editstory/${x._id}`}>Edit</Link>
                 </p>
               </div>
             </React.Fragment>
