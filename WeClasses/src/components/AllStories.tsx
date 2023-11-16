@@ -1,49 +1,58 @@
-import React from "react";
 import { GetAllStories } from "../api/axiosStories";
+import { Badge } from "flowbite-react";
 import { story } from "../types/storyTypes";
+import { Fragment } from "react";
 import { Link } from "react-router-dom";
-
+import ModalDelete from "./Modal";
 function AllStories() {
   const response: Array<story> | undefined = GetAllStories();
   console.log(response);
 
-  return (
-    <>
-      {!response ? (
-        <>
-          <p>loading</p>
-        </>
-      ) : (
-        response.map((x) => {
-          return (
-            <React.Fragment key={x._id}>
-              <div className="bg-red-600 mx-6 my-8">
-                <h4>{x.title}</h4>
-                <p>Language:{x.language}</p>
-                <p>Status:{x.status}</p>
-                <p>{x.dialogue}</p>
-
-                <p
-                  onClick={() => {
-                    console.log("agrega la funcion de borrado");
-                  }}
-                >
-                  Delete
-                </p>
-                <p
-                  onClick={() => {
-                    console.log("agrega la funcion de borrado");
-                  }}
-                >
-                  <Link to={`/dashboard/editstory/${x._id}`}>Edit</Link>
-                </p>
-              </div>
-            </React.Fragment>
-          );
-        })
-      )}
-    </>
-  );
+  if (response) {
+    return (
+      <>
+        <ul role="list" className="divide-y divide-gray-100">
+          {response.map((x) => {
+            return (
+              <Fragment key={x._id}>
+                <li className="flex justify-between gap-x-6 py-5">
+                  <div className="flex min-w-0 gap-x-4">
+                    <div className="min-w-0 flex-auto">
+                      <p className="text-sm font-semibold leading-6 text-gray-900">
+                        {x.title}
+                      </p>
+                      <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                        <Badge color="success"> {x.status}</Badge>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                    <p className="text-sm leading-6 text-gray-900">
+                      {x.language}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-gray-500">
+                      Creado
+                      <time>: {x.createdAt}</time>
+                    </p>
+                  </div>
+                  <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                    <p className="text-sm leading-6 text-gray-900">
+                      <Link to={`/dashboard/story/${x._id}`}>Editar</Link>
+                    </p>
+                    <p className="text-sm leading-6 text-gray-900">
+                      <ModalDelete story={x} />
+                    </p>
+                  </div>
+                </li>
+              </Fragment>
+            );
+          })}
+        </ul>
+      </>
+    );
+  } else {
+    return <> loading</>;
+  }
 }
 
 export default AllStories;

@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 import { story } from "../types/storyTypes";
 import { GetStoryById, putStory } from "../api/axiosStories";
 import { useParams } from "react-router-dom";
+import RichEditor from "./RichEditor";
 
 function EditStory() {
   const [response, setResponse] = useState<null | object>(null);
@@ -11,9 +13,13 @@ function EditStory() {
     handleSubmit,
     setValue,
     register,
-    //formState: { errors },
+    formState: { errors },
   } = useForm<story>();
   const { id } = useParams();
+  const navigate = useNavigate();
+  if (response) {
+    navigate("/dashboard/stories");
+  }
 
   const data: story | undefined = GetStoryById(id);
 
@@ -50,6 +56,9 @@ function EditStory() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.title?.message}
+            </p>
           </div>
           <div>
             <label htmlFor="language">Language</label>
@@ -63,6 +72,9 @@ function EditStory() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.language?.message}
+            </p>
           </div>
           <div>
             <label htmlFor="status">Status</label>
@@ -76,6 +88,9 @@ function EditStory() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.status?.message}
+            </p>
           </div>
           <div>
             <label htmlFor="readingTime">Reading Time</label>
@@ -89,6 +104,9 @@ function EditStory() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.readingTime?.message}
+            </p>
           </div>
 
           <div>
@@ -102,7 +120,12 @@ function EditStory() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.dialogue?.message}
+            </p>
           </div>
+          <RichEditor />
+
           <button className="">Submit</button>
         </form>
       </div>

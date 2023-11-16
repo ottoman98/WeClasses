@@ -23,8 +23,8 @@ function App() {
 
             <Route path="/dashboard" element={<Dashboard />}>
               <Route path="/dashboard/stories" element={<AllStories />} />
-              <Route path="/dashboard/editstory/:id" element={<EditStory />} />
-              <Route path="/dashboard/addstory" element={<StoriesForm />} />
+              <Route path="/dashboard/story/:id" element={<EditStory />} />
+              <Route path="/dashboard/story" element={<StoriesForm />} />
               <Route path="/dashboard/resume" element={<>Stats</>} />
             </Route>
           </Routes>

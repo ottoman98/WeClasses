@@ -5,6 +5,7 @@ import NavBarProfile from "../components/NavBarProfile";
 function Dashboard() {
   return (
     <>
+      <NavBarProfile />
       <div className=" flex">
         <AsideProfile />
         <Outlet />

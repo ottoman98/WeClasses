@@ -41,7 +41,7 @@ function AsideProfile() {
                 <Link to="/dashboard/stories"> Todas mis Stories </Link>
               </Sidebar.Item>
               <Sidebar.Item>
-                <Link to="/dashboard/addstory"> Agregar Stories </Link>
+                <Link to="/dashboard/story"> Agregar Stories </Link>
               </Sidebar.Item>
             </Sidebar.Collapse>
             <Sidebar.Collapse

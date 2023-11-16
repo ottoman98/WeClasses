@@ -2,10 +2,19 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { postStory } from "../api/axiosStories";
 import { story } from "../types/storyTypes";
+import { useNavigate } from "react-router-dom";
 
 function StoriesForm() {
   const [response, setResponse] = useState<null | object>(null);
-  const { handleSubmit, register } = useForm<story>();
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<story>();
+  const navigate = useNavigate();
+  if (response) {
+    navigate("/dashboard/stories");
+  }
   return (
     <>
       <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 w-100 mx-auto">
@@ -29,6 +38,9 @@ function StoriesForm() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.title?.message}
+            </p>
           </div>
           <div>
             <label htmlFor="language">Language.</label>
@@ -42,6 +54,9 @@ function StoriesForm() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.language?.message}
+            </p>
           </div>
           <div>
             <label htmlFor="status">Status</label>
@@ -55,6 +70,9 @@ function StoriesForm() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.status?.message}
+            </p>
           </div>
           <div>
             <label htmlFor="readingTime">Reading Time</label>
@@ -68,6 +86,9 @@ function StoriesForm() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.readingTime?.message}
+            </p>
           </div>
 
           <div>
@@ -81,6 +102,9 @@ function StoriesForm() {
                 },
               })}
             />
+            <p className="text-xs italic text-red-500">
+              {errors.dialogue?.message}
+            </p>
           </div>
           <button className="">Submit</button>
         </form>
