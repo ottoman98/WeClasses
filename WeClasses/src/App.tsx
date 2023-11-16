@@ -1,33 +1,27 @@
-import NavBar from "./components/NavBar";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Login from "./components/Login";
 
-import Dashboard from "./pages/Dashboard";
-import Leaks from "./components/Leaks";
-import UserRemainingForm from "./components/UserRemainingForm";
 import { DataProvider } from "./context/session";
-//import ProtectedRoutes from "./pages/ProtectedRoutes";
-import StoriesForm from "./components/StoriesForm";
+
+import Leaks from "./components/Leaks";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 import AllStories from "./components/AllStories";
-import EditStory from "./components/EditStory";
+import Login from "./components/Login";
 
 function App() {
   return (
     <>
       <DataProvider>
         <BrowserRouter>
-          <NavBar />
-
           <Routes>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />}>
+              <Route path="/login" element={<Login />} />
+              <Route path="/leaks" element={<Leaks />} />
+            </Route>
 
-            <Route path="/contact" element={<Leaks />} />
-            <Route path="/data/:id" element={<UserRemainingForm />} />
-
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/classes" element={<StoriesForm />} />
-            <Route path="/allStories" element={<AllStories />} />
-            <Route path="/editstory/:id" element={<EditStory />} />
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="/dashboard/stories" element={<AllStories />} />
+            </Route>
           </Routes>
         </BrowserRouter>
       </DataProvider>

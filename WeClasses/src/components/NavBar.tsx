@@ -47,7 +47,7 @@ function NavBar() {
             </Dropdown>
           </Navbar.Link>
           <Navbar.Link>
-            <Link to="about"> About Us</Link>
+            <Link to="/leaks"> About Us</Link>
           </Navbar.Link>
 
           {!cookie ? (
