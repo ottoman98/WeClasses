@@ -19,7 +19,7 @@ function StoriesForm() {
       required: { value: true, message: "Required" },
       minLength: { value: 20, message: "La longitud minima es 20 caracteres" },
     });
-  }, [register]);
+  }, [response]);
 
   const navigate = useNavigate();
   useEffect(() => {

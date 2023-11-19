@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, HashRouter } from "react-router-dom";
 
 import { DataProvider } from "./context/session";
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <DataProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<Home />}>
               <Route path="/login" element={<Login />} />
@@ -28,7 +28,7 @@ function App() {
               <Route path="/dashboard/resume" element={<>Stats</>} />
             </Route>
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </DataProvider>
     </>
   );
