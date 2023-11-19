@@ -6,9 +6,10 @@ import { story } from "../types/storyTypes";
 import { GetStoryById, putStory } from "../api/axiosStories";
 import { useParams } from "react-router-dom";
 import RichEditor from "./RichEditor";
+import postResponse from "../types/postResponse";
 
 function EditStory() {
-  const [response, setResponse] = useState<null | object>(null);
+  const [response, setResponse] = useState<null | postResponse>(null);
   const {
     handleSubmit,
     setValue,
@@ -17,9 +18,6 @@ function EditStory() {
   } = useForm<story>();
   const { id } = useParams();
   const navigate = useNavigate();
-  if (response) {
-    navigate("/dashboard/stories");
-  }
 
   const data: story | undefined = GetStoryById(id);
 
@@ -31,16 +29,31 @@ function EditStory() {
       setValue("status", data.status);
       setValue("dialogue", data.dialogue);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
+
+  useEffect(() => {
+    register("dialogue", {
+      required: { value: true, message: "Required" },
+      minLength: { value: 20, message: "La longitud minima es 20 caracteres" },
+    });
+  }, [register]);
+
+  useEffect(() => {
+    if (response && response.message == "valid") {
+      navigate("/dashboard/stories/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [response]);
 
   return (
     <>
-      <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 w-100 mx-auto">
+      <div className="w-3/4 p-14">
         <form
           className="w-full grid grid-cols-1 gap-2 "
-          onSubmit={handleSubmit((x) => {
-            const data = putStory(id, x);
-            setResponse(data);
+          onSubmit={handleSubmit(async (x) => {
+            const data = await putStory(id, x);
+            setResponse(data.data);
             console.log(response);
           })}
         >
@@ -110,21 +123,17 @@ function EditStory() {
           </div>
 
           <div>
-            <label htmlFor="status">Body</label>
-            <textarea
-              className="flex flex-col "
-              {...register("dialogue", {
-                required: {
-                  value: true,
-                  message: "Required",
-                },
-              })}
+            <RichEditor
+              set={(editorState: string) => {
+                setValue("dialogue", editorState);
+              }}
+              value={data ? data.dialogue : ""}
             />
+
             <p className="text-xs italic text-red-500">
               {errors.dialogue?.message}
             </p>
           </div>
-          <RichEditor />
 
           <button className="">Submit</button>
         </form>

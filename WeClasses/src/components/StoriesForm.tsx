@@ -1,30 +1,44 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { postStory } from "../api/axiosStories";
 import { story } from "../types/storyTypes";
 import { useNavigate } from "react-router-dom";
+import RichEditor from "./RichEditor";
+import postResponse from "../types/postResponse";
 
 function StoriesForm() {
-  const [response, setResponse] = useState<null | object>(null);
+  const [response, setResponse] = useState<null | postResponse>(null);
   const {
     handleSubmit,
     register,
+    setValue,
     formState: { errors },
   } = useForm<story>();
+  useEffect(() => {
+    register("dialogue", {
+      required: { value: true, message: "Required" },
+      minLength: { value: 20, message: "La longitud minima es 20 caracteres" },
+    });
+  }, [register]);
+
   const navigate = useNavigate();
-  if (response) {
-    navigate("/dashboard/stories");
-  }
+  useEffect(() => {
+    if (response && response.message == "valid") {
+      navigate("/dashboard/stories/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [response]);
+
   return (
     <>
-      <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 w-100 mx-auto">
+      <div className="w-3/4 p-14">
+        <h2>Agregar Story</h2>
         <form
           onSubmit={handleSubmit(async (x) => {
             const data = await postStory(x);
-            setResponse(data);
-            console.log(response);
+            setResponse(data.data);
           })}
-          className="w-full grid grid-cols-1 gap-2 "
+          className="w-full grid grid-cols-1 gap-2 p-6 "
         >
           <div>
             <label htmlFor="title">Title</label>
@@ -44,16 +58,19 @@ function StoriesForm() {
           </div>
           <div>
             <label htmlFor="language">Language.</label>
-            <input
+            <select
               className="flex flex-col "
-              type="text"
               {...register("language", {
                 required: {
                   value: true,
                   message: "Required",
                 },
               })}
-            />
+            >
+              <option value="">Seleccione El idioma</option>
+              <option value="english">Ingles</option>
+              <option value="spanish">Español</option>
+            </select>
             <p className="text-xs italic text-red-500">
               {errors.language?.message}
             </p>
@@ -92,16 +109,12 @@ function StoriesForm() {
           </div>
 
           <div>
-            <label htmlFor="status">Body</label>
-            <textarea
-              className="flex flex-col "
-              {...register("dialogue", {
-                required: {
-                  value: true,
-                  message: "Required",
-                },
-              })}
+            <RichEditor
+              set={(editorState: string) => {
+                setValue("dialogue", editorState);
+              }}
             />
+
             <p className="text-xs italic text-red-500">
               {errors.dialogue?.message}
             </p>

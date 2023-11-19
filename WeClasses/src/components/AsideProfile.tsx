@@ -1,13 +1,10 @@
 import { Sidebar } from "flowbite-react";
 import {
-  HiArrowSmRight,
   HiChartPie,
-  HiInbox,
   HiOutlineMinusSm,
   HiOutlinePlusSm,
   HiShoppingBag,
   HiTable,
-  HiUser,
 } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
@@ -31,7 +28,7 @@ function AsideProfile() {
                   <IconComponent
                     aria-hidden
                     className={twMerge(
-                      theme.label.icon.open[open ? "on" : "off"]
+                      theme.label?.icon?.open?.[open ? "on" : "off"]
                     )}
                   />
                 );
@@ -54,7 +51,7 @@ function AsideProfile() {
                   <IconComponent
                     aria-hidden
                     className={twMerge(
-                      theme.label.icon.open[open ? "on" : "off"]
+                      theme.label?.icon?.open?.[open ? "on" : "off"]
                     )}
                   />
                 );

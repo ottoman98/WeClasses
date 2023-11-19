@@ -3,7 +3,7 @@ import { Badge } from "flowbite-react";
 import { story } from "../types/storyTypes";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
-import ModalDelete from "./Modal";
+
 function AllStories() {
   const response: Array<story> | undefined = GetAllStories();
   console.log(response);
@@ -39,9 +39,7 @@ function AllStories() {
                     <p className="text-sm leading-6 text-gray-900">
                       <Link to={`/dashboard/story/${x._id}`}>Editar</Link>
                     </p>
-                    <p className="text-sm leading-6 text-gray-900">
-                      <ModalDelete story={x} />
-                    </p>
+                    <p className="text-sm leading-6 text-gray-900"></p>
                   </div>
                 </li>
               </Fragment>

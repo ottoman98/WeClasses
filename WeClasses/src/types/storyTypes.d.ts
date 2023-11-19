@@ -5,6 +5,7 @@ type story = {
     status: string,
     readingTime: string,
     dialogue: string
+    createdAt?: string
 
 }
 
