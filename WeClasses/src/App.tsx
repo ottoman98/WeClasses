@@ -9,6 +9,7 @@ import AllStories from "./components/AllStories";
 import Login from "./components/Login";
 import EditStory from "./components/EditStory";
 import StoriesForm from "./components/StoriesForm";
+import TouchExample from "./components/touch";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/dashboard/story" element={<StoriesForm />} />
               <Route path="/dashboard/resume" element={<>Stats</>} />
             </Route>
+            <Route path="/touch" element={<TouchExample />} />
           </Routes>
         </HashRouter>
       </DataProvider>
