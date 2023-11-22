@@ -13,6 +13,7 @@ function StoriesForm() {
     register,
     setValue,
     formState: { errors },
+    getValues,
   } = useForm<story>();
   useEffect(() => {
     register("dialogue", {
@@ -113,13 +114,14 @@ function StoriesForm() {
               set={(editorState: string) => {
                 setValue("dialogue", editorState);
               }}
+              value={getValues("dialogue")}
             />
 
             <p className="text-xs italic text-red-500">
               {errors.dialogue?.message}
             </p>
           </div>
-          <button className="">Submit</button>
+          <button>Submit</button>
         </form>
       </div>
     </>

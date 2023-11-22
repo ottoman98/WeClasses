@@ -15,6 +15,7 @@ function EditStory() {
     setValue,
     register,
     formState: { errors },
+    getValues,
   } = useForm<story>();
   const { id } = useParams();
   const navigate = useNavigate();
@@ -127,7 +128,7 @@ function EditStory() {
               set={(editorState: string) => {
                 setValue("dialogue", editorState);
               }}
-              value={data ? data.dialogue : ""}
+              value={getValues("dialogue")}
             />
 
             <p className="text-xs italic text-red-500">
