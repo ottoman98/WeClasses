@@ -1,3 +1,3 @@
-const URL = "https://weclasses.onrender.com/v1"
+const URL = "https://www.backend.weclasses.com/v1"
 
 export default URL
