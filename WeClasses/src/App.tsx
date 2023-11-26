@@ -33,7 +33,6 @@ function App() {
                 <Route path="/dashboard/story/:id" element={<EditStory />} />
                 <Route path="/dashboard/classes" element={<AllClasses />} />
               </Route>
-              //{" "}
             </Route>
           </Routes>
         </HashRouter>
