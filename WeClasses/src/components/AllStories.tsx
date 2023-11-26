@@ -3,10 +3,19 @@ import { Badge } from "flowbite-react";
 import { story } from "../types/storyTypes";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import ModalDelete from "./Modal";
+import { useState, useEffect } from "react";
 
 function AllStories() {
   const response: Array<story> | undefined = GetAllStories();
-  console.log(response);
+  const [render, setRender] = useState(false);
+
+  function deleteStatus(value: boolean) {
+    setRender(value);
+    console.log(render);
+  }
+
+  useEffect(() => {}, [render]);
 
   if (response) {
     return (
@@ -39,7 +48,9 @@ function AllStories() {
                     <p className="text-sm leading-6 text-gray-900">
                       <Link to={`/dashboard/story/${x._id}`}>Editar</Link>
                     </p>
-                    <p className="text-sm leading-6 text-gray-900"></p>
+                    <p className="text-sm leading-6 text-gray-900">
+                      <ModalDelete story={x} status={deleteStatus} />
+                    </p>
                   </div>
                 </li>
               </Fragment>

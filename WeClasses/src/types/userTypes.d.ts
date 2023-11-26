@@ -19,7 +19,7 @@ type fullContact = contact & {
     country: string,
     languageLevel: string,
     password: string
-    password2: string
+    password2?: string
 
 }
 

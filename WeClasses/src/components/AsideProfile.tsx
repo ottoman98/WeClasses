@@ -58,7 +58,7 @@ function AsideProfile() {
               }}
             >
               <Sidebar.Item>
-                <Link to="/dashboard/stories"> Todas mis classes </Link>
+                <Link to="/dashboard/classes"> Todas mis classes </Link>
               </Sidebar.Item>
               <Sidebar.Item href="#">Agregar clase</Sidebar.Item>
             </Sidebar.Collapse>

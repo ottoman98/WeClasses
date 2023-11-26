@@ -1,6 +1,12 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
+import { removeCookies } from "../utils/cookies";
+import { useContext } from "react";
+import { DataContext } from "../context/session";
+import { Link } from "react-router-dom";
 
 function NavBarProfile() {
+  const { setCookie } = useContext(DataContext);
+
   return (
     <>
       <Navbar fluid rounded>
@@ -21,22 +27,31 @@ function NavBarProfile() {
             label={
               <Avatar
                 alt="User settings"
-                img="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                img="https://i.kym-cdn.com/photos/images/original/002/301/340/1bf.png"
                 rounded
               />
             }
           >
             <Dropdown.Header>
-              <span className="block text-sm">Bonnie Green</span>
+              <span className="block text-sm"></span>
               <span className="block truncate text-sm font-medium">
-                name@flowbite.com
+                Osman@WeClasses.we
               </span>
             </Dropdown.Header>
-            <Dropdown.Item>Dashboard</Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/dashboard/resume">Dashboard</Link>
+            </Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
-            <Dropdown.Item>Earnings</Dropdown.Item>
+
             <Dropdown.Divider />
-            <Dropdown.Item>Sign out</Dropdown.Item>
+            <Dropdown.Item
+              onClick={() => {
+                removeCookies("token");
+                setCookie("");
+              }}
+            >
+              Sign out
+            </Dropdown.Item>
           </Dropdown>
           <Navbar.Toggle />
         </div>

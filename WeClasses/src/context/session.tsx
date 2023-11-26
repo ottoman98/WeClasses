@@ -1,25 +1,25 @@
-import { ReactNode, createContext, Dispatch, SetStateAction } from "react";
+import { ReactNode, createContext } from "react";
 import { getCookies } from "../utils/cookies";
+import { useJwt } from "react-jwt";
 
 import { useEffect, useState } from "react";
+import { dataContextUser } from "../types/contextTypes";
 
-const DataContext = createContext<{
-  cookie: string | undefined;
-  setCookie: Dispatch<SetStateAction<string | undefined>>;
-}>({
+const DataContext = createContext<dataContextUser>({
   cookie: "",
   setCookie: () => {},
 });
 
 function DataProvider({ children }: { children: ReactNode }) {
   const [cookie, setCookie] = useState<string | undefined>(getCookies("token"));
+  const { decodedToken } = useJwt(cookie as string);
 
   useEffect(() => {
     setCookie(getCookies("token"));
   }, [cookie]);
 
   return (
-    <DataContext.Provider value={{ cookie, setCookie }}>
+    <DataContext.Provider value={{ cookie, decodedToken, setCookie }}>
       {children}
     </DataContext.Provider>
   );

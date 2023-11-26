@@ -78,16 +78,19 @@ function StoriesForm() {
           </div>
           <div>
             <label htmlFor="status">Status</label>
-            <input
+            <select
               className="flex flex-col "
-              type="text"
               {...register("status", {
                 required: {
                   value: true,
                   message: "Required",
                 },
               })}
-            />
+            >
+              <option value="">Selecione una opcion</option>
+              <option value="free">Free</option>
+              <option value="premiun">Premiun</option>
+            </select>
             <p className="text-xs italic text-red-500">
               {errors.status?.message}
             </p>
@@ -104,6 +107,7 @@ function StoriesForm() {
                 },
               })}
             />
+
             <p className="text-xs italic text-red-500">
               {errors.readingTime?.message}
             </p>

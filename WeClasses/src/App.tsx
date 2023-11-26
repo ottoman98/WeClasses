@@ -9,7 +9,9 @@ import AllStories from "./components/AllStories";
 import Login from "./components/Login";
 import EditStory from "./components/EditStory";
 import StoriesForm from "./components/StoriesForm";
-import TouchExample from "./components/touch";
+import ClientStories from "./components/ClientStories";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
+import AllClasses from "./components/AllClasses";
 
 function App() {
   return (
@@ -20,15 +22,18 @@ function App() {
             <Route path="/" element={<Home />}>
               <Route path="/login" element={<Login />} />
               <Route path="/leaks" element={<Leaks />} />
+              <Route path="/leaks" element={<ClientStories />} />
             </Route>
 
-            <Route path="/dashboard" element={<Dashboard />}>
-              <Route path="/dashboard/stories" element={<AllStories />} />
-              <Route path="/dashboard/story/:id" element={<EditStory />} />
-              <Route path="/dashboard/story" element={<StoriesForm />} />
-              <Route path="/dashboard/resume" element={<>Stats</>} />
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/dashboard" element={<Dashboard />}>
+                <Route path="/dashboard/resume" element={<>Stats</>} />
+                <Route path="/dashboard/stories" element={<AllStories />} />
+                <Route path="/dashboard/story" element={<StoriesForm />} />
+                <Route path="/dashboard/story/:id" element={<EditStory />} />
+                <Route path="/dashboard/classes" element={<AllClasses />} />
+              </Route>
             </Route>
-            <Route path="/touch" element={<TouchExample />} />
           </Routes>
         </HashRouter>
       </DataProvider>
