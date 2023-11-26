@@ -12,9 +12,8 @@ function AllStories() {
 
   function deleteStatus(value: boolean) {
     setRender(value);
+    console.log(response);
   }
-
-  console.log(response);
 
   useEffect(() => {}, [render]);
 
