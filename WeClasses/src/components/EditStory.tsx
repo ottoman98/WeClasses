@@ -22,6 +22,8 @@ function EditStory() {
 
   const data: story | undefined = GetStoryById(id);
 
+  console.log(data);
+
   useEffect(() => {
     if (data) {
       setValue("title", data.title);
