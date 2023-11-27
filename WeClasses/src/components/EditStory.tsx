@@ -15,7 +15,7 @@ function EditStory() {
     setValue,
     register,
     formState: { errors },
-    getValues,
+    // getValues,
   } = useForm<story>();
   const { id } = useParams();
   const navigate = useNavigate();
