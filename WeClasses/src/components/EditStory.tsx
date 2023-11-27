@@ -125,8 +125,8 @@ function EditStory() {
 
           <div>
             <RichEditor
-              set={(editorState: string) => {
-                setValue("dialogue", editorState);
+              set={async (editorState: string) => {
+                await setValue("dialogue", editorState);
               }}
               value={getValues("dialogue")}
             />
