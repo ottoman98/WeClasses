@@ -123,6 +123,15 @@ function EditStory() {
             </p>
           </div>
 
+          <textarea
+            {...register("dialogue", {
+              required: {
+                value: true,
+                message: "Required",
+              },
+            })}
+          ></textarea>
+
           <div>
             <RichEditor
               set={(editorState: string) => {
