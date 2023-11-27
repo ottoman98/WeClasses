@@ -15,14 +15,12 @@ function EditStory() {
     setValue,
     register,
     formState: { errors },
-    // getValues,
+    getValues,
   } = useForm<story>();
   const { id } = useParams();
   const navigate = useNavigate();
 
   const data: story | undefined = GetStoryById(id);
-
-  console.log(data);
 
   useEffect(() => {
     if (data) {
@@ -130,7 +128,7 @@ function EditStory() {
               set={(editorState: string) => {
                 setValue("dialogue", editorState);
               }}
-              value={'getValues("dialogue")'}
+              value={getValues("dialogue")}
             />
 
             <p className="text-xs italic text-red-500">
