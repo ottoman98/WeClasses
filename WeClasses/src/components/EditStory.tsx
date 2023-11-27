@@ -18,13 +18,10 @@ function EditStory() {
     formState: { errors },
     getValues,
   } = useForm<story>();
-  const [dialogue] = useState(getValues("dialogue"));
   const { id } = useParams();
   const navigate = useNavigate();
 
   const data: story | undefined = GetStoryById(id);
-
-  console.log(getValues("dialogue"));
 
   useEffect(() => {
     if (data) {
@@ -129,10 +126,10 @@ function EditStory() {
 
           <div>
             <RichEditor
-              set={async (editorState: string) => {
-                await setValue("dialogue", editorState);
+              set={(editorState: string) => {
+                setValue("dialogue", editorState);
               }}
-              value={dialogue}
+              value={data?.dialogue}
             />
 
             <p className="text-xs italic text-red-500">
