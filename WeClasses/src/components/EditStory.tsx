@@ -10,6 +10,7 @@ import postResponse from "../types/postResponse";
 
 function EditStory() {
   const [response, setResponse] = useState<null | postResponse>(null);
+
   const {
     handleSubmit,
     setValue,
@@ -17,6 +18,7 @@ function EditStory() {
     formState: { errors },
     getValues,
   } = useForm<story>();
+  const [dialogue, setDialogue] = useState(getValues("dialogue"));
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -130,7 +132,7 @@ function EditStory() {
               set={async (editorState: string) => {
                 await setValue("dialogue", editorState);
               }}
-              value={getValues("dialogue")}
+              value={dialogue}
             />
 
             <p className="text-xs italic text-red-500">
