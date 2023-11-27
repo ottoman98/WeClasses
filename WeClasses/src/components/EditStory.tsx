@@ -18,7 +18,7 @@ function EditStory() {
     formState: { errors },
     getValues,
   } = useForm<story>();
-  const [dialogue, setDialogue] = useState(getValues("dialogue"));
+  const [dialogue] = useState(getValues("dialogue"));
   const { id } = useParams();
   const navigate = useNavigate();
 
