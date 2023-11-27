@@ -25,14 +25,13 @@ function App() {
               <Route path="/leaks" element={<ClientStories />} />
             </Route>
 
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/dashboard" element={<Dashboard />}>
-                <Route path="/dashboard/resume" element={<>Stats</>} />
-                <Route path="/dashboard/stories" element={<AllStories />} />
-                <Route path="/dashboard/story" element={<StoriesForm />} />
-                <Route path="/dashboard/story/:id" element={<EditStory />} />
-                <Route path="/dashboard/classes" element={<AllClasses />} />
-              </Route>
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="/dashboard/resume" element={<>Stats</>} />
+              <Route path="/dashboard/stories" element={<AllStories />} />
+              <Route path="/dashboard/story" element={<StoriesForm />} />
+              <Route path="/dashboard/story/:id" element={<EditStory />} />
+              <Route path="/dashboard/classes" element={<AllClasses />} />
+              <Route element={<ProtectedRoutes />}></Route>
             </Route>
           </Routes>
         </HashRouter>

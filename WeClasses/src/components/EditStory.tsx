@@ -130,7 +130,7 @@ function EditStory() {
               set={(editorState: string) => {
                 setValue("dialogue", editorState);
               }}
-              value={getValues("dialogue")}
+              value={'getValues("dialogue")'}
             />
 
             <p className="text-xs italic text-red-500">
