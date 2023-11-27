@@ -22,7 +22,7 @@ function EditStory() {
 
   const data: story | undefined = GetStoryById(id);
 
-  console.log(data);
+  console.log(getValues("dialogue"));
 
   useEffect(() => {
     if (data) {
