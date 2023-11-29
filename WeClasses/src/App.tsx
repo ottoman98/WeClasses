@@ -12,6 +12,7 @@ import StoriesForm from "./components/StoriesForm";
 import ClientStories from "./components/ClientStories";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import AllClasses from "./components/AllClasses";
+import StoryBody from "./components/StoryBody";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
             <Route path="/" element={<Home />}>
               <Route path="/login" element={<Login />} />
               <Route path="/leaks" element={<Leaks />} />
-              <Route path="/story" element={<ClientStories />} />
+              <Route path="/story/:language" element={<ClientStories />} />
+              <Route path="/story/:language/:id" element={<StoryBody />} />
             </Route>
 
             <Route element={<ProtectedRoutes />}>

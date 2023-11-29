@@ -34,7 +34,26 @@ function GetStoryById(id: string | undefined): story | undefined {
       .then((x) => {
         setfirst(x.data);
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  return first;
+}
+
+function GetStoriesByLanguage(
+  language: string | undefined
+): Array<story> | undefined {
+  const [first, setfirst] = useState<story[]>();
+  useEffect(() => {
+    axios
+      .get(`${URL}/stories/${language}`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setfirst(x.data);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language]);
 
   return first;
 }
@@ -48,4 +67,11 @@ function deleteStory(id: string) {
   });
 }
 
-export { postStory, GetAllStories, deleteStory, GetStoryById, putStory };
+export {
+  postStory,
+  GetAllStories,
+  deleteStory,
+  GetStoryById,
+  putStory,
+  GetStoriesByLanguage,
+};

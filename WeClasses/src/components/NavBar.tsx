@@ -21,7 +21,18 @@ function NavBar() {
             <Link to="/">Home</Link>
           </Navbar.Link>
           <Navbar.Link>
-            <Link to="/login">Stories</Link>
+            <Dropdown label="Stories" inline>
+              <Dropdown.Item>
+                <Link to="/story/spanish"> Español</Link>
+              </Dropdown.Item>
+
+              <Dropdown.Item>
+                <Link to="/story/english">English</Link>
+              </Dropdown.Item>
+
+              <Dropdown.Divider />
+              <Dropdown.Item>More languages</Dropdown.Item>
+            </Dropdown>
           </Navbar.Link>
           <Navbar.Link>
             <Dropdown label="Contact Us" inline>
