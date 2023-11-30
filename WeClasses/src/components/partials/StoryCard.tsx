@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { story } from "../../types/storyTypes";
 
-function StoryCard({ story }: { story: story }, language: string) {
+function StoryCard({ story }: { story: story }) {
   return (
     <div className="flex flex-row  gap justify-between">
       <div className="flex border p-2 w-full">
         <h2 className="underline decoration-solid">
-          <Link to={`/${language}/story/:id`}>{story.title.toUpperCase()}</Link>
+          <Link to={`${story._id}`}>{story.title.toUpperCase()}</Link>
         </h2>
         {story.dialogue.slice(0, 10)}
       </div>
