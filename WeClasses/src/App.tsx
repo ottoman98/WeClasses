@@ -13,6 +13,7 @@ import ClientStories from "./components/ClientStories";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import AllClasses from "./components/AllClasses";
 import StoryBody from "./components/StoryBody";
+import UserRemainingForm from "./components/UserRemainingForm";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/leaks" element={<Leaks />} />
               <Route path="/story/:language" element={<ClientStories />} />
               <Route path="/story/:language/:id" element={<StoryBody />} />
+              <Route path="/user/:id" element={<UserRemainingForm />} />
             </Route>
 
             <Route element={<ProtectedRoutes />}>

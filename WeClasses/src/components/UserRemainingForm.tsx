@@ -26,6 +26,7 @@ function UserRemainingForm() {
       setValue("nativeLanguage", data.nativeLanguage);
       setValue("languageToLearn", data.languageToLearn);
     }
+    console.log(data);
   }, [data]);
 
   return (
