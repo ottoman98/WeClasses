@@ -2,8 +2,17 @@ import { story } from "./storyTypes"
 
 type postResponse = {
     saved: story,
-    message: 'valid'
+    message: string
+
+}
+type dataBaseWarning = {
+    index: number,
+    code: number,
+    keyPattern: { email: number },
+    keyValue: { email: string }
+
 
 }
 
-export default postResponse
+export { postResponse, dataBaseWarning }
+

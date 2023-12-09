@@ -237,6 +237,11 @@ function UserRemainingForm() {
                       <p className="text-xs italic text-red-500">
                         {errors.password?.message}
                       </p>
+                      <p className="text-xs italic text-red-500">
+                        {typeof serverResponse === "string"
+                          ? serverResponse
+                          : ""}
+                      </p>
                     </div>
                     <div className="flex flex-col">
                       <label htmlFor="name">Repeat Password</label>

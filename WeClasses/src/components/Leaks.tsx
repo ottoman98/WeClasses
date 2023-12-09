@@ -99,6 +99,9 @@ function Leaks() {
                 />
                 <p className="text-xs italic text-red-500">
                   {errors.email?.message}
+                  {serverResponse?.message == "exist"
+                    ? "This email alredy Exist"
+                    : ""}
                 </p>
               </div>
               <div>
@@ -132,6 +135,20 @@ function Leaks() {
               </div>
 
               <div>
+                <select
+                  {...register("countryCode", {
+                    required: { value: true, message: "Required" },
+                  })}
+                >
+                  <option value="">Seleccione indicativo</option>
+                  <option value="1">+1 los yunaites</option>
+                  <option value="57">+57 Colombia</option>
+                </select>
+
+                <p className="text-xs italic text-red-500">
+                  {errors.countryCode?.message}
+                </p>
+
                 <input
                   {...register("phone", {
                     required: {
@@ -157,7 +174,7 @@ function Leaks() {
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   id="name"
                 >
-                  <option value="">Select a language</option>
+                  <option value="">Seleccione lenguaje a aprender</option>
                   <option value="es">Español</option>
                   <option value="en">English</option>
                 </select>

@@ -9,6 +9,7 @@ type contact = {
     lastName: string,
     email: string,
     phone: string,
+    countryCode: string,
     nativeLanguage: string,
     languageToLearn: string
 
