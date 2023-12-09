@@ -14,7 +14,7 @@ import ProtectedRoutes from "./pages/ProtectedRoutes";
 import AllClasses from "./components/AllClasses";
 import StoryBody from "./components/StoryBody";
 import UserRemainingForm from "./components/UserRemainingForm";
-import ClassesForm from "./components/partials/classesForm";
+import ClassesForm from "./components/partials/ClassesForm";
 
 function App() {
   return (
