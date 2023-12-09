@@ -4,7 +4,7 @@ import { postStory } from "../api/axiosStories";
 import { story } from "../types/storyTypes";
 import { useNavigate } from "react-router-dom";
 import RichEditor from "./RichEditor";
-import postResponse from "../types/postResponse";
+import { postResponse } from "../types/postResponse";
 
 function StoriesForm() {
   const [response, setResponse] = useState<null | postResponse>(null);

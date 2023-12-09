@@ -6,7 +6,7 @@ import { story } from "../types/storyTypes";
 import { GetStoryById, putStory } from "../api/axiosStories";
 import { useParams } from "react-router-dom";
 import RichEditor from "./RichEditor";
-import postResponse from "../types/postResponse";
+import { postResponse } from "../types/postResponse";
 
 function EditStory() {
   const [response, setResponse] = useState<null | postResponse>(null);
