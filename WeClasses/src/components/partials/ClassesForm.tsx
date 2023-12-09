@@ -103,9 +103,9 @@ function ClassesForm() {
             id="name"
           >
             <option value="">Escoja el nivel de la clase</option>
-            <option value="A1-A2">Español</option>
-            <option value="B1-B2">English</option>
-            <option value="C1-C2">English</option>
+            <option value="A1-A2">A1-A2</option>
+            <option value="B1-B2">B1-B2</option>
+            <option value="C1-C2">C1-C2</option>
           </select>
           <p className="text-xs italic text-red-500">{errors.level?.message}</p>
         </div>
