@@ -14,6 +14,7 @@ import ProtectedRoutes from "./pages/ProtectedRoutes";
 import AllClasses from "./components/AllClasses";
 import StoryBody from "./components/StoryBody";
 import UserRemainingForm from "./components/UserRemainingForm";
+import ClassesForm from "./components/partials/classesForm";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/dashboard/story" element={<StoriesForm />} />
                 <Route path="/dashboard/story/:id" element={<EditStory />} />
                 <Route path="/dashboard/classes" element={<AllClasses />} />
+                <Route path="/dashboard/addclass" element={<ClassesForm />} />
               </Route>
             </Route>
           </Routes>

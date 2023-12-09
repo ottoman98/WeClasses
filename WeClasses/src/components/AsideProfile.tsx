@@ -60,7 +60,9 @@ function AsideProfile() {
               <Sidebar.Item>
                 <Link to="/dashboard/classes"> Todas mis classes </Link>
               </Sidebar.Item>
-              <Sidebar.Item href="#">Agregar clase</Sidebar.Item>
+              <Sidebar.Item>
+                <Link to="/dashboard/addclass">Agregar clase</Link>
+              </Sidebar.Item>
             </Sidebar.Collapse>
             <Sidebar.Item href="#" icon={HiTable}>
               Otro boton

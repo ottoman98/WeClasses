@@ -14,5 +14,10 @@ type dataBaseWarning = {
 
 }
 
-export { postResponse, dataBaseWarning }
+type valid = {
+    message: string,
+    valid: boolean
+}
+
+export { postResponse, dataBaseWarning, valid }
 

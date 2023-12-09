@@ -24,7 +24,7 @@ function StoriesForm() {
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (response && response.message == "valid") {
+    if (response && response.message == true) {
       navigate("/dashboard/stories/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

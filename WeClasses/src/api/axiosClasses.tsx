@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import URL from "./url";
 import { classe } from "../types/classeTypes";
-import { story } from "../types/storyTypes";
 
 function GetAllClasses(): Array<classe> | undefined {
   const [first, setfirst] = useState();
@@ -19,7 +18,7 @@ function GetAllClasses(): Array<classe> | undefined {
   return first;
 }
 
-function postClasse(data: story) {
+function postClasse(data: classe) {
   return axios.post(`${URL}/classes`, data, {
     withCredentials: true,
   });
