@@ -15,6 +15,7 @@ import AllClasses from "./components/AllClasses";
 import StoryBody from "./components/StoryBody";
 import UserRemainingForm from "./components/UserRemainingForm";
 import ClassesForm from "./components/partials/ClassesForm";
+import EditClassesForm from "./components/partials/EditClassForm";
 
 function App() {
   return (
@@ -38,6 +39,10 @@ function App() {
                 <Route path="/dashboard/story/:id" element={<EditStory />} />
                 <Route path="/dashboard/classes" element={<AllClasses />} />
                 <Route path="/dashboard/addclass" element={<ClassesForm />} />
+                <Route
+                  path="/dashboard/editclass/:id"
+                  element={<EditClassesForm />}
+                />
               </Route>
             </Route>
           </Routes>

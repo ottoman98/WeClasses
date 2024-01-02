@@ -4,18 +4,9 @@ import { story } from "../types/storyTypes";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import ModalDelete from "./Modal";
-import { useState, useEffect } from "react";
 
 function AllStories() {
   const response: Array<story> | undefined = GetAllStories();
-  const [render, setRender] = useState(false);
-
-  function deleteStatus(value: boolean) {
-    setRender(value);
-    console.log(response);
-  }
-
-  useEffect(() => {}, [render]);
 
   if (response) {
     return (
@@ -49,7 +40,7 @@ function AllStories() {
                       <Link to={`/dashboard/story/${x._id}`}>Editar</Link>
                     </p>
                     <p className="text-sm leading-6 text-gray-900">
-                      <ModalDelete story={x} status={deleteStatus} />
+                      <ModalDelete story={x} />
                     </p>
                   </div>
                 </li>

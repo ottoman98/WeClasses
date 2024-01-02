@@ -20,11 +20,13 @@ function StoriesForm() {
       required: { value: true, message: "Required" },
       minLength: { value: 20, message: "La longitud minima es 20 caracteres" },
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (response && response.message == "valid") {
+    if (response && response.message) {
+      console;
       navigate("/dashboard/stories/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -87,29 +89,33 @@ function StoriesForm() {
                 },
               })}
             >
-              <option value="">Selecione una opcion</option>
+              <option value="">Seleccione una opción</option>
               <option value="free">Free</option>
-              <option value="premiun">Premiun</option>
+              <option value="premium">Premium</option>
             </select>
             <p className="text-xs italic text-red-500">
               {errors.status?.message}
             </p>
           </div>
           <div>
-            <label htmlFor="readingTime">Reading Time</label>
-            <input
+            <label htmlFor="level">Level</label>
+            <select
               className="flex flex-col "
-              type="text"
-              {...register("readingTime", {
+              {...register("level", {
                 required: {
                   value: true,
                   message: "Required",
                 },
               })}
-            />
+            >
+              <option value="">Seleccione una opción</option>
+              <option value="A1-A2">A1-A2</option>
+              <option value="B1-B2">B1-B2</option>
+              <option value="C1-C2">C1-C2</option>
+            </select>
 
             <p className="text-xs italic text-red-500">
-              {errors.readingTime?.message}
+              {errors.title?.message}
             </p>
           </div>
 

@@ -16,14 +16,6 @@ function ClassElement({ classe }: { classe: classe }) {
               alt=""
             />
           </div>
-          <div className="flex flex-col justify-start">
-            <a
-              href="javascript:void(0)"
-              className="mb-1 font-semibold transition-colors duration-200 ease-in-out text-lg/normal text-secondary-inverse hover:text-primary"
-            >
-              Social Media API
-            </a>
-          </div>
         </div>
       </td>
       <td className="p-3 pr-0 text-end">
@@ -39,7 +31,7 @@ function ClassElement({ classe }: { classe: classe }) {
       </td>
       <td className="pr-0 text-start">
         <span className="font-semibold text-light-inverse text-md/normal">
-          2023-08-23
+          {classe.creationDate}
         </span>
       </td>
       <td className="p-3 pr-0 text-end">edit / delete</td>

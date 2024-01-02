@@ -22,13 +22,13 @@ function NavBar() {
           </Navbar.Link>
           <Navbar.Link>
             <Dropdown label="Stories" inline>
-              <Dropdown.Item>
-                <Link to="/story/spanish"> Español</Link>
-              </Dropdown.Item>
+              <Link to="/story/spanish">
+                <Dropdown.Item>Español</Dropdown.Item>
+              </Link>
 
-              <Dropdown.Item>
-                <Link to="/story/english">English</Link>
-              </Dropdown.Item>
+              <Link to="/story/english">
+                <Dropdown.Item>English</Dropdown.Item>
+              </Link>
 
               <Dropdown.Divider />
               <Dropdown.Item>More languages</Dropdown.Item>

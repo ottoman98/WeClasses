@@ -149,7 +149,6 @@ function UserRemainingForm() {
                     <div className="flex flex-col">
                       <label htmlFor="name">Phone</label>
                       <input
-                        disabled
                         {...register("phone", {
                           required: { value: true, message: "Required" },
                         })}
@@ -193,7 +192,7 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="name">Languague to learn</label>
+                      <label htmlFor="name">Language to learn</label>
                       <select
                         {...register("languageToLearn", {
                           required: { value: true, message: "Required" },
@@ -201,7 +200,9 @@ function UserRemainingForm() {
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         id="name"
                       >
-                        <option value="es">Español</option>
+                        <option value="">
+                          Seleccione su idioma a aprender
+                        </option>
                         <option value="es">Español</option>
                         <option value="en">English</option>
                       </select>
@@ -218,6 +219,7 @@ function UserRemainingForm() {
                         <option value="">Escoja uno</option>
                         <option value="A1-A2">A1-A2</option>
                         <option value="B1-B2">B1-B2</option>
+                        <option value="C1-C2">C1-C2</option>
                       </select>
                       <p className="text-xs italic text-red-500">
                         {errors.languageLevel?.message}
@@ -232,7 +234,7 @@ function UserRemainingForm() {
                         })}
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         id="name"
-                        type="text"
+                        type="password"
                       />
                       <p className="text-xs italic text-red-500">
                         {errors.password?.message}
@@ -251,7 +253,7 @@ function UserRemainingForm() {
                         })}
                         className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         id="name"
-                        type="text"
+                        type="password"
                       />
                       <p className="text-xs italic text-red-500">
                         {errors.password2?.message}
@@ -260,7 +262,7 @@ function UserRemainingForm() {
                     <div className="flex flex-col">
                       <input type="checkbox" />
                       <label htmlFor="">
-                        Politicas de privacidad etc demas, bla bla
+                        Políticas de privacidad etc demás, bla bla
                       </label>
                     </div>
 

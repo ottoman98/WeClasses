@@ -4,14 +4,29 @@ import URL from "./url";
 import { classe } from "../types/classeTypes";
 
 function GetAllClasses(): Array<classe> | undefined {
-  const [first, setfirst] = useState();
+  const [first, setFirst] = useState();
   useEffect(() => {
     axios
       .get(`${URL}/classes`, {
         withCredentials: true,
       })
       .then((x) => {
-        setfirst(x.data);
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
+
+function GetClasseById(id: string | undefined): classe | undefined {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .get(`${URL}/classes/${id}`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
       });
   }, []);
 
@@ -24,4 +39,10 @@ function postClasse(data: classe) {
   });
 }
 
-export { GetAllClasses, postClasse };
+function putClasse(id: string | undefined, data: classe) {
+  return axios.put(`${URL}/classes/${id}`, data, {
+    withCredentials: true,
+  });
+}
+
+export { GetAllClasses, postClasse, GetClasseById, putClasse };

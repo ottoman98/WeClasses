@@ -4,7 +4,8 @@ type classe = {
     duration: number,
     language: 'english' | 'spanish',
     link: string,
-    level: string
+    level: string,
+    creationDate?: string
 
 }
 

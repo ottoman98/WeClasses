@@ -2,15 +2,12 @@ import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
 import { deleteStory } from "../api/axiosStories";
 import { story } from "../types/storyTypes";
+import { useNavigate } from "react-router-dom";
 
-function ModalDelete({
-  story,
-  status,
-}: {
-  story: story;
-  status: (value: boolean) => void;
-}) {
+function ModalDelete({ story }: { story: story }) {
   const [openModal, setOpenModal] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -29,10 +26,8 @@ function ModalDelete({
           <Button
             onClick={async () => {
               if (story._id) {
-                const response = await deleteStory(story._id);
-                if (response.data.menssage == "succesfull delete") {
-                  status(true);
-                }
+                await deleteStory(story._id);
+                navigate("/dashboard/resume");
               }
             }}
           >

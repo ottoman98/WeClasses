@@ -45,6 +45,7 @@ function Login() {
               <form
                 onSubmit={handleSubmit(async (x) => {
                   const data = await axiosLogin(x);
+                  console.log(x);
                   setServerResponse(data.data);
                 })}
                 className="px-8 pt-6 pb-8 mb-4 bg-white rounded"
@@ -115,6 +116,7 @@ function Login() {
                     className="mr-2 leading-tight"
                     type="checkbox"
                     id="checkbox_id"
+                    {...register("keepSession")}
                   />
                   <label className="text-sm">Remember Me</label>
                 </div>
