@@ -1,11 +1,12 @@
 type classe = {
+    _id:string
     name: string,
     description: string,
     duration: number,
     language: 'english' | 'spanish',
     link: string,
     level: string,
-    creationDate?: string
+    createdAt?: string
 
 }
 

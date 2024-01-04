@@ -1,6 +1,7 @@
 import { classe } from "../types/classeTypes";
 import spainFlag from "../icons/spain-flag.png";
 import ukFlag from "../icons/uk-flag.png";
+import { Link } from "react-router-dom";
 
 function ClassElement({ classe }: { classe: classe }) {
   return (
@@ -31,10 +32,12 @@ function ClassElement({ classe }: { classe: classe }) {
       </td>
       <td className="pr-0 text-start">
         <span className="font-semibold text-light-inverse text-md/normal">
-          {classe.creationDate}
+          {classe.createdAt}
         </span>
       </td>
-      <td className="p-3 pr-0 text-end">edit / delete</td>
+      <td className="p-3 pr-0 text-end">
+        <Link to={`/dashboard/editclass/${classe._id}`}>Edit</Link>
+      </td>
     </tr>
   );
 }

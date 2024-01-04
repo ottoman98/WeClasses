@@ -1,3 +1,3 @@
-const URL = "http://localhost:3000/v1"
+const URL = "https://www.backend.weclasses.com/v1"
 
 export default URL
