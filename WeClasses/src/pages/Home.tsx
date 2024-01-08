@@ -5,7 +5,7 @@ function Home() {
   return (
     <>
       <NavBar />
-
+      22
       <Outlet />
     </>
   );
