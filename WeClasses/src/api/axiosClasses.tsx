@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import URL from "./url";
+
 import { classe } from "../types/classeTypes";
+
+const URL = import.meta.env.VITE_URL;
 
 function GetAllClasses(): Array<classe> | undefined {
   const [first, setFirst] = useState();

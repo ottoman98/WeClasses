@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { story } from "../types/storyTypes";
-import URL from "./url";
+
+const URL = import.meta.env.VITE_URL;
 
 function postStory(data: story) {
   return axios.post(`${URL}/story`, data, {
@@ -10,14 +11,14 @@ function postStory(data: story) {
 }
 
 function GetAllStories(): Array<story> | undefined {
-  const [first, setfirst] = useState();
+  const [first, setFirst] = useState();
   useEffect(() => {
     axios
       .get(`${URL}/story`, {
         withCredentials: true,
       })
       .then((x) => {
-        setfirst(x.data);
+        setFirst(x.data);
       });
   }, []);
 
@@ -25,14 +26,14 @@ function GetAllStories(): Array<story> | undefined {
 }
 
 function GetStoryById(id: string | undefined): story | undefined {
-  const [first, setfirst] = useState<story>();
+  const [first, setFirst] = useState<story>();
   useEffect(() => {
     axios
       .get(`${URL}/story/${id}`, {
         withCredentials: true,
       })
       .then((x) => {
-        setfirst(x.data);
+        setFirst(x.data);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -43,14 +44,14 @@ function GetStoryById(id: string | undefined): story | undefined {
 function GetStoriesByLanguage(
   language: string | undefined
 ): Array<story> | undefined {
-  const [first, setfirst] = useState<story[]>();
+  const [first, setFirst] = useState<story[]>();
   useEffect(() => {
     axios
       .get(`${URL}/stories/${language}`, {
         withCredentials: true,
       })
       .then((x) => {
-        setfirst(x.data);
+        setFirst(x.data);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
@@ -68,10 +69,13 @@ function deleteStory(id: string) {
 }
 
 export {
+  // eslint-disable-next-line react-refresh/only-export-components
   postStory,
   GetAllStories,
+  // eslint-disable-next-line react-refresh/only-export-components
   deleteStory,
   GetStoryById,
+  // eslint-disable-next-line react-refresh/only-export-components
   putStory,
   GetStoriesByLanguage,
 };
