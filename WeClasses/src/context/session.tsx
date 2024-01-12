@@ -11,13 +11,11 @@ const DataContext = createContext<dataContextUser>({
 });
 
 function DataProvider({ children }: { children: ReactNode }) {
-  const [cookie, setCookie] = useState<string | undefined>(
-    getCookies("_cfuvid")
-  );
+  const [cookie, setCookie] = useState<string | undefined>(getCookies("token"));
   const { decodedToken } = useJwt(cookie as string);
 
   useEffect(() => {
-    setCookie(getCookies("_cfuvid"));
+    setCookie(getCookies("token"));
   }, [cookie]);
 
   return (

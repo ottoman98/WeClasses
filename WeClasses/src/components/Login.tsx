@@ -23,7 +23,7 @@ function Login() {
 
   if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
     navigate("/dashboard/resume");
-    setCookie(getCookies("_cfuvid"));
+    setCookie(getCookies("token"));
   }
 
   console.log(cookie);
