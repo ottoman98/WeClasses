@@ -11,6 +11,7 @@ import EditStory from "./components/EditStory";
 import AllClasses from "./components/AllClasses";
 import ClassesForm from "./components/partials/ClassesForm";
 import EditClassesForm from "./components/partials/EditClassForm";
+import Main from "./components/v1/pages/Main";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
       <DataProvider>
         <HashRouter>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Home />}>
+              <Route path="/" element={<Main />} />
+            </Route>
             //TODO: LOGIN ROUTES
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<Dashboard />}>
