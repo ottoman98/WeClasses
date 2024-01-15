@@ -1,4 +1,4 @@
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.jpg";
 import { FaFlagUsa } from "react-icons/fa6";
 function NavBar() {
   return (
