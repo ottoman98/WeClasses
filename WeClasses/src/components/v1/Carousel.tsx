@@ -5,7 +5,7 @@ import slide3 from "../../assets/slide3.jpg";
 
 function CarouselFull() {
   return (
-    <div className="h-56 sm:h-[25rem] xl:h-[30rem] 2xl:h-[36rem]">
+    <section className="h-56 sm:h-[25rem] xl:h-[30rem] 2xl:h-[36rem]">
       <Carousel pauseOnHover slide={false}>
         <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white relative">
           <img className="object-cover w-full h-full" src={slide1} alt="" />
@@ -61,7 +61,7 @@ function CarouselFull() {
           </div>
         </div>
       </Carousel>
-    </div>
+    </section>
   );
 }
 

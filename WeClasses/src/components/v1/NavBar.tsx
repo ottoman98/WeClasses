@@ -1,39 +1,33 @@
+import { Button, Navbar, Dropdown } from "flowbite-react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
-import { FaFlagUsa } from "react-icons/fa6";
-function NavBar() {
+
+function NavBarr() {
   return (
-    <>
-      <header className="flex justify-between bg-red-700 py-8 px-3">
-        <div className="flex justify-between">
-          <img className="w-10" src={logo} alt="WeClasses logo" />
-          <h1 className="text-xl font-bold text-white">WE CLASSES</h1>
-        </div>
-        <nav>
-          <ul className="flex gap-10 font-semibold">
-            <li className="p-2 hover:text-zinc-200">Quienes Somos</li>
-            <li className="p-2 hover:text-zinc-200">Modo oscuro</li>
-            <li className="p-2">
-              <ul className="group relative">
-                <li>Idioma</li>
-                <div className="absolute hidden group-hover:block bg-teal-600 pt-12  pb-6 z-10">
-                  <li className="flex px-10">
-                    <FaFlagUsa /> <p>English</p>
-                  </li>
-                  <li className="flex px-10">
-                    <FaFlagUsa /> <p>Spanish</p>
-                  </li>
-                </div>
-              </ul>
-            </li>
-            <li className="p-2 hover:text-zinc-200">Ingresar</li>
-            <li className="p-2 rounded-full bg-lime-400 hover:scale-110">
-              Regístrate Gratis
-            </li>
-          </ul>
-        </nav>
-      </header>
-    </>
+    <Navbar fluid rounded className="sticky top-0 z-50">
+      <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+        <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+      </Link>
+      <div className="flex md:order-2 gap-10">
+        <Dropdown label="Idioma del sitio" inline>
+          <Dropdown.Item>Español</Dropdown.Item>
+          <Dropdown.Item>English</Dropdown.Item>
+          <Dropdown.Item>Arameo</Dropdown.Item>
+          <Dropdown.Item>Costeño</Dropdown.Item>
+        </Dropdown>
+        <Button>Regístrate Gratis</Button>
+        <Navbar.Toggle />
+      </div>
+      <Navbar.Collapse>
+        <Navbar.Link href="#" active>
+          Home
+        </Navbar.Link>
+        <Navbar.Link href="#">Quienes somos</Navbar.Link>
+        <Navbar.Link href="#">Contacto</Navbar.Link>
+        <Navbar.Link href="#">Ingresar</Navbar.Link>
+      </Navbar.Collapse>
+    </Navbar>
   );
 }
 
-export default NavBar;
+export default NavBarr;
