@@ -6,12 +6,11 @@ import slide3 from "../../assets/slide3.jpg";
 function CarouselFull() {
   return (
     <section className="h-56 sm:h-[25rem] xl:h-[30rem] 2xl:h-[36rem]">
-      <Carousel pauseOnHover slide={false}>
+      <Carousel pauseOnHover>
         <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white relative">
           <img className="object-cover w-full h-full" src={slide1} alt="" />
 
           <div className="absolute w-full h-full flex items-center justify-around">
-            {" "}
             <h2 className="text-[3.8rem] font-black w-1/3 ">
               Libera tu potencial con los mejores profesores de idiomas
             </h2>
