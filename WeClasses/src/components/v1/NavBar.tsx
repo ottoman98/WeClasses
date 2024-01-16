@@ -1,6 +1,10 @@
 import { Button, Navbar, Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
+import spainFlag from "../../assets/spain_flag.png";
+import germanyFlag from "../../assets/germany_flag.png";
+import franceFlag from "../../assets/france_flag.png";
+import usaFlag from "../../assets/usa_flag.png";
 
 function NavBarr() {
   return (
@@ -10,10 +14,22 @@ function NavBarr() {
       </Link>
       <div className="flex md:order-2 gap-10">
         <Dropdown label="Idioma del sitio" inline>
-          <Dropdown.Item>Español</Dropdown.Item>
-          <Dropdown.Item>English</Dropdown.Item>
-          <Dropdown.Item>Arameo</Dropdown.Item>
-          <Dropdown.Item>Costeño</Dropdown.Item>
+          <Dropdown.Item>
+            <img className="w-6" src={spainFlag} alt="" />
+            <p>Español</p>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <img className="w-6" src={usaFlag} alt="" />
+            <p>English</p>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <img className="w-6" src={franceFlag} alt="" />
+            <p>French</p>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <img className="w-6" src={germanyFlag} alt="" />
+            <p>German</p>
+          </Dropdown.Item>
         </Dropdown>
         <Button>Regístrate Gratis</Button>
         <Navbar.Toggle />
@@ -24,7 +40,6 @@ function NavBarr() {
         </Navbar.Link>
         <Navbar.Link href="#">Quienes somos</Navbar.Link>
         <Navbar.Link href="#">Contacto</Navbar.Link>
-        <Navbar.Link href="#">Ingresar</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );

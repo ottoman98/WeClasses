@@ -13,7 +13,11 @@ function Main() {
       <Discount />
       <Banner2 />
       <Footer2 />
-      <img className="fixed bottom-4 right-4 w-24" src={whatsApp} alt="" />
+      <img
+        className="fixed bottom-44 right-4 w-16 hover:scale-110"
+        src={whatsApp}
+        alt=""
+      />
     </>
   );
 }
