@@ -1,6 +1,6 @@
 import { Button, Navbar, Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.jpg";
+import logo from "../../assets/logo.jpeg";
 import spainFlag from "../../assets/spain_flag.png";
 import germanyFlag from "../../assets/germany_flag.png";
 import franceFlag from "../../assets/france_flag.png";
@@ -10,7 +10,7 @@ function NavBarr() {
   return (
     <Navbar fluid rounded className="sticky top-0 z-50">
       <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        <img src={logo} className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+        <img src={logo} className="w-20" alt="Flowbite React Logo" />
       </Link>
       <div className="flex md:order-2 gap-10">
         <Dropdown label="Idioma del sitio" inline>
