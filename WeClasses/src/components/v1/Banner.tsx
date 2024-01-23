@@ -1,7 +1,7 @@
 function Banner2() {
   return (
-    <section className="bg-slate-200 h-44 flex flex-col justify-center items-center gap-4">
-      <h2 className="text-2xl font-black">
+    <section className="bg-slate-200 text-[0.7rem] md:text-[1rem]  flex flex-col justify-center items-center gap-4 p-5">
+      <h2 className="md:text-2xl font-black">
         Rompe las barreras del idioma y conecta con el mundo
       </h2>
       <p>

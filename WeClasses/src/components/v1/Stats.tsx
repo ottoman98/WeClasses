@@ -1,16 +1,22 @@
+import { BsMap } from "react-icons/bs";
+import { BsGlobe } from "react-icons/bs";
+import { BsPeople } from "react-icons/bs";
 function Stats() {
   return (
-    <section className="flex p-10 justify-around border-t-2 border-black">
+    <section className="flex md:text-[1.5rem] text-[0.7rem] p-10 justify-around border-y-2 border-black gap-3">
       <div className="flex flex-col">
-        <strong className="text-xl"> Mas de 200 </strong>
+        <BsPeople />
+        <strong className="md:text-xl"> Mas de 200 </strong>
         <small>estudiantes impactados</small>
       </div>
       <div className="flex flex-col">
-        <strong className="text-xl"> Mas de 3 años </strong>
+        <BsMap />
+        <strong className="md:text-xl"> Mas de 3 años </strong>
         <small>de experiencia del proyecto</small>
       </div>
       <div className="flex flex-col ">
-        <strong className="text-xl"> Mas de 4 </strong>
+        <BsGlobe />
+        <strong className="md:text-xl"> Mas de 4 </strong>
         <small>Países Alcanzados</small>
       </div>
     </section>

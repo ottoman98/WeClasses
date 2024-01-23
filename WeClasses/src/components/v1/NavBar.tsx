@@ -12,10 +12,10 @@ function NavBarr() {
       <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         <img src={logo} className="w-10 md:w-20 " alt="Flowbite React Logo" />
       </Link>
-      <div className="flex md:order-2 gap-10">
+      <div className="flex md:order-2 ">
         <Link
           to="#"
-          className="bg-blue-950 flex items-center  text-xs md:text-lg md:py-1 px-3 rounded-full text-white duration-500 hover:bg-black"
+          className=" flex items-center  text-[0.7rem] font-extrabold  md:text-lg  hover:scale-110 md:bg-blue-950 md:text-white p-1 rounded-xl "
         >
           Regístrate Gratis
         </Link>

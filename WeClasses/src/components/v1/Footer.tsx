@@ -21,7 +21,14 @@ function Footer2() {
               name="WeClasses"
             />
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
+          <div className="grid  grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6 ">
+            <div>
+              <Footer.Title title="Contact" />
+              <Footer.LinkGroup col>
+                <Footer.Link href="#">davidsclasses1@gmail.com</Footer.Link>
+                <Footer.Link href="#">+1 (470) 812-0999</Footer.Link>
+              </Footer.LinkGroup>
+            </div>
             <div>
               <Footer.Title title="about" />
               <Footer.LinkGroup col>

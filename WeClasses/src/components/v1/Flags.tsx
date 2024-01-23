@@ -5,35 +5,35 @@ import franceFlag from "../../assets/france_flag.png";
 
 function FlagsBar() {
   return (
-    <section>
+    <section className="text-[0.6rem] md:text-xl">
       <div className="flex justify-around">
-        <div className="flex flex-col p-14">
+        <div className="flex flex-col p-2 justify-center">
           <img
-            className="object-contain w-20 rounded-xl "
+            className="object-contain w-2 md:w-20 rounded-xl "
             src={usaFlag}
             alt=""
           />
           <strong className="text-center">ingles</strong>
         </div>
-        <div className="flex flex-col p-14">
+        <div className="flex flex-col p-2">
           <img
-            className="object-contain w-20 rounded-xl "
+            className="object-contain w-2 md:w-20 rounded-xl "
             src={germanyFlag}
             alt=""
           />
           <strong className="text-center">Alemán</strong>
         </div>
-        <div className="flex flex-col p-14">
+        <div className="flex flex-col p-2">
           <img
-            className="object-contain w-20 rounded-xl "
+            className="object-contain w-2 md:w-20 rounded-xl "
             src={spainFlag}
             alt=""
           />
           <strong className="text-center">Español</strong>
         </div>
-        <div className="flex flex-col p-14">
+        <div className="flex flex-col p-2">
           <img
-            className="object-contain w-20 rounded-xl "
+            className="object-contain w-2 md:w-20 rounded-xl "
             src={franceFlag}
             alt=""
           />

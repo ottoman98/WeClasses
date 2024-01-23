@@ -16,7 +16,7 @@ function Main() {
       <Stats />
       <Footer2 />
       <img
-        className="fixed bottom-44 right-4 w-16 hover:scale-110"
+        className="fixed bottom-24 right-4 w-[3vh] md:w-20 hover:scale-110"
         src={whatsApp}
         alt=""
       />
