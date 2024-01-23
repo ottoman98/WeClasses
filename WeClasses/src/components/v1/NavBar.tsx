@@ -13,7 +13,7 @@ function NavBarr() {
         <img src={logo} className="w-20" alt="Flowbite React Logo" />
       </Link>
       <div className="flex md:order-2 gap-10">
-        <Dropdown label="Idioma del sitio" inline>
+        <Dropdown label="Idioma" inline>
           <Dropdown.Item>
             <img className="w-6" src={spainFlag} alt="" />
             <p>Español</p>
@@ -31,15 +31,21 @@ function NavBarr() {
             <p>German</p>
           </Dropdown.Item>
         </Dropdown>
-        <Button>Regístrate Gratis</Button>
+        <Button className="bg-blue-950 hover:bg-red-500">
+          Regístrate Gratis
+        </Button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="#" active>
+        <Navbar.Link href="#" className="text-black">
           Home
         </Navbar.Link>
-        <Navbar.Link href="#">Quienes somos</Navbar.Link>
-        <Navbar.Link href="#">Contacto</Navbar.Link>
+        <Navbar.Link href="#" className="text-black">
+          Quienes somos
+        </Navbar.Link>
+        <Navbar.Link href="#" className="text-black">
+          Contacto
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );

@@ -6,26 +6,26 @@ import slide3 from "../../assets/slide3.jpg";
 function CarouselFull() {
   return (
     <section className="h-56 sm:h-[25rem] xl:h-[30rem] 2xl:h-[36rem]">
-      <Carousel pauseOnHover>
-        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white relative">
-          <img className="object-cover w-full h-full" src={slide1} alt="" />
-
-          <div className="absolute w-full h-full flex items-center justify-around">
-            <h2 className="text-[3.8rem] font-black w-1/3 ">
-              Libera tu potencial con los mejores profesores de idiomas
+      <Carousel pauseOnHover slide={false}>
+        <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
+          <div className="w-full h-full  bg-blue-950 text-white p-20 flex justify-center flex-col">
+            <h2 className="text-[3rem]">
+              Aprende un nuevo idioma con nuestros profesores expertos.
             </h2>
-            <button className="p-2 text-white bg-black -mb-56 rounded-xl px-16">
+            <button className="p-2  bg-black mt-20 rounded-xl px-16">
               Conoce mas
             </button>
           </div>
+          <img className="object-cover  h-full w-full " src={slide1} alt="" />
         </div>
 
         <div className="flex h-full items-center justify-center bg-gray-400 dark:bg-gray-700 dark:text-white">
-          <div className="w-full h-full bg-red-400 p-20 flex justify-center flex-col">
+          <div className="w-full h-full  bg-blue-950 text-white p-20 flex justify-center flex-col">
             <h2 className="text-[3rem]">
-              Unlock your potential with the best language tutors.
+              Únete a nuestra plataforma y comienza tus lecciones personalizadas
+              con profesores nativos
             </h2>
-            <button className="p-2 text-white bg-black mt-20 rounded-xl px-16">
+            <button className="p-2  bg-black mt-20 rounded-xl px-16">
               Conoce mas
             </button>
           </div>
@@ -33,11 +33,11 @@ function CarouselFull() {
         </div>
 
         <div className="flex h-full items-center justify-center">
-          <div className="w-full h-full bg-red-400 p-20 flex justify-center flex-col">
+          <div className="w-full h-full bg-blue-950 text-white p-20 flex justify-center flex-col">
             <h2 className="text-[3rem]">
-              Unlock your potential with the best language tutors.
+              Conviértete en un ciudadano del mundo hablando diferentes idiomas.
             </h2>
-            <button className="p-2 text-white bg-black mt-20 rounded-xl px-16">
+            <button className="p-2 bg-black mt-20 rounded-xl px-16">
               Conoce mas
             </button>
           </div>

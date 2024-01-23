@@ -4,6 +4,7 @@ import Discount from "../Discount";
 import FlagsBar from "../Flags";
 import Footer2 from "../Footer";
 import whatsApp from "../../../assets/whatsapp.png";
+import Stats from "../Stats";
 
 function Main() {
   return (
@@ -12,6 +13,7 @@ function Main() {
       <FlagsBar />
       <Discount />
       <Banner2 />
+      <Stats />
       <Footer2 />
       <img
         className="fixed bottom-44 right-4 w-16 hover:scale-110"

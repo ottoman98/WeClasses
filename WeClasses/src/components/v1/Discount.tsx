@@ -1,18 +1,16 @@
 function Discount() {
   return (
-    <section className="bg-purple-600 text-white flex gap-8 p-16 justify-around">
+    <section className="bg-blue-950 text-white flex gap-8 p-16 justify-around">
       <div>
         <h2 className="font-black text-4xl">
-          Ahorra hasta un 30% con el Sprint de idiomas
+          La oportunidad de aprender idiomas con un 30% de descuento.
         </h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores optio
-          necessitatibus molestias fugiat unde repellendus adipisci perferendis
-          earum dicta quo impedit obcaecati veritatis beatae velit corporis,
-          commodi quisquam deserunt neque!
+          No dejes que esta oferta exclusiva pase; inscríbete hoy y amplía tus
+          horizontes.
         </p>
       </div>
-      <button className="bg-white text-blue-700 hover:bg-slate-100">
+      <button className="bg-white p-5 text-blue-700 duration-500 hover:bg-black hover:text-white">
         Mas información
       </button>
     </section>
