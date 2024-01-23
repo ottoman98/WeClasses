@@ -8,7 +8,7 @@ import Stats from "../Stats";
 
 function Main() {
   return (
-    <>
+    <main className="max-w-[120rem] text- mx-auto">
       <CarouselFull />
       <FlagsBar />
       <Discount />
@@ -20,7 +20,7 @@ function Main() {
         src={whatsApp}
         alt=""
       />
-    </>
+    </main>
   );
 }
 

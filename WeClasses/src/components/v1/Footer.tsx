@@ -1,5 +1,11 @@
 import { Footer } from "flowbite-react";
-import { BsFacebook, BsGithub, BsInstagram } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsInstagram,
+  BsLinkedin,
+  BsTiktok,
+  BsYoutube,
+} from "react-icons/bs";
 import logo from "../../assets/logo.jpeg";
 
 function Footer2() {
@@ -43,9 +49,24 @@ function Footer2() {
         <div className="w-full sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright href="#" by="WeClasses" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+            <Footer.Icon
+              href="https://www.instagram.com/davidsclasses/"
+              icon={BsInstagram}
+              target="_blank"
+            />
             <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={BsGithub} />
+            <Footer.Icon
+              href=" https://www.tiktok.com/@davidsc8?_t=8iIU3CRPaMU&_r=1
+"
+              icon={BsTiktok}
+              target="_blank"
+            />
+            <Footer.Icon
+              href="https://www.youtube.com/@Davidsclasses"
+              icon={BsYoutube}
+              target="_blank"
+            />
+            <Footer.Icon href="#" icon={BsLinkedin} />
           </div>
         </div>
       </div>

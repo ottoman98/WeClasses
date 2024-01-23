@@ -1,4 +1,4 @@
-import { Button, Navbar, Dropdown } from "flowbite-react";
+import { Navbar, Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpeg";
 import spainFlag from "../../assets/spain_flag.png";
@@ -8,11 +8,23 @@ import usaFlag from "../../assets/usa_flag.png";
 
 function NavBarr() {
   return (
-    <Navbar fluid rounded className="sticky top-0 z-50">
+    <Navbar fluid rounded className="static top-0 z-50 md:sticky ">
       <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        <img src={logo} className="w-20" alt="Flowbite React Logo" />
+        <img src={logo} className="w-10 md:w-20 " alt="Flowbite React Logo" />
       </Link>
       <div className="flex md:order-2 gap-10">
+        <Link
+          to="#"
+          className="bg-blue-950 flex items-center  text-xs md:text-lg md:py-1 px-3 rounded-full text-white duration-500 hover:bg-black"
+        >
+          Regístrate Gratis
+        </Link>
+        <Navbar.Toggle />
+      </div>
+      <Navbar.Collapse>
+        <a href="#">Home</a>
+        <a href="#">Quienes somos</a>
+        <a href="#">Contacto</a>
         <Dropdown label="Idioma" inline>
           <Dropdown.Item>
             <img className="w-6" src={spainFlag} alt="" />
@@ -31,21 +43,6 @@ function NavBarr() {
             <p>German</p>
           </Dropdown.Item>
         </Dropdown>
-        <Button className="bg-blue-950 hover:bg-red-500">
-          Regístrate Gratis
-        </Button>
-        <Navbar.Toggle />
-      </div>
-      <Navbar.Collapse>
-        <Navbar.Link href="#" className="text-black">
-          Home
-        </Navbar.Link>
-        <Navbar.Link href="#" className="text-black">
-          Quienes somos
-        </Navbar.Link>
-        <Navbar.Link href="#" className="text-black">
-          Contacto
-        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
