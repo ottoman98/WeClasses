@@ -8,14 +8,21 @@ import usaFlag from "../../assets/usa_flag.png";
 
 function NavBarr() {
   return (
-    <Navbar fluid rounded className="static top-0 z-50 md:sticky ">
+    <Navbar
+      fluid
+      className="sticky top-0 z-50 xs:text-[0.7rem] md:text-[1rem] xl:text-[2rem]"
+    >
       <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
-        <img src={logo} className="w-10 md:w-20 " alt="Flowbite React Logo" />
+        <img
+          src={logo}
+          className=" w-10 xs:w-8 md:w-10"
+          alt="Flowbite React Logo"
+        />
       </Link>
-      <div className="flex md:order-2 ">
+      <div className="flex md:order-2">
         <Link
           to="#"
-          className=" flex items-center  text-[0.7rem] font-extrabold  md:text-lg  hover:scale-110 md:bg-blue-950 md:text-white p-1 rounded-xl "
+          className=" xl:text-[0.5em] flex items-center   font-extrabold    hover:scale-110 bg-blue-950 text-white p-1 rounded-xl "
         >
           Regístrate Gratis
         </Link>

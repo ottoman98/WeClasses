@@ -5,11 +5,11 @@ import franceFlag from "../../assets/france_flag.png";
 
 function FlagsBar() {
   return (
-    <section className="text-[0.6rem] md:text-xl">
+    <section className=" ">
       <div className="flex justify-around">
         <div className="flex flex-col p-2 justify-center">
           <img
-            className="object-contain w-2 md:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
             src={usaFlag}
             alt=""
           />
@@ -17,7 +17,7 @@ function FlagsBar() {
         </div>
         <div className="flex flex-col p-2">
           <img
-            className="object-contain w-2 md:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
             src={germanyFlag}
             alt=""
           />
@@ -25,7 +25,7 @@ function FlagsBar() {
         </div>
         <div className="flex flex-col p-2">
           <img
-            className="object-contain w-2 md:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
             src={spainFlag}
             alt=""
           />
@@ -33,7 +33,7 @@ function FlagsBar() {
         </div>
         <div className="flex flex-col p-2">
           <img
-            className="object-contain w-2 md:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
             src={franceFlag}
             alt=""
           />

@@ -1,18 +1,23 @@
+import { Link } from "react-router-dom";
+
 function Discount() {
   return (
-    <section className="bg-blue-950 text-white text-[0.5rem] md:text-[1rem] flex gap-8 p-6 md:p-16 justify-around">
+    <section className="bg-blue-950 text-white  flex gap-5 p-6 md:p-16 justify-around xs:text-[0.5rem] md:text-[1rem] xl:text-[1.5rem]">
       <div>
-        <h2 className="font-black  md:text-4xl">
+        <h2 className="font-black text-[2em]">
           La oportunidad de aprender idiomas con un 30% de descuento.
         </h2>
-        <p>
+        <p className="xs:text-[1.2em] text-[0.5em] ">
           No dejes que esta oferta exclusiva pase; inscríbete hoy y amplía tus
           horizontes.
         </p>
       </div>
-      <button className="bg-white p-3  md:p-5 text-blue-700 duration-500 hover:bg-black hover:text-white">
+      <Link
+        to=""
+        className="bg-white h-full xs:p-1 p-3 w-1/5 my-auto text-[0.8em]    text-blue-700 duration-500 hover:bg-black hover:text-white rounded-lg border-2 border-black"
+      >
         Mas información
-      </button>
+      </Link>
     </section>
   );
 }
