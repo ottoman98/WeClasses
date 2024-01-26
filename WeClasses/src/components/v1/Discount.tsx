@@ -4,9 +4,9 @@ function Discount() {
   return (
     <section className="bg-blue-950 text-white  flex gap-5 p-6 md:p-16 justify-around xs:text-[0.5rem] md:text-[1rem] xl:text-[1.5rem]">
       <div>
-        <h2 className="font-black text-[2em]">
+        <h3 className="font-black text-[2em]">
           La oportunidad de aprender idiomas con un 30% de descuento.
-        </h2>
+        </h3>
         <p className="xs:text-[1.2em] text-[0.5em] ">
           No dejes que esta oferta exclusiva pase; inscríbete hoy y amplía tus
           horizontes.

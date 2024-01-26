@@ -14,10 +14,10 @@ function Footer2() {
         <div className="grid grid-cols-2 xs:grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <img src={logo} className="mr-5 h-6 sm:h-9" alt="logo" />
-            <p className="max-w-xs mt-4 text-sm text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
-              accusantium.
-            </p>
+
+            <h1 className="max-w-xs mt-4  text-white text-[2rem] opacity-0">
+              We Classes
+            </h1>
             <div className="flex mt-8 space-x-6 text-gray-600">
               <a
                 className="hover:opacity-75"
@@ -64,20 +64,20 @@ function Footer2() {
           <div className="grid grid-cols-2 gap-14 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <p className="font-medium">Contact</p>
-              <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+              <nav className="flex flex-col mt-4 space-y-2 text-sm text-slate-100">
                 <a className="hover:opacity-75"> davidsclasses1@gmail.com</a>
                 <a className="hover:opacity-75"> +1 (470) 812-0999 </a>
               </nav>
             </div>
             <div>
               <p className="font-medium">About</p>
-              <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+              <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a className="hover:opacity-75">WeClasses </a>
               </nav>
             </div>
             <div>
               <p className="font-medium">Legal</p>
-              <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+              <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a className="hover:opacity-75"> Privacy Policy </a>
                 <a className="hover:opacity-75"> Terms &amp; Conditions </a>
                 <a className="hover:opacity-75"> Returns Policy </a>
@@ -86,7 +86,7 @@ function Footer2() {
             </div>
             <div>
               <p className="font-medium">Follow Us</p>
-              <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+              <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a
                   className="hover:opacity-75"
                   href=" https://www.instagram.com/davidsclasses/"

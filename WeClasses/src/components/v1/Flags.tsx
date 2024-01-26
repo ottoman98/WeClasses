@@ -5,7 +5,7 @@ import franceFlag from "../../assets/france_flag.png";
 
 function FlagsBar() {
   return (
-    <section className=" ">
+    <section className="pt-5 ">
       <div className="flex justify-around">
         <div className="flex flex-col p-2 justify-center">
           <img
@@ -41,8 +41,8 @@ function FlagsBar() {
         </div>
       </div>
 
-      <small className="block text-center">
-        Tenemos profesores en mas 70 idiomas
+      <small className="block text-center py-5 text-[1.5rem] font-extrabold">
+        Tenemos profesores en mas de 4 idiomas
       </small>
     </section>
   );

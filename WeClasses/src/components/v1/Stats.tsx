@@ -16,8 +16,8 @@ function Stats() {
       </div>
       <div className="flex flex-col ">
         <BsGlobe />
-        <strong className="xl:text-[0.8em]"> Mas de 4 </strong>
-        <small>Países Alcanzados</small>
+        <strong className="xl:text-[0.8em]"> +5 Países</strong>
+        <small> Alcanzados</small>
       </div>
     </section>
   );

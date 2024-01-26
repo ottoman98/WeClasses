@@ -27,7 +27,7 @@ function CarouselFull() {
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10 ">
             <p>
               Únete a nuestra plataforma y comienza tus lecciones personalizadas
-              con profesores nativos..
+              con profesores nativos...
             </p>
             <Link
               className="bg-black w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
