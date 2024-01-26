@@ -12,7 +12,11 @@ function CarouselFull() {
         className="xs:text-[0.7rem] md:text-[1rem] xl:text-[2rem]"
       >
         <div className="flex h-full items-center justify-center bg-blue-950  text-white">
-          <img src={slide1} className="w-1/2 h-full object-cover " alt="" />
+          <img
+            src={slide1}
+            className="w-1/2 h-full object-cover "
+            alt="Domina diferentes idiomas con expertos nativos en nuestra plataforma"
+          />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10">
             <p>Aprende un nuevo idioma con nuestros profesores expertos.</p>
             <Link
@@ -36,10 +40,19 @@ function CarouselFull() {
               Conoce Mas.
             </Link>
           </div>
-          <img src={slide2} className="w-1/2 h-full" alt="" />
+          <img
+            src={slide2}
+            className="w-1/2 h-full"
+            alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
+          />
         </div>
         <div className="flex h-full items-center justify-center bg-blue-950   text-white">
-          <img src={slide3} className="w-1/2 h-full" alt="" />
+          <img
+            src={slide3}
+            className="w-1/2 h-full"
+            alt="Eleva tu nivel en el idioma inglés con profesores nativos 
+"
+          />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10 ">
             <p>
               Únete a nuestra plataforma y comienza tus lecciones personalizadas
