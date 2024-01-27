@@ -1,7 +1,8 @@
 import { Carousel } from "flowbite-react";
-import slide1 from "../../assets/we classes - aprende inglés.png";
-import slide2 from "../../assets/we classes - aprende inglés2.png";
-import slide3 from "../../assets/we classes - aprende inglés3.png";
+
+import full1 from "../../assets/people-6027028_1920.jpg";
+import full2 from "../../assets/woman-4702060_1920.jpg";
+import full3 from "../../assets/writing-923882_1920.jpg";
 import { Link } from "react-router-dom";
 
 function CarouselFull() {
@@ -14,8 +15,8 @@ function CarouselFull() {
       >
         <div className="flex h-full items-center justify-center bg-blue-950  text-white">
           <img
-            src={slide1}
-            className="w-1/2 h-full object-cover "
+            src={full1}
+            className="w-1/2 h-full object-cover"
             alt="Domina diferentes idiomas con expertos nativos en nuestra plataforma"
           />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10">
@@ -42,15 +43,15 @@ function CarouselFull() {
             </Link>
           </div>
           <img
-            src={slide2}
-            className="w-1/2 h-full"
+            src={full2}
+            className="w-1/2 h-full object-cover"
             alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
           />
         </div>
         <div className="flex h-full items-center justify-center bg-blue-950   text-white">
           <img
-            src={slide3}
-            className="w-1/2 h-full"
+            src={full3}
+            className="w-1/2 h-full object-cover"
             alt="Eleva tu nivel en el idioma inglés con profesores nativos 
 "
           />
