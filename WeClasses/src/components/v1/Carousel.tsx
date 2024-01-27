@@ -1,7 +1,7 @@
 import { Carousel } from "flowbite-react";
-import slide1 from "../../assets/slide1.jpg";
-import slide2 from "../../assets/slide2.jpg";
-import slide3 from "../../assets/slide3.jpg";
+import slide1 from "../../assets/we classes - aprende inglés.png";
+import slide2 from "../../assets/we classes - aprende inglés2.png";
+import slide3 from "../../assets/we classes - aprende inglés3.png";
 import { Link } from "react-router-dom";
 
 function CarouselFull() {
@@ -10,6 +10,7 @@ function CarouselFull() {
       <Carousel
         pauseOnHover
         className="xs:text-[0.7rem] md:text-[1rem] xl:text-[2rem]"
+        slide={false}
       >
         <div className="flex h-full items-center justify-center bg-blue-950  text-white">
           <img
@@ -55,8 +56,7 @@ function CarouselFull() {
           />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10 ">
             <p>
-              Únete a nuestra plataforma y comienza tus lecciones personalizadas
-              con profesores nativos..
+              Conviértete en un ciudadano del mundo hablando diferentes idiomas.
             </p>
             <Link
               className="bg-black w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"

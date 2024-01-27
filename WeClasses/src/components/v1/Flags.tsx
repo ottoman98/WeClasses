@@ -41,7 +41,7 @@ function FlagsBar() {
         </div>
       </div>
 
-      <small className="block text-center py-5 text-[1.5rem] font-extrabold">
+      <small className="block text-center py-5 lg:text-[1.5rem] font-extrabold">
         Tenemos profesores en mas de 4 idiomas
       </small>
     </section>

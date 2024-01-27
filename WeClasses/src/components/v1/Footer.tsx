@@ -18,7 +18,7 @@ function Footer2() {
             <h1 className="max-w-xs mt-4  text-white text-[2rem] opacity-0">
               We Classes
             </h1>
-            <div className="flex mt-8 space-x-6 text-gray-600">
+            <div className="flex mt-8 space-x-6 text-slate-100">
               <a
                 className="hover:opacity-75"
                 href="https://www.instagram.com/davidsclasses/"

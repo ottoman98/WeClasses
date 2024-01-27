@@ -8,15 +8,15 @@ function Discount() {
           La oportunidad de aprender idiomas con un 30% de descuento.
         </h3>
         <p className="xs:text-[1.2em] text-[0.5em] ">
-          No dejes que esta oferta exclusiva pase; inscríbete hoy y amplía tus
+          No dejes que esta oferta exclusiva pase. Inscríbete hoy y amplía tus
           horizontes.
         </p>
       </div>
       <Link
         to=""
-        className="bg-white h-full xs:p-1 p-3 w-1/5 my-auto text-[0.8em]    text-blue-700 duration-500 hover:bg-black hover:text-white rounded-lg border-2 border-black"
+        className="bg-white h-full xs:p-1 p-3 w-1/5 my-auto text-[0.8em] text-center    text-blue-700 duration-500 hover:bg-black hover:text-white rounded-lg border-2 border-black font-bold"
       >
-        Mas información
+        Más información
       </Link>
     </section>
   );
