@@ -13,7 +13,7 @@ function FlagsBar() {
             src={usaFlag}
             alt=""
           />
-          <strong className="text-center">ingles</strong>
+          <strong className="text-center">Inglés</strong>
         </div>
         <div className="flex flex-col p-2">
           <img
@@ -37,12 +37,12 @@ function FlagsBar() {
             src={franceFlag}
             alt=""
           />
-          <strong className="text-center">Frances</strong>
+          <strong className="text-center">Francés</strong>
         </div>
       </div>
 
       <small className="block text-center py-5 lg:text-[1.5rem] font-extrabold">
-        Tenemos profesores en mas de 4 idiomas
+        Tenemos profesores en más de 4 idiomas
       </small>
     </section>
   );

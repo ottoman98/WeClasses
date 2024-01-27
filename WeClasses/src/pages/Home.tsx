@@ -6,7 +6,9 @@ function Home() {
   return (
     <>
       <NavBar />
-      <Outlet />
+      <main className="max-w-[150rem]  mx-auto">
+        <Outlet />
+      </main>
       <Footer2 />
     </>
   );

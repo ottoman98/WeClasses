@@ -10,12 +10,12 @@ function NavBarr() {
   return (
     <Navbar
       fluid
-      className="sticky top-0 z-50 xs:text-[0.7rem] md:text-[1rem] xl:text-[2rem]"
+      className="sticky top-0 z-50 xs:text-[0.7rem] md:text-[1rem] max-w-[150rem] mx-auto xl:text-[2rem]"
     >
       <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         <img
           src={logo}
-          className=" w-10 xs:w-8 md:w-10"
+          className=" w-10 xs:w-12 md:w-20"
           alt="Flowbite React Logo"
         />
       </Link>
@@ -24,30 +24,30 @@ function NavBarr() {
           to="#"
           className=" xl:text-[0.5em] flex items-center   font-extrabold    hover:scale-110 bg-blue-950 text-white p-1 rounded-xl "
         >
-          Regístrate Gratis
+          Regístrate gratis
         </Link>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <a href="#">Home</a>
+        <a href="#">Inicio</a>
         <a href="#">Quienes somos</a>
         <a href="#">Contacto</a>
         <Dropdown label="Idioma" inline>
-          <Dropdown.Item>
+          <Dropdown.Item className="flex gap-2">
             <img className="w-6" src={spainFlag} alt="" />
             <p>Español</p>
           </Dropdown.Item>
-          <Dropdown.Item>
+          <Dropdown.Item className="flex gap-2">
             <img className="w-6" src={usaFlag} alt="" />
-            <p>English</p>
+            <p>Ingles</p>
           </Dropdown.Item>
-          <Dropdown.Item>
+          <Dropdown.Item className="flex gap-2">
             <img className="w-6" src={franceFlag} alt="" />
-            <p>French</p>
+            <p>Frances</p>
           </Dropdown.Item>
-          <Dropdown.Item>
+          <Dropdown.Item className="flex gap-2">
             <img className="w-6" src={germanyFlag} alt="" />
-            <p>German</p>
+            <p>Alemán</p>
           </Dropdown.Item>
         </Dropdown>
       </Navbar.Collapse>

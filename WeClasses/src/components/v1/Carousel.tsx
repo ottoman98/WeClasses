@@ -24,7 +24,7 @@ function CarouselFull() {
               className="bg-black max-w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
               to="#"
             >
-              Conoce Mas.
+              Conoce Mas
             </Link>
           </div>
         </div>
@@ -38,7 +38,7 @@ function CarouselFull() {
               className="bg-black w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
               to="#"
             >
-              Conoce Mas.
+              Conoce Mas
             </Link>
           </div>
           <img
@@ -62,7 +62,7 @@ function CarouselFull() {
               className="bg-black w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
               to="#"
             >
-              Conoce Mas.
+              Conoce Mas
             </Link>
           </div>
         </div>
