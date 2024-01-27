@@ -13,12 +13,16 @@ function Main() {
       <Discount />
       <Banner2 />
       <Stats />
-
-      <img
-        className="fixed bottom-14 right-4 xs:w-[2rem] ] xs:bottom-8 md:w-[3rem] xl:w-[4rem] hover:scale-110"
-        src={whatsApp}
-        alt=""
-      />
+      <a
+        href="https://api.whatsapp.com/send/?phone=%2B14708120999&text&type=phone_number&app_absent=0"
+        target="_blank"
+      >
+        <img
+          className="fixed bottom-14 right-4 xs:w-[2rem] ] xs:bottom-8 md:w-[3rem] xl:w-[4rem] hover:scale-110"
+          src={whatsApp}
+          alt=""
+        />
+      </a>
     </>
   );
 }

@@ -11,12 +11,11 @@ function CarouselFull() {
       <Carousel
         pauseOnHover
         className="xs:text-[0.7rem] md:text-[1rem] xl:text-[2rem]"
-        slide={false}
       >
         <div className="flex h-full items-center justify-center bg-blue-950  text-white">
           <img
             src={full1}
-            className="w-1/2 h-full object-cover"
+            className="w-1/2 h-full object-cover object-left"
             alt="Domina diferentes idiomas con expertos nativos en nuestra plataforma"
           />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10">
@@ -44,14 +43,14 @@ function CarouselFull() {
           </div>
           <img
             src={full2}
-            className="w-1/2 h-full object-cover"
+            className="w-1/2 h-full object-cover object-right"
             alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
           />
         </div>
         <div className="flex h-full items-center justify-center bg-blue-950   text-white">
           <img
             src={full3}
-            className="w-1/2 h-full object-cover"
+            className="w-1/2 h-full object-cover object-right"
             alt="Eleva tu nivel en el idioma inglés con profesores nativos 
 "
           />
