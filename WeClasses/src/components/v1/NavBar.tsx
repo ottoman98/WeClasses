@@ -15,7 +15,7 @@ function NavBarr() {
       <Link to="/">
         <img
           src={logo}
-          className=" w-10 xs:w-16 sm:w-24 md:w-48 lg:w-64"
+          className="  xs:w-24  md:w-40 lg:w-56"
           alt="Flowbite React Logo"
         />
       </Link>
