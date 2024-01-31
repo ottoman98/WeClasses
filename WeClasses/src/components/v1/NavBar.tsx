@@ -12,7 +12,7 @@ function NavBarr() {
       fluid
       className="sticky top-0 z-50 xs:text-[0.7rem] md:text-[1rem] max-w-[150rem] mx-auto xl:text-[2rem]"
     >
-      <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+      <Link to="/">
         <img
           src={logo}
           className=" w-10 xs:w-16 sm:w-24 md:w-48 lg:w-64"
