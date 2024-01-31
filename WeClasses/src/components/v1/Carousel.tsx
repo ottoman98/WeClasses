@@ -1,8 +1,8 @@
 import { Carousel } from "flowbite-react";
 
-import full1 from "../../assets/people-6027028_1920.jpg";
-import full2 from "../../assets/woman-4702060_1920.jpg";
-import full3 from "../../assets/writing-923882_1920.jpg";
+import full1 from "../../assets/slide1.jpg";
+import full2 from "../../assets/slide2.jpg";
+import full3 from "../../assets/slide3.jpg";
 import { Link } from "react-router-dom";
 
 function CarouselFull() {

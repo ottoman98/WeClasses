@@ -2,7 +2,7 @@ import Banner2 from "../Banner";
 import CarouselFull from "../Carousel";
 import Discount from "../Discount";
 import FlagsBar from "../Flags";
-import whatsApp from "../../../assets/whatsapp.png";
+import whatsApp from "../../../assets/icons/whatsapp.png";
 import Stats from "../Stats";
 
 function Main() {

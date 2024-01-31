@@ -5,7 +5,7 @@ import {
   BsTiktok,
   BsYoutube,
 } from "react-icons/bs";
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logos/Recurso 9@3x blanco.png";
 
 function Footer2() {
   return (
@@ -13,7 +13,7 @@ function Footer2() {
       <div className="px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 xs:grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <img src={logo} className="mr-5 h-6 sm:h-9" alt="logo" />
+            <img src={logo} className="md:h-16 xs:h-9" alt="logo" />
 
             <h1 className="max-w-xs mt-4  text-white text-[2rem] opacity-0">
               We Classes

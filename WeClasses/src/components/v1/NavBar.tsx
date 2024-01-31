@@ -1,10 +1,10 @@
 import { Navbar, Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.jpeg";
-import spainFlag from "../../assets/spain_flag.png";
-import germanyFlag from "../../assets/germany_flag.png";
-import franceFlag from "../../assets/france_flag.png";
-import usaFlag from "../../assets/usa_flag.png";
+import logo from "../../assets/logos/Recurso 6@3x.png";
+import spainFlag from "../../assets/icons/spain_flag.png";
+import germanyFlag from "../../assets/icons/germany_flag.png";
+import franceFlag from "../../assets/icons/france_flag.png";
+import usaFlag from "../../assets/icons/usa_flag.png";
 
 function NavBarr() {
   return (
@@ -15,7 +15,7 @@ function NavBarr() {
       <Link to="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
         <img
           src={logo}
-          className=" w-10 xs:w-12 md:w-20"
+          className=" w-10 xs:w-16 sm:w-24 md:w-48 lg:w-64"
           alt="Flowbite React Logo"
         />
       </Link>

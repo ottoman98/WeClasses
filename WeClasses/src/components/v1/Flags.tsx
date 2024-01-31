@@ -1,7 +1,7 @@
-import usaFlag from "../../assets/usa_flag.png";
-import germanyFlag from "../../assets/germany_flag.png";
-import spainFlag from "../../assets/spain_flag.png";
-import franceFlag from "../../assets/france_flag.png";
+import usaFlag from "../../assets/icons/usa_flag.png";
+import germanyFlag from "../../assets/icons/germany_flag.png";
+import spainFlag from "../../assets/icons/spain_flag.png";
+import franceFlag from "../../assets/icons/france_flag.png";
 
 function FlagsBar() {
   return (

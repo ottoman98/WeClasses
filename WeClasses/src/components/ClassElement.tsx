@@ -1,6 +1,5 @@
 import { classe } from "../types/classeTypes";
-import spainFlag from "../icons/spain-flag.png";
-import ukFlag from "../icons/uk-flag.png";
+
 import { Link } from "react-router-dom";
 
 function ClassElement({ classe }: { classe: classe }) {
@@ -8,15 +7,7 @@ function ClassElement({ classe }: { classe: classe }) {
     <tr className="border-b border-dashed last:border-b-0">
       <td className="p-3 pl-0">
         <div className="flex items-center">
-          <div className="relative inline-block shrink-0 rounded-2xl me-3">
-            <img
-              src={
-                classe.language.toLowerCase() === "english" ? ukFlag : spainFlag
-              }
-              className="w-[50px] h-[50px] inline-block shrink-0 rounded-2xl"
-              alt=""
-            />
-          </div>
+          <div className="relative inline-block shrink-0 rounded-2xl me-3"></div>
         </div>
       </td>
       <td className="p-3 pr-0 text-end">
