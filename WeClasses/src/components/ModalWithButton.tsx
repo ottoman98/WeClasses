@@ -1,12 +1,14 @@
 import { Modal } from "flowbite-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, ReactNode } from "react";
+import { Link } from "react-router-dom";
+import logo from "../assets/logos/Recurso 6@3x.png";
 
 function ModalWithButton({
   show,
   message,
 }: {
   show: boolean;
-  message: string | undefined;
+  message: ReactNode | undefined;
 }) {
   const [openModal, setOpenModal] = useState(true);
 
@@ -20,13 +22,22 @@ function ModalWithButton({
       <Modal.Header>Gracias por contactarnos </Modal.Header>
       <Modal.Body>
         <div className="space-y-6">
-          <img
-            src="https://i.pinimg.com/originals/c4/96/9a/c4969aaedbc096c09b35e31abd11e2ec.png"
-            alt=""
-          />
-          <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-            {message}
-          </p>
+          <img src={logo} alt="" className="" />
+          <div>{message}</div>
+          <div className="flex justify-between p-2">
+            <Link
+              to="/"
+              className="bg-blue-950 text-white py-2 px-10  rounded-2xl "
+            >
+              Inicio
+            </Link>
+            <Link
+              to="/login"
+              className="bg-blue-950 text-white py-2 px-10  rounded-2xl "
+            >
+              Login
+            </Link>
+          </div>
         </div>
       </Modal.Body>
     </Modal>

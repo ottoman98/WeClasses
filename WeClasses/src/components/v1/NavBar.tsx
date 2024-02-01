@@ -21,7 +21,7 @@ function NavBarr() {
       </Link>
       <div className="flex md:order-2">
         <Link
-          to="#"
+          to="/register"
           className=" xl:text-[0.5em] flex items-center   font-extrabold    hover:scale-110 bg-blue-950 text-white p-1 rounded-xl "
         >
           Regístrate gratis

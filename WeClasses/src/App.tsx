@@ -12,6 +12,9 @@ import AllClasses from "./components/AllClasses";
 import ClassesForm from "./components/partials/ClassesForm";
 import EditClassesForm from "./components/partials/EditClassForm";
 import Main from "./components/v1/pages/Main";
+import Register from "./components/Register";
+import UserRemainingForm from "./components/UserRemainingForm";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -21,6 +24,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}>
               <Route path="/" element={<Main />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/user/:id" element={<UserRemainingForm />} />
+              <Route path="/login" element={<Login />} />
             </Route>
             //TODO: LOGIN ROUTES
             <Route element={<ProtectedRoutes />}>

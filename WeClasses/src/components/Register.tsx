@@ -1,6 +1,6 @@
 import { contact } from "../types/userTypes";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 //import { useNavigate } from "react-router-dom";
 import { axiosContact } from "../api/axios";
 import ModalWithButton from "./ModalWithButton";
@@ -20,18 +20,31 @@ function Leaks() {
 
   let bool = false;
 
-  if (serverResponse !== null && serverResponse.valid == "siu") {
+  if (serverResponse !== null && serverResponse.valid) {
     //navigate("/dashboard");
     bool = true;
 
     console.log(serverResponse.message);
   }
 
+  const message: ReactNode = (
+    <>
+      <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+        Gracias por preferirnos te enviamos un correo a {"  "}
+        <strong className="underline text-red-600">
+          {" "}
+          {serverResponse?.message}
+        </strong>{" "}
+        para que culmines tu registro.
+      </p>
+    </>
+  );
+
   return (
     <>
-      <ModalWithButton show={bool} message={serverResponse?.message} />
+      <ModalWithButton show={bool} message={message} />
       <div className="flex justify-center items-center w-screen h-screen bg-white">
-        <div className="container mx-auto my-4 px-4 lg:px-20">
+        <div>
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
             <div className="flex">
               <h1 className="font-bold uppercase text-5xl">
@@ -134,13 +147,14 @@ function Leaks() {
                 </p>
               </div>
 
-              <div>
+              <div className="flex gap-1">
                 <select
                   {...register("countryCode", {
                     required: { value: true, message: "Required" },
                   })}
+                  className="w-[46%]  bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 >
-                  <option value="">Seleccione indicativo</option>
+                  <option value="">indicativo</option>
                   <option value="1">+1 los yunaites</option>
                   <option value="57">+57 Colombia</option>
                 </select>

@@ -2,7 +2,8 @@ import { useParams } from "react-router-dom";
 import { AxiosGetRemainingData, axiosPutRemainingData } from "../api/axios";
 import { useForm } from "react-hook-form";
 import { fullContact } from "../types/userTypes";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+import ModalWithButton from "./ModalWithButton";
 
 function UserRemainingForm() {
   const {
@@ -13,7 +14,9 @@ function UserRemainingForm() {
   } = useForm<fullContact>();
   const { id } = useParams();
 
-  const [serverResponse, setServerResponse] = useState();
+  const [serverResponse, setServerResponse] = useState<{
+    valid: string;
+  } | null>(null);
 
   const data = AxiosGetRemainingData(id);
 
@@ -27,10 +30,30 @@ function UserRemainingForm() {
       setValue("languageToLearn", data.languageToLearn);
     }
     console.log(data);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
+
+  let bool = false;
+
+  if (serverResponse !== null && serverResponse.valid) {
+    //navigate("/dashboard");
+    bool = true;
+
+    console.log(serverResponse.message);
+  }
+
+  const message: ReactNode = (
+    <>
+      <p>
+        Gracias por culminar tu registro ya haces parte de la gran familia
+        WECLASSES
+      </p>
+    </>
+  );
 
   return (
     <>
+      <ModalWithButton message={message} show={bool} />
       <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
         <div className="container max-w-screen-lg mx-auto">
           <div>
