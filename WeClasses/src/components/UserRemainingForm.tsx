@@ -38,8 +38,6 @@ function UserRemainingForm() {
   if (serverResponse !== null && serverResponse.valid) {
     //navigate("/dashboard");
     bool = true;
-
-    console.log(serverResponse.message);
   }
 
   const message: ReactNode = (
