@@ -1,7 +1,6 @@
 import { ReactNode, createContext, useState } from "react";
 import { dataContextLanguage } from "../types/contextTypes";
 import english from "../languages/english";
-import { languageType } from "../types/language";
 
 const DataContext = createContext<dataContextLanguage>({
   translation: english,
@@ -16,7 +15,7 @@ function DataProviderLanguage({
   defaultLanguage: string;
 }) {
   const [language, setLanguage] = useState<string>(defaultLanguage);
-  const translation: languageType = english;
+  const translation = english;
 
   if (language === "english") {
     console.log(2);

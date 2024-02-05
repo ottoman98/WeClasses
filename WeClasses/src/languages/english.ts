@@ -1,7 +1,7 @@
 
-import { language } from "../types/language";
+import { languageType } from "../types/languageTypes";
 
-const english: language = {
+const english: languageType = {
     nav: {
         home: 'home'
     }

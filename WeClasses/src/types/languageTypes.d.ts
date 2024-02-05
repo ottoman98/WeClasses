@@ -1,6 +1,8 @@
 type languageType = {
     nav: {
-        home: string
+        home: string,
+
+
     }
 }
 
