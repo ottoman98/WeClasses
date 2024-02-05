@@ -2,8 +2,8 @@ import { Navbar, Dropdown } from "flowbite-react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logos/Recurso 6@3x.png";
 import spainFlag from "../../assets/icons/spain_flag.png";
-import germanyFlag from "../../assets/icons/germany_flag.png";
-import franceFlag from "../../assets/icons/france_flag.png";
+//import germanyFlag from "../../assets/icons/germany_flag.png";
+//import franceFlag from "../../assets/icons/france_flag.png";
 import usaFlag from "../../assets/icons/usa_flag.png";
 
 function NavBarr() {
@@ -40,14 +40,6 @@ function NavBarr() {
           <Dropdown.Item className="flex gap-2">
             <img className="w-6" src={usaFlag} alt="" />
             <p>Ingles</p>
-          </Dropdown.Item>
-          <Dropdown.Item className="flex gap-2">
-            <img className="w-6" src={franceFlag} alt="" />
-            <p>Frances</p>
-          </Dropdown.Item>
-          <Dropdown.Item className="flex gap-2">
-            <img className="w-6" src={germanyFlag} alt="" />
-            <p>Alemán</p>
           </Dropdown.Item>
         </Dropdown>
       </Navbar.Collapse>

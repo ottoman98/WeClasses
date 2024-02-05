@@ -10,7 +10,7 @@ const DataContext = createContext<dataContextUser>({
   setCookie: () => {},
 });
 
-function DataProvider({ children }: { children: ReactNode }) {
+function DataProviderSession({ children }: { children: ReactNode }) {
   const [cookie, setCookie] = useState<string | undefined>(getCookies("token"));
   const { decodedToken } = useJwt(cookie as string);
 
@@ -25,4 +25,4 @@ function DataProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export { DataContext, DataProvider };
+export { DataContext, DataProviderSession };

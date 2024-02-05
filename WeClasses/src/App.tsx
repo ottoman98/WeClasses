@@ -1,6 +1,6 @@
 import { Route, Routes, HashRouter } from "react-router-dom";
 
-import { DataProvider } from "./context/session";
+import { DataProviderSession } from "./context/session";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
@@ -15,12 +15,13 @@ import Main from "./components/v1/pages/Main";
 import Register from "./components/Register";
 import UserRemainingForm from "./components/UserRemainingForm";
 import Login from "./components/Login";
+import { DataProviderLanguage } from "./context/language";
 
 function App() {
   return (
     <>
-      <DataProvider>
-        <HashRouter>
+      <HashRouter>
+        <DataProviderLanguage defaultLanguage="english">
           <Routes>
             <Route path="/" element={<Home />}>
               <Route path="/" element={<Main />} />
@@ -28,7 +29,11 @@ function App() {
               <Route path="/user/:id" element={<UserRemainingForm />} />
               <Route path="/login" element={<Login />} />
             </Route>
-            //TODO: LOGIN ROUTES
+          </Routes>
+        </DataProviderLanguage>
+        <DataProviderSession>
+          //TODO: LOGIN ROUTES
+          <Routes>
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<Dashboard />}>
                 <Route path="/dashboard/resume" element={<>Stats</>} />
@@ -44,8 +49,8 @@ function App() {
               </Route>
             </Route>
           </Routes>
-        </HashRouter>
-      </DataProvider>
+        </DataProviderSession>
+      </HashRouter>
     </>
   );
 }
