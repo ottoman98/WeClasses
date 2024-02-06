@@ -32,8 +32,8 @@ function App() {
           </Routes>
         </DataProviderLanguage>
         <DataProviderSession>
-          //TODO: LOGIN ROUTES
           <Routes>
+            //TODO: LOGIN ROUTES
             <Route element={<ProtectedRoutes />}>
               <Route path="/dashboard" element={<Dashboard />}>
                 <Route path="/dashboard/resume" element={<>Stats</>} />

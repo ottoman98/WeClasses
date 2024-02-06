@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react'
 import { fullContact } from './userTypes';
-import { language } from './languageTypes';
+import { translationType } from './translationTypes';
 
 type dataContextUser = {
     cookie: string | undefined,
@@ -13,8 +13,9 @@ type dataContextUser = {
 }
 
 type dataContextLanguage = {
-    setLanguage: Dispatch<SetStateAction<string>>,
-    translation: language
+    setTranslation: Dispatch<SetStateAction<language>>,
+    translation: translationType
+
 
 }
 

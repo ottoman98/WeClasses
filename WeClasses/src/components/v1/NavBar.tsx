@@ -5,8 +5,16 @@ import spainFlag from "../../assets/icons/spain_flag.png";
 //import germanyFlag from "../../assets/icons/germany_flag.png";
 //import franceFlag from "../../assets/icons/france_flag.png";
 import usaFlag from "../../assets/icons/usa_flag.png";
+import { DataContextLanguage } from "../../context/language";
+import { useContext } from "react";
+import spanish from "../../translations/spanish";
+import english from "../../translations/english";
+import { dataContextLanguage } from "../../types/contextTypes";
 
 function NavBarr() {
+  const { translation, setTranslation } =
+    useContext<dataContextLanguage>(DataContextLanguage);
+
   return (
     <Navbar
       fluid
@@ -19,27 +27,44 @@ function NavBarr() {
           alt="Flowbite React Logo"
         />
       </Link>
-      <div className="flex md:order-2">
+      <div className="flex md:order-2 gap-3">
         <Link
           to="/register"
           className=" xl:text-[0.5em] flex items-center   font-extrabold    hover:scale-110 bg-blue-950 text-white p-1 rounded-xl "
         >
-          Regístrate gratis
+          {translation.nav.register}
         </Link>
+        <Link
+          to="/login"
+          className=" xl:text-[0.5em] flex items-center   font-extrabold    hover:scale-110 bg-blue-950 text-white p-1 rounded-xl "
+        >
+          {translation.nav.login}
+        </Link>
+
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <a href="#">Inicio</a>
-        <a href="#">Quienes somos</a>
-        <a href="#">Contacto</a>
-        <Dropdown label="Idioma" inline>
-          <Dropdown.Item className="flex gap-2">
+        <a href="#">{translation.nav.home}</a>
+        <a href="#">{translation.nav.about}</a>
+        <a href="#">{translation.nav.contact}</a>
+        <Dropdown label={translation.nav.language} inline>
+          <Dropdown.Item
+            className="flex gap-2"
+            onClick={() => {
+              setTranslation(spanish);
+            }}
+          >
             <img className="w-6" src={spainFlag} alt="" />
-            <p>Español</p>
+            <p>{translation.languages.spanish}</p>
           </Dropdown.Item>
-          <Dropdown.Item className="flex gap-2">
+          <Dropdown.Item
+            className="flex gap-2"
+            onClick={() => {
+              setTranslation(english);
+            }}
+          >
             <img className="w-6" src={usaFlag} alt="" />
-            <p>Ingles</p>
+            <p>{translation.languages.english}</p>
           </Dropdown.Item>
         </Dropdown>
       </Navbar.Collapse>

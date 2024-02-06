@@ -1,11 +1,11 @@
 import { Avatar, Dropdown, Navbar } from "flowbite-react";
 import { removeCookies } from "../utils/cookies";
 import { useContext } from "react";
-import { DataContext } from "../context/session";
+import { DataContextSession } from "../context/session";
 import { Link } from "react-router-dom";
 
 function NavBarProfile() {
-  const { setCookie } = useContext(DataContext);
+  const { setCookie } = useContext(DataContextSession);
 
   return (
     <>

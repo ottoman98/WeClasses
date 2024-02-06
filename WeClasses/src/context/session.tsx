@@ -5,7 +5,7 @@ import { useJwt } from "react-jwt";
 import { useEffect, useState } from "react";
 import { dataContextUser } from "../types/contextTypes";
 
-const DataContext = createContext<dataContextUser>({
+const DataContextSession = createContext<dataContextUser>({
   cookie: "",
   setCookie: () => {},
 });
@@ -19,10 +19,10 @@ function DataProviderSession({ children }: { children: ReactNode }) {
   }, [cookie]);
 
   return (
-    <DataContext.Provider value={{ cookie, decodedToken, setCookie }}>
+    <DataContextSession.Provider value={{ cookie, decodedToken, setCookie }}>
       {children}
-    </DataContext.Provider>
+    </DataContextSession.Provider>
   );
 }
 
-export { DataContext, DataProviderSession };
+export { DataContextSession, DataProviderSession };

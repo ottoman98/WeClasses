@@ -1,10 +1,11 @@
 import { ReactNode, createContext, useState } from "react";
 import { dataContextLanguage } from "../types/contextTypes";
-import english from "../languages/english";
+import spanish from "../translations/spanish";
+import { translationType } from "../types/translationTypes";
 
-const DataContext = createContext<dataContextLanguage>({
-  translation: english,
-  setLanguage: () => {},
+const DataContextLanguage = createContext<dataContextLanguage>({
+  translation: spanish,
+  setTranslation: () => {},
 });
 
 function DataProviderLanguage({
@@ -14,18 +15,15 @@ function DataProviderLanguage({
   children: ReactNode;
   defaultLanguage: string;
 }) {
-  const [language, setLanguage] = useState<string>(defaultLanguage);
-  const translation = english;
+  defaultLanguage;
 
-  if (language === "english") {
-    console.log(2);
-  }
+  const [translation, setTranslation] = useState<translationType>(spanish);
 
   return (
-    <DataContext.Provider value={{ translation, setLanguage }}>
+    <DataContextLanguage.Provider value={{ translation, setTranslation }}>
       {children}
-    </DataContext.Provider>
+    </DataContextLanguage.Provider>
   );
 }
 
-export { DataProviderLanguage, DataContext };
+export { DataProviderLanguage, DataContextLanguage };

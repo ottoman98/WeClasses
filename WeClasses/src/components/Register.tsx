@@ -19,7 +19,6 @@ function Leaks() {
   let bool = false;
 
   if (serverResponse !== null && serverResponse.valid) {
-    //navigate("/dashboard");
     bool = true;
 
     console.log(serverResponse.message);

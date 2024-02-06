@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { axiosLogin } from "../api/axios";
 import { useContext } from "react";
-import { DataContext } from "../context/session";
+import { DataContextSession } from "../context/session";
 import { getCookies } from "../utils/cookies";
 
 function Login() {
@@ -19,7 +19,7 @@ function Login() {
   } = useForm<login>();
 
   const navigate = useNavigate();
-  const { cookie, setCookie } = useContext(DataContext);
+  const { cookie, setCookie } = useContext(DataContextSession);
 
   if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
     navigate("/dashboard/resume");

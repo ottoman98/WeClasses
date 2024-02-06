@@ -4,8 +4,11 @@ import full1 from "../../assets/slide1.jpg";
 import full2 from "../../assets/slide2.jpg";
 import full3 from "../../assets/slide3.jpg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DataContextLanguage } from "../../context/language";
 
 function CarouselFull() {
+  const { translation } = useContext(DataContextLanguage);
   return (
     <section className="h-56 sm:h-[25rem] md:h-[20rem] xl:h-[30rem] 2xl:h-[36rem] ">
       <Carousel
@@ -19,26 +22,23 @@ function CarouselFull() {
             alt="Domina diferentes idiomas con expertos nativos en nuestra plataforma"
           />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10">
-            <p>Aprende un nuevo idioma con nuestros profesores expertos.</p>
+            <p>{translation.carousel.slide1.title}</p>
             <Link
               className="bg-black max-w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
               to="#"
             >
-              Conoce Mas
+              {translation.carousel.slide1.button}
             </Link>
           </div>
         </div>
         <div className="flex h-full items-center justify-center bg-blue-950   text-white">
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10 ">
-            <p>
-              Únete a nuestra plataforma y comienza tus lecciones personalizadas
-              con profesores nativos...
-            </p>
+            <p>{translation.carousel.slide2.title}</p>
             <Link
               className="bg-black w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
               to="#"
             >
-              Conoce Mas
+              {translation.carousel.slide2.button}
             </Link>
           </div>
           <img
@@ -55,14 +55,12 @@ function CarouselFull() {
 "
           />
           <div className="w-1/2 flex p-5 md:p-[6rem] flex-col gap-10 ">
-            <p>
-              Conviértete en un ciudadano del mundo hablando diferentes idiomas.
-            </p>
+            <p>{translation.carousel.slide3.title}</p>
             <Link
               className="bg-black w-1/2 flex justify-center rounded-xl duration-500 hover:bg-white hover:text-black"
               to="#"
             >
-              Conoce Mas
+              {translation.carousel.slide3.button}
             </Link>
           </div>
         </div>

@@ -2,8 +2,11 @@ import usaFlag from "../../assets/icons/usa_flag.png";
 import germanyFlag from "../../assets/icons/germany_flag.png";
 import spainFlag from "../../assets/icons/spain_flag.png";
 import franceFlag from "../../assets/icons/france_flag.png";
+import { useContext } from "react";
+import { DataContextLanguage } from "../../context/language";
 
 function FlagsBar() {
+  const { translation } = useContext(DataContextLanguage);
   return (
     <section className="pt-5 ">
       <div className="flex justify-around">
@@ -42,7 +45,7 @@ function FlagsBar() {
       </div>
 
       <small className="block text-center py-5 lg:text-[1.5rem] font-extrabold">
-        Tenemos profesores en más de 4 idiomas
+        {translation.flags.text}
       </small>
     </section>
   );
