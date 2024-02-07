@@ -1,8 +1,8 @@
-import { contact } from "../types/userTypes";
+import { contact } from "../../types/userTypes";
 import { useForm } from "react-hook-form";
 import { ReactNode, useState } from "react";
 //import { useNavigate } from "react-router-dom";
-import { axiosContact } from "../api/axios";
+import { axiosContact } from "../../api/axios";
 import ModalWithButton from "./ModalWithButton";
 function Leaks() {
   const [serverResponse, setServerResponse] = useState<{
@@ -20,8 +20,6 @@ function Leaks() {
 
   if (serverResponse !== null && serverResponse.valid) {
     bool = true;
-
-    console.log(serverResponse.message);
   }
 
   const message: ReactNode = (
@@ -53,7 +51,6 @@ function Leaks() {
               onSubmit={handleSubmit(async (x) => {
                 const data = await axiosContact(x);
                 setServerResponse(data.data);
-                console.log(serverResponse);
               })}
               className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5"
             >

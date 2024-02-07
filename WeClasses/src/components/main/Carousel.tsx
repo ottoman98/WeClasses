@@ -1,8 +1,8 @@
 import { Carousel } from "flowbite-react";
 
-import full1 from "../../assets/slide1.jpg";
-import full2 from "../../assets/slide2.jpg";
-import full3 from "../../assets/slide3.jpg";
+import full1 from "../../assets/carousel/slide1.jpg";
+import full2 from "../../assets/carousel/slide2.jpg";
+import full3 from "../../assets/carousel/slide3.jpg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContextLanguage } from "../../context/language";

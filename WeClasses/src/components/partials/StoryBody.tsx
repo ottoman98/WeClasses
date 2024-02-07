@@ -1,11 +1,10 @@
 import { useParams } from "react-router-dom";
-import { GetStoryById } from "../api/axiosStories";
+import { GetStoryById } from "../../api/axiosStories";
 
 function StoryBody() {
   const { id } = useParams();
   const data = GetStoryById(id);
 
-  console.log(id);
   return (
     <div className=" flex justify-center ">
       {!data ? (

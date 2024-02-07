@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
-import { login } from "../types/userTypes";
+import { login } from "../../types/userTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { axiosLogin } from "../api/axios";
+import { axiosLogin } from "../../api/axios";
 import { useContext } from "react";
-import { DataContextSession } from "../context/session";
-import { getCookies } from "../utils/cookies";
+import { DataContextSession } from "../../context/session";
+import { getCookies } from "../../utils/cookies";
 
 function Login() {
   const [serverResponse, setServerResponse] = useState<{
@@ -19,14 +19,13 @@ function Login() {
   } = useForm<login>();
 
   const navigate = useNavigate();
-  const { cookie, setCookie } = useContext(DataContextSession);
+  const { setCookie } = useContext(DataContextSession);
 
   if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
     navigate("/dashboard/resume");
     setCookie(getCookies("token"));
   }
 
-  console.log(cookie);
   return (
     <>
       <div className="container mx-auto">
@@ -45,7 +44,6 @@ function Login() {
               <form
                 onSubmit={handleSubmit(async (x) => {
                   const data = await axiosLogin(x);
-                  console.log(x);
                   setServerResponse(data.data);
                 })}
                 className="px-8 pt-6 pb-8 mb-4 bg-white rounded"

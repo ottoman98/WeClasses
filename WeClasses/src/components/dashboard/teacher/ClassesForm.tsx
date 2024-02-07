@@ -1,19 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { classe } from "../../types/classeTypes";
-import RichEditor from "../RichEditor";
-import { GetClasseById, putClasse } from "../../api/axiosClasses";
-import { valid } from "../../types/postResponse";
-import { useNavigate, useParams } from "react-router-dom";
+import { classe } from "../../../types/classeTypes";
+import RichEditor from "../../../utils/RichEditor";
+import { postClasse } from "../../../api/axiosClasses";
+import { valid } from "../../../types/postResponse";
+import { useNavigate } from "react-router-dom";
 
-function EditClassesForm() {
-  const { id } = useParams();
-  console.log(id);
-
-  const data: classe | undefined = GetClasseById(id);
-
+function ClassesForm() {
   const [response, setResponse] = useState<valid | null>(null);
-
   const {
     register,
     setValue,
@@ -21,33 +15,20 @@ function EditClassesForm() {
     getValues,
     formState: { errors },
   } = useForm<classe>();
-  console.log(response);
 
   const navigate = useNavigate();
   useEffect(() => {
-    if (response && response.message) {
+    if (response && response.valid == true) {
       navigate("/dashboard/classes/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
-  useEffect(() => {
-    if (data) {
-      setValue("name", data.name);
-      setValue("language", data.language);
-      setValue("duration", data.duration);
-      setValue("link", data.link);
-      setValue("level", data.level);
-      setValue("description", data.description);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
-
   return (
     <div>
       <form
         onSubmit={handleSubmit(async (x) => {
-          const data = await putClasse(id, x);
+          const data = await postClasse(x);
           setResponse(data.data);
         })}
         className="w-full grid grid-cols-1 gap-2 md:grid-cols-2 "
@@ -145,4 +126,4 @@ function EditClassesForm() {
   );
 }
 
-export default EditClassesForm;
+export default ClassesForm;

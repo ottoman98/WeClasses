@@ -1,6 +1,6 @@
-import { GetAllStories } from "../api/axiosStories";
+import { GetAllStories } from "../../../api/axiosStories";
 import { Badge } from "flowbite-react";
-import { story } from "../types/storyTypes";
+import { story } from "../../../types/storyTypes";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import ModalDelete from "./Modal";

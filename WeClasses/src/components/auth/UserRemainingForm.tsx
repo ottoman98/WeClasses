@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { AxiosGetRemainingData, axiosPutRemainingData } from "../api/axios";
+import { AxiosGetRemainingData, axiosPutRemainingData } from "../../api/axios";
 import { useForm } from "react-hook-form";
-import { fullContact } from "../types/userTypes";
+import { fullContact } from "../../types/userTypes";
 import { ReactNode, useEffect, useState } from "react";
 import ModalWithButton from "./ModalWithButton";
 
@@ -29,7 +29,7 @@ function UserRemainingForm() {
       setValue("nativeLanguage", data.nativeLanguage);
       setValue("languageToLearn", data.languageToLearn);
     }
-    console.log(data);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
@@ -74,7 +74,6 @@ function UserRemainingForm() {
                     onSubmit={handleSubmit(async (x) => {
                       const data = await axiosPutRemainingData(id, x);
                       setServerResponse(data.data);
-                      console.log(serverResponse);
                     })}
                     className="w-full grid grid-cols-1 gap-2 md:grid-cols-2 "
                   >

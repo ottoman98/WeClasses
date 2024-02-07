@@ -1,4 +1,4 @@
-import { classe } from "../types/classeTypes";
+import { classe } from "../../../types/classeTypes";
 
 import { Link } from "react-router-dom";
 

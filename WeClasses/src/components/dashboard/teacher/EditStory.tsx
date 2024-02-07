@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-import { story } from "../types/storyTypes";
-import { GetStoryById, putStory } from "../api/axiosStories";
+import { story } from "../../../types/storyTypes";
+import { GetStoryById, putStory } from "../../../api/axiosStories";
 import { useParams } from "react-router-dom";
-import RichEditor from "./RichEditor";
-import { postResponse } from "../types/postResponse";
+import RichEditor from "../../../utils/RichEditor";
+import { postResponse } from "../../../types/postResponse";
 
 function EditStory() {
   const [response, setResponse] = useState<null | postResponse>(null);

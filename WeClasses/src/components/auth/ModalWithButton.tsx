@@ -1,7 +1,7 @@
 import { Modal } from "flowbite-react";
 import { useState, useEffect, ReactNode } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logos/Recurso 6@3x.png";
+import logo from "../../assets/logos/Recurso 6@3x.png";
 
 function ModalWithButton({
   show,

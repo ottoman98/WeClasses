@@ -1,7 +1,7 @@
 import { Button, Modal } from "flowbite-react";
 import { useState } from "react";
-import { deleteStory } from "../api/axiosStories";
-import { story } from "../types/storyTypes";
+import { deleteStory } from "../../../api/axiosStories";
+import { story } from "../../../types/storyTypes";
 import { useNavigate } from "react-router-dom";
 
 function ModalDelete({ story }: { story: story }) {

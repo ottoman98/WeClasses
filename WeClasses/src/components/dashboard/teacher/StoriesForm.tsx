@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { postStory } from "../api/axiosStories";
-import { story } from "../types/storyTypes";
+import { postStory } from "../../../api/axiosStories";
+import { story } from "../../../types/storyTypes";
 import { useNavigate } from "react-router-dom";
-import RichEditor from "./RichEditor";
-import { postResponse } from "../types/postResponse";
+import RichEditor from "../../../utils/RichEditor";
+import { postResponse } from "../../../types/postResponse";
 
 function StoriesForm() {
   const [response, setResponse] = useState<null | postResponse>(null);
@@ -26,7 +26,6 @@ function StoriesForm() {
   const navigate = useNavigate();
   useEffect(() => {
     if (response && response.message) {
-      console;
       navigate("/dashboard/stories/");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

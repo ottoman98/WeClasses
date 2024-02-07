@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 
 import { useParams } from "react-router-dom";
-import { GetStoriesByLanguage } from "../api/axiosStories";
-import StoryCard from "./partials/StoryCard";
+import { GetStoriesByLanguage } from "../../api/axiosStories";
+import StoryCard from "./StoryCard";
 
 function ClientStories() {
   const { language } = useParams();

@@ -1,4 +1,4 @@
-import { GetAllClasses } from "../api/axiosClasses";
+import { GetAllClasses } from "../../../api/axiosClasses";
 import ClassElement from "./ClassElement";
 
 function AllClasses() {
