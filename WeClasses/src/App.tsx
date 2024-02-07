@@ -20,18 +20,18 @@ import { DataProviderLanguage } from "./context/language";
 function App() {
   return (
     <>
-      <HashRouter>
-        <DataProviderLanguage defaultLanguage="english">
-          <Routes>
-            <Route path="/" element={<Home />}>
-              <Route path="/" element={<Main />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/user/:id" element={<UserRemainingForm />} />
-              <Route path="/login" element={<Login />} />
-            </Route>
-          </Routes>
-        </DataProviderLanguage>
-        <DataProviderSession>
+      <DataProviderSession>
+        <HashRouter>
+          <DataProviderLanguage defaultLanguage="english">
+            <Routes>
+              <Route path="/" element={<Home />}>
+                <Route path="/" element={<Main />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/user/:id" element={<UserRemainingForm />} />
+                <Route path="/login" element={<Login />} />
+              </Route>
+            </Routes>
+          </DataProviderLanguage>
           <Routes>
             //TODO: LOGIN ROUTES
             <Route element={<ProtectedRoutes />}>
@@ -49,8 +49,8 @@ function App() {
               </Route>
             </Route>
           </Routes>
-        </DataProviderSession>
-      </HashRouter>
+        </HashRouter>
+      </DataProviderSession>
     </>
   );
 }

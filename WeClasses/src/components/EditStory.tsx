@@ -55,7 +55,6 @@ function EditStory() {
           onSubmit={handleSubmit(async (x) => {
             const data = await putStory(id, x);
             setResponse(data.data);
-            console.log(response);
           })}
         >
           <div>

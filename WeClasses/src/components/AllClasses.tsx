@@ -3,7 +3,6 @@ import ClassElement from "./ClassElement";
 
 function AllClasses() {
   const data = GetAllClasses();
-  console.log(data);
 
   return (
     <>
