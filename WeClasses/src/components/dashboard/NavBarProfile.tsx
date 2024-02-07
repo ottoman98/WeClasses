@@ -3,6 +3,7 @@ import { removeCookies } from "../../utils/cookies";
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { Link } from "react-router-dom";
+import logo from "../../assets/logos/Recurso 6@3x.png";
 
 function NavBarProfile() {
   const { setCookie } = useContext(DataContextSession);
@@ -10,15 +11,12 @@ function NavBarProfile() {
   return (
     <>
       <Navbar fluid rounded>
-        <Navbar.Brand href="https://flowbite-react.com">
+        <Navbar.Brand>
           <img
-            src="/favicon.svg"
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite React Logo"
+            src={logo}
+            className="  xs:w-20  md:w-32 lg:w-40"
+            alt="WeClasses Logo"
           />
-          <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Flowbite React
-          </span>
         </Navbar.Brand>
         <div className="flex md:order-2">
           <Dropdown
@@ -39,7 +37,7 @@ function NavBarProfile() {
               </span>
             </Dropdown.Header>
             <Dropdown.Item>
-              <Link to="/dashboard/resume">Dashboard</Link>
+              <Link to="/dashboard/resume">Profile</Link>
             </Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
 
@@ -53,7 +51,6 @@ function NavBarProfile() {
               Sign out
             </Dropdown.Item>
           </Dropdown>
-          <Navbar.Toggle />
         </div>
       </Navbar>
     </>

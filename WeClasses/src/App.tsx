@@ -3,7 +3,7 @@ import { Route, Routes, HashRouter } from "react-router-dom";
 import { DataProviderSession } from "./context/session";
 
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./components/dashboard/teacher/Dashboard";
 import AllStories from "./components/dashboard/teacher/AllStories";
 import StoriesForm from "./components/dashboard/teacher/StoriesForm";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
@@ -16,6 +16,7 @@ import Register from "./components/auth/Register";
 import UserRemainingForm from "./components/auth/UserRemainingForm";
 import Login from "./components/auth/Login";
 import { DataProviderLanguage } from "./context/language";
+import Profile from "./components/dashboard/student/Profile";
 
 function App() {
   return (
@@ -30,9 +31,14 @@ function App() {
                 <Route path="/user/:id" element={<UserRemainingForm />} />
                 <Route path="/login" element={<Login />} />
               </Route>
-              //TODO: LOGIN ROUTES
+              //*LOGIN ROUTES
               <Route element={<ProtectedRoutes />}>
+                //*STUDENTS ROUTES
+                <Route path="/profile" element={<Profile />}>
+                  <Route path="/profile/resume" />
+                </Route>
                 <Route path="/dashboard" element={<Dashboard />}>
+                  //*TEACHER ROUTES
                   <Route path="/dashboard/resume" element={<>Stats</>} />
                   <Route path="/dashboard/stories" element={<AllStories />} />
                   <Route path="/dashboard/story" element={<StoriesForm />} />
