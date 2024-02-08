@@ -9,7 +9,7 @@ import logo from "../../assets/logos/Recurso 9@3x blanco.png";
 
 function Footer2() {
   return (
-    <footer className="bg-blue-950 text-white max-w-[150rem] mx-auto">
+    <footer className="bg-blue-950 text-white max-w-[150rem] mx-auto ">
       <div className="px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 xs:grid-cols-1 gap-8 lg:grid-cols-3">
           <div>

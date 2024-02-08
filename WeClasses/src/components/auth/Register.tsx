@@ -41,7 +41,7 @@ function Leaks() {
     <>
       <ModalWithButton show={bool} message={message} />
 
-      <div className="flex justify-center items-center w-screen h-screen bg-white">
+      <div className="flex justify-center items-center w-screen  bg-white pb-32">
         <div>
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
             <div className="flex">
@@ -209,7 +209,7 @@ function Leaks() {
             </form>
           </div>
 
-          <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">
+          <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl ">
             <div className="flex flex-col text-white">
               <h1 className="font-bold uppercase text-4xl my-4">
                 {translation.register.complement.title}
