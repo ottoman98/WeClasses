@@ -17,6 +17,7 @@ import UserRemainingForm from "./components/auth/UserRemainingForm";
 import Login from "./components/auth/Login";
 import { DataProviderLanguage } from "./context/language";
 import Profile from "./components/dashboard/student/Profile";
+import PrivilegesRoutes from "./pages/PrivilegesRoutes";
 
 function App() {
   return (
@@ -33,22 +34,30 @@ function App() {
               </Route>
               //*LOGIN ROUTES
               <Route element={<ProtectedRoutes />}>
-                //*STUDENTS ROUTES
-                <Route path="/profile" element={<Profile />}>
-                  <Route path="/profile/resume" />
-                </Route>
-                <Route path="/dashboard" element={<Dashboard />}>
-                  //*TEACHER ROUTES
-                  <Route path="/dashboard/resume" element={<>Stats</>} />
-                  <Route path="/dashboard/stories" element={<AllStories />} />
-                  <Route path="/dashboard/story" element={<StoriesForm />} />
-                  <Route path="/dashboard/story/:id" element={<EditStory />} />
-                  <Route path="/dashboard/classes" element={<AllClasses />} />
-                  <Route path="/dashboard/addclass" element={<ClassesForm />} />
-                  <Route
-                    path="/dashboard/editclass/:id"
-                    element={<EditClassesForm />}
-                  />
+                <Route element={<PrivilegesRoutes />}>
+                  //*STUDENTS ROUTES
+                  <Route path="/profile" element={<Profile />}>
+                    <Route path="/profile/resume" element={<>identic</>} />
+                  </Route>
+                  <Route path="/dashboard" element={<Dashboard />}>
+                    //*TEACHER ROUTES
+                    <Route path="/dashboard/resume" element={<>Stats</>} />
+                    <Route path="/dashboard/stories" element={<AllStories />} />
+                    <Route path="/dashboard/story" element={<StoriesForm />} />
+                    <Route
+                      path="/dashboard/story/:id"
+                      element={<EditStory />}
+                    />
+                    <Route path="/dashboard/classes" element={<AllClasses />} />
+                    <Route
+                      path="/dashboard/addclass"
+                      element={<ClassesForm />}
+                    />
+                    <Route
+                      path="/dashboard/editclass/:id"
+                      element={<EditClassesForm />}
+                    />
+                  </Route>
                 </Route>
               </Route>
             </Routes>

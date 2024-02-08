@@ -5,6 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 function ProtectedRoutes() {
   const { cookie, decodedToken } = useContext(DataContextSession);
   console.log(decodedToken);
+
   if (!cookie) {
     return <Navigate to="/login" />;
   } else {
