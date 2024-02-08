@@ -79,6 +79,25 @@ type translationType = {
             content: Array<string>
         },
 
+    }, register: {
+        title: string,
+        form: {
+            name: string,
+            lastName: string,
+            email: string,
+            nativeLanguage: string,
+            countryCode: string,
+            phone: string,
+            languageToLearn: string,
+            submit: string
+        }
+        complement: {
+            title: string,
+            text: string,
+            subtitle: string,
+            contact: string
+        }
+
     }
 
 }

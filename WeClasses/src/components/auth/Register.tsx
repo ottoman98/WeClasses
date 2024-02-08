@@ -1,10 +1,12 @@
 import { contact } from "../../types/userTypes";
 import { useForm } from "react-hook-form";
-import { ReactNode, useState } from "react";
+import { ReactNode, useContext, useState } from "react";
 //import { useNavigate } from "react-router-dom";
 import { axiosContact } from "../../api/axios";
 import ModalWithButton from "./ModalWithButton";
+import { DataContextLanguage } from "../../context/language";
 function Leaks() {
+  const { translation } = useContext(DataContextLanguage);
   const [serverResponse, setServerResponse] = useState<{
     message: string;
     valid: string;
@@ -44,7 +46,7 @@ function Leaks() {
           <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
             <div className="flex">
               <h1 className="font-bold uppercase text-5xl">
-                aa <br /> pa mañana es tarde
+                {translation.register.title}
               </h1>
             </div>
             <form
@@ -65,7 +67,7 @@ function Leaks() {
                   })}
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="text"
-                  placeholder="Name*"
+                  placeholder={translation.register.form.name}
                 />
                 <p className="text-xs italic text-red-500">
                   {errors.name?.message}
@@ -81,7 +83,7 @@ function Leaks() {
                   })}
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="text"
-                  placeholder="Last Name*"
+                  placeholder={translation.register.form.lastName}
                 />
 
                 <p className="text-xs italic text-red-500">
@@ -103,7 +105,7 @@ function Leaks() {
                   })}
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="email"
-                  placeholder="Email*"
+                  placeholder={translation.register.form.email}
                 />
                 <p className="text-xs italic text-red-500">
                   {errors.email?.message}
@@ -120,7 +122,9 @@ function Leaks() {
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   id="name"
                 >
-                  <option value="">Seleccione su idioma nativo</option>
+                  <option value="">
+                    {translation.register.form.nativeLanguage}
+                  </option>
                   <option value="es">Español</option>
                   <option value="en">English</option>
                   <option value="fr">Français</option>
@@ -149,7 +153,9 @@ function Leaks() {
                   })}
                   className="w-[46%]  bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                 >
-                  <option value="">indicativo</option>
+                  <option value="">
+                    {translation.register.form.countryCode}
+                  </option>
                   <option value="1">+1 los yunaites</option>
                   <option value="57">+57 Colombia</option>
                 </select>
@@ -167,7 +173,7 @@ function Leaks() {
                   })}
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="number"
-                  placeholder="Phone*"
+                  placeholder={translation.register.form.phone}
                 />
 
                 <p className="text-xs italic text-red-500">
@@ -183,7 +189,9 @@ function Leaks() {
                   className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   id="name"
                 >
-                  <option value="">Seleccione lenguaje a aprender</option>
+                  <option value="">
+                    {translation.register.form.languageToLearn}
+                  </option>
                   <option value="es">Español</option>
                   <option value="en">English</option>
                 </select>
@@ -196,7 +204,7 @@ function Leaks() {
                 className="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
               >
-                Submit
+                {translation.register.form.submit}
               </button>
             </form>
           </div>
@@ -204,12 +212,10 @@ function Leaks() {
           <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl">
             <div className="flex flex-col text-white">
               <h1 className="font-bold uppercase text-4xl my-4">
-                Que esperas !!!!!
+                {translation.register.complement.title}
               </h1>
               <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                tincidunt arcu diam, eu feugiat felis fermentum id. Curabitur
-                vitae nibh viverra, auctor turpis sed, scelerisque ex.
+                {translation.register.complement.text}
               </p>
 
               <div className="flex my-4 w-2/3 lg:w-1/2">
@@ -217,8 +223,12 @@ function Leaks() {
                   <i className="fas fa-phone-alt pt-2 pr-2" />
                 </div>
                 <div className="flex flex-col">
-                  <h2 className="text-2xl">Call Us</h2>
-                  <p className="text-gray-400">Tel: xxx-xxx-xxx</p>
+                  <h2 className="text-2xl">
+                    {translation.register.complement.subtitle}
+                  </h2>
+                  <p className="text-gray-400">
+                    {translation.register.complement.contact}
+                  </p>
                 </div>
               </div>
             </div>
