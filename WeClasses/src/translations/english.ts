@@ -3,7 +3,7 @@ import { translationType } from "../types/translationTypes";
 
 const english: translationType = {
     languages: {
-        english: 'Inglés',
+        english: 'Ingle',
         spanish: 'Español',
         french: 'Francés',
         german: 'Alemán'
