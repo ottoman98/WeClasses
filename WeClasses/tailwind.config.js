@@ -8,11 +8,17 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
+    fontFamily:{
+'main':['"Playfair Display"', 'serif']
+
+    },
     screens:{
       'xs':'300px',
       ...defaultTheme.screens
     
-    }
+    },
+    
+
   },
   plugins: [ require('flowbite/plugin')],
 }

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { fullContact } from "../../types/userTypes";
 import { ReactNode, useEffect, useState } from "react";
 import ModalWithButton from "./ModalWithButton";
+import countries from "../../utils/CountryCodes.json";
 
 function UserRemainingForm() {
   const {
@@ -131,54 +132,52 @@ function UserRemainingForm() {
                         id="name"
                       >
                         <option value="">Select </option>
-                        <option value="ar">Argentina</option>
-                        <option value="us">United States</option>
-                        <option value="bo">Bolivia</option>
-                        <option value="br">Brasil</option>
-                        <option value="cl">Chile</option>
-                        <option value="co">Colombia</option>
-                        <option value="cr">Costa Rica</option>
-                        <option value="cu">Cuba</option>
-                        <option value="do">República Dominicana</option>
-                        <option value="ec">Ecuador</option>
-                        <option value="sv">El Salvador</option>
-                        <option value="gt">Guatemala</option>
-                        <option value="hn">Honduras</option>
-                        <option value="mx">México</option>
-                        <option value="ni">Nicaragua</option>
-                        <option value="pa">Panamá</option>
-                        <option value="py">Paraguay</option>
-                        <option value="pe">Perú</option>
-                        <option value="pr">Puerto Rico</option>
-                        <option value="us">Estados Unidos</option>
-                        <option value="uy">Uruguay</option>
-                        <option value="ve">Venezuela</option>
-                        <option value="es">España</option>
-                        <option value="fr">France</option>
-                        <option value="de">Deutschland</option>
-                        <option value="it">Italia</option>
-                        <option value="gb">United Kingdom</option>
-                        <option value="pt">Portugal</option>
-                        <option value="nl">Nederland</option>
-                        <option value="be">Belgique</option>
+                        {countries.map((x) => {
+                          return <option value={x.name}>{x.name}</option>;
+                        })}
                       </select>
                       <p className="text-xs italic text-red-500">
                         {errors.country?.message}
                       </p>
                     </div>
-                    <div className="flex flex-col">
-                      <label htmlFor="name">Phone</label>
-                      <input
-                        {...register("phone", {
-                          required: { value: true, message: "Required" },
-                        })}
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        id="name"
-                        type="text"
-                      />
-                      <p className="text-xs italic text-red-500">
-                        {errors.phone?.message}
-                      </p>
+                    <div className="flex flex-row">
+                      <div className="flex flex-col w-1/3">
+                        <label htmlFor="countryCode">Indicativo</label>
+
+                        <select
+                          className="h-10 border mt-1 rounded px-4  bg-gray-50 "
+                          id="countryCode"
+                          {...register("countryCode", {
+                            required: { value: true, message: "Required" },
+                          })}
+                        >
+                          <option value="">Indicativo</option>
+                          {countries.map((x) => {
+                            return (
+                              <option value={x.dial_code}>
+                                {x.dial_code} {x.name}
+                              </option>
+                            );
+                          })}
+                        </select>
+                        <p className="text-xs italic text-red-500">
+                          {errors.countryCode?.message}
+                        </p>
+                      </div>
+                      <div>
+                        <label htmlFor="name">Phone</label>
+                        <input
+                          {...register("phone", {
+                            required: { value: true, message: "Required" },
+                          })}
+                          className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                          id="name"
+                          type="text"
+                        />
+                        <p className="text-xs italic text-red-500">
+                          {errors.phone?.message}
+                        </p>
+                      </div>
                     </div>
 
                     <div className="flex flex-col">
@@ -207,7 +206,7 @@ function UserRemainingForm() {
                         <option value="vi">Tiếng Việt (Vietnamita)</option>
                       </select>
                       <p className="text-xs italic text-red-500">
-                        {errors.phone?.message}
+                        {errors.nativeLanguage?.message}
                       </p>
                     </div>
 
@@ -226,6 +225,9 @@ function UserRemainingForm() {
                         <option value="es">Español</option>
                         <option value="en">English</option>
                       </select>
+                      <p className="text-xs italic text-red-500">
+                        {errors.languageToLearn?.message}
+                      </p>
                     </div>
                     <div className="flex flex-col">
                       <label htmlFor="name">Language Level</label>

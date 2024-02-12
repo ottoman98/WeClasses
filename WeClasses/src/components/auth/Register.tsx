@@ -5,6 +5,7 @@ import { ReactNode, useContext, useState } from "react";
 import { axiosContact } from "../../api/axios";
 import ModalWithButton from "./ModalWithButton";
 import { DataContextLanguage } from "../../context/language";
+import countries from "../../utils/CountryCodes.json";
 function Leaks() {
   const { translation } = useContext(DataContextLanguage);
   const [serverResponse, setServerResponse] = useState<{
@@ -17,7 +18,7 @@ function Leaks() {
     handleSubmit,
     formState: { errors },
   } = useForm<contact>();
-
+  console.log(countries[0]);
   let bool = false;
 
   if (serverResponse !== null && serverResponse.valid) {
@@ -156,8 +157,13 @@ function Leaks() {
                   <option value="">
                     {translation.register.form.countryCode}
                   </option>
-                  <option value="1">+1 los yunaites</option>
-                  <option value="57">+57 Colombia</option>
+                  {countries.map((x) => {
+                    return (
+                      <option value={x.dial_code}>
+                        {x.dial_code} {x.name}
+                      </option>
+                    );
+                  })}
                 </select>
 
                 <p className="text-xs italic text-red-500">
