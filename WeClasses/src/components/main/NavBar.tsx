@@ -40,33 +40,41 @@ function NavBarr() {
         >
           {translation.nav.login}
         </Link>
-
+        <div className="text-[1rem]">
+          <img
+            src={translation.nav.language == "English" ? usaFlag : spainFlag}
+            alt="uwu"
+            className="w-6"
+          />
+          <Dropdown label={translation.nav.language} inline>
+            <Dropdown.Item
+              className="flex gap-2"
+              onClick={() => {
+                setTranslation(spanish);
+              }}
+            >
+              <img className="w-6" src={spainFlag} alt="" />
+              <p>{translation.languages.spanish}</p>
+            </Dropdown.Item>
+            <Dropdown.Item
+              className="flex gap-2"
+              onClick={() => {
+                setTranslation(english);
+              }}
+            >
+              <img className="w-6" src={usaFlag} alt="" />
+              <p>{translation.languages.english}</p>
+            </Dropdown.Item>
+          </Dropdown>
+        </div>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
         <a href="#">{translation.nav.home}</a>
-        <a href="#">{translation.nav.about}</a>
-        <a href="#">{translation.nav.contact}</a>
-        <Dropdown label={translation.nav.language} inline>
-          <Dropdown.Item
-            className="flex gap-2"
-            onClick={() => {
-              setTranslation(spanish);
-            }}
-          >
-            <img className="w-6" src={spainFlag} alt="" />
-            <p>{translation.languages.spanish}</p>
-          </Dropdown.Item>
-          <Dropdown.Item
-            className="flex gap-2"
-            onClick={() => {
-              setTranslation(english);
-            }}
-          >
-            <img className="w-6" src={usaFlag} alt="" />
-            <p>{translation.languages.english}</p>
-          </Dropdown.Item>
-        </Dropdown>
+        <a href="#">{translation.nav.help}</a>
+
+        {/*<a href="#">{translation.nav.about}</a>*/}
+        {/*<a href="#">{translation.nav.contact}</a> */}
       </Navbar.Collapse>
     </Navbar>
   );

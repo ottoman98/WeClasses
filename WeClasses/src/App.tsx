@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <DataProviderSession>
-        <DataProviderLanguage defaultLanguage="english">
+        <DataProviderLanguage>
           <HashRouter>
             <Routes>
               <Route element={<Home />}>

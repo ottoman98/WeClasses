@@ -6,6 +6,7 @@ type translationType = {
         language: string,
         login: string
         register: string
+        help: string
 
 
     }, languages: {
@@ -61,9 +62,10 @@ type translationType = {
         }
     }
     footer: {
-
+        title: string,
         contact: {
             title: string,
+            content: Array<string>
 
         }
 

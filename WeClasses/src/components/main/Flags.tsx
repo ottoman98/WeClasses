@@ -16,7 +16,9 @@ function FlagsBar() {
             src={usaFlag}
             alt=""
           />
-          <strong className="text-center">Inglés</strong>
+          <strong className="text-center">
+            {translation.languages.english}
+          </strong>
         </div>
         <div className="flex flex-col p-2">
           <img
@@ -24,7 +26,9 @@ function FlagsBar() {
             src={germanyFlag}
             alt=""
           />
-          <strong className="text-center">Alemán</strong>
+          <strong className="text-center">
+            {translation.languages.german}
+          </strong>
         </div>
         <div className="flex flex-col p-2">
           <img
@@ -32,7 +36,9 @@ function FlagsBar() {
             src={spainFlag}
             alt=""
           />
-          <strong className="text-center">Español</strong>
+          <strong className="text-center">
+            {translation.languages.spanish}
+          </strong>
         </div>
         <div className="flex flex-col p-2">
           <img
@@ -40,7 +46,9 @@ function FlagsBar() {
             src={franceFlag}
             alt=""
           />
-          <strong className="text-center">Francés</strong>
+          <strong className="text-center">
+            {translation.languages.french}
+          </strong>
         </div>
       </div>
 

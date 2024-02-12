@@ -3,40 +3,41 @@ import { translationType } from "../types/translationTypes";
 
 const english: translationType = {
     languages: {
-        english: 'Ingle',
-        spanish: 'Español',
-        french: 'Francés',
-        german: 'Alemán'
+        english: 'English',
+        spanish: 'Spanish',
+        french: 'French',
+        german: 'German'
     },
     nav: {
         home: 'Home',
-        about: 'About',
+        about: 'About us',
         contact: 'Contact',
-        language: 'Language',
-        login: 'Login',
-        register: 'Free Register'
+        language: 'English',
+        login: 'Sign in',
+        register: 'Sign up',
+        help: 'Help'
 
 
     }
     , carousel: {
         slide1: {
-            title: 'Aprende un nuevo idioma con nuestros profesores expertos',
-            button: 'Conoce Más'
+            title: 'Learn a new language with our expert teachers',
+            button: 'Get started'
 
         },
         slide2: {
-            title: 'Únete a nuestra plataforma y comienza tus lecciones personalizadas con profesores nativos',
-            button: 'Conoce Más'
+            title: 'Join our platform and start your personalized classes with native teachers',
+            button: 'Get started'
 
         }
         , slide3: {
-            title: 'Conviértete en un ciudadano del mundo hablando diferentes idiomas',
-            button: 'Conoce Más'
+            title: 'Join our platform and start your personalized classes with native teachers',
+            button: 'Get started'
 
         }
     },
     flags: {
-        text: 'asd'
+        text: 'We have teachers in over 3 languages!'
     },
     discount: {
         title: 'La oportunidad de aprender idiomas con un 30% de descuento',
@@ -44,31 +45,33 @@ const english: translationType = {
         button: 'Más Información'
     },
     banner: {
-        title: 'Rompe las barreras del idioma y conecta con el mundo',
-        subtitle: 'Únete a nosotros y aprende de profesores multiculturales que harán que cada clase sea una experiencia enriquecedora.',
-        button: 'Encuentra tu profesor ideal'
+        title: 'Break language barriers and connect with the world',
+        subtitle: 'Join us and learn from multicultural teachers would make every class a great experience.',
+        button: 'Find your ideal teacher'
     },
 
     stats: {
         first: {
             bold: '+200',
-            text: 'Estudiantes Impactados',
+            text: 'Students',
         },
         second: {
-            bold: '3 Años',
-            text: 'de Experiencia del Proyecto',
+            bold: '3 Years',
+            text: 'Teaching languages',
         },
         third: {
             bold: '+5',
-            text: 'Países Alcanzados',
+            text: 'Reached countries',
         },
     },
     footer: {
+        title: 'Our Company',
         contact: {
-            title: 'Contacto'
+            title: 'Contact',
+            content: ['Become a teacher']
         },
         about: {
-            title: 'Nosotros'
+            title: 'About Us',
         },
         legal: {
             title: 'Legal',
@@ -76,7 +79,7 @@ const english: translationType = {
 
         },
         follow: {
-            title: 'Síguenos',
+            title: 'Follow Us',
             content: ['Instagram', 'Facebook', 'TikTok', 'Youtube', 'LinkedIn']
         }
     },

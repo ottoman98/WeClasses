@@ -1,6 +1,6 @@
 import Banner2 from "./Banner";
 import CarouselFull from "./Carousel";
-import Discount from "./Discount";
+//import Discount from "./Discount";
 import FlagsBar from "./Flags";
 import whatsApp from "../../assets/icons/whatsapp.png";
 import Stats from "./Stats";
@@ -10,9 +10,9 @@ function Main() {
     <>
       <CarouselFull />
       <FlagsBar />
-      <Discount />
-      <Banner2 />
+      {/*<Discount />*/}
       <Stats />
+      <Banner2 />
       <a
         href="https://api.whatsapp.com/send/?phone=%2B14708120999&text&type=phone_number&app_absent=0"
         target="_blank"

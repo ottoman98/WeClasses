@@ -12,31 +12,32 @@ const spanish: translationType = {
         home: 'Inicio',
         about: 'Quienes Somos',
         contact: 'Contacto',
-        language: 'Idioma',
+        language: 'Español',
         login: 'Ingresar',
-        register: 'Regístrate Gratis '
+        register: 'Regístrate Gratis ',
+        help: 'Ayuda'
 
 
     }
     , carousel: {
         slide1: {
-            title: 'Aprende un nuevo idioma con nuestros profesores expertos',
-            button: 'Conoce Más'
+            title: 'Aprende un nuevo idioma con nuestros profesores expertos.',
+            button: 'Comenzar'
 
         },
         slide2: {
-            title: 'Únete a nuestra plataforma y comienza tus lecciones personalizadas con profesores nativos',
-            button: 'Conoce Más'
+            title: 'Únete a nuestra plataforma y comienza tus lecciones personalizadas con profesores nativos.',
+            button: 'Comenzar'
 
         }
         , slide3: {
-            title: 'Conviértete en un ciudadano del mundo hablando diferentes idiomas',
-            button: 'Conoce Más'
+            title: 'Conviértete en un ciudadano del mundo hablando diferentes idiomas.',
+            button: 'Comenzar'
 
         }
     },
     flags: {
-        text: 'Tenemos profesores en más de 4 idiomas'
+        text: 'Tenemos profesores en más de 4 idiomas!'
     },
     discount: {
         title: 'La oportunidad de aprender idiomas con un 30% de descuento',
@@ -45,7 +46,8 @@ const spanish: translationType = {
     },
     banner: {
         title: 'Rompe las barreras del idioma y conecta con el mundo',
-        subtitle: 'Únete a nosotros y aprende de profesores multiculturales que harán que cada clase sea una experiencia enriquecedora.',
+        subtitle: 'Únete y aprender de profesores multiculturales que harán de cada clase una gran experiencia.'
+        ,
         button: 'Encuentra tu profesor ideal'
     },
     stats: {
@@ -63,8 +65,10 @@ const spanish: translationType = {
         },
     },
     footer: {
+        title: 'Nuestra Empresa',
         contact: {
-            title: 'Contacto'
+            title: 'Contacto',
+            content: [''],
         },
         about: {
             title: 'Nosotros'

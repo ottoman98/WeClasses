@@ -6,8 +6,11 @@ import {
   BsYoutube,
 } from "react-icons/bs";
 import logo from "../../assets/logos/Recurso 9@3x blanco.png";
+import { useContext } from "react";
+import { DataContextLanguage } from "../../context/language";
 
 function Footer2() {
+  const { translation } = useContext(DataContextLanguage);
   return (
     <footer className="bg-blue-950 text-white max-w-[150rem] mx-auto ">
       <div className="px-4 py-16 mx-auto sm:px-6 lg:px-8">
@@ -61,31 +64,27 @@ function Footer2() {
               </a>
             </div>
           </div>
+
           <div className="grid grid-cols-2 gap-14 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <p className="font-medium">Contacto</p>
+              <p className="font-medium">{translation.footer.contact.title}</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-slate-100">
-                <a className="hover:opacity-75"> davidsclasses1@gmail.com</a>
-                <a className="hover:opacity-75"> +1 (470) 812-0999 </a>
+                <span> davidsclasses1@gmail.com</span>
+                <span> +1 (470) 812-0999 </span>
               </nav>
             </div>
             <div>
-              <p className="font-medium">Nosotros</p>
+              <p className="font-medium">{translation.footer.about.title}</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a className="hover:opacity-75">WeClasses </a>
+                {translation.footer.contact.content.map((x) => {
+                  return <span>{x}</span>;
+                })}
               </nav>
             </div>
+
             <div>
-              <p className="font-medium">Legal</p>
-              <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
-                <a className="hover:opacity-75"> Políticas de privacidad</a>
-                <a className="hover:opacity-75"> Términos y condiciones</a>
-                <a className="hover:opacity-75">Política de devoluciones</a>
-                <a className="hover:opacity-75"> Accesibilidad </a>
-              </nav>
-            </div>
-            <div>
-              <p className="font-medium">Síguenos</p>
+              <p className="font-medium">{translation.footer.follow.title}</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a
                   className="hover:opacity-75"
