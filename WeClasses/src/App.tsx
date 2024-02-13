@@ -17,6 +17,8 @@ import UserRemainingForm from "./components/auth/UserRemainingForm";
 import Login from "./components/auth/Login";
 import { DataProviderLanguage } from "./context/language";
 import Profile from "./components/dashboard/student/Profile";
+import Recover from "./components/auth/Recover";
+import ChangePassword from "./components/auth/ChangePassword";
 //import PrivilegesRoutes from "./pages/PrivilegesRoutes";
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/user/:id" element={<UserRemainingForm />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/recover" element={<Recover />} />
+                <Route path="/recover/:id" element={<ChangePassword />} />
               </Route>
               //*LOGIN ROUTES
               <Route element={<ProtectedRoutes />}>

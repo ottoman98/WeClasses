@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
 import { login, contact, fullContact } from "../types/userTypes";
 import { useEffect, useState } from "react";
@@ -44,10 +45,25 @@ async function axiosPutRemainingData(
     withCredentials: true,
   });
 }
-
+async function axiosRecoverPassword(email: string) {
+  return axios.post(
+    `${URL}/recover`,
+    { email },
+    {
+      withCredentials: true,
+    }
+  );
+}
+async function axiosChangePassword(id: string | undefined, password: object) {
+  return axios.put(`${URL}/recover/${id}`, password, {
+    withCredentials: true,
+  });
+}
 export {
   axiosLogin,
   axiosContact,
   AxiosGetRemainingData,
   axiosPutRemainingData,
+  axiosRecoverPassword,
+  axiosChangePassword,
 };
