@@ -21,17 +21,17 @@ const english: translationType = {
     }
     , carousel: {
         slide1: {
-            title: 'Learn a new language with our expert teachers',
+            title: 'Learn a new language with our expert teachers.',
             button: 'Get started'
 
         },
         slide2: {
-            title: 'Join our platform and start your personalized classes with native teachers',
+            title: 'Join our platform and start your personalized classes with native teachers.',
             button: 'Get started'
 
         }
         , slide3: {
-            title: 'Join our platform and start your personalized classes with native teachers',
+            title: 'Join our platform and start your personalized classes with native teachers.',
             button: 'Get started'
 
         }
