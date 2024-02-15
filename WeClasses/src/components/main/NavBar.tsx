@@ -73,6 +73,7 @@ function NavBarr() {
         <a href="#">{translation.nav.home}</a>
         <a href="#">{translation.nav.help}</a>
         <a href="#">Stories</a>
+        <a href="#">Pal de chicles</a>
 
         {/*<a href="#">{translation.nav.about}</a>*/}
         {/*<a href="#">{translation.nav.contact}</a> */}
