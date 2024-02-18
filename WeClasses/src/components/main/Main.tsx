@@ -6,17 +6,19 @@ import whatsApp from "../../assets/icons/whatsapp.png";
 import Stats from "./Stats";
 import Offers from "./Offers";
 import BecomeTutor from "./BecomeTutor";
+import AQ from "./AQ";
 
 function Main() {
   return (
     <>
       <CarouselFull />
       <FlagsBar />
-      {/*<Discount />*/}
+      <Banner2 />
       <Stats />
+      {/*<Discount />*/}
       <Offers />
       <BecomeTutor />
-      <Banner2 />
+      <AQ />
       <a
         href="https://api.whatsapp.com/send/?phone=%2B14708120999&text&type=phone_number&app_absent=0"
         target="_blank"
