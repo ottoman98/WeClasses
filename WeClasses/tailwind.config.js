@@ -9,7 +9,7 @@ module.exports = {
   ],
   theme: {
     fontFamily:{
-'main':['"Playfair Display"', 'serif']
+'main':['"Noto Sans"', 'sans-serif']
 
     },
     screens:{
@@ -17,6 +17,13 @@ module.exports = {
       ...defaultTheme.screens
     
     },
+    extend:{
+
+      colors:{
+        'customBlack':'#313140',
+        
+      }
+    }
     
 
   },
