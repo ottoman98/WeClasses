@@ -10,19 +10,19 @@ function FlagsBar() {
   return (
     <section className="pt-5 ">
       <div className="flex justify-around">
-        <div className="flex flex-col p-2 justify-center">
+        <div className="flex flex-col p-2 ">
           <img
-            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20"
             src={usaFlag}
             alt=""
           />
-          <strong className="text-center">
+          <strong className="text-center ">
             {translation.languages.english}
           </strong>
         </div>
         <div className="flex flex-col p-2">
           <img
-            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20"
             src={germanyFlag}
             alt=""
           />
@@ -32,7 +32,7 @@ function FlagsBar() {
         </div>
         <div className="flex flex-col p-2">
           <img
-            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20"
             src={spainFlag}
             alt=""
           />
@@ -42,7 +42,7 @@ function FlagsBar() {
         </div>
         <div className="flex flex-col p-2">
           <img
-            className="object-contain xs:w-5 md:w-10 xl:w-20 rounded-xl "
+            className="object-contain xs:w-5 md:w-10 xl:w-20"
             src={franceFlag}
             alt=""
           />

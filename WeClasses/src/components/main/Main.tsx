@@ -4,6 +4,8 @@ import CarouselFull from "./Carousel";
 import FlagsBar from "./Flags";
 import whatsApp from "../../assets/icons/whatsapp.png";
 import Stats from "./Stats";
+import Offers from "./Offers";
+import BecomeTutor from "./BecomeTutor";
 
 function Main() {
   return (
@@ -12,6 +14,8 @@ function Main() {
       <FlagsBar />
       {/*<Discount />*/}
       <Stats />
+      <Offers />
+      <BecomeTutor />
       <Banner2 />
       <a
         href="https://api.whatsapp.com/send/?phone=%2B14708120999&text&type=phone_number&app_absent=0"

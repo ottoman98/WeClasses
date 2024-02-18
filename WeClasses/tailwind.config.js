@@ -21,6 +21,7 @@ module.exports = {
 
       colors:{
         'customBlack':'#313140',
+        'light-blue':'#1f8ece'
         
       }
     }

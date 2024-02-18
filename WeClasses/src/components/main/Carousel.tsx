@@ -7,6 +7,7 @@ import full3 from "../../assets/carousel/slide3.jpg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContextLanguage } from "../../context/language";
+import Button from "../partials/Button";
 
 function CarouselFull() {
   const { translation } = useContext(DataContextLanguage);
@@ -48,12 +49,7 @@ function CarouselFull() {
                   </p>
                 </li>
               </ul>
-              <Link
-                className="bg-blue-950 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 hover:bg-blue-900 duration-500"
-                to="#"
-              >
-                {translation.carousel.slide1.button}
-              </Link>
+              <Button content={translation.carousel.slide1.button} link="/" />
             </div>
           </div>
         </div>

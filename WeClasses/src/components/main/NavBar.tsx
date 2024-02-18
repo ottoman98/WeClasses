@@ -17,7 +17,7 @@ function NavBarr() {
 
   return (
     <>
-      <nav className="flex p-3 justify-between border-b-[1px] ">
+      <nav className="flex p-3 justify-between border-b-[1px] text-slate-500 ">
         <Link to="/">
           <img className="w-32" src={logo} alt="" />
         </Link>

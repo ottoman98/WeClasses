@@ -4,7 +4,7 @@ import Footer2 from "../components/main/Footer";
 
 function Home() {
   return (
-    <div className="font-main text-xs  text-slate-500">
+    <div className="font-main text-xs  text-customBlack">
       <NavBar />
       <main className="max-w-[80rem]  mx-auto">
         <Outlet />
