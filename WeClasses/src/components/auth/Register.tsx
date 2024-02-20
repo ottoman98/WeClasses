@@ -46,29 +46,44 @@ function Leaks() {
           La plataforma de idiomas más efectiva del mundo
         </h2>
         <div className="flex gap-10 ">
-          <div className="border-4 py-5 px-3">
-            <h3 className="text-xl font-bold">Mejora tus habilidades</h3>
+          <div className="border-4 p-5  border-light-blue rounded-lg text-xl w-1/3">
+            <h3 className=" font-bold">Mejora tus habilidades</h3>
             <p className="font-bold">Lorem ipsum dolor sit,?aaaaaaaaaaaaaaa</p>
-            <ul>
-              <li>Lorem ipsum dolor sit,?</li>
-              <li>Lorem ipsum dolor sit,?</li>
-              <li>Lorem ipsum dolor sit,?</li>
-              <li>Lorem ipsum dolor sit,?</li>
-              <li>Lorem ipsum dolor sit,?</li>
+            <ul className="list-inside list-disc py-5 flex flex-col gap-3">
+              <li>
+                Obtén retroalimentación personalizada en cada clase privada
+              </li>
+              <li>
+                Obtén retroalimentación personalizada en cada clase privada
+              </li>
+              <li>
+                Obtén retroalimentación personalizada en cada clase privada
+              </li>
+              <li>
+                Obtén retroalimentación personalizada en cada clase privada
+              </li>
+              <li>
+                Obtén retroalimentación personalizada en cada clase privada
+              </li>
             </ul>
+            <p>
+              Ofrecemos <strong>una garantía de satisfacción</strong> , porque
+              aqui lo que sobra es billete
+            </p>
           </div>
           <form
             onSubmit={handleSubmit(async (x) => {
               const data = await axiosContact(x);
               setServerResponse(data.data);
             })}
-            className=" bg-light-blue py-10 px-5 flex flex-col gap-10"
+            className=" py-10 px-5 flex flex-col gap-10 w-1/2"
           >
             <p className="font-bold text-base">
               Registrate para saber como podemos ayudarte
             </p>
-            <div className="grid grid-cols-2">
-              <div>
+            <div className="grid grid-cols-2 text-base gap-2">
+              <div className="flex flex-col">
+                <label htmlFor="name">Name *</label>
                 <input
                   id="name"
                   {...register("name", {
@@ -79,12 +94,14 @@ function Leaks() {
                   })}
                   type="text"
                   placeholder={translation.register.form.name}
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                 />
                 <p className="text-xs italic text-red-500">
                   {errors.name?.message}
                 </p>
               </div>
-              <div>
+              <div className="flex flex-col">
+                <label htmlFor="">LastName</label>
                 <input
                   {...register("lastName", {
                     required: {
@@ -94,15 +111,18 @@ function Leaks() {
                   })}
                   type="text"
                   placeholder={translation.register.form.lastName}
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                  id="lastName"
                 />
 
                 <p className="text-xs italic text-red-500">
                   {errors.lastName?.message}
                 </p>
               </div>
-              <div className="col-span-2  ">
+              <div className="col-span-2  flex flex-col">
+                <label htmlFor="name">Email *</label>
                 <input
-                  className="w-full"
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full"
                   {...register("email", {
                     required: {
                       value: true,
@@ -125,46 +145,55 @@ function Leaks() {
                 </p>
               </div>
 
-              <div className="col-span-2 flex flex-row">
-                <select
-                  {...register("countryCode", {
-                    required: { value: true, message: "Required" },
-                  })}
-                >
-                  <option value="">
-                    {translation.register.form.countryCode}
-                  </option>
-                  {countries.map((x) => {
-                    return (
-                      <option value={x.dial_code}>
-                        {x.dial_code} {x.name}
-                      </option>
-                    );
-                  })}
-                </select>
+              <div className="col-span-2 flex flex-row ">
+                <div className="flex flex-col w-1/4">
+                  <label htmlFor="name">Indicativo *</label>
+                  <select
+                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                    {...register("countryCode", {
+                      required: { value: true, message: "Required" },
+                    })}
+                  >
+                    <option value="">
+                      {translation.register.form.countryCode}
+                    </option>
+                    {countries.map((x) => {
+                      return (
+                        <option value={x.dial_code}>
+                          {x.dial_code} {x.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                  <p className="text-xs italic text-red-500">
+                    {errors.countryCode?.message}
+                  </p>
+                </div>
 
-                <p className="text-xs italic text-red-500">
-                  {errors.countryCode?.message}
-                </p>
+                <div className="flex flex-col w-full">
+                  <label htmlFor="name">Phone Number *</label>
+                  <input
+                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl "
+                    {...register("phone", {
+                      required: {
+                        value: true,
+                        message: "Required",
+                      },
+                    })}
+                    type="number"
+                    placeholder={translation.register.form.phone}
+                  />
 
-                <input
-                  {...register("phone", {
-                    required: {
-                      value: true,
-                      message: "Required",
-                    },
-                  })}
-                  type="number"
-                  placeholder={translation.register.form.phone}
-                />
-
-                <p className="text-xs italic text-red-500">
-                  {errors.phone?.message}
-                </p>
+                  <p className="text-xs italic text-red-500">
+                    {errors.phone?.message}
+                  </p>
+                </div>
               </div>
 
-              <div>
+              <div className="flex flex-col">
+                <label htmlFor="name">Language to learn *</label>
                 <select
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                   {...register("languageToLearn", {
                     required: { value: true, message: "Required" },
                   })}
@@ -180,8 +209,10 @@ function Leaks() {
                   {errors.languageToLearn?.message}
                 </p>
               </div>
-              <div>
+              <div className="flex flex-col">
+                <label htmlFor="name">Native language *</label>
                 <select
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                   {...register("nativeLanguage", {
                     required: { value: true, message: "Required" },
                   })}
@@ -211,7 +242,16 @@ function Leaks() {
                 </p>
               </div>
               <div className="col-span-2">
-                <button>{translation.register.form.submit}</button>
+                <input type="checkbox" id="privacy" />
+                <label htmlFor="privacy">
+                  Si, he leído y comprendido cómo EF procesa mis datos
+                  personales tal y como establece la política de privacidad. *
+                </label>
+              </div>
+              <div className="col-span-2 flex">
+                <button className="bg-blue-950 text-white px-10 text-xl mx-auto rounded-lg">
+                  {translation.register.form.submit}
+                </button>
               </div>
             </div>
           </form>
