@@ -47,7 +47,7 @@ function Login() {
           </Link>
         </div>
 
-        <div>
+        <div className="flex justify-center">
           <GoogleLogin
             onSuccess={(credentialResponse) => {
               console.log(credentialResponse);
@@ -128,7 +128,7 @@ function Login() {
           </Link>
           <div className="mb-4">
             <input
-              className="mr-2 leading-tight "
+              className="mr-2 leading-tight checked:bg-blue-950 rounded-xl"
               type="checkbox"
               id="checkbox_id"
               {...register("keepSession")}
@@ -138,7 +138,7 @@ function Login() {
           </div>
 
           <div className="mb-6 text-center">
-            <button className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full">
+            <button className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 ">
               Sign In
             </button>
           </div>

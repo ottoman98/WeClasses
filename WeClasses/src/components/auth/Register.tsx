@@ -41,22 +41,33 @@ function Leaks() {
   return (
     <>
       <ModalWithButton show={bool} message={message} />
-
-      <div className="flex justify-center items-center w-screen  bg-white pb-32">
-        <div>
-          <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-            <div className="flex">
-              <h1 className="font-bold uppercase text-5xl">
-                {translation.register.title}
-              </h1>
-            </div>
-            <form
-              onSubmit={handleSubmit(async (x) => {
-                const data = await axiosContact(x);
-                setServerResponse(data.data);
-              })}
-              className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5"
-            >
+      <div>
+        <h2 className="text-6xl text-center ">
+          La plataforma de idiomas más efectiva del mundo
+        </h2>
+        <div className="flex gap-10 ">
+          <div className="border-4 py-5 px-3">
+            <h3 className="text-xl font-bold">Mejora tus habilidades</h3>
+            <p className="font-bold">Lorem ipsum dolor sit,?aaaaaaaaaaaaaaa</p>
+            <ul>
+              <li>Lorem ipsum dolor sit,?</li>
+              <li>Lorem ipsum dolor sit,?</li>
+              <li>Lorem ipsum dolor sit,?</li>
+              <li>Lorem ipsum dolor sit,?</li>
+              <li>Lorem ipsum dolor sit,?</li>
+            </ul>
+          </div>
+          <form
+            onSubmit={handleSubmit(async (x) => {
+              const data = await axiosContact(x);
+              setServerResponse(data.data);
+            })}
+            className=" bg-light-blue py-10 px-5 flex flex-col gap-10"
+          >
+            <p className="font-bold text-base">
+              Registrate para saber como podemos ayudarte
+            </p>
+            <div className="grid grid-cols-2">
               <div>
                 <input
                   id="name"
@@ -66,7 +77,6 @@ function Leaks() {
                       message: "Required ",
                     },
                   })}
-                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="text"
                   placeholder={translation.register.form.name}
                 />
@@ -82,7 +92,6 @@ function Leaks() {
                       message: "Required ",
                     },
                   })}
-                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="text"
                   placeholder={translation.register.form.lastName}
                 />
@@ -91,8 +100,9 @@ function Leaks() {
                   {errors.lastName?.message}
                 </p>
               </div>
-              <div>
+              <div className="col-span-2  ">
                 <input
+                  className="w-full"
                   {...register("email", {
                     required: {
                       value: true,
@@ -104,7 +114,6 @@ function Leaks() {
                         "Debe ingresar un correo de la forma Ej. example@examples.ex",
                     },
                   })}
-                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="email"
                   placeholder={translation.register.form.email}
                 />
@@ -115,12 +124,67 @@ function Leaks() {
                     : ""}
                 </p>
               </div>
+
+              <div className="col-span-2 flex flex-row">
+                <select
+                  {...register("countryCode", {
+                    required: { value: true, message: "Required" },
+                  })}
+                >
+                  <option value="">
+                    {translation.register.form.countryCode}
+                  </option>
+                  {countries.map((x) => {
+                    return (
+                      <option value={x.dial_code}>
+                        {x.dial_code} {x.name}
+                      </option>
+                    );
+                  })}
+                </select>
+
+                <p className="text-xs italic text-red-500">
+                  {errors.countryCode?.message}
+                </p>
+
+                <input
+                  {...register("phone", {
+                    required: {
+                      value: true,
+                      message: "Required",
+                    },
+                  })}
+                  type="number"
+                  placeholder={translation.register.form.phone}
+                />
+
+                <p className="text-xs italic text-red-500">
+                  {errors.phone?.message}
+                </p>
+              </div>
+
+              <div>
+                <select
+                  {...register("languageToLearn", {
+                    required: { value: true, message: "Required" },
+                  })}
+                  id="name"
+                >
+                  <option value="">
+                    {translation.register.form.languageToLearn}
+                  </option>
+                  <option value="es">Español</option>
+                  <option value="en">English</option>
+                </select>
+                <p className="text-xs italic text-red-500">
+                  {errors.languageToLearn?.message}
+                </p>
+              </div>
               <div>
                 <select
                   {...register("nativeLanguage", {
                     required: { value: true, message: "Required" },
                   })}
-                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   id="name"
                 >
                   <option value="">
@@ -146,99 +210,11 @@ function Leaks() {
                   {errors.nativeLanguage?.message}
                 </p>
               </div>
-
-              <div className="flex gap-1">
-                <select
-                  {...register("countryCode", {
-                    required: { value: true, message: "Required" },
-                  })}
-                  className="w-[46%]  bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                >
-                  <option value="">
-                    {translation.register.form.countryCode}
-                  </option>
-                  {countries.map((x) => {
-                    return (
-                      <option value={x.dial_code}>
-                        {x.dial_code} {x.name}
-                      </option>
-                    );
-                  })}
-                </select>
-
-                <p className="text-xs italic text-red-500">
-                  {errors.countryCode?.message}
-                </p>
-
-                <input
-                  {...register("phone", {
-                    required: {
-                      value: true,
-                      message: "Required",
-                    },
-                  })}
-                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  type="number"
-                  placeholder={translation.register.form.phone}
-                />
-
-                <p className="text-xs italic text-red-500">
-                  {errors.phone?.message}
-                </p>
-              </div>
-
-              <div>
-                <select
-                  {...register("languageToLearn", {
-                    required: { value: true, message: "Required" },
-                  })}
-                  className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                  id="name"
-                >
-                  <option value="">
-                    {translation.register.form.languageToLearn}
-                  </option>
-                  <option value="es">Español</option>
-                  <option value="en">English</option>
-                </select>
-                <p className="text-xs italic text-red-500">
-                  {errors.languageToLearn?.message}
-                </p>
-              </div>
-
-              <button
-                className="uppercase text-sm font-bold tracking-wide bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
-                      focus:outline-none focus:shadow-outline"
-              >
-                {translation.register.form.submit}
-              </button>
-            </form>
-          </div>
-
-          <div className="w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-blue-900 rounded-2xl ">
-            <div className="flex flex-col text-white">
-              <h1 className="font-bold uppercase text-4xl my-4">
-                {translation.register.complement.title}
-              </h1>
-              <p className="text-gray-400">
-                {translation.register.complement.text}
-              </p>
-
-              <div className="flex my-4 w-2/3 lg:w-1/2">
-                <div className="flex flex-col">
-                  <i className="fas fa-phone-alt pt-2 pr-2" />
-                </div>
-                <div className="flex flex-col">
-                  <h2 className="text-2xl">
-                    {translation.register.complement.subtitle}
-                  </h2>
-                  <p className="text-gray-400">
-                    {translation.register.complement.contact}
-                  </p>
-                </div>
+              <div className="col-span-2">
+                <button>{translation.register.form.submit}</button>
               </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </>

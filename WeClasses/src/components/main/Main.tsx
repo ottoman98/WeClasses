@@ -19,8 +19,8 @@ function Main() {
       {/*<Discount />*/}
       <Offers />
       <BecomeTutor />
-      <AQ />
       <MobileBanner />
+      <AQ />
       <a
         href="https://api.whatsapp.com/send/?phone=%2B14708120999&text&type=phone_number&app_absent=0"
         target="_blank"
