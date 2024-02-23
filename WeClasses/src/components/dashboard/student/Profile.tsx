@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
-import NavBarProfile from "../NavBarProfile";
+
 import AsideProfile from "./AsideProfile";
+import NavBarProfileStudent from "./NavbarProfileStudent";
 
 function Profile() {
   return (
     <>
-      <NavBarProfile />
+      <NavBarProfileStudent />
       <AsideProfile />
       <Outlet />
     </>

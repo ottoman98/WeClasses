@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import AsideProfile from "./AsideProfile";
-import NavBarProfile from "../NavBarProfile";
+import NavBarProfile from "../NavBarProfileTeacher";
 
 function Dashboard() {
   return (

@@ -19,7 +19,6 @@ import { DataProviderLanguage } from "./context/language";
 import Profile from "./components/dashboard/student/Profile";
 import Recover from "./components/auth/Recover";
 import ChangePassword from "./components/auth/ChangePassword";
-//import PrivilegesRoutes from "./pages/PrivilegesRoutes";
 
 function App() {
   return (

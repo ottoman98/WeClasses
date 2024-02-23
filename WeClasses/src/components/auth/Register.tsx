@@ -6,7 +6,9 @@ import { axiosContact } from "../../api/axios";
 import ModalWithButton from "./ModalWithButton";
 import { DataContextLanguage } from "../../context/language";
 import countries from "../../utils/CountryCodes.json";
-function Leaks() {
+import { FcApproval } from "react-icons/fc";
+
+function Register() {
   const { translation } = useContext(DataContextLanguage);
   const [serverResponse, setServerResponse] = useState<{
     message: string;
@@ -41,28 +43,29 @@ function Leaks() {
   return (
     <>
       <ModalWithButton show={bool} message={message} />
-      <div>
-        <h2 className="text-6xl text-center ">
+      <div className="py-20">
+        <h2 className="text-6xl text-center font-bold text-blue-950">
           La plataforma de idiomas más efectiva del mundo
         </h2>
-        <div className="flex gap-10 ">
-          <div className="border-4 p-5  border-light-blue rounded-lg text-xl w-1/3">
-            <h3 className=" font-bold">Mejora tus habilidades</h3>
+        <div className="flex gap-10 justify-around p-10 ">
+          <div className="border-4 p-5  border-light-blue rounded-lg text-xl w-1/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] flex flex-col gap-2">
+            <h3 className=" font-bold text-blue-950">Mejora tus habilidades</h3>
             <p className="font-bold">Lorem ipsum dolor sit,?aaaaaaaaaaaaaaa</p>
-            <ul className="list-inside list-disc py-5 flex flex-col gap-3">
-              <li>
+            <ul className="py-5 flex flex-col gap-3">
+              <li className="flex flex-row">
+                <FcApproval size={45} className="flex -mt-2 px-1" />
                 Obtén retroalimentación personalizada en cada clase privada
               </li>
-              <li>
+              <li className="flex flex-row">
+                <FcApproval size={45} className="flex -mt-2 px-1" />
                 Obtén retroalimentación personalizada en cada clase privada
               </li>
-              <li>
+              <li className="flex flex-row">
+                <FcApproval size={45} className="flex -mt-2 px-1" />
                 Obtén retroalimentación personalizada en cada clase privada
               </li>
-              <li>
-                Obtén retroalimentación personalizada en cada clase privada
-              </li>
-              <li>
+              <li className="flex flex-row">
+                <FcApproval size={45} className="flex -mt-2 px-1" />
                 Obtén retroalimentación personalizada en cada clase privada
               </li>
             </ul>
@@ -76,14 +79,16 @@ function Leaks() {
               const data = await axiosContact(x);
               setServerResponse(data.data);
             })}
-            className=" py-10 px-5 flex flex-col gap-10 w-1/2"
+            className=" py-20 px-5 flex flex-col gap-10 w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
           >
             <p className="font-bold text-base">
               Registrate para saber como podemos ayudarte
             </p>
-            <div className="grid grid-cols-2 text-base gap-2">
+            <div className="grid grid-cols-2 text-base gap-6">
               <div className="flex flex-col">
-                <label htmlFor="name">Name *</label>
+                <label className="font-bold" htmlFor="name">
+                  Name <span className="text-red-600">*</span>
+                </label>
                 <input
                   id="name"
                   {...register("name", {
@@ -101,7 +106,9 @@ function Leaks() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="">LastName</label>
+                <label className="font-bold" htmlFor="">
+                  LastName <span className="text-red-600">*</span>
+                </label>
                 <input
                   {...register("lastName", {
                     required: {
@@ -120,7 +127,9 @@ function Leaks() {
                 </p>
               </div>
               <div className="col-span-2  flex flex-col">
-                <label htmlFor="name">Email *</label>
+                <label className="font-bold" htmlFor="name">
+                  Email <span className="text-red-600">*</span>
+                </label>
                 <input
                   className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full"
                   {...register("email", {
@@ -147,7 +156,9 @@ function Leaks() {
 
               <div className="col-span-2 flex flex-row ">
                 <div className="flex flex-col w-1/4">
-                  <label htmlFor="name">Indicativo *</label>
+                  <label className="font-bold" htmlFor="name">
+                    Indicativo <span className="text-red-600">*</span>
+                  </label>
                   <select
                     className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                     {...register("countryCode", {
@@ -171,7 +182,9 @@ function Leaks() {
                 </div>
 
                 <div className="flex flex-col w-full">
-                  <label htmlFor="name">Phone Number *</label>
+                  <label className="font-bold" htmlFor="name">
+                    Phone Number <span className="text-red-600">*</span>
+                  </label>
                   <input
                     className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl "
                     {...register("phone", {
@@ -191,7 +204,9 @@ function Leaks() {
               </div>
 
               <div className="flex flex-col">
-                <label htmlFor="name">Language to learn *</label>
+                <label className="font-bold" htmlFor="name">
+                  Language to learn <span className="text-red-600">*</span>
+                </label>
                 <select
                   className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                   {...register("languageToLearn", {
@@ -210,7 +225,9 @@ function Leaks() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <label htmlFor="name">Native language *</label>
+                <label className="font-bold" htmlFor="name">
+                  Native language <span className="text-red-600">*</span>
+                </label>
                 <select
                   className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                   {...register("nativeLanguage", {
@@ -242,14 +259,23 @@ function Leaks() {
                 </p>
               </div>
               <div className="col-span-2">
-                <input type="checkbox" id="privacy" />
+                <input
+                  className="mr-2 leading-tight checked:bg-blue-950 rounded-xl"
+                  type="checkbox"
+                  id="privacy"
+                />
                 <label htmlFor="privacy">
                   Si, he leído y comprendido cómo EF procesa mis datos
-                  personales tal y como establece la política de privacidad. *
+                  personales tal y como establece la
+                  <span className="font-bold text-blue-950">
+                    {" "}
+                    politica de privacidad
+                  </span>
+                  <span className="text-red-600">*</span>
                 </label>
               </div>
               <div className="col-span-2 flex">
-                <button className="bg-blue-950 text-white px-10 text-xl mx-auto rounded-lg">
+                <button className="bg-blue-950 text-white px-10 py-1 text-xl mx-auto rounded-xl">
                   {translation.register.form.submit}
                 </button>
               </div>
@@ -261,4 +287,4 @@ function Leaks() {
   );
 }
 
-export default Leaks;
+export default Register;
