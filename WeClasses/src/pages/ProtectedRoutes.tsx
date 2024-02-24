@@ -18,7 +18,15 @@ function ProtectedRoutes() {
         return (
           <>
             <Outlet />
-            <Navigate to="/profile/resume/" />
+            <Navigate to="/profile/" />
+          </>
+        );
+      }
+      if (decoded.level == "teacher") {
+        return (
+          <>
+            <Outlet />
+            <Navigate to="/dashboard/" />
           </>
         );
       }

@@ -15,32 +15,40 @@ function NavBarProfileStudent() {
 
   return (
     <>
-      <nav className="flex  justify-between py-4 px-2 text-slate-500 ">
+      <nav className="flex  justify-between py-4 px-2">
         <div className=" flex flex-row gap-5">
           <img src={logo} className="w-32" alt="WeClasses Logo" />
-          <li className="flex items-center">Find Tutor</li>
+          <li className="flex items-center">Find Tutors</li>
         </div>
-        <div className="flex md:order-2 gap-5">
+        <div className="flex md:order-2 gap-10">
           <ul className="flex gap-3">
-            <li className="flex">
-              <FcMoneyTransfer />
+            <li className="flex gap-1 text-blue-900 items-center">
+              <FcMoneyTransfer size={20} className="mt-1" />
               Balance : 100$
             </li>
-            <li>Subscribe</li>
-            <li>Refer a Friend</li>
+            <li className="flex items-center">
+              <span className="border-2 py-1 px-2 border-light-blue rounded-lg">
+                Subscribe
+              </span>
+            </li>
+            <li className="flex items-center">
+              <span className="border-2 py-1 px-2 border-light-blue rounded-lg">
+                Refer a Friend
+              </span>
+            </li>
           </ul>
           <ul className="flex gap-5 ">
-            <li>
+            <li className="flex items-center">
               <LanguageSwitch />
             </li>
-            <li>
-              <FcComments />
+            <li className="flex items-center mt-1">
+              <FcComments size={20} />
             </li>
-            <li>
-              <IoIosHelpCircle />
+            <li className="flex items-center mt-1">
+              <IoIosHelpCircle size={20} />
             </li>
-            <li>
-              <IoMdNotifications />
+            <li className="flex items-center mt-1">
+              <IoMdNotifications size={20} />
             </li>
           </ul>
           <Dropdown
@@ -54,14 +62,17 @@ function NavBarProfileStudent() {
               />
             }
           >
-            <Dropdown.Header>
-              <span className="block text-sm">name</span>
-              <span className="block truncate text-sm font-medium">
-                Osman@WeClasses.we
-              </span>
-            </Dropdown.Header>
             <Dropdown.Item>
-              <Link to="/dashboard/resume">Profile</Link>
+              <Link to="/dashboard/resume">Home</Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/dashboard/resume">Messages</Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/dashboard/resume">My lessons</Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/dashboard/resume">Saved Tutors</Link>
             </Dropdown.Item>
             <Dropdown.Item>Settings</Dropdown.Item>
 
@@ -72,7 +83,7 @@ function NavBarProfileStudent() {
                 setCookie("");
               }}
             >
-              Sign out
+              Log out
             </Dropdown.Item>
           </Dropdown>
         </div>

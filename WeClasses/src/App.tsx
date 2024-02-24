@@ -19,44 +19,53 @@ import { DataProviderLanguage } from "./context/language";
 import Profile from "./components/dashboard/student/Profile";
 import Recover from "./components/auth/Recover";
 import ChangePassword from "./components/auth/ChangePassword";
+import { DataProviderTabs } from "./context/studentsTab";
 
 function App() {
   return (
     <>
       <DataProviderSession>
         <DataProviderLanguage>
-          <HashRouter>
-            <Routes>
-              <Route element={<Home />}>
-                <Route path="/" element={<Main />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/user/:id" element={<UserRemainingForm />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/recover" element={<Recover />} />
-                <Route path="/recover/:id" element={<ChangePassword />} />
-              </Route>
-              //*LOGIN ROUTES
-              <Route element={<ProtectedRoutes />}>
-                //*STUDENTS ROUTES
-                <Route path="/profile" element={<Profile />}>
-                  <Route path="/profile/resume" element={<>identic</>} />
+          <DataProviderTabs>
+            <HashRouter>
+              <Routes>
+                <Route element={<Home />}>
+                  <Route path="/" element={<Main />} />
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/user/:id" element={<UserRemainingForm />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/recover" element={<Recover />} />
+                  <Route path="/recover/:id" element={<ChangePassword />} />
                 </Route>
-                <Route path="/dashboard" element={<Dashboard />}>
-                  //*TEACHER ROUTES
-                  <Route path="/dashboard/resume" element={<>Stats</>} />
-                  <Route path="/dashboard/stories" element={<AllStories />} />
-                  <Route path="/dashboard/story" element={<StoriesForm />} />
-                  <Route path="/dashboard/story/:id" element={<EditStory />} />
-                  <Route path="/dashboard/classes" element={<AllClasses />} />
-                  <Route path="/dashboard/addclass" element={<ClassesForm />} />
-                  <Route
-                    path="/dashboard/editclass/:id"
-                    element={<EditClassesForm />}
-                  />
+                //*LOGIN ROUTES
+                <Route element={<ProtectedRoutes />}>
+                  //*STUDENTS ROUTES
+                  <Route path="/profile" element={<Profile />}>
+                    <Route path="/profile/" element={<>identic</>} />
+                  </Route>
+                  <Route path="/dashboard" element={<Dashboard />}>
+                    //*TEACHER ROUTES
+                    <Route path="/dashboard/resume" element={<>Stats</>} />
+                    <Route path="/dashboard/stories" element={<AllStories />} />
+                    <Route path="/dashboard/story" element={<StoriesForm />} />
+                    <Route
+                      path="/dashboard/story/:id"
+                      element={<EditStory />}
+                    />
+                    <Route path="/dashboard/classes" element={<AllClasses />} />
+                    <Route
+                      path="/dashboard/addclass"
+                      element={<ClassesForm />}
+                    />
+                    <Route
+                      path="/dashboard/editclass/:id"
+                      element={<EditClassesForm />}
+                    />
+                  </Route>
                 </Route>
-              </Route>
-            </Routes>
-          </HashRouter>
+              </Routes>
+            </HashRouter>
+          </DataProviderTabs>
         </DataProviderLanguage>
       </DataProviderSession>
     </>
