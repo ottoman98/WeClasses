@@ -2,7 +2,7 @@ import { contact } from "../../types/userTypes";
 import { useForm } from "react-hook-form";
 import { ReactNode, useContext, useState } from "react";
 //import { useNavigate } from "react-router-dom";
-import { axiosContact } from "../../api/axios";
+import { axiosRegisterStudent } from "../../api/axios";
 import ModalWithButton from "./ModalWithButton";
 import { DataContextLanguage } from "../../context/language";
 import countries from "../../utils/CountryCodes.json";
@@ -76,7 +76,7 @@ function Register() {
           </div>
           <form
             onSubmit={handleSubmit(async (x) => {
-              const data = await axiosContact(x);
+              const data = await axiosRegisterStudent(x);
               setServerResponse(data.data);
             })}
             className=" py-20 px-5 flex flex-col gap-10 w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"

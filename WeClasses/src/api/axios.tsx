@@ -2,6 +2,7 @@
 import axios from "axios";
 import { login, contact, fullContact } from "../types/userTypes";
 import { useEffect, useState } from "react";
+import { teacherData } from "../types/teacher";
 
 const URL = import.meta.env.VITE_URL;
 
@@ -11,8 +12,14 @@ async function axiosLogin(credentials: login) {
   });
 }
 
-async function axiosContact(data: contact) {
+async function axiosRegisterStudent(data: contact) {
   return axios.post(`${URL}/students_register`, data, {
+    withCredentials: true,
+  });
+}
+
+async function axiosRegisterTeacher(data: teacherData) {
+  return axios.post(`${URL}/tutor_register`, data, {
     withCredentials: true,
   });
 }
@@ -61,7 +68,8 @@ async function axiosChangePassword(id: string | undefined, password: object) {
 }
 export {
   axiosLogin,
-  axiosContact,
+  axiosRegisterStudent,
+  axiosRegisterTeacher,
   AxiosGetRemainingData,
   axiosPutRemainingData,
   axiosRecoverPassword,

@@ -12,7 +12,7 @@ import AllClasses from "./components/dashboard/teacher/AllClasses";
 import ClassesForm from "./components/dashboard/teacher/ClassesForm";
 import EditClassesForm from "./components/dashboard/teacher/EditClassForm";
 import Main from "./components/main/Main";
-import Register from "./components/auth/Register";
+import Register from "./components/auth/RegisterStudent";
 import UserRemainingForm from "./components/auth/UserRemainingForm";
 import Login from "./components/auth/Login";
 import { DataProviderLanguage } from "./context/language";
@@ -20,6 +20,7 @@ import Profile from "./components/dashboard/student/Profile";
 import Recover from "./components/auth/Recover";
 import ChangePassword from "./components/auth/ChangePassword";
 import { DataProviderTabs } from "./context/studentsTab";
+import RegisterTeachers from "./components/auth/RegisterTeachers";
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
                 <Route element={<Home />}>
                   <Route path="/" element={<Main />} />
                   <Route path="/register" element={<Register />} />
+                  <Route
+                    path="/register_tutor"
+                    element={<RegisterTeachers />}
+                  />
                   <Route path="/user/:id" element={<UserRemainingForm />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/recover" element={<Recover />} />
@@ -40,9 +45,7 @@ function App() {
                 //*LOGIN ROUTES
                 <Route element={<ProtectedRoutes />}>
                   //*STUDENTS ROUTES
-                  <Route path="/profile" element={<Profile />}>
-                    <Route path="/profile/" element={<>identic</>} />
-                  </Route>
+                  <Route path="/profile" element={<Profile />} />
                   <Route path="/dashboard" element={<Dashboard />}>
                     //*TEACHER ROUTES
                     <Route path="/dashboard/resume" element={<>Stats</>} />
