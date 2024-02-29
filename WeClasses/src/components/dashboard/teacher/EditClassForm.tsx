@@ -1,17 +1,23 @@
 import { useForm } from "react-hook-form";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { classe } from "../../../types/classeTypes";
 import RichEditor from "../../../utils/RichEditor";
 import { GetClasseById, putClasse } from "../../../api/axiosClasses";
 import { valid } from "../../../types/postResponse";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { DataContextTabsClasses } from "../../../context/classes/classes";
 
 function EditClassesForm() {
-  const { id } = useParams();
+  const { name, setName } = useContext(DataContextTabsClasses);
+  const id = name;
 
   const data: classe | undefined = GetClasseById(id);
 
   const [response, setResponse] = useState<valid | null>(null);
+
+  if (response?.valid) {
+    setName("");
+  }
 
   const {
     register,

@@ -29,7 +29,7 @@ function NavBarr() {
           </li>
 
           <li className="flex items-center  hover:text-blue-950">
-            Become a teacher
+            <Link to="/register_tutor"> Become a teacher</Link>
           </li>
           <li className="flex items-center  hover:text-blue-950">
             {translation.nav.help}
