@@ -18,7 +18,9 @@ function NavBarProfileStudent() {
       <nav className="flex  justify-between py-4 px-2">
         <div className=" flex flex-row gap-5">
           <img src={logo} className="w-32" alt="WeClasses Logo" />
-          <li className="flex items-center">Find Tutors</li>
+          <li className="flex items-center">
+            <Link to="/classes">Find Tutors</Link>
+          </li>
         </div>
         <div className="flex md:order-2 gap-10">
           <ul className="flex gap-3">

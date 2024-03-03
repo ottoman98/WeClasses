@@ -1,12 +1,8 @@
 import { Route, Routes, HashRouter } from "react-router-dom";
-
 import { DataProviderSession } from "./context/session";
-
 import Home from "./pages/Home";
 import Dashboard from "./components/dashboard/teacher/Dashboard";
-
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-
 import Main from "./components/main/Main";
 import Register from "./components/auth/RegisterStudent";
 import UserRemainingForm from "./components/auth/UserRemainingForm";
@@ -17,6 +13,7 @@ import Recover from "./components/auth/Recover";
 import ChangePassword from "./components/auth/ChangePassword";
 import { DataProviderTabs } from "./context/studentsTab";
 import RegisterTeachers from "./components/auth/RegisterTeachers";
+import ClassesList from "./components/dashboard/student/ClassesList";
 
 function App() {
   return (
@@ -37,6 +34,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/recover" element={<Recover />} />
                   <Route path="/recover/:id" element={<ChangePassword />} />
+                  <Route path="/classes" element={<ClassesList />} />
                 </Route>
                 //*LOGIN ROUTES
                 <Route element={<ProtectedRoutes />}>

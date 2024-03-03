@@ -23,7 +23,7 @@ function Login() {
   const { setCookie } = useContext(DataContextSession);
 
   if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
-    navigate("/dashboard/resume");
+    navigate("/dashboard");
     setCookie(getCookies("token"));
   }
 
