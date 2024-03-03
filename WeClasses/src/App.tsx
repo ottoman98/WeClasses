@@ -13,7 +13,7 @@ import Recover from "./components/auth/Recover";
 import ChangePassword from "./components/auth/ChangePassword";
 import { DataProviderTabs } from "./context/studentsTab";
 import RegisterTeachers from "./components/auth/RegisterTeachers";
-import ClassesList from "./components/dashboard/student/ClassesList";
+import ClassesList from "./components/classes/ClassesList";
 
 function App() {
   return (
