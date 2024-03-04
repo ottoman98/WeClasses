@@ -66,6 +66,13 @@ async function axiosChangePassword(id: string | undefined, password: object) {
     withCredentials: true,
   });
 }
+
+async function axiosSetPassword(id: string | undefined, password: object) {
+  return axios.put(`${URL}/tutor_password/${id}`, password, {
+    withCredentials: true,
+  });
+}
+
 export {
   axiosLogin,
   axiosRegisterStudent,
@@ -74,4 +81,5 @@ export {
   axiosPutRemainingData,
   axiosRecoverPassword,
   axiosChangePassword,
+  axiosSetPassword,
 };

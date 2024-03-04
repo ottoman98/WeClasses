@@ -27,7 +27,10 @@ function RegisterTeachers() {
   }
 
   //language
-  const [languages, setLanguages] = useState([{ language: "", level: "" }]);
+  const [languages, setLanguages] = useState([
+    { language: "", level: "" },
+    { language: "", level: "" },
+  ]);
 
   useEffect(() => {
     setValue("languages", languages);
@@ -223,6 +226,7 @@ function RegisterTeachers() {
                 return (
                   <div>
                     <select
+                      required={true}
                       className="w-1/2 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                       id="language"
                       value={x.language}
@@ -251,6 +255,7 @@ function RegisterTeachers() {
                       <option value="vi">Tiếng Việt (Vietnamita)</option>
                     </select>
                     <select
+                      required={true}
                       className="w-2/5 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                       id="level"
                       value={x.level}

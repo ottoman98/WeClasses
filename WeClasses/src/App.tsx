@@ -14,6 +14,7 @@ import ChangePassword from "./components/auth/ChangePassword";
 import { DataProviderTabs } from "./context/studentsTab";
 import RegisterTeachers from "./components/auth/RegisterTeachers";
 import ClassesList from "./components/classes/ClassesList";
+import SetPassword from "./components/auth/PasswordTeacher";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/recover" element={<Recover />} />
                   <Route path="/recover/:id" element={<ChangePassword />} />
+                  <Route path="/tutor_password/:id" element={<SetPassword />} />
                   <Route path="/classes" element={<ClassesList />} />
                 </Route>
                 //*LOGIN ROUTES
