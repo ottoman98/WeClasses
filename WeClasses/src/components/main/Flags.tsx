@@ -8,7 +8,7 @@ import { DataContextLanguage } from "../../context/language";
 function FlagsBar() {
   const { translation } = useContext(DataContextLanguage);
   return (
-    <section className="pt-5 ">
+    <section className="pt-5 max-w-[80rem] mx-auto">
       <div className="flex justify-around">
         <div className="flex flex-col p-2 ">
           <img

@@ -2,7 +2,7 @@ import Button from "../partials/Button";
 
 function BecomeTutor() {
   return (
-    <section className="p-5">
+    <section className="p-5 max-w-[80rem] mx-auto">
       <div
         className="flex mx-auto rounded-xl border-[1px] border-light-blue
       "

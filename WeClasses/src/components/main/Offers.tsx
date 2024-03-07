@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FcNext } from "react-icons/fc";
 function Offers() {
   return (
-    <section className="flex justify-center flex-col py-20 px-8">
+    <section className="flex justify-center flex-col py-20 px-8 max-w-[80rem] mx-auto">
       <h2 className="text-4xl text-center font-extrabold text-blue-950">
         See what WeClasses offers
       </h2>

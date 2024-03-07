@@ -1,5 +1,4 @@
 import Banner2 from "./Banner";
-import CarouselFull from "./Carousel";
 //import Discount from "./Discount";
 import FlagsBar from "./Flags";
 import whatsApp from "../../assets/icons/whatsapp.png";
@@ -8,15 +7,15 @@ import Offers from "./Offers";
 import BecomeTutor from "./BecomeTutor";
 import AQ from "./AQ";
 import MobileBanner from "./MobileBanner";
+import Description from "./Description";
 
 function Main() {
   return (
     <>
-      <CarouselFull />
+      <Description />
       <FlagsBar />
       <Banner2 />
       <Stats />
-      {/*<Discount />*/}
       <Offers />
       <BecomeTutor />
       <MobileBanner />

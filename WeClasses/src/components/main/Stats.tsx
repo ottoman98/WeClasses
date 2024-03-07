@@ -6,7 +6,7 @@ import { DataContextLanguage } from "../../context/language";
 function Stats() {
   const { translation } = useContext(DataContextLanguage);
   return (
-    <section className="flex p-10 justify-around   gap-3  ">
+    <section className="flex p-10 justify-around   gap-3 max-w-[80rem] mx-auto  ">
       <div className="flex flex-col">
         <BsPeople size={30} />
         <strong className="text-xl">{translation.stats.first.bold}</strong>

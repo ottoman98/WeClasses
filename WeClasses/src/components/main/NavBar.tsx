@@ -25,7 +25,7 @@ function NavBarr() {
             <LanguageSwitch />
           </li>
           <li className="flex items-center  hover:text-blue-950">
-            Find a teacher
+            <Link to="classes">Find a teacher</Link>
           </li>
 
           <li className="flex items-center  hover:text-blue-950">

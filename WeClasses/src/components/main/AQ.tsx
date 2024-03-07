@@ -4,9 +4,9 @@ function AQ() {
       <h2 className="text-center text-4xl font-bold">
         Frequently asked questions
       </h2>
-      <div className="pt-10 flex flex-col gap-3 text-customBlack text-lg">
-        <details name="info" className="">
-          <summary className="font-extrabold border-b-[2px] border-blue-900">
+      <div className="pt-10 flex flex-col gap-3 text-customBlack text-lg max-w-[80rem] mx-auto w-full">
+        <details name="info">
+          <summary className="font-extrabold border-b-[2px] border-blue-900 ">
             How does WeClasses Work
           </summary>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veniam nulla

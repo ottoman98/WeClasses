@@ -1,5 +1,5 @@
 import { classe } from "../../types/classeTypes";
-import Button from "../partials/Button";
+import postPurchaseClasse from "../../api/studentPurchases";
 
 function ClassesCard({ data }: { data: classe }) {
   return (
@@ -28,8 +28,16 @@ function ClassesCard({ data }: { data: classe }) {
           <span>4.9</span>
           <span>COP 43,044</span>
           <span>{data.duration} min</span>
+          <span>{data.level}</span>
         </div>
-        <Button content="Book lesson" link="" />
+        <button
+          onClick={() => {
+            postPurchaseClasse({ classe: data._id });
+          }}
+          className="bg-blue-950 text-white p-5 rounded"
+        >
+          Book Class
+        </button>
       </div>
     </div>
   );
