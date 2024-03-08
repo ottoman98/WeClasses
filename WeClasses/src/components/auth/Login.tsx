@@ -18,6 +18,7 @@ function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<login>();
+  console.log(serverResponse);
 
   const navigate = useNavigate();
   const { setCookie } = useContext(DataContextSession);

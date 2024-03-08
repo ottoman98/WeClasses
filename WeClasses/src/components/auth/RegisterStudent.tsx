@@ -26,6 +26,7 @@ function Register() {
   if (serverResponse !== null && serverResponse.valid) {
     bool = true;
   }
+  console.log(countries);
 
   const message: ReactNode = (
     <>

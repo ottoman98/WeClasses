@@ -1,7 +1,9 @@
 import { classe } from "../../types/classeTypes";
 import postPurchaseClasse from "../../api/studentPurchases";
+import { useNavigate } from "react-router-dom";
 
 function ClassesCard({ data }: { data: classe }) {
+  const navigate = useNavigate();
   return (
     <div className="flex border rounded-md p-4 gap-10">
       <img
@@ -33,6 +35,7 @@ function ClassesCard({ data }: { data: classe }) {
         <button
           onClick={() => {
             postPurchaseClasse({ classe: data._id });
+            navigate("/profile");
           }}
           className="bg-blue-950 text-white p-5 rounded"
         >

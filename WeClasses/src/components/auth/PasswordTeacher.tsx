@@ -26,7 +26,7 @@ function SetPassword() {
 
   const message: ReactNode = (
     <>
-      <p>Su Contraseña se seteo exitosamente</p>
+      <p>Sus datos se setearon exitosamente</p>
     </>
   );
 
@@ -37,7 +37,7 @@ function SetPassword() {
         <div className="container max-w-screen-lg mx-auto">
           <div>
             <h2 className="font-semibold text-xl text-gray-600">
-              Cambiar Contraseña
+              Agrega tu info
             </h2>
             <p className="text-gray-500 mb-6">
               Completa tus datos y empieza a aprender hoy mismo!
@@ -57,6 +57,52 @@ function SetPassword() {
                     })}
                     className="w-full grid grid-cols-1 gap-2 md:grid-cols-2 "
                   >
+                    <div className="flex flex-col">
+                      <label htmlFor="name">
+                        Foto de usted onde se vea bien
+                      </label>
+                      <input
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        id="name"
+                        type="file"
+                      />
+
+                      <p className="text-xs italic text-red-500">
+                        {errors.password?.message}
+                      </p>
+                      <p className="text-xs italic text-red-500">
+                        {typeof serverResponse === "string"
+                          ? serverResponse
+                          : ""}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label htmlFor="name">Link Video*</label>
+                      <input
+                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        id="name"
+                        type="url"
+                      />
+                      <span className="text-xs">
+                        en este video persona responde, preguntas sencillas,
+                        nombre,tiempo experiencia enseñando, de donde es, y
+                        porque quiere unirse ,
+                        <strong className="text-red-600">
+                          en el idioma nativo y en el/los idiomas que quiere
+                          enseñar.
+                        </strong>
+                      </span>
+                      <p className="text-xs italic text-red-500">
+                        {errors.password?.message}
+                      </p>
+                      <p className="text-xs italic text-red-500">
+                        {typeof serverResponse === "string"
+                          ? serverResponse
+                          : ""}
+                      </p>
+                    </div>
+
                     <div className="flex flex-col">
                       <label htmlFor="name">Password*</label>
                       <input

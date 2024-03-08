@@ -35,7 +35,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/recover" element={<Recover />} />
                   <Route path="/recover/:id" element={<ChangePassword />} />
-                  <Route path="/tutor_password/:id" element={<SetPassword />} />
+                  <Route path="/tutor_info/:id" element={<SetPassword />} />
                   <Route path="/classes" element={<ClassesList />} />
                 </Route>
                 //*LOGIN ROUTES
