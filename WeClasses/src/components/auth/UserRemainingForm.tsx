@@ -29,10 +29,13 @@ function UserRemainingForm() {
       setValue("phone", data.phone);
       setValue("nativeLanguage", data.nativeLanguage);
       setValue("languageToLearn", data.languageToLearn);
+      setValue("countryCode", "+" + data.countryCode);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
+
+  console.log(countries);
 
   let bool = false;
 
@@ -57,7 +60,7 @@ function UserRemainingForm() {
         <div className="container max-w-screen-lg mx-auto">
           <div>
             <h2 className="font-semibold text-xl text-gray-600">
-              Formulario de usuario
+              Formulario de usuarioaa
             </h2>
             <p className="text-gray-500 mb-6">
               Completa tus datos y empieza a aprender hoy mismo!

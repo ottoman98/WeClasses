@@ -8,15 +8,24 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-    fontFamily:{
-'main':['"Playfair Display"', 'serif']
-
-    },
+  
     screens:{
       'xs':'300px',
       ...defaultTheme.screens
     
     },
+    extend:{
+
+      colors:{
+        'customBlack':'#313140',
+        'light-blue':'#1f8ece'
+        
+      } ,
+       fontFamily:{
+'main':['"Poppins"', 'sans-serif']
+
+    },
+    }
     
 
   },

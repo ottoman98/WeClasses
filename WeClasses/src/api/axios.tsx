@@ -2,6 +2,8 @@
 import axios from "axios";
 import { login, contact, fullContact } from "../types/userTypes";
 import { useEffect, useState } from "react";
+import { teacherData } from "../types/teacher";
+import { CredentialResponse } from "@react-oauth/google";
 
 const URL = import.meta.env.VITE_URL;
 
@@ -11,8 +13,20 @@ async function axiosLogin(credentials: login) {
   });
 }
 
-async function axiosContact(data: contact) {
+async function axiosGoogleLogin(credentials: CredentialResponse) {
+  return axios.post(`${URL}/google`, credentials, {
+    withCredentials: true,
+  });
+}
+
+async function axiosRegisterStudent(data: contact) {
   return axios.post(`${URL}/students_register`, data, {
+    withCredentials: true,
+  });
+}
+
+async function axiosRegisterTeacher(data: teacherData) {
+  return axios.post(`${URL}/tutor_register`, data, {
     withCredentials: true,
   });
 }
@@ -59,11 +73,21 @@ async function axiosChangePassword(id: string | undefined, password: object) {
     withCredentials: true,
   });
 }
+
+async function axiosSetPassword(id: string | undefined, password: object) {
+  return axios.put(`${URL}/tutor_password/${id}`, password, {
+    withCredentials: true,
+  });
+}
+
 export {
   axiosLogin,
-  axiosContact,
+  axiosRegisterStudent,
+  axiosRegisterTeacher,
   AxiosGetRemainingData,
   axiosPutRemainingData,
   axiosRecoverPassword,
   axiosChangePassword,
+  axiosSetPassword,
+  axiosGoogleLogin,
 };

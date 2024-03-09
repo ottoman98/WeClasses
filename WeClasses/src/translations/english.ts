@@ -13,7 +13,7 @@ const english: translationType = {
         about: 'About us',
         contact: 'Contact',
         language: 'English',
-        login: 'Sign in',
+        login: 'Log In',
         register: 'Sign up',
         help: 'Help'
 

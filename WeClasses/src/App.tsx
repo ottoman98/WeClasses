@@ -1,63 +1,57 @@
 import { Route, Routes, HashRouter } from "react-router-dom";
-
 import { DataProviderSession } from "./context/session";
-
 import Home from "./pages/Home";
 import Dashboard from "./components/dashboard/teacher/Dashboard";
-import AllStories from "./components/dashboard/teacher/AllStories";
-import StoriesForm from "./components/dashboard/teacher/StoriesForm";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-import EditStory from "./components/dashboard/teacher/EditStory";
-import AllClasses from "./components/dashboard/teacher/AllClasses";
-import ClassesForm from "./components/dashboard/teacher/ClassesForm";
-import EditClassesForm from "./components/dashboard/teacher/EditClassForm";
 import Main from "./components/main/Main";
-import Register from "./components/auth/Register";
+import Register from "./components/auth/RegisterStudent";
 import UserRemainingForm from "./components/auth/UserRemainingForm";
 import Login from "./components/auth/Login";
 import { DataProviderLanguage } from "./context/language";
 import Profile from "./components/dashboard/student/Profile";
 import Recover from "./components/auth/Recover";
 import ChangePassword from "./components/auth/ChangePassword";
-//import PrivilegesRoutes from "./pages/PrivilegesRoutes";
+import { DataProviderTabs } from "./context/studentsTab";
+import RegisterTeachers from "./components/auth/RegisterTeachers";
+import ClassesList from "./components/classes/ClassesList";
+import SetPassword from "./components/auth/PasswordTeacher";
+import ClassPayments from "./components/classes/ClassPayments";
 
 function App() {
   return (
     <>
       <DataProviderSession>
         <DataProviderLanguage>
-          <HashRouter>
-            <Routes>
-              <Route element={<Home />}>
-                <Route path="/" element={<Main />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/user/:id" element={<UserRemainingForm />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/recover" element={<Recover />} />
-                <Route path="/recover/:id" element={<ChangePassword />} />
-              </Route>
-              //*LOGIN ROUTES
-              <Route element={<ProtectedRoutes />}>
-                //*STUDENTS ROUTES
-                <Route path="/profile" element={<Profile />}>
-                  <Route path="/profile/resume" element={<>identic</>} />
-                </Route>
-                <Route path="/dashboard" element={<Dashboard />}>
-                  //*TEACHER ROUTES
-                  <Route path="/dashboard/resume" element={<>Stats</>} />
-                  <Route path="/dashboard/stories" element={<AllStories />} />
-                  <Route path="/dashboard/story" element={<StoriesForm />} />
-                  <Route path="/dashboard/story/:id" element={<EditStory />} />
-                  <Route path="/dashboard/classes" element={<AllClasses />} />
-                  <Route path="/dashboard/addclass" element={<ClassesForm />} />
+          <DataProviderTabs>
+            <HashRouter>
+              <Routes>
+                <Route path="checkout/:id" element={<ClassPayments />} />
+                <Route element={<Home />}>
+                  <Route path="/" element={<Main />} />
+                  <Route path="/register" element={<Register />} />
                   <Route
-                    path="/dashboard/editclass/:id"
-                    element={<EditClassesForm />}
+                    path="/register_tutor"
+                    element={<RegisterTeachers />}
                   />
+                  <Route path="/user/:id" element={<UserRemainingForm />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/recover" element={<Recover />} />
+                  <Route path="/recover/:id" element={<ChangePassword />} />
+                  <Route path="/tutor_info/:id" element={<SetPassword />} />
+                  <Route path="/classes" element={<ClassesList />} />
                 </Route>
-              </Route>
-            </Routes>
-          </HashRouter>
+                //*LOGIN ROUTES
+                <Route element={<ProtectedRoutes />}>
+                  //*STUDENTS ROUTES
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/dashboard" element={<Dashboard />}>
+                    //*TEACHER ROUTES
+                    <Route path="/dashboard/" element={<>Stats</>} />
+                  </Route>
+                </Route>
+              </Routes>
+            </HashRouter>
+          </DataProviderTabs>
         </DataProviderLanguage>
       </DataProviderSession>
     </>

@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 import { story } from "../../../types/storyTypes";
 import { GetStoryById, putStory } from "../../../api/axiosStories";
-import { useParams } from "react-router-dom";
+
 import RichEditor from "../../../utils/RichEditor";
 import { postResponse } from "../../../types/postResponse";
 
-function EditStory() {
+function EditStory(id: string) {
   const [response, setResponse] = useState<null | postResponse>(null);
 
   const {
@@ -17,7 +17,7 @@ function EditStory() {
     register,
     formState: { errors },
   } = useForm<story>();
-  const { id } = useParams();
+
   const navigate = useNavigate();
 
   const data: story | undefined = GetStoryById(id);

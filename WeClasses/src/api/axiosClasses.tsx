@@ -19,6 +19,35 @@ function GetAllClasses(): Array<classe> | undefined {
 
   return first;
 }
+function GetAllClassesTeacher(): Array<classe> | undefined {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .get(`${URL}/classesPosted`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
+
+function GetAllPurchaseClasses(): Array<classe> | undefined {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .get(`${URL}/purchaseClasses`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
 
 function GetClasseById(id: string | undefined): classe | undefined {
   const [first, setFirst] = useState();
@@ -47,4 +76,11 @@ function putClasse(id: string | undefined, data: classe) {
   });
 }
 
-export { GetAllClasses, postClasse, GetClasseById, putClasse };
+export {
+  GetAllClasses,
+  postClasse,
+  GetClasseById,
+  putClasse,
+  GetAllClassesTeacher,
+  GetAllPurchaseClasses,
+};

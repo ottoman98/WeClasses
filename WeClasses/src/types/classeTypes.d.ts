@@ -1,5 +1,5 @@
 type classe = {
-    _id:string
+    _id: string
     name: string,
     description: string,
     duration: number,
@@ -7,7 +7,8 @@ type classe = {
     link: string,
     level: string,
     createdAt?: string
-
+    date: Date,
+    price: number
 }
 
 export { classe }
