@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { GetAllClasses } from "../../../api/axiosClasses";
+import { GetAllClassesTeacher } from "../../../api/axiosClasses";
 import { DataContextTabsClasses } from "../../../context/classes/classes";
 import EditClassesForm from "./EditClassForm";
 import ClassesForm from "./ClassesForm";
 
 function AllClasses() {
-  const data = GetAllClasses();
+  const data = GetAllClassesTeacher();
 
   const { name, setName } = useContext(DataContextTabsClasses);
   console.log(name);

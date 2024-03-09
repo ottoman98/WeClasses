@@ -2,7 +2,7 @@ import NavBarProfileStudent from "./NavbarProfileStudent";
 import NavBarOptionsProfile from "./NavBarOptionsProfile";
 import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";
-import MyLessons from "./MyLessons";
+import MyLessons from "./lessons/MyLessons";
 import Messages from "./messages/Messages";
 
 function Profile() {

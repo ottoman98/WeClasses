@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { classe } from "../../../types/classeTypes";
 import RichEditor from "../../../utils/RichEditor";
 import { postClasse } from "../../../api/axiosClasses";
 import { valid } from "../../../types/postResponse";
-import { useNavigate } from "react-router-dom";
+
 import { DataContextTabsClasses } from "../../../context/classes/classes";
 
 function ClassesForm() {
@@ -17,15 +17,10 @@ function ClassesForm() {
     formState: { errors },
   } = useForm<classe>();
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (response && response.valid == true) {
-      navigate("/dashboard/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [response]);
-
   const { setName } = useContext(DataContextTabsClasses);
+  if (response?.valid) {
+    setName("");
+  }
 
   return (
     <div>

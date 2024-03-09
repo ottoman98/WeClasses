@@ -1,8 +1,6 @@
-import { classe } from "../../types/classeTypes";
+import { classe } from "../../../../types/classeTypes";
 
-import { Link } from "react-router-dom";
-
-function ClassesCard({ data }: { data: classe }) {
+function ClassItem({ data }: { data: classe }) {
   return (
     <div className="flex border rounded-md p-4 gap-10">
       <img
@@ -26,17 +24,17 @@ function ClassesCard({ data }: { data: classe }) {
       </div>
       <div className="flex flex-col  ">
         <div className="flex gap-4">
-          <span>4.9</span>
-          <span>COP 43,044</span>
           <span>{data.duration} min</span>
           <span>{data.level}</span>
         </div>
         <button className="bg-blue-950 text-white p-5 rounded">
-          <Link to={`/checkout/${data._id}`}>Book Lesson</Link>
+          <a href={data.link} target="_blank">
+            Unirse a la clase
+          </a>
         </button>
       </div>
     </div>
   );
 }
 
-export default ClassesCard;
+export default ClassItem;

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { login } from "../../types/userTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { axiosLogin } from "../../api/axios";
+import { axiosGoogleLogin, axiosLogin } from "../../api/axios";
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { getCookies } from "../../utils/cookies";
@@ -50,8 +50,11 @@ function Login() {
 
         <div className="flex justify-center">
           <GoogleLogin
-            onSuccess={(credentialResponse) => {
-              console.log(credentialResponse);
+            onSuccess={async (credentialResponse) => {
+              await axiosGoogleLogin(credentialResponse);
+
+              setCookie(getCookies("token"));
+              navigate("/profile");
             }}
             onError={() => {
               console.log("Login Failed");

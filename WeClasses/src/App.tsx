@@ -15,6 +15,7 @@ import { DataProviderTabs } from "./context/studentsTab";
 import RegisterTeachers from "./components/auth/RegisterTeachers";
 import ClassesList from "./components/classes/ClassesList";
 import SetPassword from "./components/auth/PasswordTeacher";
+import ClassPayments from "./components/classes/ClassPayments";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <DataProviderTabs>
             <HashRouter>
               <Routes>
+                <Route path="checkout/:id" element={<ClassPayments />} />
                 <Route element={<Home />}>
                   <Route path="/" element={<Main />} />
                   <Route path="/register" element={<Register />} />

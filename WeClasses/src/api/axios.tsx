@@ -3,11 +3,18 @@ import axios from "axios";
 import { login, contact, fullContact } from "../types/userTypes";
 import { useEffect, useState } from "react";
 import { teacherData } from "../types/teacher";
+import { CredentialResponse } from "@react-oauth/google";
 
 const URL = import.meta.env.VITE_URL;
 
 async function axiosLogin(credentials: login) {
   return axios.post(`${URL}/students_login`, credentials, {
+    withCredentials: true,
+  });
+}
+
+async function axiosGoogleLogin(credentials: CredentialResponse) {
+  return axios.post(`${URL}/google`, credentials, {
     withCredentials: true,
   });
 }
@@ -82,4 +89,5 @@ export {
   axiosRecoverPassword,
   axiosChangePassword,
   axiosSetPassword,
+  axiosGoogleLogin,
 };
