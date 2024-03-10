@@ -149,9 +149,7 @@ function Register() {
                 />
                 <p className="text-xs italic text-red-500">
                   {errors.email?.message}
-                  {serverResponse?.message == "exist"
-                    ? "This email alredy Exist"
-                    : ""}
+                  {serverResponse?.message}
                 </p>
               </div>
 
