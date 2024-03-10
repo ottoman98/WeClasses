@@ -18,16 +18,15 @@ function Register() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm<contact>();
-  console.log(countries[0]);
+
   let bool = false;
 
   if (serverResponse !== null && serverResponse.valid) {
     bool = true;
   }
-  console.log(countries);
-
   const message: ReactNode = (
     <>
       <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
@@ -210,6 +209,12 @@ function Register() {
                   className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                   {...register("languageToLearn", {
                     required: { value: true, message: "Required" },
+                    validate: (value) => {
+                      return (
+                        value !== getValues("nativeLanguage") ||
+                        "los Idiomas deben ser diferentes"
+                      );
+                    },
                   })}
                   id="name"
                 >
