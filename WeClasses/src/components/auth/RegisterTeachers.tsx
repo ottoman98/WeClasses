@@ -33,6 +33,28 @@ function RegisterTeachers() {
   ]);
 
   useEffect(() => {
+    register("languages", {
+      required: {
+        value: true,
+        message: "ta vacio",
+      },
+      validate: (value) => {
+        const conditionLanguage = !value.some((x) => x.language == "");
+        const conditionLevel = !value.some((x) => x.level == "");
+
+        const native = value.some((x) => x.level == "native");
+
+        if (conditionLanguage && conditionLevel) {
+          if (native) {
+            return true;
+          } else {
+            return "minimo un nativo";
+          }
+        } else {
+          return "todos los campos son obligatorios lenguaje y nivel";
+        }
+      },
+    });
     setValue("languages", languages);
   }, [languages]);
 
@@ -226,7 +248,6 @@ function RegisterTeachers() {
                 return (
                   <div>
                     <select
-                      required={true}
                       className="w-1/2 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                       id="language"
                       value={x.language}
@@ -255,7 +276,6 @@ function RegisterTeachers() {
                       <option value="vi">Tiếng Việt (Vietnamita)</option>
                     </select>
                     <select
-                      required={true}
                       className="w-2/5 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
                       id="level"
                       value={x.level}
@@ -288,6 +308,10 @@ function RegisterTeachers() {
                   </div>
                 );
               })}
+              <p className="text-xs italic text-red-500">
+                {" "}
+                {errors.languages?.message}
+              </p>
 
               <p
                 onClick={() => {
