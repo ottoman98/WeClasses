@@ -1,17 +1,21 @@
 import { classe } from "../../types/classeTypes";
+import { FaStar } from "react-icons/fa6";
+import { FaGraduationCap } from "react-icons/fa";
+import { FaClock } from "react-icons/fa6";
+import { FaCalendarAlt } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
 function ClassesCard({ data }: { data: classe }) {
   return (
-    <div className="flex border rounded-md p-4 gap-10">
+    <div className="flex border rounded-md p-2 gap-10 ">
       <img
         className="w-32 rounded-full aspect-square"
         src="https://i.ebayimg.com/images/g/HyUAAOSwXSpgTlnV/s-l1200.webp"
         alt=""
       />
-      <div>
-        <h3 className="text-xl">{data.name}</h3>
+      <div className="w-1/2 flex flex-col gap-1">
+        <h3 className="text-lg font-bold">{data.name}</h3>
         <div className="flex flex-row">
           <img
             className="w-5"
@@ -20,18 +24,31 @@ function ClassesCard({ data }: { data: classe }) {
           />
           <span>Verified Teacher</span>
         </div>
-        <span>{data.language}</span>
-
-        <p dangerouslySetInnerHTML={{ __html: data.description }} />
-      </div>
-      <div className="flex flex-col  ">
-        <div className="flex gap-4">
-          <span>4.9</span>
-          <span>COP 43,044</span>
-          <span>{data.duration} min</span>
-          <span>{data.level}</span>
+        <div className="flex gap-1">
+          <FaGraduationCap size={17} />
+          <span>{data.language == "en" ? "English" : "Español"}</span>
         </div>
-        <button className="bg-blue-950 text-white p-5 rounded">
+        <div className="flex gap-1">
+          <FaClock />
+          <span>{data.duration} horas</span>
+        </div>
+
+        <span className="font-bold">{data.level}</span>
+      </div>
+      <div className="flex flex-col justify-between py-4 w-2/3">
+        <div className="flex flex-col">
+          <div className="flex gap-1">
+            <FaStar size={17} />
+            <span>4.9</span>
+          </div>
+          <div className="flex gap-1">
+            <FaStar size={17} />
+            <span>{data.date}</span>
+          </div>
+
+          <span>{data.price}</span>
+        </div>
+        <button className="bg-blue-950 text-white p-2 rounded">
           <Link to={`/checkout/${data._id}`}>Book Lesson</Link>
         </button>
       </div>

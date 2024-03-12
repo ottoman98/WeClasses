@@ -22,37 +22,41 @@ function ClassesList() {
   }
 
   return (
-    <section>
-      <h2>Online English tutors & teachers for private lessons</h2>
+    <section className="px-20 py-10 flex flex-col gap-10 ">
+      <h2 className=" text-5xl text-center">
+        Online English tutors & teachers for private lessons
+      </h2>
+      <div className="flex gap-10 px-20">
+        <select
+          className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+          name=""
+          id=""
+          onChange={(e) => {
+            const selected = e.target.value;
+            setLanguage(selected);
+          }}
+        >
+          <option value="">Todos los idiomas</option>
+          <option value="en">Ingles</option>
+          <option value="es">Español</option>
+        </select>
+        <select
+          className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+          name=""
+          id=""
+          onChange={(e) => {
+            const selected = e.target.value;
+            setLevel(selected);
+          }}
+        >
+          <option value="">Todos los idiomas</option>
+          <option value="A1-A2">A1-A2</option>
+          <option value="B1-B2">B1-B2</option>
+          <option value="C1-C2">C1-C2</option>
+        </select>
+      </div>
       <div>
-        <div>
-          <select
-            name=""
-            id=""
-            onChange={(e) => {
-              const selected = e.target.value;
-              setLanguage(selected);
-            }}
-          >
-            <option value="">Todos los idiomas</option>
-            <option value="en">Ingles</option>
-            <option value="es">Español</option>
-          </select>
-          <select
-            name=""
-            id=""
-            onChange={(e) => {
-              const selected = e.target.value;
-              setLevel(selected);
-            }}
-          >
-            <option value="">Todos los idiomas</option>
-            <option value="A1-A2">A1-A2</option>
-            <option value="B1-B2">B1-B2</option>
-            <option value="C1-C2">C1-C2</option>
-          </select>
-        </div>
-        <div className="px-10 py-5 flex flex-col gap-5">
+        <div className="px-10 py-5 grid grid-cols-3 gap-5">
           {filtered?.map((x) => {
             return <ClassesCard data={x} key={x._id} />;
           })}

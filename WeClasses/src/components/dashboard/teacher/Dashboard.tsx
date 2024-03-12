@@ -3,7 +3,7 @@ import NavBarOptionsProfileTeacher from "./NavBarOptionsProfileTeacher";
 import NavBarProfileTeacher from "./NavbarProfileTeacher";
 import ResumeTeacher from "./ResumeTeacher";
 import { DataContextTabs } from "../../../context/studentsTab";
-import AllClasses from "./AllClasses";
+import AllClasses from "./classes/AllClasses";
 import { DataProviderTabsClasses } from "../../../context/classes/classes";
 
 function Dashboard() {

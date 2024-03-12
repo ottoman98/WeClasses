@@ -5,7 +5,13 @@ import RichEditorProps from "../types/editorTypes";
 function RichEditor({ set, value }: RichEditorProps) {
   return (
     <>
-      <ReactQuill value={value} theme="snow" onChange={set} />
+      <ReactQuill
+        id="description"
+        value={value}
+        theme="snow"
+        onChange={set}
+        className="h-40"
+      />
     </>
   );
 }

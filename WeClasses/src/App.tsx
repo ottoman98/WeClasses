@@ -15,45 +15,56 @@ import { DataProviderTabs } from "./context/studentsTab";
 import RegisterTeachers from "./components/auth/RegisterTeachers";
 import ClassesList from "./components/classes/ClassesList";
 import SetPassword from "./components/auth/PasswordTeacher";
-import ClassPayments from "./components/classes/ClassPayments";
+
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import Checkout from "./utils/Checkout";
 
 function App() {
+  const initialOptions = {
+    clientId:
+      "AQ6oYLdDluaYLF4wQq16BN1Rk5q30gkNCwNElvFxqhYkjCvjvmNeSRwUVBwS3cQA3Cs_UhgM6ILlAnEg",
+    currency: "USD",
+    intent: "capture",
+  };
+
   return (
     <>
-      <DataProviderSession>
-        <DataProviderLanguage>
-          <DataProviderTabs>
-            <HashRouter>
-              <Routes>
-                <Route path="checkout/:id" element={<ClassPayments />} />
-                <Route element={<Home />}>
-                  <Route path="/" element={<Main />} />
-                  <Route path="/register" element={<Register />} />
-                  <Route
-                    path="/register_tutor"
-                    element={<RegisterTeachers />}
-                  />
-                  <Route path="/user/:id" element={<UserRemainingForm />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/recover" element={<Recover />} />
-                  <Route path="/recover/:id" element={<ChangePassword />} />
-                  <Route path="/tutor_info/:id" element={<SetPassword />} />
-                  <Route path="/classes" element={<ClassesList />} />
-                </Route>
-                //*LOGIN ROUTES
-                <Route element={<ProtectedRoutes />}>
-                  //*STUDENTS ROUTES
-                  <Route path="/profile" element={<Profile />} />
-                  <Route path="/dashboard" element={<Dashboard />}>
-                    //*TEACHER ROUTES
-                    <Route path="/dashboard/" element={<>Stats</>} />
+      <PayPalScriptProvider options={initialOptions}>
+        <DataProviderSession>
+          <DataProviderLanguage>
+            <DataProviderTabs>
+              <HashRouter>
+                <Routes>
+                  <Route path="/checkout" element={<Checkout />} />
+                  <Route element={<Home />}>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route
+                      path="/register_tutor"
+                      element={<RegisterTeachers />}
+                    />
+                    <Route path="/user/:id" element={<UserRemainingForm />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/recover" element={<Recover />} />
+                    <Route path="/recover/:id" element={<ChangePassword />} />
+                    <Route path="/tutor_info/:id" element={<SetPassword />} />
+                    <Route path="/classes" element={<ClassesList />} />
                   </Route>
-                </Route>
-              </Routes>
-            </HashRouter>
-          </DataProviderTabs>
-        </DataProviderLanguage>
-      </DataProviderSession>
+                  //*LOGIN ROUTES
+                  <Route element={<ProtectedRoutes />}>
+                    //*STUDENTS ROUTES
+                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/dashboard" element={<Dashboard />}>
+                      //*TEACHER ROUTES
+                      <Route path="/dashboard/" element={<>Stats</>} />
+                    </Route>
+                  </Route>
+                </Routes>
+              </HashRouter>
+            </DataProviderTabs>
+          </DataProviderLanguage>
+        </DataProviderSession>
+      </PayPalScriptProvider>
     </>
   );
 }
