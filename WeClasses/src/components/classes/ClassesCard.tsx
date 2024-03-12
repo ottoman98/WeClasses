@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa6";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
 
@@ -36,17 +37,23 @@ function ClassesCard({ data }: { data: classe }) {
         <span className="font-bold">{data.level}</span>
       </div>
       <div className="flex flex-col justify-between py-4 w-2/3">
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-1">
           <div className="flex gap-1">
             <FaStar size={17} />
             <span>4.9</span>
           </div>
           <div className="flex gap-1">
-            <FaStar size={17} />
-            <span>{data.date}</span>
+            <span>
+              {!data.date
+                ? ""
+                : new Date(data.date).toLocaleDateString() +
+                  " - " +
+                  new Date(data.date).toLocaleTimeString()}
+            </span>
           </div>
-
-          <span>{data.price}</span>
+          <div className="flex gap-1">
+            <span>{data.price} $</span>
+          </div>
         </div>
         <button className="bg-blue-950 text-white p-2 rounded">
           <Link to={`/checkout/${data._id}`}>Book Lesson</Link>
