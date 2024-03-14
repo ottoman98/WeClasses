@@ -18,6 +18,7 @@ import SetPassword from "./components/auth/PasswordTeacher";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Checkout from "./utils/Checkout";
+import TeacherInfo from "./components/descriptions/TeacherInfo";
 
 function App() {
   const initialOptions = {
@@ -35,7 +36,7 @@ function App() {
             <DataProviderTabs>
               <HashRouter>
                 <Routes>
-                  <Route path="/checkout" element={<Checkout />} />
+                  <Route path="/checkout/:id" element={<Checkout />} />
                   <Route element={<Home />}>
                     <Route path="/" element={<Main />} />
                     <Route path="/register" element={<Register />} />
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/recover/:id" element={<ChangePassword />} />
                     <Route path="/tutor_info/:id" element={<SetPassword />} />
                     <Route path="/classes" element={<ClassesList />} />
+                    <Route path="/teacher/:id" element={<TeacherInfo />} />
                   </Route>
                   //*LOGIN ROUTES
                   <Route element={<ProtectedRoutes />}>

@@ -8,7 +8,9 @@ type classe = {
     level: string,
     createdAt?: string
     date: string,
-    price: number
+    price: number,
+    teacherName?: string,
+    user?: string
 }
 
 export { classe }

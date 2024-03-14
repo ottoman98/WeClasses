@@ -9,9 +9,12 @@ import { useContext } from "react";
 
 import { dataContextLanguage } from "../../types/contextTypes";
 import LanguageSwitch from "../partials/LanguageSwitch";
+import { DataContextSession } from "../../context/session";
 
 function NavBarr() {
   const { translation } = useContext<dataContextLanguage>(DataContextLanguage);
+  const { cookie } = useContext(DataContextSession);
+  console.log(cookie);
 
   return (
     <>
@@ -19,7 +22,6 @@ function NavBarr() {
         <Link to="/">
           <img className="w-32" src={logo} alt="" />
         </Link>
-
         <ul className=" flex items-center  gap-5">
           <li className="flex items-center  hover:text-blue-950">
             <LanguageSwitch />
@@ -27,7 +29,6 @@ function NavBarr() {
           <li className="flex items-center  hover:text-blue-950">
             <Link to="classes">Find a teacher</Link>
           </li>
-
           <li className="flex items-center  hover:text-blue-950">
             <Link to="/register_tutor"> Become a teacher</Link>
           </li>
@@ -37,12 +38,20 @@ function NavBarr() {
         </ul>
 
         <ul className="flex items-center  gap-5">
-          <li className="flex items-center   text-blue-950">
-            <Link to="/login">{translation.nav.login}</Link>
-          </li>
-          <li className="flex items-center text-blue-950">
-            <Link to="/register">{translation.nav.register}</Link>
-          </li>
+          {!cookie ? (
+            <>
+              <li className="flex items-center   text-blue-950">
+                <Link to="/login">{translation.nav.login}</Link>
+              </li>
+              <li className="flex items-center text-blue-950">
+                <Link to="/register">{translation.nav.register}</Link>
+              </li>
+            </>
+          ) : (
+            <li className="flex items-center text-blue-950">
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
+          )}
         </ul>
       </nav>
     </>

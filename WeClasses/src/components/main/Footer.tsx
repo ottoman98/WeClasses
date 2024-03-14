@@ -1,13 +1,11 @@
-import {
-  BsFacebook,
-  BsInstagram,
-  BsLinkedin,
-  BsTiktok,
-  BsYoutube,
-} from "react-icons/bs";
 import logo from "../../assets/logos/Recurso 9@3x blanco.png";
 import { useContext } from "react";
 import { DataContextLanguage } from "../../context/language";
+import instagram from "../../assets/icons/instagram.png";
+import facebook from "../../assets/icons/facebook.png";
+import youtube from "../../assets/icons/youtube.png";
+import tiktok from "../../assets/icons/tiktok.png";
+import linkedin from "../../assets/icons/linkedin.png";
 
 function Footer2() {
   const { translation } = useContext(DataContextLanguage);
@@ -28,7 +26,7 @@ function Footer2() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <BsInstagram />
+                <img className="w-8" src={instagram} alt="" />
               </a>
               <a
                 className="hover:opacity-75"
@@ -36,7 +34,7 @@ function Footer2() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <BsFacebook />
+                <img className="w-8" src={facebook} alt="" />
               </a>
               <a
                 className="hover:opacity-75"
@@ -44,7 +42,7 @@ function Footer2() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <BsYoutube />
+                <img className="w-8" src={youtube} alt="" />
               </a>
               <a
                 className="hover:opacity-75"
@@ -52,7 +50,7 @@ function Footer2() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <BsTiktok />
+                <img className="w-8" src={tiktok} alt="" />
               </a>
               <a
                 className="hover:opacity-75"
@@ -60,7 +58,7 @@ function Footer2() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <BsLinkedin />
+                <img className="w-8" src={linkedin} alt="" />
               </a>
             </div>
           </div>
