@@ -49,6 +49,23 @@ function GetAllPurchaseClasses(): Array<classe> | undefined {
   return first;
 }
 
+function GetAllClassesProfile(
+  id: string | undefined
+): Array<classe> | undefined {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .get(`${URL}/classes_profile/${id}`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
+
 function GetClasseById(id: string | undefined): classe | undefined {
   const [first, setFirst] = useState();
   useEffect(() => {
@@ -83,4 +100,5 @@ export {
   putClasse,
   GetAllClassesTeacher,
   GetAllPurchaseClasses,
+  GetAllClassesProfile,
 };

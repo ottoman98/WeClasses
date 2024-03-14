@@ -3,7 +3,7 @@ type classe = {
     name: string,
     description: string,
     duration: number,
-    language: 'english' | 'spanish',
+    language: 'en' | 'es',
     link: string,
     level: string,
     createdAt?: string

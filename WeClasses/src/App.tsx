@@ -19,6 +19,7 @@ import SetPassword from "./components/auth/PasswordTeacher";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Checkout from "./utils/Checkout";
 import TeacherInfo from "./components/descriptions/TeacherInfo";
+import ClassInfo from "./components/descriptions/ClassInfo";
 
 function App() {
   const initialOptions = {
@@ -51,6 +52,7 @@ function App() {
                     <Route path="/tutor_info/:id" element={<SetPassword />} />
                     <Route path="/classes" element={<ClassesList />} />
                     <Route path="/teacher/:id" element={<TeacherInfo />} />
+                    <Route path="/class/:id" element={<ClassInfo />} />
                   </Route>
                   //*LOGIN ROUTES
                   <Route element={<ProtectedRoutes />}>

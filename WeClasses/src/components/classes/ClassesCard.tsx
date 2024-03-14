@@ -53,9 +53,14 @@ function ClassesCard({ data }: { data: classe }) {
             <span>{data.price} $</span>
           </div>
         </div>
-        <span className="bg-blue-950 text-white p-2 rounded">
-          <Link to={`/checkout/${data._id}`}>Book Lesson</Link>
-        </span>
+        <div className="flex flex-col gap-2">
+          <span className="bg-blue-950 text-white p-2 rounded">
+            <Link to={`/checkout/${data._id}`}>Book Lesson</Link>
+          </span>
+          <span className="bg-blue-950 text-white p-2 rounded">
+            <Link to={`/class/${data._id}`}>Details</Link>
+          </span>
+        </div>
       </div>
     </div>
   );
