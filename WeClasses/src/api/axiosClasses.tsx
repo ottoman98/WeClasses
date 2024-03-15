@@ -48,6 +48,22 @@ function GetAllPurchaseClasses(): Array<classe> | undefined {
 
   return first;
 }
+function GetAllBookedClassesTeacher():
+  | { classes: Array<classe>; students: Array<string> }
+  | undefined {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .get(`${URL}/booked`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
 
 function GetAllClassesProfile(
   id: string | undefined
@@ -101,4 +117,5 @@ export {
   GetAllClassesTeacher,
   GetAllPurchaseClasses,
   GetAllClassesProfile,
+  GetAllBookedClassesTeacher,
 };

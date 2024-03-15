@@ -1,4 +1,5 @@
 import Button from "../partials/Button";
+import foto from "../../assets/images/dama.jpg";
 
 function BecomeTutor() {
   return (
@@ -7,11 +8,7 @@ function BecomeTutor() {
         className="flex mx-auto rounded-xl border-[1px] border-light-blue
       "
       >
-        <img
-          className="w-1/2 rounded-l-xl"
-          src="https://preply.com/cdn-cgi/image/format=auto,fit=contain,width=700/https://static.preply.com/static/ssr/_next/static/images/tutor-23-ff1686e2d5b9b40017cfeb0afa8e15f8.jpg"
-          alt=""
-        />
+        <img className="w-1/2 rounded-l-xl object-cover" src={foto} alt="" />
         <div className="px-7 pt-10 flex flex-col gap-6 w-1/2">
           <h2 className="text-[6rem] leading-[5rem] font-bold ">
             Become a tutor

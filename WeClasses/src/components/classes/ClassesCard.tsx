@@ -3,9 +3,16 @@ import { FaStar } from "react-icons/fa6";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import { useContext } from "react";
+import { DataContextSession } from "../../context/session";
 
 function ClassesCard({ data }: { data: classe }) {
+  const navigate = useNavigate();
+  const { cookie } = useContext(DataContextSession);
+  console.log(cookie);
+
   return (
     <div className="flex border rounded-md p-2">
       <img
@@ -54,8 +61,17 @@ function ClassesCard({ data }: { data: classe }) {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <span className="bg-blue-950 text-white p-2 rounded">
-            <Link to={`/checkout/${data._id}`}>Book Lesson</Link>
+          <span
+            onClick={() => {
+              if (!cookie) {
+                navigate("/login");
+              } else {
+                navigate(`/checkout/${data._id}`);
+              }
+            }}
+            className="bg-blue-950 text-white p-2 rounded"
+          >
+            Book Lesson
           </span>
           <span className="bg-blue-950 text-white p-2 rounded">
             <Link to={`/class/${data._id}`}>Details</Link>

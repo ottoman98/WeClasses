@@ -17,7 +17,9 @@ function NavBarProfileTeacher() {
     <>
       <nav className="flex  justify-between py-4 px-2">
         <div className=" flex flex-row gap-5">
-          <img src={logo} className="w-32" alt="WeClasses Logo" />
+          <Link to="/">
+            <img src={logo} className="w-32" alt="WeClasses Logo" />
+          </Link>
         </div>
         <div className="flex md:order-2 gap-10">
           <ul className="flex gap-3">

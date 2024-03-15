@@ -8,7 +8,7 @@ import ClassElement from "./ClassElement";
 function AllClasses() {
   const data = GetAllClassesTeacher();
 
-  const { name, setName } = useContext(DataContextTabsClasses);
+  const { name } = useContext(DataContextTabsClasses);
   console.log(data);
   if (name == "") {
     return (

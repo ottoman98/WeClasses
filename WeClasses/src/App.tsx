@@ -17,14 +17,17 @@ import ClassesList from "./components/classes/ClassesList";
 import SetPassword from "./components/auth/PasswordTeacher";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-import Checkout from "./utils/Checkout";
+
 import TeacherInfo from "./components/descriptions/TeacherInfo";
 import ClassInfo from "./components/descriptions/ClassInfo";
+
+import RegisterSuccess from "./pages/RegisterSuccess";
+import ClassPayments from "./components/classes/ClassPayments";
 
 function App() {
   const initialOptions = {
     clientId:
-      "AQ6oYLdDluaYLF4wQq16BN1Rk5q30gkNCwNElvFxqhYkjCvjvmNeSRwUVBwS3cQA3Cs_UhgM6ILlAnEg",
+      "AYVusQgdOPtVM6p2BykpuiEqYTK9_P6keWZ1gY1bheAi06HliDr6KibVxjPIXcg08SewuZXM-ZHmzghc",
     currency: "USD",
     intent: "capture",
   };
@@ -37,7 +40,8 @@ function App() {
             <DataProviderTabs>
               <HashRouter>
                 <Routes>
-                  <Route path="/checkout/:id" element={<Checkout />} />
+                  <Route path="/checkout/:id" element={<ClassPayments />} />
+                  <Route path="/register/:name" element={<RegisterSuccess />} />
                   <Route element={<Home />}>
                     <Route path="/" element={<Main />} />
                     <Route path="/register" element={<Register />} />
@@ -52,6 +56,7 @@ function App() {
                     <Route path="/tutor_info/:id" element={<SetPassword />} />
                     <Route path="/classes" element={<ClassesList />} />
                     <Route path="/teacher/:id" element={<TeacherInfo />} />
+                    <Route path="/class/:id" element={<ClassInfo />} />
                     <Route path="/class/:id" element={<ClassInfo />} />
                   </Route>
                   //*LOGIN ROUTES

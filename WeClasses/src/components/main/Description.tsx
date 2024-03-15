@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import img from "../../assets/images/italki.webp";
+import img from "../../assets/images/main.jpeg";
 import { FcNext } from "react-icons/fc";
 import { DataContextLanguage } from "../../context/language";
 import Button from "../partials/Button";

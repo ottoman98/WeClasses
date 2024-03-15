@@ -5,6 +5,7 @@ import ResumeTeacher from "./ResumeTeacher";
 import { DataContextTabs } from "../../../context/studentsTab";
 import AllClasses from "./classes/AllClasses";
 import { DataProviderTabsClasses } from "../../../context/classes/classes";
+import AllClassesBooked from "./classes/Booked/AllClassesBooked";
 
 function Dashboard() {
   const { name } = useContext(DataContextTabs);
@@ -17,6 +18,9 @@ function Dashboard() {
         return <>messages</>;
       case "classes":
         return <AllClasses />;
+
+      case "booked":
+        return <AllClassesBooked />;
       case "settings":
         return <>settings</>;
     }

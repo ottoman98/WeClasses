@@ -1,12 +1,11 @@
 import { contact } from "../../types/userTypes";
 import { useForm } from "react-hook-form";
-import { ReactNode, useContext, useState } from "react";
-//import { useNavigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
 import { axiosRegisterStudent } from "../../api/axios";
-import ModalWithButton from "./ModalWithButton";
 import { DataContextLanguage } from "../../context/language";
 import countries from "../../utils/CountryCodes.json";
 import { FcApproval } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const { translation } = useContext(DataContextLanguage);
@@ -22,27 +21,19 @@ function Register() {
     formState: { errors },
   } = useForm<contact>();
 
-  let bool = false;
+  const [disabled, setDisabled] = useState(false);
 
-  if (serverResponse !== null && serverResponse.valid) {
-    bool = true;
-  }
-  const message: ReactNode = (
-    <>
-      <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-        Gracias por preferirnos te enviamos un correo a {"  "}
-        <strong className="underline text-red-600">
-          {" "}
-          {serverResponse?.message}
-        </strong>{" "}
-        para que culmines tu registro.
-      </p>
-    </>
-  );
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!serverResponse?.valid) {
+      setDisabled(false);
+    } else {
+      navigate(`/register/${getValues("name")}`);
+    }
+  }, [serverResponse]);
 
   return (
     <>
-      <ModalWithButton show={bool} message={message} />
       <div className="py-20">
         <h2 className="text-6xl text-center font-bold text-blue-950">
           La plataforma de idiomas más efectiva del mundo
@@ -76,6 +67,7 @@ function Register() {
           </div>
           <form
             onSubmit={handleSubmit(async (x) => {
+              setDisabled(true);
               const data = await axiosRegisterStudent(x);
               setServerResponse(data.data);
             })}
@@ -90,6 +82,7 @@ function Register() {
                   Name <span className="text-red-600">*</span>
                 </label>
                 <input
+                  disabled={disabled}
                   id="name"
                   {...register("name", {
                     required: {
