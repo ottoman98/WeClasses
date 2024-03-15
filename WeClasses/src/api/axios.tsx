@@ -80,6 +80,11 @@ async function axiosSetPassword(id: string | undefined, password: object) {
   });
 }
 
+async function logout() {
+  return axios.get(`${URL}/logout`, {
+    withCredentials: true,
+  });
+}
 export {
   axiosLogin,
   axiosRegisterStudent,
@@ -90,4 +95,5 @@ export {
   axiosChangePassword,
   axiosSetPassword,
   axiosGoogleLogin,
+  logout,
 };

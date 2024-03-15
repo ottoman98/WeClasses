@@ -1,5 +1,4 @@
 import { Avatar, Dropdown } from "flowbite-react";
-import { removeCookies } from "../../../utils/cookies";
 import { useContext } from "react";
 import { DataContextSession } from "../../../context/session";
 import { Link } from "react-router-dom";
@@ -9,6 +8,7 @@ import { IoIosHelpCircle } from "react-icons/io";
 import { IoMdNotifications } from "react-icons/io";
 import logo from "../../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "../../partials/LanguageSwitch";
+import { logout } from "../../../api/axios";
 
 function NavBarProfileTeacher() {
   const { setCookie } = useContext(DataContextSession);
@@ -80,7 +80,7 @@ function NavBarProfileTeacher() {
             <Dropdown.Divider />
             <Dropdown.Item
               onClick={() => {
-                removeCookies("token");
+                logout();
                 setCookie("");
               }}
             >
