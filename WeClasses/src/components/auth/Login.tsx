@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { login } from "../../types/userTypes";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { axiosGoogleLogin, axiosLogin, logout } from "../../api/axios";
+import { axiosGoogleLogin, axiosLogin } from "../../api/axios";
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { getCookies } from "../../utils/cookies";
@@ -33,13 +33,6 @@ function Login() {
       <div className="w-[28rem] mx-auto flex flex-col">
         <h3 className="pt-4 text-2xl text-center">Log in</h3>
         <div className="flex flex-row gap-2 justify-center py-5">
-          <p
-            onClick={() => {
-              logout();
-            }}
-          >
-            logoout
-          </p>
           <Link
             className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
             to="/register"
