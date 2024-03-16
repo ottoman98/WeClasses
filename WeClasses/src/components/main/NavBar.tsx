@@ -38,11 +38,7 @@ function NavBarr() {
         </ul>
 
         <ul className="flex items-center  gap-5">
-          {cookie == "" ? (
-            <li className="flex items-center text-blue-950">
-              <Link to="/dashboard">Dashboard</Link>
-            </li>
-          ) : (
+          {cookie == null || "" ? (
             <>
               <li className="flex items-center   text-blue-950">
                 <Link to="/login">{translation.nav.login}</Link>
@@ -51,6 +47,10 @@ function NavBarr() {
                 <Link to="/register">{translation.nav.register}</Link>
               </li>
             </>
+          ) : (
+            <li className="flex items-center text-blue-950">
+              <Link to="/dashboard">Dashboard</Link>
+            </li>
           )}
         </ul>
       </nav>
