@@ -32,6 +32,7 @@ function Login() {
     <section>
       <div className="w-[28rem] mx-auto flex flex-col">
         <h3 className="pt-4 text-2xl text-center">Log in</h3>
+        <p>adadad</p>
         <div className="flex flex-row gap-2 justify-center py-5">
           <Link
             className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
