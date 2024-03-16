@@ -17,6 +17,7 @@ function DataProviderSession({ children }: { children: ReactNode }) {
       const newCookie = getCookies("token");
 
       setCookie(newCookie);
+      console.log(cookie);
     }, 1000); // Verificar cada segundo
 
     // Limpia el temporizador cuando el componente se desmonta
