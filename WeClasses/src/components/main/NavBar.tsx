@@ -38,7 +38,7 @@ function NavBarr() {
         </ul>
 
         <ul className="flex items-center  gap-5">
-          {cookie == null || "" ? (
+          {!cookie ? (
             <>
               <li className="flex items-center   text-blue-950">
                 <Link to="/login">{translation.nav.login}</Link>

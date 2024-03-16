@@ -13,8 +13,16 @@ function DataProviderSession({ children }: { children: ReactNode }) {
   const [cookie, setCookie] = useState<string | undefined>(getCookies("token"));
 
   useEffect(() => {
-    setCookie(getCookies("token"));
-  }, [cookie]);
+    const interval = setInterval(() => {
+      const newCookie = getCookies("token");
+      if (newCookie !== cookie) {
+        setCookie(newCookie);
+      }
+    }, 1000); // Verificar cada segundo
+
+    // Limpia el temporizador cuando el componente se desmonta
+    return () => clearInterval(interval);
+  }, [cookie]); // Dependencia de useEffect
 
   return (
     <DataContextSession.Provider value={{ cookie, setCookie }}>

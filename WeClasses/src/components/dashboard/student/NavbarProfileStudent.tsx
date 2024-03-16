@@ -83,8 +83,9 @@ function NavBarProfileStudent() {
             <Dropdown.Divider />
             <Dropdown.Item
               onClick={() => {
-                logout();
                 setCookie("");
+
+                logout();
               }}
             >
               Log out
