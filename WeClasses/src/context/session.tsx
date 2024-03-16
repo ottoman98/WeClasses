@@ -15,9 +15,8 @@ function DataProviderSession({ children }: { children: ReactNode }) {
   useEffect(() => {
     const interval = setInterval(() => {
       const newCookie = getCookies("token");
-      if (newCookie !== cookie) {
-        setCookie(newCookie);
-      }
+
+      setCookie(newCookie);
     }, 1000); // Verificar cada segundo
 
     // Limpia el temporizador cuando el componente se desmonta
