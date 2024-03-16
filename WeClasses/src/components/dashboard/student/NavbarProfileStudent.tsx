@@ -86,6 +86,7 @@ function NavBarProfileStudent() {
                 setCookie("");
 
                 logout();
+                window.location.href = "https://www.weclasses.com/#/login";
               }}
             >
               Log out
