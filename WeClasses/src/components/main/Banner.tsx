@@ -13,7 +13,7 @@ function Banner2() {
       <p className="xs:text-[1.2em] xl:text-[0.8em]">
         {translation.banner.subtitle}
       </p>
-      <Button content={translation.banner.button} link="" />
+      <Button content={translation.banner.button} link="/classes" />
     </section>
   );
 }

@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { FcNext } from "react-icons/fc";
+import img1 from "../../assets/images/burbujas 1.png";
+import img2 from "../../assets/images/Video llamada 2.png";
+import img3 from "../../assets/images/mundo 1.png";
 function Offers() {
   return (
     <section className="flex justify-center flex-col py-20 px-8 max-w-[80rem] mx-auto">
@@ -7,12 +10,8 @@ function Offers() {
         See what WeClasses offers
       </h2>
       <div className="flex gap-10">
-        <div className="flex flex-col gap-5">
-          <img
-            className="w-60"
-            src="https://scdn.italki.com/ng/static/image/asgardhp/offers_01.png"
-            alt=""
-          />
+        <div className="flex flex-col gap-5 items-center">
+          <img className="w-60 " src={img1} alt="" />
           <strong className="text-blue-900 text-center  inline-block w-full text-lg">
             1-on-1 lessons
           </strong>
@@ -22,17 +21,13 @@ function Offers() {
           </p>
           <Link className="text-center text-light-blue font-bold " to="/">
             <div className="flex flex-row items-center">
-              Find my teacher
+              <Link to="/classes">Find my teacher</Link>
               <FcNext />
             </div>
           </Link>
         </div>
-        <div className="flex flex-col gap-5">
-          <img
-            className="w-60"
-            src="https://scdn.italki.com/ng/static/image/asgardhp/offers_04.png"
-            alt=""
-          />
+        <div className="flex flex-col gap-5 items-center">
+          <img className="w-60 " src={img2} alt="" />
           <strong className="text-blue-900 text-center  inline-block w-full text-lg">
             Group Class
           </strong>
@@ -43,17 +38,13 @@ function Offers() {
 
           <Link className="text-center text-light-blue font-bold " to="/">
             <div className="flex flex-row items-center">
-              View all classes
+              <Link to="/classes">View all classes</Link>
               <FcNext />
             </div>
           </Link>
         </div>
-        <div className="flex flex-col gap-5">
-          <img
-            className="w-60"
-            src="https://scdn.italki.com/ng/static/image/asgardhp/offers_02.png"
-            alt=""
-          />
+        <div className="flex flex-col gap-5 items-center">
+          <img className="w-60" src={img3} alt="" />
           <strong className="text-blue-900 text-center  inline-block w-full text-lg">
             Practice for free
           </strong>
@@ -63,7 +54,7 @@ function Offers() {
           </p>
           <Link className="text-center text-light-blue font-bold " to="/">
             <div className="flex flex-row items-center">
-              Explore the Community
+              <Link to="/classes">Explore the Community</Link>
               <FcNext />
             </div>
           </Link>

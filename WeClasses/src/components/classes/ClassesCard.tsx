@@ -60,7 +60,7 @@ function ClassesCard({ data }: { data: classe }) {
             <span>{data.price} $</span>
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 cursor-pointer">
           <span
             onClick={() => {
               if (!cookie) {

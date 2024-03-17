@@ -22,7 +22,7 @@ function BecomeTutor() {
             <li>Grow your business</li>
             <li>Get paid securely</li>
           </ul>
-          <Button content="Become tutor" link="/" />
+          <Button content="Become tutor" link="/register_tutor" />
           <span className="text-center underline font-bold">
             How out platform works
           </span>

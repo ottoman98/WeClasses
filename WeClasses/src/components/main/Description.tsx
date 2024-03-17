@@ -38,7 +38,10 @@ function Description() {
               </p>
             </li>
           </ul>
-          <Button content={translation.carousel.slide1.button} link="/" />
+          <Button
+            content={translation.carousel.slide1.button}
+            link="/register"
+          />
         </div>
       </div>
     </div>

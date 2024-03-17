@@ -1,6 +1,3 @@
-import { Avatar, Dropdown } from "flowbite-react";
-import { useContext } from "react";
-import { DataContextSession } from "../../../context/session";
 import { Link } from "react-router-dom";
 import { FcMoneyTransfer } from "react-icons/fc";
 import { FcComments } from "react-icons/fc";
@@ -8,11 +5,9 @@ import { IoIosHelpCircle } from "react-icons/io";
 import { IoMdNotifications } from "react-icons/io";
 import logo from "../../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "../../partials/LanguageSwitch";
-import { logout } from "../../../api/axios";
+import UserOptions from "../../../utils/UserOptions";
 
 function NavBarProfileStudent() {
-  const { setCookie } = useContext(DataContextSession);
-
   return (
     <>
       <nav className="flex  justify-between py-4 px-2">
@@ -55,43 +50,7 @@ function NavBarProfileStudent() {
               <IoMdNotifications size={20} />
             </li>
           </ul>
-          <Dropdown
-            arrowIcon={false}
-            inline
-            label={
-              <Avatar
-                alt="User settings"
-                img="https://i.kym-cdn.com/photos/images/original/002/301/340/1bf.png"
-                rounded
-              />
-            }
-          >
-            <Dropdown.Item>
-              <Link to="/dashboard/resume">Home</Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Link to="/dashboard/resume">Messages</Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Link to="/dashboard/resume">My lessons</Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Link to="/dashboard/resume">Saved Tutors</Link>
-            </Dropdown.Item>
-            <Dropdown.Item>Settings</Dropdown.Item>
-
-            <Dropdown.Divider />
-            <Dropdown.Item
-              onClick={() => {
-                setCookie("");
-
-                logout();
-                window.location.href = "https://www.weclasses.com/#/login";
-              }}
-            >
-              Log out
-            </Dropdown.Item>
-          </Dropdown>
+          <UserOptions />
         </div>
       </nav>
     </>
