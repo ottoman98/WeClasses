@@ -12,7 +12,7 @@ function FlagsBar() {
     <section className="pt-5 max-w-[80rem] mx-auto">
       <div className="flex justify-around">
         <Link to="/classes">
-          <div className="flex flex-col p-2 ">
+          <div className="flex flex-col p-2   items-center">
             <img
               className="object-contain xs:w-5 md:w-10 xl:w-20"
               src={usaFlag}
@@ -24,7 +24,7 @@ function FlagsBar() {
           </div>
         </Link>
         <Link to="/classes">
-          <div className="flex flex-col p-2">
+          <div className="flex flex-col p-2 items-center">
             <img
               className="object-contain xs:w-5 md:w-10 xl:w-20"
               src={germanyFlag}
@@ -36,7 +36,7 @@ function FlagsBar() {
           </div>
         </Link>
         <Link to="/classes">
-          <div className="flex flex-col p-2">
+          <div className="flex flex-col p-2 items-center">
             <img
               className="object-contain xs:w-5 md:w-10 xl:w-20"
               src={spainFlag}
@@ -48,7 +48,7 @@ function FlagsBar() {
           </div>
         </Link>
         <Link to="/classes">
-          <div className="flex flex-col p-2">
+          <div className="flex flex-col p-2  items-center">
             <img
               className="object-contain xs:w-5 md:w-10 xl:w-20"
               src={franceFlag}

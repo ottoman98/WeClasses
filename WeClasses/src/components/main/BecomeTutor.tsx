@@ -4,15 +4,10 @@ import foto from "../../assets/images/dama.jpg";
 function BecomeTutor() {
   return (
     <section className="p-5 max-w-[80rem] mx-auto">
-      <div
-        className="flex mx-auto rounded-xl border-[1px] border-light-blue
-      "
-      >
+      <div className="flex mx-auto rounded-xl border-[1px] border-light-blue bg-red">
         <img className="w-1/2 rounded-l-xl object-cover" src={foto} alt="" />
-        <div className="px-7 pt-10 flex flex-col gap-6 w-1/2">
-          <h2 className="text-[6rem] leading-[5rem] font-bold ">
-            Become a tutor
-          </h2>
+        <div className="px-7 py-10  flex flex-col gap-6 w-1/2">
+          <h2 className="text-7xl font-bold ">Become a tutor</h2>
           <p>
             Earn money sharing your expert knowledge with students. Sign up to
             start tutoring online with WeClasses

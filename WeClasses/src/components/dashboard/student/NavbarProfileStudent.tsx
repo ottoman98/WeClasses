@@ -5,7 +5,7 @@ import { IoIosHelpCircle } from "react-icons/io";
 import { IoMdNotifications } from "react-icons/io";
 import logo from "../../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "../../partials/LanguageSwitch";
-import UserOptions from "../../../utils/UserOptions";
+import UserOptions from "../../partials/UserOptions";
 
 function NavBarProfileStudent() {
   return (
