@@ -14,10 +14,10 @@ function Articles() {
               className=" h-full object-fill object-right brightness-75"
               alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
             />
-            <span className="absolute bg-light-blue text-lg left-4 top-2 px-4 rounded-lg">
+            <span className="absolute bg-light-blue md:text-lg left-4 top-2 px-4 rounded-lg">
               Topic
             </span>
-            <h5 className="absolute z-50 text-3xl font-bold bottom-0 p-3 ">
+            <h5 className="absolute z-50 md:text-3xl text-base font-bold bottom-0 p-3 ">
               Beneficios de aprender otros idiomas
             </h5>
           </div>
@@ -27,10 +27,10 @@ function Articles() {
               className=" h-full object-cover object-right brightness-75"
               alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
             />
-            <span className="absolute bg-light-blue text-lg left-4 top-2 px-4 rounded-lg">
+            <span className="absolute bg-light-blue md:text-lg left-4 top-2 px-4 rounded-lg">
               Topic
             </span>
-            <h5 className="absolute z-50 text-3xl font-bold bottom-0 p-3 ">
+            <h5 className="absolute z-50 md:text-3xl text-base font-bold bottom-0 p-3 ">
               Beneficios de aprender otros idiomas
             </h5>
           </div>
@@ -40,10 +40,10 @@ function Articles() {
               className=" h-full object-fill object-right brightness-75"
               alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
             />
-            <span className="absolute bg-light-blue text-lg left-4 top-2 px-4 rounded-lg">
+            <span className="absolute bg-light-blue md:text-lg left-4 top-2 px-4 rounded-lg">
               Topic
             </span>
-            <h5 className="absolute z-50 text-3xl font-bold bottom-0 p-3 ">
+            <h5 className="absolute z-50 md:text-3xl text-base font-bold bottom-0 p-3 ">
               Cómo aprender un idiomas más rápido
             </h5>
           </div>
@@ -55,10 +55,10 @@ function Articles() {
               className=" h-full object-fill object-right brightness-75"
               alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
             />
-            <span className="absolute bg-light-blue text-lg left-4 top-2 px-4 rounded-lg">
+            <span className="absolute bg-light-blue md:text-lg left-4 top-2 px-4 rounded-lg">
               Topic
             </span>
-            <h5 className="absolute z-50 text-3xl font-bold bottom-0 p-3 ">
+            <h5 className="absolute z-50 md:text-3xl text-base font-bold bottom-0 p-3 ">
               Beneficios de aprender otros idiomas
             </h5>
           </div>
@@ -68,10 +68,10 @@ function Articles() {
               className=" h-full object-cover object-right brightness-75"
               alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
             />
-            <span className="absolute bg-light-blue text-lg left-4 top-2 px-4 rounded-lg">
+            <span className="absolute bg-light-blue md:text-lg left-4 top-2 px-4 rounded-lg">
               Topic
             </span>
-            <h5 className="absolute z-50 text-3xl font-bold bottom-0 p-3 ">
+            <h5 className="absolute z-50 md:text-3xl text-base font-bold bottom-0 p-3 ">
               Beneficios de aprender otros idiomas
             </h5>
           </div>
@@ -81,15 +81,15 @@ function Articles() {
               className=" h-full object-fill object-right brightness-75"
               alt="Descubre una nueva forma de aprender idiomas con nuestra plataforma"
             />
-            <span className="absolute bg-light-blue text-lg left-4 top-2 px-4 rounded-lg">
+            <span className="absolute bg-light-blue md:text-lg left-4 top-2 px-4 rounded-lg">
               Topic
             </span>
-            <h5 className="absolute z-50 text-3xl font-bold bottom-0 p-3 ">
+            <h5 className="absolute z-50 md:text-3xl text-base font-bold bottom-0 p-3 ">
               Cómo aprender un idiomas más rápido
             </h5>
           </div>
         </Carousel>
-        <Carousel indicators={false}>
+        <Carousel indicators={false} className="hidden md:block">
           <div className="flex items-center h-full  bg-blue-950   text-white relative">
             <img
               src="https://learnenglish.britishcouncil.org/sites/podcasts/files/styles/max_1300x1300/public/2023-02/RS8042_GettyImages-1063745264-hig_0.jpeg?itok=fiQmVENM"
