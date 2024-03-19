@@ -138,8 +138,8 @@ function UserRemainingForm() {
                         {errors.country?.message}
                       </p>
                     </div>
-                    <div className="flex flex-row">
-                      <div className="flex flex-col w-1/3">
+                    <div className="flex flex-row gap-1">
+                      <div className="flex flex-col w-1/3 gap">
                         <label htmlFor="countryCode">Indicativo</label>
 
                         <select
@@ -163,14 +163,14 @@ function UserRemainingForm() {
                           {errors.countryCode?.message}
                         </p>
                       </div>
-                      <div>
+                      <div className="w-2/3 md:w-full">
                         <label htmlFor="name">Phone</label>
                         <input
                           disabled={disabled}
                           {...register("phone", {
                             required: { value: true, message: "Required" },
                           })}
-                          className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                          className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full"
                           id="name"
                           type="text"
                         />
