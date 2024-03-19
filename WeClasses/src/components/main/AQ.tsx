@@ -1,12 +1,15 @@
 function AQ() {
   return (
-    <section className=" flex flex-col py-10 px-40 bg-sky-100">
+    <section className=" flex flex-col py-10 px-4 md:px-40 bg-sky-100">
       <h2 className="text-center text-4xl font-bold">
         Frequently asked questions
       </h2>
       <div className="pt-10 flex flex-col gap-3 text-customBlack text-lg max-w-[80rem] mx-auto w-full">
-        <details name="info">
-          <summary className="font-extrabold border-b-[2px] border-blue-900 ">
+        <details
+          name="info"
+          className=" border-b-[2px] text-sm border-blue-900 py-2"
+        >
+          <summary className="font-extrabold border-b-[1px] py-2">
             ¿Qué es Weclasses?
           </summary>
           Weclasses es una plataforma de aprendizaje de idiomas diseñada para
@@ -17,8 +20,11 @@ function AQ() {
           comunidad amigable hacen que aprender un nuevo idioma sea una
           experiencia agradable y enriquecedora.
         </details>
-        <details name="info" className=" border-b-[2px] border-blue-900">
-          <summary className="font-extrabold border-b-[1px]">
+        <details
+          name="info"
+          className=" border-b-[2px] text-sm border-blue-900 py-2"
+        >
+          <summary className="font-extrabold border-b-[1px] py-2">
             ¿Cómo puedo inscribirme en una clase de Weclasses?
           </summary>
           ¡Comenzar a aprender idiomas con Weclasses es sencillo!, solo debes
@@ -27,8 +33,11 @@ function AQ() {
           información, responder todas tus preguntas sobre el curso y nuestros
           métodos de pago.
         </details>
-        <details name="info" className=" border-b-[2px] border-blue-900">
-          <summary className="font-extrabold border-b-[1px]">
+        <details
+          name="info"
+          className=" border-b-[2px] text-sm border-blue-900 py-2"
+        >
+          <summary className="font-extrabold border-b-[1px] py-2">
             ¿Todos los profesores de Weclasses son nativos?
           </summary>
           Si, son profesores nativos. Los profesores de Weclasses son
@@ -36,17 +45,24 @@ function AQ() {
           enseñanza que aceleran el proceso de aprendizaje, dedicándose
           constantemente al éxito de los estudiantes.
         </details>
-        <details name="info" className=" border-b-[2px] border-blue-900">
-          <summary className="font-extrabold border-b-[1px]">
+        <details
+          name="info"
+          className=" border-b-[2px] text-sm border-blue-900 py-2"
+        >
+          <summary className="font-extrabold border-b-[1px] py-2">
             ¿Cómo funciona la plataforma?
           </summary>
-          Si, son profesores nativos. Los profesores de Weclasses son
-          seleccionados de una base global de talento y aplican estrategias de
-          enseñanza que aceleran el proceso de aprendizaje, dedicándose
-          constantemente al éxito de los estudiantes.
+          Una vez inicias el curso, uno de nuestros asesores te guiará en un
+          tour por la plataforma a través de una videollamada o desde la opción
+          “Comienza tu curso” que encuentras en tu perfil. Así la conocerás y
+          podrás navegar en ella sin problemas, haciendo uso de nuestras
+          herramientas para alcanzar tu meta de aprender tu idioma favorito.
         </details>
-        <details name="info" className=" border-b-[2px] border-blue-900">
-          <summary className="font-extrabold border-b-[1px]">
+        <details
+          name="info"
+          className=" border-b-[2px] text-sm border-blue-900 py-2"
+        >
+          <summary className="font-extrabold border-b-[1px] py-2">
             ¿Cómo contactar con Weclasses?
           </summary>
           Puedes contactar con el equipo de atención al cliente de Weclasses a

@@ -12,7 +12,7 @@ function ClassInfo() {
   }
   return (
     <>
-      <div className="grid grid-cols-2 gap-2 px-32 py-10">
+      <div className="grid grid-cols-2 gap-2 px-2 md:px-32 py-10">
         <div>
           <h2 className="text-3xl">{classe.name}</h2>
           <ul>

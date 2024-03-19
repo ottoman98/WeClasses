@@ -57,7 +57,6 @@ function App() {
                     <Route path="/classes" element={<ClassesList />} />
                     <Route path="/teacher/:id" element={<TeacherInfo />} />
                     <Route path="/class/:id" element={<ClassInfo />} />
-                    <Route path="/class/:id" element={<ClassInfo />} />
                   </Route>
                   //*LOGIN ROUTES
                   <Route element={<ProtectedRoutes />}>

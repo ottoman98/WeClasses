@@ -6,7 +6,7 @@ function Articles() {
       <h2 className="text-4xl text-center ">
         Nuestro <span className="text-light-blue">Blog</span>
       </h2>
-      <div className=" h-56 flex gap-4 sm:h-64 xl:h-80 2xl:h-96">
+      <div className=" h-56 flex gap-1 md:gap-4 sm:h-64 xl:h-80 2xl:h-96">
         <Carousel indicators={false}>
           <div className="flex items-center h-full  bg-blue-950   text-white relative">
             <img

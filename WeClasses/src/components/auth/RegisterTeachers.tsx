@@ -5,6 +5,7 @@ import ModalWithButton from "./ModalWithButton";
 import { DataContextLanguage } from "../../context/language";
 import countries from "../../utils/CountryCodes.json";
 import { teacherData } from "../../types/teacher";
+import { MdDelete } from "react-icons/md";
 
 function RegisterTeachers() {
   const { translation } = useContext(DataContextLanguage);
@@ -73,21 +74,22 @@ function RegisterTeachers() {
   return (
     <>
       <ModalWithButton show={bool} message={message} />
-      <div className="flex justify-center py-24">
+
+      <div className="flex justify-center py-10 md:py-24">
         <form
           onSubmit={handleSubmit(async (x) => {
             console.log(x);
             const data = await axiosRegisterTeacher(x);
             setServerResponse(data.data);
           })}
-          className=" py-20 px-5 flex flex-col gap-10 w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
+          className="md:py-20 px-5 flex flex-col gap-10  md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
         >
           <p className="font-bold text-base">
             Regístrate para saber como podemos ayudarte
           </p>
           <div className="grid grid-cols-2 text-base gap-6">
             <div className="flex flex-col">
-              <label className="font-bold" htmlFor="name">
+              <label className="font-bold text-xs md:text-base" htmlFor="name">
                 Name <span className="text-red-600">*</span>
               </label>
               <input
@@ -100,14 +102,14 @@ function RegisterTeachers() {
                 })}
                 type="text"
                 placeholder={translation.register.form.name}
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
               />
               <p className="text-xs italic text-red-500">
                 {errors.name?.message}
               </p>
             </div>
             <div className="flex flex-col">
-              <label className="font-bold" htmlFor="">
+              <label className="font-bold text-xs md:text-base" htmlFor="">
                 LastName <span className="text-red-600">*</span>
               </label>
               <input
@@ -119,7 +121,7 @@ function RegisterTeachers() {
                 })}
                 type="text"
                 placeholder={translation.register.form.lastName}
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                 id="lastName"
               />
 
@@ -128,11 +130,12 @@ function RegisterTeachers() {
               </p>
             </div>
             <div className="col-span-2  flex flex-col">
-              <label className="font-bold" htmlFor="name">
+              <label className="font-bold text-xs md:text-base" htmlFor="name">
                 Email <span className="text-red-600">*</span>
               </label>
+
               <input
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full"
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full text-xs md:text-base"
                 {...register("email", {
                   required: {
                     value: true,
@@ -150,18 +153,18 @@ function RegisterTeachers() {
               <p className="text-xs italic text-red-500">
                 {errors.email?.message}
                 {serverResponse?.message == "exist"
-                  ? "This email alredy Exist"
+                  ? "This email already Exist"
                   : ""}
               </p>
             </div>
 
             <div className="col-span-2 flex flex-row ">
-              <div className="flex flex-col w-1/4">
+              <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base">
                 <label className="font-bold" htmlFor="name">
                   Indicativo <span className="text-red-600">*</span>
                 </label>
                 <select
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                   {...register("countryCode", {
                     required: { value: true, message: "Required" },
                   })}
@@ -182,12 +185,15 @@ function RegisterTeachers() {
                 </p>
               </div>
 
-              <div className="flex flex-col w-full">
-                <label className="font-bold" htmlFor="name">
+              <div className="flex flex-col w-2/3 md:w-full">
+                <label
+                  className="font-bold text-xs md:text-base"
+                  htmlFor="name"
+                >
                   Phone Number <span className="text-red-600">*</span>
                 </label>
                 <input
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl "
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                   {...register("phone", {
                     required: {
                       value: true,
@@ -205,14 +211,14 @@ function RegisterTeachers() {
             </div>
 
             <div className="flex flex-col ">
-              <label className="font-bold" htmlFor="name">
+              <label className="font-bold text-xs md:text-base" htmlFor="name">
                 BirthDay <span className="text-red-600">*</span>
               </label>
               <input
                 {...register("birthDay", {
                   required: { value: true, message: "Required" },
                 })}
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl "
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                 type="date"
               />
               <p className="text-xs italic text-red-500">
@@ -220,11 +226,11 @@ function RegisterTeachers() {
               </p>
             </div>
             <div className="flex flex-col ">
-              <label className="font-bold" htmlFor="name">
+              <label className="font-bold text-xs md:text-base" htmlFor="name">
                 Country <span className="text-red-600">*</span>
               </label>
               <select
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                 {...register("country", {
                   required: { value: true, message: "Required" },
                 })}
@@ -241,14 +247,16 @@ function RegisterTeachers() {
 
             <div className="flex flex-col col-span-2 gap-1">
               <div className="flex gap-20">
-                <label htmlFor="">Languages</label>
+                <label htmlFor="" className="text-xs md:text-base font-bold">
+                  Languages
+                </label>
               </div>
 
               {languages.map((x, i) => {
                 return (
-                  <div>
+                  <div className="flex gap-2">
                     <select
-                      className="w-1/2 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                      className=" w-1/2 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                       id="language"
                       value={x.language}
                       onChange={(e) => {
@@ -276,7 +284,7 @@ function RegisterTeachers() {
                       <option value="vi">Tiếng Việt (Vietnamita)</option>
                     </select>
                     <select
-                      className="w-2/5 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                      className="w-2/5 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                       id="level"
                       value={x.level}
                       onChange={(e) => {
@@ -295,21 +303,21 @@ function RegisterTeachers() {
                       <option value="C2">C2: Proficient</option>
                       <option value="native">Native</option>
                     </select>
-
-                    <span
-                      onClick={() => {
-                        const updatedLanguages = [...languages];
-                        updatedLanguages.splice(i, 1);
-                        setLanguages(updatedLanguages);
-                      }}
-                    >
+                    <div className="text-red-500 text-xs md:text-base flex flex-row items-center">
+                      <MdDelete
+                        size={16}
+                        onClick={() => {
+                          const updatedLanguages = [...languages];
+                          updatedLanguages.splice(i, 1);
+                          setLanguages(updatedLanguages);
+                        }}
+                      />
                       Delete
-                    </span>
+                    </div>
                   </div>
                 );
               })}
               <p className="text-xs italic text-red-500">
-                {" "}
                 {errors.languages?.message}
               </p>
 
@@ -317,7 +325,7 @@ function RegisterTeachers() {
                 onClick={() => {
                   setLanguages([...languages, { language: "", level: "" }]);
                 }}
-                className="mt-2 text-light-blue"
+                className="mt-2 text-light-blue text-xs md:text-base"
               >
                 + Add another language
               </p>
@@ -329,9 +337,9 @@ function RegisterTeachers() {
                 type="checkbox"
                 id="privacy"
               />
-              <label htmlFor="privacy">
+              <label htmlFor="privacy" className="text-xs md:text-base">
                 Si, he leído y comprendido cómo EF procesa mis datos personales
-                tal y como establece la
+                tal y como establece la{" "}
                 <span className="font-bold text-blue-950">
                   política de privacidad
                 </span>

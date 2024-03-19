@@ -6,6 +6,7 @@ import { DataContextSession } from "../../context/session";
 import { DataContextTabs } from "../../context/studentsTab";
 import { logout } from "../../api/axios";
 import { Avatar } from "flowbite-react";
+import { FaRegUserCircle } from "react-icons/fa";
 import LanguageSwitch from "./LanguageSwitch";
 
 function MobileAside() {
@@ -42,15 +43,29 @@ function MobileAside() {
           ></div>
           <div className=" py-5 px-3 w-56   bg-white">
             <div className="flex justify-between">
-              <div className="flex items-center">
-                <Avatar
-                  alt="User settings"
-                  img="https://i.kym-cdn.com/photos/images/original/002/301/340/1bf.png"
-                  rounded
-                  size="xs"
-                />
-                <p className="font-bold text-customBlack">El osman</p>
-              </div>
+              {cookie ? (
+                <div className="flex items-center">
+                  <Avatar
+                    alt="User settings"
+                    img="https://i.kym-cdn.com/photos/images/original/002/301/340/1bf.png"
+                    rounded
+                    size="xs"
+                  />
+                  <p className="font-bold text-customBlack">El osman</p>
+                </div>
+              ) : (
+                <Link
+                  className="flex  hover:text-blue-950"
+                  to="/login"
+                  onClick={() => {
+                    setShow(false);
+                  }}
+                >
+                  <FaRegUserCircle size={18} />
+                  <span className="rounded-md px-1">Login</span>
+                </Link>
+              )}
+
               <IoMdClose
                 className="hover:text-blue-950 rounded-md"
                 size={20}
@@ -112,16 +127,7 @@ function MobileAside() {
             ) : (
               <ul className="flex flex-col">
                 <hr className="h-px my-2 " />
-                <li className="flex items-center hover:text-blue-950 rounded-md px-1">
-                  <Link
-                    to="/login"
-                    onClick={() => {
-                      setShow(false);
-                    }}
-                  >
-                    Login
-                  </Link>
-                </li>
+
                 <li className="flex items-center hover:text-blue-950 rounded-md px-1">
                   <Link
                     to="/register"
