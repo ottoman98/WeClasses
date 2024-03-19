@@ -32,16 +32,16 @@ function Login() {
     <section>
       <div className="px-10 md:w-[28rem] mx-auto flex flex-col">
         <h3 className="pt-4 text-2xl text-center">Log in</h3>
-        <div className="flex flex-row gap-2 justify-between py-5">
+        <div className="flex flex-row  justify-between py-5 text-xs md:text-base">
           <Link
-            className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+            className="inline-block text-blue-500 align-baseline hover:text-blue-800 "
             to="/register"
           >
             Sign Up as a student
           </Link>
-          <span>or</span>
+
           <Link
-            className="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
+            className="inline-block text-blue-500 align-baseline hover:text-blue-800"
             to="/register"
           >
             Sign Up as a tutor
