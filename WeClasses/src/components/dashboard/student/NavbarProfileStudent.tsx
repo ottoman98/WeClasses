@@ -6,7 +6,7 @@ import { IoMdNotifications } from "react-icons/io";
 import logo from "../../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "../../partials/LanguageSwitch";
 import UserOptions from "../../partials/UserOptions";
-import MobileAsideProfile from "../../partials/MobileAsideProfile";
+import MobileAsideProfileStudent from "../../partials/MobileAsideProfileStudent";
 
 function NavBarProfileStudent() {
   return (
@@ -51,7 +51,7 @@ function NavBarProfileStudent() {
               <IoMdNotifications size={20} />
             </li>
             <li className="flex items-center mt-1">
-              <MobileAsideProfile />
+              <MobileAsideProfileStudent />
             </li>
           </ul>
           <div className="hidden md:block">

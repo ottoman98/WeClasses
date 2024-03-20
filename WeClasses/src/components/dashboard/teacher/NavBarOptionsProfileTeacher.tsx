@@ -6,7 +6,7 @@ function NavBarOptionsProfileTeacher() {
 
   return (
     <>
-      <nav className="border  px-4">
+      <nav className="hidden md:block border  px-4">
         <ul className="flex flex-row gap-6">
           <li
             className={`${

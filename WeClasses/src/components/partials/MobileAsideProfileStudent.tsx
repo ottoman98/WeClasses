@@ -9,7 +9,7 @@ import { Avatar } from "flowbite-react";
 import { FaRegUserCircle } from "react-icons/fa";
 import LanguageSwitch from "./LanguageSwitch";
 
-function MobileAsideProfile() {
+function MobileAsideProfileStudent() {
   const [show, setShow] = useState(false);
   const { setCookie } = useContext(DataContextSession);
   const { setName } = useContext(DataContextTabs);
@@ -184,4 +184,4 @@ function MobileAsideProfile() {
   );
 }
 
-export default MobileAsideProfile;
+export default MobileAsideProfileStudent;

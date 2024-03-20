@@ -3,13 +3,12 @@ import { FaStar } from "react-icons/fa6";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useContext } from "react";
 import { DataContextSession } from "../../../../context/session";
 
 function ClassesCardProfile({ data }: { data: classe }) {
-  const navigate = useNavigate();
   const { cookie } = useContext(DataContextSession);
   console.log(cookie);
 
@@ -61,20 +60,11 @@ function ClassesCardProfile({ data }: { data: classe }) {
           </div>
         </div>
         <div className="flex flex-col gap-2 cursor-pointer">
-          <span
-            onClick={() => {
-              if (!cookie) {
-                navigate("/login");
-              } else {
-                navigate(`/checkout/${data._id}`);
-              }
-            }}
-            className="bg-blue-950 text-white p-2 rounded"
-          >
-            Join
+          <span className="bg-blue-950 text-white p-2 rounded">
+            <Link to={data.link}>Join</Link>
           </span>
           <span className="bg-blue-950 text-white p-2 rounded">
-            <Link to={`/class/${data._id}`}>Messages</Link>
+            <Link to="{`/class/${data._id}`}">Messages</Link>
           </span>
         </div>
       </div>
