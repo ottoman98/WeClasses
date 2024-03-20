@@ -7,7 +7,7 @@ type classe = {
     link: string,
     level: string,
     createdAt?: Date,
-    date: Date,
+    date: Date | string,
     price: number,
     teacherName?: string,
     user?: string
