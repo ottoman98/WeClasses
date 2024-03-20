@@ -5,7 +5,7 @@ function NavBarOptionsProfile() {
   const { name, setName } = useContext(DataContextTabs);
   return (
     <>
-      <nav className="border  px-4">
+      <nav className="hidden md:block border  px-4">
         <ul className="flex flex-row gap-6">
           <li
             className={`${

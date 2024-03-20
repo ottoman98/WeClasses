@@ -6,6 +6,7 @@ import { IoMdNotifications } from "react-icons/io";
 import logo from "../../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "../../partials/LanguageSwitch";
 import UserOptions from "../../partials/UserOptions";
+import MobileAsideProfile from "../../partials/MobileAsideProfile";
 
 function NavBarProfileStudent() {
   return (
@@ -15,12 +16,12 @@ function NavBarProfileStudent() {
           <Link to="/">
             <img src={logo} className="w-32" alt="WeClasses Logo" />
           </Link>
-          <li className="flex items-center">
+          <li className="hidden md:flex items-center">
             <Link to="/classes">Find Tutors</Link>
           </li>
         </div>
         <div className="flex md:order-2 gap-10">
-          <ul className="flex gap-3">
+          <ul className="hidden md:flex gap-3">
             <li className="flex gap-1 text-blue-900 items-center">
               <FcMoneyTransfer size={20} className="mt-1" />
               Balance : 100$
@@ -37,7 +38,7 @@ function NavBarProfileStudent() {
             </li>
           </ul>
           <ul className="flex gap-5 ">
-            <li className="flex items-center">
+            <li className="hidden md:flex items-center">
               <LanguageSwitch />
             </li>
             <li className="flex items-center mt-1">
@@ -49,8 +50,13 @@ function NavBarProfileStudent() {
             <li className="flex items-center mt-1">
               <IoMdNotifications size={20} />
             </li>
+            <li className="flex items-center mt-1">
+              <MobileAsideProfile />
+            </li>
           </ul>
-          <UserOptions />
+          <div className="hidden md:block">
+            <UserOptions />
+          </div>
         </div>
       </nav>
     </>

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";
 import MyLessons from "./lessons/MyLessons";
 import Messages from "./messages/Messages";
+import Home from "./Home";
 
 function Profile() {
   const { name } = useContext(DataContextTabs);
@@ -11,7 +12,7 @@ function Profile() {
   function currentTab(tab: string) {
     switch (tab) {
       case "home":
-        return <>home</>;
+        return <Home />;
 
       case "messages":
         return <Messages />;
