@@ -6,8 +6,8 @@ type classe = {
     language: 'en' | 'es',
     link: string,
     level: string,
-    createdAt?: string
-    date: string,
+    createdAt?: Date,
+    date: Date,
     price: number,
     teacherName?: string,
     user?: string
