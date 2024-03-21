@@ -35,7 +35,7 @@ function ClassesForm() {
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await postClasse(x);
-          console.log(data.data);
+
           setResponse(data.data);
         })}
         className="w-full grid grid-cols-2 gap-3  max-w-[90rem] mx-auto px-10 pt-10 pb-16"

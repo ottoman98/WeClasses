@@ -9,7 +9,7 @@ function AllClasses() {
   const data = GetAllClassesTeacher();
 
   const { name } = useContext(DataContextTabsClasses);
-  console.log(data);
+
   if (name == "") {
     return (
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

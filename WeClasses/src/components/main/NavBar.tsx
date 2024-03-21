@@ -24,9 +24,7 @@ function NavBarr() {
           <img className="w-20 md:w-32" src={logo} alt="" />
         </Link>
         <ul className="hidden md:flex items-center  gap-5">
-          <li className="flex items-center  hover:text-blue-950">
-            <LanguageSwitch />
-          </li>
+          <li className="flex items-center  hover:text-blue-950"></li>
           <li className="flex items-center  hover:text-blue-950">
             <Link to="classes">Find a teacher</Link>
           </li>
@@ -48,6 +46,7 @@ function NavBarr() {
                 <li className="flex items-center text-blue-950">
                   <Link to="/register">{translation.nav.register}</Link>
                 </li>
+                <LanguageSwitch />
               </>
             ) : (
               <UserOptions />

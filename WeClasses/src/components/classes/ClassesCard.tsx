@@ -11,7 +11,6 @@ import { DataContextSession } from "../../context/session";
 function ClassesCard({ data }: { data: classe }) {
   const navigate = useNavigate();
   const { cookie } = useContext(DataContextSession);
-  console.log(cookie);
 
   return (
     <div className="flex border rounded-md p-2">

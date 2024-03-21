@@ -4,7 +4,6 @@ import NoLessons from "./NoLessons";
 
 function MyLessons() {
   const classes = GetAllPurchaseClasses();
-  console.log(classes);
 
   return (
     <section className="max-w-[80rem]  mx-auto flex flex-col gap-5 py-6">

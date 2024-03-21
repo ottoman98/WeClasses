@@ -27,7 +27,7 @@ import ClassPayments from "./components/classes/ClassPayments";
 function App() {
   const initialOptions = {
     clientId:
-      "AYVusQgdOPtVM6p2BykpuiEqYTK9_P6keWZ1gY1bheAi06HliDr6KibVxjPIXcg08SewuZXM-ZHmzghc",
+      "AZrs3gaQNVE5DRnWHdyNLhOdPEYDdSE3UZcCLl2mQCOsheGYDpJ6ISceyJmBF-p5gv4mBJIbfHLhuBnc",
     currency: "USD",
     intent: "capture",
   };

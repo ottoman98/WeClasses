@@ -78,7 +78,6 @@ function RegisterTeachers() {
       <div className="flex justify-center py-10 md:py-24">
         <form
           onSubmit={handleSubmit(async (x) => {
-            console.log(x);
             const data = await axiosRegisterTeacher(x);
             setServerResponse(data.data);
           })}

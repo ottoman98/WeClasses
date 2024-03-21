@@ -3,9 +3,11 @@ import { GetAllClasses } from "../../api/axiosClasses";
 import ClassesCard from "./ClassesCard";
 
 function ClassesList() {
+  const minDate = new Date().toISOString().split("T")[0];
   const classes = GetAllClasses();
   const [language, setLanguage] = useState("");
   const [level, setLevel] = useState("");
+  const [date, setDate] = useState("");
 
   let filtered = classes;
 
@@ -19,6 +21,12 @@ function ClassesList() {
     const byLanguage = filtered?.filter((x) => x.level == level);
 
     filtered = byLanguage;
+  }
+
+  if (date !== "") {
+    const byDate = filtered?.filter((x) => new Date(x.date) > new Date(date));
+
+    filtered = byDate;
   }
 
   return (
@@ -50,10 +58,28 @@ function ClassesList() {
               setLevel(selected);
             }}
           >
-            <option value="">Todos los idiomas</option>
+            <option value="">Todos los Niveles</option>
             <option value="A1-A2">A1-A2</option>
             <option value="B1-B2">B1-B2</option>
             <option value="C1-C2">C1-C2</option>
+          </select>
+          <input
+            min={minDate}
+            placeholder="monda"
+            onChange={(e) => {
+              const selected = e.target.value;
+              setDate(selected);
+            }}
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+            type="date"
+          />
+
+          <select
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+            name=""
+            id=""
+          >
+            <option value="">Day Time</option>
           </select>
         </div>
         {filtered?.length && filtered.length > 0 ? (

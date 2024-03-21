@@ -5,7 +5,6 @@ function ClassInfo() {
   const { id } = useParams();
 
   const classe = GetClasseById(id);
-  console.log(classe);
 
   if (!classe) {
     return <>Loading</>;

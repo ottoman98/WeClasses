@@ -6,7 +6,6 @@ import { Navigate, Outlet } from "react-router-dom";
 function ProtectedRoutes() {
   const { cookie } = useContext(DataContextSession);
   const decoded: { level: string } | null = decodeToken(cookie as string);
-  console.log(cookie);
 
   useEffect(() => {}, []);
 

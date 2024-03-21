@@ -13,7 +13,7 @@ function Recover() {
     handleSubmit,
     formState: { errors },
   } = useForm<{ email: string }>();
-  console.log(response);
+
   let bool = false;
 
   if (response !== null && response?.valid) {

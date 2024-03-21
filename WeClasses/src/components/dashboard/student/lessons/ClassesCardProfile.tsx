@@ -5,13 +5,7 @@ import { FaClock } from "react-icons/fa6";
 
 import { Link } from "react-router-dom";
 
-import { useContext } from "react";
-import { DataContextSession } from "../../../../context/session";
-
 function ClassesCardProfile({ data }: { data: classe }) {
-  const { cookie } = useContext(DataContextSession);
-  console.log(cookie);
-
   return (
     <div className="flex border rounded-md p-2">
       <img

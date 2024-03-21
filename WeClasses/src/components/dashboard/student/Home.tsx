@@ -1,12 +1,10 @@
 import { GetAllClasses } from "../../../api/axiosClasses";
-import { GetProfileStudent } from "../../../api/axiosProfiles";
+
 import ClassesCard from "../../classes/ClassesCard";
 
 function Home() {
   const classes = GetAllClasses();
-  const user = GetProfileStudent();
 
-  console.log(user);
   return (
     <div className="max-w-[80rem] mx-auto py-10 flex flex-col gap-5">
       <ul className="md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-5 py-5 rounded-lg">
