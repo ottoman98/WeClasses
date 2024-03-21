@@ -1,8 +1,6 @@
 import { GetAllPurchaseNames } from "../../../../../api/studentPurchases";
 import { classe } from "../../../../../types/classeTypes";
 
-import ClassOptions from "../../../../partials/ClassOptions";
-
 function ClassElementBooked({
   data: classe,
   student,
@@ -36,9 +34,6 @@ function ClassElementBooked({
         </td>
         {!name ? "loading" : <td className="px-6 py-4">{name}</td>}
         <td className="px-6 py-4">{classe.duration} horas</td>
-        <td className="px-6 py-4 text-right flex gap-3">
-          <ClassOptions id={classe._id} />
-        </td>
       </tr>
     );
   }
