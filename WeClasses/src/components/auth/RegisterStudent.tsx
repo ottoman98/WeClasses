@@ -76,7 +76,7 @@ function Register() {
             <p className="font-bold text-base">
               Registrate para saber como podemos ayudarte
             </p>
-            <div className="grid grid-cols-2 md:text-base gap-6 ">
+            <div className="grid grid-cols-2 text-xs md:text-base gap-6 ">
               <div className="flex flex-col">
                 <label className="font-bold" htmlFor="name">
                   Name <span className="text-red-600">*</span>
@@ -99,7 +99,7 @@ function Register() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <label className="font-bold" htmlFor="">
+                <label className="font-bold" htmlFor="lastName">
                   LastName <span className="text-red-600">*</span>
                 </label>
                 <input
@@ -111,7 +111,7 @@ function Register() {
                   })}
                   type="text"
                   placeholder={translation.register.form.lastName}
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                   id="lastName"
                 />
 
@@ -120,11 +120,11 @@ function Register() {
                 </p>
               </div>
               <div className="col-span-2  flex flex-col">
-                <label className="font-bold" htmlFor="name">
+                <label className="font-bold" htmlFor="email">
                   Email <span className="text-red-600">*</span>
                 </label>
                 <input
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full text-xs"
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full text-xs md:text-base"
                   {...register("email", {
                     required: {
                       value: true,
@@ -147,11 +147,11 @@ function Register() {
 
               <div className="col-span-2 flex flex-row gap-1">
                 <div className="flex flex-col w-1/3 md:w-1/4">
-                  <label className="font-bold " htmlFor="name">
+                  <label className="font-bold " htmlFor="code">
                     Indicativo <span className="text-red-600">*</span>
                   </label>
                   <select
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
+                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                     {...register("countryCode", {
                       required: { value: true, message: "Required" },
                     })}
@@ -173,11 +173,11 @@ function Register() {
                 </div>
 
                 <div className="flex flex-col w-2/3 md:w-full">
-                  <label className="font-bold" htmlFor="name">
+                  <label className="font-bold" htmlFor="phone">
                     Phone Number <span className="text-red-600">*</span>
                   </label>
                   <input
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs "
+                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base "
                     {...register("phone", {
                       required: {
                         value: true,
@@ -195,11 +195,11 @@ function Register() {
               </div>
 
               <div className="flex flex-col">
-                <label className="font-bold" htmlFor="name">
+                <label className="font-bold" htmlFor="languageToLearn">
                   Language to learn <span className="text-red-600">*</span>
                 </label>
                 <select
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                   {...register("languageToLearn", {
                     required: { value: true, message: "Required" },
                     validate: (value) => {
@@ -222,11 +222,11 @@ function Register() {
                 </p>
               </div>
               <div className="flex flex-col">
-                <label className="font-bold" htmlFor="name">
+                <label className="font-bold" htmlFor="nativeLanguage">
                   Native language <span className="text-red-600">*</span>
                 </label>
                 <select
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
+                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                   {...register("nativeLanguage", {
                     required: { value: true, message: "Required" },
                   })}
@@ -260,6 +260,7 @@ function Register() {
                   className="mr-2 leading-tight checked:bg-blue-950 rounded-xl"
                   type="checkbox"
                   id="privacy"
+                  required
                 />
                 <label htmlFor="privacy">
                   Si, he leído y comprendido cómo EF procesa mis datos

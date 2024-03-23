@@ -23,6 +23,7 @@ import ClassInfo from "./components/descriptions/ClassInfo";
 
 import RegisterSuccess from "./pages/RegisterSuccess";
 import ClassPayments from "./components/classes/ClassPayments";
+import CompleteRegister from "./pages/CompleteRegister";
 
 function App() {
   const initialOptions = {
@@ -42,6 +43,10 @@ function App() {
                 <Routes>
                   <Route path="/checkout/:id" element={<ClassPayments />} />
                   <Route path="/register/:name" element={<RegisterSuccess />} />
+                  <Route
+                    path="/registerComplete/:name"
+                    element={<CompleteRegister />}
+                  />
                   <Route element={<Home />}>
                     <Route path="/" element={<Main />} />
                     <Route path="/register" element={<Register />} />

@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GetAllClasses } from "../../api/axiosClasses";
 import ClassesCard from "./ClassesCard";
+import { DataContextSession } from "../../context/session";
+import { decodeToken } from "react-jwt";
+import { useNavigate } from "react-router-dom";
 
 function ClassesList() {
   const minDate = new Date().toISOString().split("T")[0];
@@ -8,6 +11,14 @@ function ClassesList() {
   const [language, setLanguage] = useState("");
   const [level, setLevel] = useState("");
   const [date, setDate] = useState("");
+
+  const { cookie } = useContext(DataContextSession);
+  const decoded: { level: string } | null = decodeToken(cookie as string);
+  const navigate = useNavigate();
+
+  if (decoded?.level == "teacher") {
+    navigate("/login");
+  }
 
   let filtered = classes;
 

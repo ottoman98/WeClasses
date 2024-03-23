@@ -51,20 +51,20 @@ function UserRemainingForm() {
 
   return (
     <>
-      <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+      <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center ">
         <div className="container max-w-screen-lg mx-auto">
           <div>
             <h2 className="font-semibold text-xl text-gray-600">
               Completa tus datos y empieza a aprender hoy mismo!
             </h2>
-            <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+            <div className="bg-white  shadow-lg p-4 px-4 md:p-8 mb-6 rounded-xl">
               <div className="text-sm ">
                 <div className="text-gray-600 mb-6">
                   <p className="font-medium text-lg">Personal Details</p>
                   <p>Please fill out all the fields.</p>
                 </div>
 
-                <div className="lg:col-span-2">
+                <div className="lg:col-span-2 ">
                   <form
                     onSubmit={handleSubmit(async (x) => {
                       const data = await axiosPutRemainingData(id, x);
@@ -89,14 +89,14 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="name">Last Name</label>
+                      <label htmlFor="lastName">Last Name</label>
                       <input
                         disabled={disabled}
                         {...register("lastName", {
                           required: { value: true, message: "Required" },
                         })}
                         className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
-                        id="name"
+                        id="lastName"
                         type="text"
                       />
                       <p className="text-xs italic text-red-500">
@@ -104,7 +104,7 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="name">Email</label>
+                      <label htmlFor="email">Email</label>
 
                       <input
                         disabled={disabled}
@@ -112,7 +112,7 @@ function UserRemainingForm() {
                           required: { value: true, message: "Required" },
                         })}
                         className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
-                        id="name"
+                        id="email"
                         type="text"
                       />
                       <p className="text-xs italic text-red-500">
@@ -120,14 +120,14 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="name">Country</label>
+                      <label htmlFor="country">Country</label>
                       <select
                         disabled={disabled}
                         {...register("country", {
                           required: { value: true, message: "Required" },
                         })}
                         className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
-                        id="name"
+                        id="country"
                       >
                         <option value="">Select </option>
                         {countries.map((x) => {
@@ -164,7 +164,7 @@ function UserRemainingForm() {
                         </p>
                       </div>
                       <div className="w-2/3 md:w-full">
-                        <label htmlFor="name">Phone</label>
+                        <label htmlFor="phone">Phone</label>
                         <input
                           disabled={disabled}
                           {...register("phone", {
@@ -181,7 +181,7 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="name">Native Language</label>
+                      <label htmlFor="nativeLanguage">Native Language</label>
                       <select
                         disabled={disabled}
                         {...register("nativeLanguage", {
@@ -212,7 +212,7 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="name">Language to learn</label>
+                      <label htmlFor="languageToLearn">Language to learn</label>
                       <select
                         disabled={disabled}
                         {...register("languageToLearn", {
@@ -232,7 +232,7 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="name">Language Level</label>
+                      <label htmlFor="languageLevel">Language Level</label>
                       <select
                         disabled={disabled}
                         {...register("languageLevel", {
@@ -252,7 +252,7 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="name">Password</label>
+                      <label htmlFor="password">Password</label>
                       <input
                         disabled={disabled}
                         {...register("password", {
@@ -272,7 +272,7 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="name">Repeat Password</label>
+                      <label htmlFor="password2">Repeat Password</label>
                       <input
                         disabled={disabled}
                         {...register("password2", {
@@ -287,7 +287,7 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <input disabled={disabled} type="checkbox" />
+                      <input disabled={disabled} type="checkbox" required />
                       <label htmlFor="">
                         Políticas de privacidad etc demás, bla bla
                       </label>
