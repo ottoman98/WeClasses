@@ -4,21 +4,20 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { DataContextTabs } from "../../context/studentsTab";
+import { decodeToken } from "react-jwt";
+import { GetProfileTeacher } from "../../api/axiosProfiles";
 
 function UserOptions() {
-  const { setCookie } = useContext(DataContextSession);
+  const { setCookie, cookie } = useContext(DataContextSession);
   const { setName } = useContext(DataContextTabs);
+  const decoded: { id: string } | null = decodeToken(cookie as string);
+  const data = GetProfileTeacher(decoded?.id);
+  console.log(data);
   return (
     <Dropdown
       arrowIcon={false}
       inline
-      label={
-        <Avatar
-          alt="User settings"
-          img="https://i.kym-cdn.com/photos/images/original/002/301/340/1bf.png"
-          rounded
-        />
-      }
+      label={<Avatar alt="User settings" img={`${data?.photo}`} rounded />}
     >
       <Link
         onClick={() => {

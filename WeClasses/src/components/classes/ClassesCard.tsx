@@ -16,7 +16,7 @@ function ClassesCard({ data }: { data: classe }) {
     <div className="flex border rounded-md p-2">
       <img
         className="h-28  rounded-full aspect-square"
-        src="https://i.ebayimg.com/images/g/HyUAAOSwXSpgTlnV/s-l1200.webp"
+        src={data.photo}
         alt=""
       />
       <div className="w-1/2 flex flex-col gap-1 px-2">
@@ -24,7 +24,7 @@ function ClassesCard({ data }: { data: classe }) {
         <div className="flex flex-row ">
           <img
             className="w-5"
-            src="https://d13nnzzfr74buh.cloudfront.net/img/icons/trusted.svg"
+            src={"https://d13nnzzfr74buh.cloudfront.net/img/icons/trusted.svg"}
             alt=""
           />
           <Link to={`/teacher/${data.user}`}>{data.teacherName}r</Link>

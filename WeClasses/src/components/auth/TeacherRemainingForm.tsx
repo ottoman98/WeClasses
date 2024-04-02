@@ -3,18 +3,21 @@ import { tutorAdmission } from "../../api/axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 
-import { teacherData } from "../../types/teacher";
+import { tutorInfo } from "../../types/teacher";
 function TeacherRemainingForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<teacherData>();
+  } = useForm<tutorInfo>();
   const { id } = useParams();
 
-  const [serverResponse, setServerResponse] = useState<{
-    valid: string;
-  } | null>(null);
+  const [serverResponse, setServerResponse] = useState<
+    | {
+        valid: string;
+      }
+    | undefined
+  >(undefined);
 
   return (
     <>
@@ -40,7 +43,7 @@ function TeacherRemainingForm() {
                     onSubmit={handleSubmit(async (x) => {
                       const data = await tutorAdmission(id, x);
 
-                      setServerResponse(data.data);
+                      setServerResponse(data?.data);
                     })}
                     className="w-full grid grid-cols-1 gap-2 md:grid-cols-2 "
                   >
@@ -58,7 +61,7 @@ function TeacherRemainingForm() {
                       />
 
                       <p className="text-xs italic text-red-500">
-                        {errors.password?.message}
+                        {errors.photo?.message}
                       </p>
                       <p className="text-xs italic text-red-500">
                         {typeof serverResponse === "string"

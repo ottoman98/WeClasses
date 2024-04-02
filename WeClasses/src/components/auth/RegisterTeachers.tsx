@@ -214,7 +214,7 @@ function RegisterTeachers() {
                 type="date"
               />
               <p className="text-xs italic text-red-500">
-                {errors.countryCode?.message}
+                {errors.birthDay?.message}
               </p>
             </div>
             <div className="flex flex-col ">
