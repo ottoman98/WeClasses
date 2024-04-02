@@ -14,16 +14,15 @@ import ChangePassword from "./components/auth/ChangePassword";
 import { DataProviderTabs } from "./context/studentsTab";
 import RegisterTeachers from "./components/auth/RegisterTeachers";
 import ClassesList from "./components/classes/ClassesList";
-import SetPassword from "./components/auth/PasswordTeacher";
-
+import TeacherRemainingForm from "./components/auth/TeacherRemainingForm";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
-
 import TeacherInfo from "./components/descriptions/TeacherInfo";
 import ClassInfo from "./components/descriptions/ClassInfo";
-
 import RegisterSuccess from "./pages/RegisterSuccess";
 import ClassPayments from "./components/classes/ClassPayments";
 import CompleteRegister from "./pages/CompleteRegister";
+import RegisterSuccessTeacher from "./pages/RegisterSuccessTeacher";
+import AdmissionTeacher from "./pages/AdmissionTeacher";
 
 function App() {
   const initialOptions = {
@@ -44,6 +43,14 @@ function App() {
                   <Route path="/checkout/:id" element={<ClassPayments />} />
                   <Route path="/register/:name" element={<RegisterSuccess />} />
                   <Route
+                    path="/registerTeacher/:name"
+                    element={<RegisterSuccessTeacher />}
+                  />
+                  <Route
+                    path="/admission/:name"
+                    element={<AdmissionTeacher />}
+                  />
+                  <Route
                     path="/registerComplete/:name"
                     element={<CompleteRegister />}
                   />
@@ -58,7 +65,10 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/recover" element={<Recover />} />
                     <Route path="/recover/:id" element={<ChangePassword />} />
-                    <Route path="/tutor_info/:id" element={<SetPassword />} />
+                    <Route
+                      path="/tutor_info/:id"
+                      element={<TeacherRemainingForm />}
+                    />
                     <Route path="/classes" element={<ClassesList />} />
                     <Route path="/teacher/:id" element={<TeacherInfo />} />
                     <Route path="/class/:id" element={<ClassInfo />} />

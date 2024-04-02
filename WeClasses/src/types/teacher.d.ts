@@ -7,9 +7,22 @@ type teacherData = {
     countryCode: string,
     birthDay: string,
     languages: Array<{ language: string, level: string }>
+    password?: string,
+    password2?: string,
+    video?: string,
+    photo?: object,
+    payment?: string
 
 
 }
 
+type tutorInfo = {
+    photo: FileList;
+    video: string;
+    payment: string;
+    password: string;
+    password2: string;
+}
 
-export { teacherData }
+
+export { teacherData, tutorInfo }

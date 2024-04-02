@@ -2,13 +2,13 @@
 import axios from "axios";
 import { login, contact, fullContact } from "../types/userTypes";
 import { useEffect, useState } from "react";
-import { teacherData } from "../types/teacher";
+import { teacherData, tutorInfo } from "../types/teacher";
 import { CredentialResponse } from "@react-oauth/google";
 
 const URL = import.meta.env.VITE_URL;
 
 async function axiosLogin(credentials: login) {
-  return axios.post(`${URL}/students_login`, credentials, {
+  return axios.post(`${URL}/login`, credentials, {
     withCredentials: true,
   });
 }
@@ -74,10 +74,27 @@ async function axiosChangePassword(id: string | undefined, password: object) {
   });
 }
 
-async function axiosSetPassword(id: string | undefined, password: object) {
-  return axios.put(`${URL}/tutor_password/${id}`, password, {
-    withCredentials: true,
-  });
+async function tutorAdmission(id: string | undefined, data: tutorInfo) {
+  try {
+    const form = new FormData();
+    form.append("password", data.password);
+    form.append("password2", data.password2);
+    form.append("video", data.video);
+    form.append("payment", data.payment);
+    form.append("photo", data.photo[0]);
+
+    return axios.put(
+      `${URL}/tutor_admission/${id}`,
+
+      form,
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+  } catch (error) {
+    console.log(data);
+  }
 }
 
 async function logout() {
@@ -93,7 +110,7 @@ export {
   axiosPutRemainingData,
   axiosRecoverPassword,
   axiosChangePassword,
-  axiosSetPassword,
+  tutorAdmission,
   axiosGoogleLogin,
   logout,
 };

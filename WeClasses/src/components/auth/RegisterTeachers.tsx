@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
-import { ReactNode, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { axiosRegisterTeacher } from "../../api/axios";
-import ModalWithButton from "./ModalWithButton";
 import { DataContextLanguage } from "../../context/language";
 import countries from "../../utils/CountryCodes.json";
 import { teacherData } from "../../types/teacher";
 import { MdDelete } from "react-icons/md";
+
+import { useNavigate } from "react-router-dom";
 
 function RegisterTeachers() {
   const { translation } = useContext(DataContextLanguage);
@@ -19,13 +20,8 @@ function RegisterTeachers() {
     handleSubmit,
     setValue,
     formState: { errors },
+    getValues,
   } = useForm<teacherData>();
-
-  let bool = false;
-
-  if (serverResponse !== null && serverResponse.valid) {
-    bool = true;
-  }
 
   //language
   const [languages, setLanguages] = useState([
@@ -37,7 +33,7 @@ function RegisterTeachers() {
     register("languages", {
       required: {
         value: true,
-        message: "ta vacio",
+        message: "ta vació",
       },
       validate: (value) => {
         const conditionLanguage = !value.some((x) => x.language == "");
@@ -49,7 +45,7 @@ function RegisterTeachers() {
           if (native) {
             return true;
           } else {
-            return "minimo un nativo";
+            return "mínimo un nativo";
           }
         } else {
           return "todos los campos son obligatorios lenguaje y nivel";
@@ -59,22 +55,15 @@ function RegisterTeachers() {
     setValue("languages", languages);
   }, [languages]);
 
-  const message: ReactNode = (
-    <>
-      <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-        Gracias por preferirnos te enviamos un correo a {"  "}
-        <strong className="underline text-red-600">
-          {serverResponse?.message}
-        </strong>
-        para que culmines tu registro.
-      </p>
-    </>
-  );
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (serverResponse?.valid) {
+      navigate(`/registerTeacher/${getValues("name")}`);
+    }
+  }, [serverResponse]);
 
   return (
     <>
-      <ModalWithButton show={bool} message={message} />
-
       <div className="flex justify-center py-10 md:py-24">
         <form
           onSubmit={handleSubmit(async (x) => {
@@ -108,7 +97,10 @@ function RegisterTeachers() {
               </p>
             </div>
             <div className="flex flex-col">
-              <label className="font-bold text-xs md:text-base" htmlFor="">
+              <label
+                className="font-bold text-xs md:text-base"
+                htmlFor="lastName"
+              >
                 LastName <span className="text-red-600">*</span>
               </label>
               <input
@@ -129,7 +121,7 @@ function RegisterTeachers() {
               </p>
             </div>
             <div className="col-span-2  flex flex-col">
-              <label className="font-bold text-xs md:text-base" htmlFor="name">
+              <label className="font-bold text-xs md:text-base" htmlFor="email">
                 Email <span className="text-red-600">*</span>
               </label>
 
@@ -150,16 +142,14 @@ function RegisterTeachers() {
                 placeholder={translation.register.form.email}
               />
               <p className="text-xs italic text-red-500">
+                {serverResponse?.message}
                 {errors.email?.message}
-                {serverResponse?.message == "exist"
-                  ? "This email already Exist"
-                  : ""}
               </p>
             </div>
 
             <div className="col-span-2 flex flex-row ">
               <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base">
-                <label className="font-bold" htmlFor="name">
+                <label className="font-bold" htmlFor="countryCode">
                   Indicativo <span className="text-red-600">*</span>
                 </label>
                 <select
@@ -187,7 +177,7 @@ function RegisterTeachers() {
               <div className="flex flex-col w-2/3 md:w-full">
                 <label
                   className="font-bold text-xs md:text-base"
-                  htmlFor="name"
+                  htmlFor="phone"
                 >
                   Phone Number <span className="text-red-600">*</span>
                 </label>
@@ -210,7 +200,10 @@ function RegisterTeachers() {
             </div>
 
             <div className="flex flex-col ">
-              <label className="font-bold text-xs md:text-base" htmlFor="name">
+              <label
+                className="font-bold text-xs md:text-base"
+                htmlFor="birthDay"
+              >
                 BirthDay <span className="text-red-600">*</span>
               </label>
               <input
@@ -225,7 +218,10 @@ function RegisterTeachers() {
               </p>
             </div>
             <div className="flex flex-col ">
-              <label className="font-bold text-xs md:text-base" htmlFor="name">
+              <label
+                className="font-bold text-xs md:text-base"
+                htmlFor="country"
+              >
                 Country <span className="text-red-600">*</span>
               </label>
               <select
@@ -302,15 +298,17 @@ function RegisterTeachers() {
                       <option value="C2">C2: Proficient</option>
                       <option value="native">Native</option>
                     </select>
-                    <div className="text-red-500 text-xs md:text-base flex flex-row items-center">
-                      <MdDelete
-                        size={16}
-                        onClick={() => {
-                          const updatedLanguages = [...languages];
-                          updatedLanguages.splice(i, 1);
-                          setLanguages(updatedLanguages);
-                        }}
-                      />
+                    <div
+                      className={`text-red-500  text-xs md:text-base flex flex-row items-center cursor-pointer ${
+                        languages.length <= 2 ? "hidden" : ""
+                      }`}
+                      onClick={() => {
+                        const updatedLanguages = [...languages];
+                        updatedLanguages.splice(i, 1);
+                        setLanguages(updatedLanguages);
+                      }}
+                    >
+                      <MdDelete size={16} />
                       Delete
                     </div>
                   </div>
@@ -319,20 +317,21 @@ function RegisterTeachers() {
               <p className="text-xs italic text-red-500">
                 {errors.languages?.message}
               </p>
-
-              <p
-                onClick={() => {
-                  setLanguages([...languages, { language: "", level: "" }]);
-                }}
-                className="mt-2 text-light-blue text-xs md:text-base"
-              >
-                + Add another language
-              </p>
+              <div className="mt-2 text-light-blue text-xs md:text-base">
+                <span
+                  onClick={() => {
+                    setLanguages([...languages, { language: "", level: "" }]);
+                  }}
+                >
+                  + Add another language
+                </span>
+              </div>
             </div>
 
             <div className="col-span-2">
               <input
                 className="mr-2 leading-tight checked:bg-blue-950 rounded-xl"
+                required
                 type="checkbox"
                 id="privacy"
               />
