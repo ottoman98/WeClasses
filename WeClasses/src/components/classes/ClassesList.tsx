@@ -36,7 +36,7 @@ function ClassesList() {
 
   if (date !== "") {
     const byDate = filtered?.filter((x) => new Date(x.date) > new Date(date));
-    console.log(byDate);
+
     filtered = byDate;
   }
 

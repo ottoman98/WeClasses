@@ -1,10 +1,13 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import logo from "../../assets/logos/Recurso 7@3x.png";
 import { GetClasseById } from "../../api/axiosClasses";
+import { postPurchaseClasse } from "../../api/studentPurchases";
 
 function ClassPayments() {
   const { id } = useParams();
   const data = GetClasseById(id);
+  console.log(data);
+  const navigate = useNavigate();
 
   if (!data) {
     return <>loading</>;
@@ -103,7 +106,19 @@ function ClassPayments() {
               </div>
             </div>
           </div>
-          <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0"></div>
+          <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
+            <a
+              onClick={() => {
+                postPurchaseClasse({ classe: data._id });
+                navigate("/profile");
+              }}
+              className="text-blue-800 font-bold bg-yellow-300 text-xl py-2 px-12 rounded-full "
+              href={data.payment}
+              target="_blank"
+            >
+              Donate with Paypal
+            </a>
+          </div>
         </div>
       </>
     );

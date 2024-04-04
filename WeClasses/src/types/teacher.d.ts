@@ -10,7 +10,7 @@ type teacherData = {
     password?: string,
     password2?: string,
     video?: string,
-    photo?: object,
+    photo?: string,
     payment?: string
 
 

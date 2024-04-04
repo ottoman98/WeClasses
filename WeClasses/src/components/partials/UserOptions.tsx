@@ -12,7 +12,7 @@ function UserOptions() {
   const { setName } = useContext(DataContextTabs);
   const decoded: { id: string } | null = decodeToken(cookie as string);
   const data = GetProfileTeacher(decoded?.id);
-  console.log(data);
+
   return (
     <Dropdown
       arrowIcon={false}

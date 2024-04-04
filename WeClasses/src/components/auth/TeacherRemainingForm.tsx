@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { tutorAdmission } from "../../api/axios";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -18,6 +18,10 @@ function TeacherRemainingForm() {
       }
     | undefined
   >(undefined);
+  const navigate = useNavigate();
+  if (serverResponse?.valid) {
+    navigate("/admission");
+  }
 
   return (
     <>

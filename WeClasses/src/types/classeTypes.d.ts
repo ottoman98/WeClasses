@@ -10,6 +10,7 @@ type classe = {
     date: Date | string,
     price: number,
     teacherName?: string,
+    payment?: string,
     user?: string,
     photo: string
 }

@@ -93,7 +93,7 @@ async function tutorAdmission(id: string | undefined, data: tutorInfo) {
       }
     );
   } catch (error) {
-    console.log(data);
+    console.log(error);
   }
 }
 
