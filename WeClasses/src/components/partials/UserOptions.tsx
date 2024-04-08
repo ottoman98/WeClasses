@@ -5,13 +5,25 @@ import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { DataContextTabs } from "../../context/studentsTab";
 import { decodeToken } from "react-jwt";
-import { GetProfileTeacher } from "../../api/axiosProfiles";
+import { GetProfileStudent, GetProfileTeacher } from "../../api/axiosProfiles";
 
 function UserOptions() {
   const { setCookie, cookie } = useContext(DataContextSession);
   const { setName } = useContext(DataContextTabs);
-  const decoded: { id: string } | null = decodeToken(cookie as string);
-  const data = GetProfileTeacher(decoded?.id);
+  const decoded: { id: string; level: string } | null = decodeToken(
+    cookie as string
+  );
+  let data;
+  let url = "";
+  if (decoded?.level == "teacher") {
+    data = GetProfileTeacher(decoded?.id);
+    url = "/dashboard";
+  }
+  if (decoded?.level == "student") {
+    data = GetProfileStudent(decoded?.id);
+    url = "/profile";
+  }
+  console.log(decoded);
 
   return (
     <Dropdown
@@ -23,7 +35,7 @@ function UserOptions() {
         onClick={() => {
           setName("home");
         }}
-        to="/dashboard/"
+        to={url}
       >
         <Dropdown.Item>Home</Dropdown.Item>
       </Link>{" "}
@@ -31,7 +43,7 @@ function UserOptions() {
         onClick={() => {
           setName("messages");
         }}
-        to="/dashboard"
+        to={url}
       >
         <Dropdown.Item>Messages</Dropdown.Item>
       </Link>{" "}
@@ -39,7 +51,7 @@ function UserOptions() {
         onClick={() => {
           setName("lessons");
         }}
-        to="/dashboard"
+        to={url}
       >
         <Dropdown.Item>My lessons</Dropdown.Item>
       </Link>
@@ -47,7 +59,7 @@ function UserOptions() {
         onClick={() => {
           setName("settings");
         }}
-        to="/dashboard"
+        to={url}
       >
         <Dropdown.Item>Settings</Dropdown.Item>
       </Link>

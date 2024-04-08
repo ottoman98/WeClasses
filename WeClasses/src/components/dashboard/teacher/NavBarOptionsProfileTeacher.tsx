@@ -48,16 +48,6 @@ function NavBarOptionsProfileTeacher() {
           >
             Booked
           </li>
-          <li
-            className={`${
-              name == "settings" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
-            onClick={() => {
-              setName("settings");
-            }}
-          >
-            Settings
-          </li>
         </ul>
       </nav>
     </>

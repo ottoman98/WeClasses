@@ -5,6 +5,7 @@ import { DataContextTabs } from "../../../context/studentsTab";
 import MyLessons from "./lessons/MyLessons";
 import Messages from "./messages/Messages";
 import Home from "./Home";
+import Settings from "./settings/Settings";
 
 function Profile() {
   const { name } = useContext(DataContextTabs);
@@ -19,7 +20,7 @@ function Profile() {
       case "lessons":
         return <MyLessons />;
       case "settings":
-        return <>settings</>;
+        return <Settings />;
     }
   }
 

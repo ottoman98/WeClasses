@@ -22,11 +22,11 @@ function GetProfileTeacher(id: string | undefined): teacherData | undefined {
 
   return first;
 }
-function GetProfileStudent(): fullContact | undefined {
+function GetProfileStudent(id: string): fullContact | undefined {
   const [first, setFirst] = useState();
   useEffect(() => {
     axios
-      .get(`${URL}/profile`, {
+      .get(`${URL}/profile/${id}`, {
         withCredentials: true,
       })
       .then((x) => {
