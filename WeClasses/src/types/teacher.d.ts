@@ -11,17 +11,19 @@ type teacherData = {
     password2?: string,
     video?: string,
     photo?: string,
-    payment?: string
+    payment?: string,
+    description?: string
 
 
 }
 
 type tutorInfo = {
     photo: FileList;
-    video: string;
-    payment: string;
-    password: string;
-    password2: string;
+    video: string,
+    payment: string,
+    password: string,
+    password2: string,
+    description?: string
 }
 
 

@@ -29,6 +29,14 @@ function ProtectedRoutes() {
           </>
         );
       }
+      if (decoded.level == "admin") {
+        return (
+          <>
+            <Outlet />
+            <Navigate to="/admin/" />
+          </>
+        );
+      }
     }
   }
 }

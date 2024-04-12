@@ -12,6 +12,7 @@ type classe = {
     teacherName?: string,
     payment?: string,
     user?: string,
+    capacity: number
     photo: string
 }
 

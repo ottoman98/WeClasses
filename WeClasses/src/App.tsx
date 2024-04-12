@@ -23,6 +23,7 @@ import CompleteRegister from "./pages/CompleteRegister";
 import RegisterSuccessTeacher from "./pages/RegisterSuccessTeacher";
 import AdmissionTeacher from "./pages/AdmissionTeacher";
 import { DataProviderTabsSettings } from "./context/settings/settings";
+import Panel from "./components/dashboard/admin/Panel";
 
 function App() {
   return (
@@ -67,10 +68,10 @@ function App() {
                   <Route element={<ProtectedRoutes />}>
                     //*STUDENTS ROUTES
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/dashboard" element={<Dashboard />}>
-                      //*TEACHER ROUTES
-                      <Route path="/dashboard/" element={<>Stats</>} />
-                    </Route>
+                    //*TEACHER ROUTES
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    //*ADMIN ROUTES
+                    <Route path="/admin" element={<Panel />} />
                   </Route>
                 </Routes>
               </HashRouter>

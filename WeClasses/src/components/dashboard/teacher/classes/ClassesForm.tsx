@@ -164,6 +164,28 @@ function ClassesForm() {
           />
           <p className="text-xs italic text-red-500">{errors.link?.message}</p>
         </div>
+        <div className="flex flex-col">
+          <label htmlFor="date" className="text-sm">
+            Capacity
+          </label>
+          <select
+            {...register("capacity", {
+              required: { value: true, message: "Required" },
+              valueAsDate: true,
+            })}
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            id="date"
+          >
+            <option value="">seleccione</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+          <p className="text-xs italic text-red-500">{errors.link?.message}</p>
+        </div>
 
         <div className=" col-span-2 h-[20rem]">
           <label htmlFor="" className="text-sm">

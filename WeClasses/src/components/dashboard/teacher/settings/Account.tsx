@@ -1,54 +1,54 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { teacherData } from "../../../../types/teacher";
+import { tutorInfo } from "../../../../types/teacher";
 import { GetProfileTeacher } from "../../../../api/axiosProfiles";
 import { decodeToken } from "react-jwt";
 import { DataContextSession } from "../../../../context/session";
-import countries from "../../../../utils/CountryCodes.json";
+import { accountSettingsTutor } from "../../../../api/axios";
 
 function Account() {
   const { cookie } = useContext(DataContextSession);
 
   const decoded: { id: string } | null = decodeToken(cookie as string);
   const data = GetProfileTeacher(decoded?.id);
-  console.log(data);
+
   const {
     register,
-
     formState: { errors },
     setValue,
-  } = useForm<teacherData>();
+    handleSubmit,
+  } = useForm<tutorInfo>();
 
-  /*
-const [serverResponse, setServerResponse] = useState<
-| {
-    valid: string;
-}
-| undefined
->(undefined);
-*/
+  const [serverResponse, setServerResponse] = useState<
+    | {
+        valid: string;
+      }
+    | undefined
+  >(undefined);
 
   useEffect(() => {
     if (data) {
-      setValue("countryCode", data.countryCode);
-      setValue("phone", data.phone);
-      setValue("payment", data.payment);
-      setValue("country", data.country);
+      setValue("description", data.description);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   return (
     <div>
-      <form encType="multipart/form-data" className="w-full ">
+      <form
+        className="w-full"
+        encType="multipart/form-data"
+        onSubmit={handleSubmit(async (x) => {
+          const data = await accountSettingsTutor(decoded?.id, x);
+          setServerResponse(data?.data);
+        })}
+      >
         <div className="flex flex-col">
           <label htmlFor="name">Foto de perfil</label>
 
           <img className="aspect-square w-32" src={data?.photo} alt="" />
           <input
-            {...register("photo", {
-              required: { value: true, message: "Required" },
-            })}
+            {...register("photo")}
             className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
             id="name"
             type="file"
@@ -57,86 +57,16 @@ const [serverResponse, setServerResponse] = useState<
           <p className="text-xs italic text-red-500">{errors.photo?.message}</p>
           <p className="text-xs italic text-red-500"></p>
         </div>
-        <div className="col-span-2 flex flex-row ">
-          <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base">
-            <label className="font-bold" htmlFor="countryCode">
-              Indicativo <span className="text-red-600">*</span>
-            </label>
-            <select
-              className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
-              {...register("countryCode", {
-                required: { value: true, message: "Required" },
-              })}
-            >
-              <option value="">Country Code</option>
-              {countries.map((x) => {
-                return (
-                  <option value={x.dial_code}>
-                    {x.dial_code} {x.name}
-                  </option>
-                );
-              })}
-            </select>
-            <p className="text-xs italic text-red-500">
-              {errors.countryCode?.message}
-            </p>
-          </div>
-
-          <div className="flex flex-col w-2/3 md:w-full">
-            <label className="font-bold text-xs md:text-base" htmlFor="phone">
-              Phone Number <span className="text-red-600">*</span>
-            </label>
-            <input
-              className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
-              {...register("phone", {
-                required: {
-                  value: true,
-                  message: "Required",
-                },
-              })}
-              type="number"
-              placeholder="phone"
-            />
-
-            <p className="text-xs italic text-red-500">
-              {errors.phone?.message}
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col  text-xs md:text-base">
-          <label className="font-bold" htmlFor="countryCode">
-            Indicativo <span className="text-red-600">*</span>
-          </label>
-          <select
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
-            {...register("country", {
-              required: { value: true, message: "Required" },
-            })}
-          >
-            <option value="">Country Code</option>
-            {countries.map((x) => {
-              return <option value={x.name}>{x.name}</option>;
-            })}
-          </select>
-          <p className="text-xs italic text-red-500">
-            {errors.countryCode?.message}
-          </p>
-        </div>
-
         <div className="flex flex-col">
-          <label htmlFor="name">Link de donaciones de paypal</label>
-          <input
-            {...register("payment", {
-              required: { value: true, message: "Required" },
-            })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+          <label htmlFor="name">Description</label>
+
+          <textarea
+            {...register("description")}
+            className="h-40 border mt-1 rounded px-4 w-full bg-gray-50 resize-none"
             id="name"
-            type="url"
           />
 
-          <p className="text-xs italic text-red-500">
-            {errors.password?.message}
-          </p>
+          <p className="text-xs italic text-red-500">{errors.photo?.message}</p>
           <p className="text-xs italic text-red-500"></p>
         </div>
 

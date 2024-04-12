@@ -96,6 +96,37 @@ async function tutorAdmission(id: string | undefined, data: tutorInfo) {
     console.log(error);
   }
 }
+async function accountSettingsTutor(id: string | undefined, data: tutorInfo) {
+  try {
+    const form = new FormData();
+    form.append("description", data.description);
+    form.append("photo", data.photo[0]);
+
+    return axios.put(
+      `${URL}/account_teacher_settings/${id}`,
+
+      form,
+      {
+        withCredentials: true,
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+}
+async function passwordSettingsTutor(
+  id: string | undefined,
+  data: { password: string; password2: string; oldPassword: string }
+) {
+  try {
+    return axios.put(`${URL}/password_teacher_settings/${id}`, data, {
+      withCredentials: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 async function logout() {
   return axios.get(`${URL}/logout`, {
@@ -112,5 +143,7 @@ export {
   axiosChangePassword,
   tutorAdmission,
   axiosGoogleLogin,
+  accountSettingsTutor,
+  passwordSettingsTutor,
   logout,
 };
