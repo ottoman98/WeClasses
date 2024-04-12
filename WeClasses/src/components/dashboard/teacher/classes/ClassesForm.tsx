@@ -171,7 +171,6 @@ function ClassesForm() {
           <select
             {...register("capacity", {
               required: { value: true, message: "Required" },
-              valueAsDate: true,
             })}
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
             id="date"
