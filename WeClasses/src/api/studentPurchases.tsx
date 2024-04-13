@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { classeStatus } from "../types/classeTypes";
 
 const URL = import.meta.env.VITE_URL;
 
@@ -24,4 +25,19 @@ function GetAllPurchaseNames(id: string): string | undefined {
   return first;
 }
 
-export { postPurchaseClasse, GetAllPurchaseNames };
+function GetClasseStatus(id: string | undefined): classeStatus | undefined {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .get(`${URL}/purchaseClassStatus/${id}`, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
+
+export { postPurchaseClasse, GetAllPurchaseNames, GetClasseStatus };

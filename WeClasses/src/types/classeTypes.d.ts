@@ -15,5 +15,21 @@ type classe = {
     capacity: number
     photo: string
 }
+type classeStatus = {
+    data?: {
 
-export { classe }
+        _id: string,
+        student: Array<string>,
+        teacher: string,
+        classe: string,
+        price: number,
+        name: string,
+        date: Date,
+        duration: number
+    },
+    first: boolean
+
+
+}
+
+export { classe, classeStatus }
