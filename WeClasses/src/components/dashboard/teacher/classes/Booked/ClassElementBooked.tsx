@@ -32,7 +32,10 @@ function ClassElementBooked({
             " " +
             new Date(classe.duration).toLocaleTimeString()}
         </td>
-        {!name ? "loading" : <td className="px-6 py-4">{name}</td>}
+        <td>
+          name del stuident hubo un error porque borre usuarios, toca move por
+          alla
+        </td>
         <td className="px-6 py-4">{classe.duration} horas</td>
       </tr>
     );
