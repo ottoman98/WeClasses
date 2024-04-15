@@ -99,18 +99,23 @@ async function tutorAdmission(id: string | undefined, data: tutorInfo) {
 async function accountSettingsTutor(id: string | undefined, data: tutorInfo) {
   try {
     const form = new FormData();
-    form.append("description", data.description);
+
+    // Check if data.description is defined before appending it to the form
+    if (data.description !== undefined) {
+      form.append("description", data.description);
+    }
+
+    // Assuming data.photo is always defined and contains at least one element
     form.append("photo", data.photo[0]);
 
-    return axios.put(
-      `${URL}/account_teacher_settings/${id}`,
+    if (!id) {
+      throw new Error("ID is not defined");
+    }
 
-      form,
-      {
-        withCredentials: true,
-        headers: { "Content-Type": "multipart/form-data" },
-      }
-    );
+    return axios.put(`${URL}/account_teacher_settings/${id}`, form, {
+      withCredentials: true,
+      headers: { "Content-Type": "multipart/form-data" },
+    });
   } catch (error) {
     console.log(error);
   }

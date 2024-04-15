@@ -9,9 +9,13 @@ function Password() {
 
   const decoded: { id: string } | null = decodeToken(cookie as string);
 
-  const [response, setResponse] = useState();
+  const [response, setResponse] = useState<{ message: string }>();
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm<{
+    password: string;
+    password2: string;
+    oldPassword: string;
+  }>();
   return (
     <form
       onSubmit={handleSubmit(async (x) => {

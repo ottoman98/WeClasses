@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logos/Recurso 8@3x.png";
 import { postPurchaseClasse } from "../../api/studentPurchases";
+import { classe } from "../../types/classeTypes";
 
-function Resume({ data }) {
+function Resume({ data }: { data: classe }) {
   return (
     <>
       <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">

@@ -26,6 +26,8 @@ function Account() {
     | undefined
   >(undefined);
 
+  serverResponse;
+
   useEffect(() => {
     if (data) {
       setValue("description", data.description);
