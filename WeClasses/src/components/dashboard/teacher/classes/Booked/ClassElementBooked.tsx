@@ -9,6 +9,7 @@ function ClassElementBooked({
   student: string;
 }) {
   const name = GetAllPurchaseNames(student);
+  name;
   if (classe.createdAt) {
     return (
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
