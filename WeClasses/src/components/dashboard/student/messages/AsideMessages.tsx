@@ -9,7 +9,9 @@ function AsideMessages() {
       <nav className="">
         <ul className="flex border-b gap-5 px-5  font-bold text-blue-950 pr-20">
           <li
-            className={`${name == "all" ? "border-b-4 border-blue-900" : ""}`}
+            className={`${
+              name == "all" ? "border-b-4 border-blue-900" : ""
+            } hover:cursor-pointer`}
             onClick={() => {
               setName("all");
             }}
@@ -19,7 +21,7 @@ function AsideMessages() {
           <li
             className={`${
               name == "unread" ? "border-b-4 border-blue-900" : ""
-            }`}
+            } hover:cursor-pointer`}
             onClick={() => {
               setName("unread");
             }}
@@ -29,7 +31,7 @@ function AsideMessages() {
           <li
             className={`${
               name == "archived" ? "border-b-4 border-blue-900" : ""
-            }`}
+            } hover:cursor-pointer`}
             onClick={() => {
               setName("archived");
             }}

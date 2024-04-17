@@ -1,6 +1,6 @@
 function MessageCard() {
   return (
-    <li className="flex gap-2 text-blue-950 py-3 border-b">
+    <li className="flex gap-2 text-blue-950 py-3 border-b hover:cursor-pointer">
       <img
         className="h-10 "
         src="https://avatars.preply.com/i/logos/i/logos/avatar_x5rxakxeyab.jpg"

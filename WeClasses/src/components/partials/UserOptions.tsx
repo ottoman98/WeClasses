@@ -10,7 +10,7 @@ import { GetProfileStudent, GetProfileTeacher } from "../../api/axiosProfiles";
 function UserOptions() {
   const { setCookie, cookie } = useContext(DataContextSession);
   const { setName } = useContext(DataContextTabs);
-
+  console.log();
   const decoded: { id: string; level: string } | null = decodeToken(
     cookie as string
   );
@@ -90,7 +90,8 @@ function UserOptions() {
       <Dropdown.Item
         onClick={() => {
           setCookie("");
-
+          document.cookie =
+            "token" + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
           logout();
         }}
       >

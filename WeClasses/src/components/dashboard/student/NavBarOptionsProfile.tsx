@@ -10,7 +10,7 @@ function NavBarOptionsProfile() {
           <li
             className={`${
               name == "home" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("home");
             }}
@@ -20,7 +20,7 @@ function NavBarOptionsProfile() {
           <li
             className={`${
               name == "messages" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("messages");
             }}
@@ -30,7 +30,7 @@ function NavBarOptionsProfile() {
           <li
             className={`${
               name == "lessons" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("lessons");
             }}
