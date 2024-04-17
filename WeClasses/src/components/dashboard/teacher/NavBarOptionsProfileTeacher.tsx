@@ -11,7 +11,7 @@ function NavBarOptionsProfileTeacher() {
           <li
             className={`${
               name == "home" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("home");
             }}
@@ -21,7 +21,7 @@ function NavBarOptionsProfileTeacher() {
           <li
             className={`${
               name == "messages" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("messages");
             }}
@@ -31,7 +31,7 @@ function NavBarOptionsProfileTeacher() {
           <li
             className={`${
               name == "classes" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("classes");
             }}
@@ -41,7 +41,7 @@ function NavBarOptionsProfileTeacher() {
           <li
             className={`${
               name == "booked" ? "border-b-4 border-light-blue" : ""
-            } py-1`}
+            } py-1 hover:cursor-pointer`}
             onClick={() => {
               setName("booked");
             }}
