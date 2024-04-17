@@ -13,7 +13,9 @@ function MyLessons() {
           <NoLessons />
         ) : (
           classes.map((x) => {
-            return <ClassesCard data={x} />;
+            if (x) {
+              return <ClassesCard data={x} />;
+            }
           })
         )}
       </div>

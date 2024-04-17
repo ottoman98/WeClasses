@@ -10,6 +10,8 @@ function ClassElementBooked({
 }) {
   const name = GetAllPurchaseNames(student);
   name;
+
+  console.log(classe);
   if (classe.createdAt) {
     return (
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -29,9 +31,9 @@ function ClassElementBooked({
         </td>
         <td className="px-6 py-4">{classe.level}</td>
         <td className="px-6 py-4">
-          {new Date(classe.duration).toLocaleDateString() +
+          {new Date(classe.date).toLocaleDateString() +
             " " +
-            new Date(classe.duration).toLocaleTimeString()}
+            new Date(classe.date).toLocaleTimeString()}
         </td>
         <td>
           name del stuident hubo un error porque borre usuarios, toca move por

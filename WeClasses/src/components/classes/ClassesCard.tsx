@@ -7,13 +7,22 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
+import { GetClasseStatus } from "../../api/studentPurchases";
 
 function ClassesCard({ data }: { data: classe }) {
   const navigate = useNavigate();
   const { cookie } = useContext(DataContextSession);
+  const classeStatus = GetClasseStatus(data._id);
+  console.log(classeStatus);
+  const studentCount =
+    classeStatus && classeStatus.data?.student.length == data.capacity;
 
   return (
-    <div className="flex border rounded-md p-2">
+    <div
+      className={`flex border rounded-md p-2 ${
+        studentCount ? "bg-gray-200" : ""
+      }`}
+    >
       <img
         className="h-28  rounded-full aspect-square"
         src={data.photo}
@@ -27,7 +36,7 @@ function ClassesCard({ data }: { data: classe }) {
             src={"https://d13nnzzfr74buh.cloudfront.net/img/icons/trusted.svg"}
             alt=""
           />
-          <Link to={`/teacher/${data.user}`}>{data.teacherName}r</Link>
+          <Link to={`/teacher/${data.user}`}>{data.teacherName}</Link>
         </div>
         <div className="flex gap-1">
           <FaGraduationCap size={17} />
@@ -57,6 +66,11 @@ function ClassesCard({ data }: { data: classe }) {
           </div>
           <div className="flex gap-1">
             <span>{data.price} $</span>
+            <span>
+              {classeStatus?.first
+                ? `0/${data.capacity}`
+                : `${classeStatus?.data?.student.length}/${data.capacity}`}
+            </span>
           </div>
         </div>
         <div className="flex flex-col gap-2 cursor-pointer">
@@ -68,7 +82,9 @@ function ClassesCard({ data }: { data: classe }) {
                 navigate(`/checkout/${data._id}`);
               }
             }}
-            className="bg-blue-950 text-white p-2 rounded"
+            className={`bg-blue-950 text-white p-2 rounded ${
+              studentCount ? "hidden" : ""
+            }`}
           >
             Book Lesson
           </span>
