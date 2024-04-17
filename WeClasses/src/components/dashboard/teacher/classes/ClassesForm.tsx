@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { classe } from "../../../../types/classeTypes";
-import RichEditor from "../../../../utils/RichEditor";
 import { postClasse } from "../../../../api/axiosClasses";
 import { valid } from "../../../../types/postResponse";
 
@@ -11,9 +10,7 @@ function ClassesForm() {
   const [response, setResponse] = useState<valid | null>(null);
   const {
     register,
-    setValue,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm<classe>();
 
@@ -35,6 +32,7 @@ function ClassesForm() {
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await postClasse(x);
+          console.log(x);
 
           setResponse(data.data);
         })}
@@ -183,19 +181,25 @@ function ClassesForm() {
             <option value="5">5</option>
             <option value="6">6</option>
           </select>
-          <p className="text-xs italic text-red-500">{errors.link?.message}</p>
+          <p className="text-xs italic text-red-500">
+            {errors.capacity?.message}
+          </p>
         </div>
 
         <div className=" col-span-2 h-[20rem]">
-          <label htmlFor="" className="text-sm">
+          <label htmlFor="" className="text-sm flex flex-col">
             Descripción
           </label>
-          <RichEditor
-            set={(editorState: string) => {
-              setValue("description", editorState);
-            }}
-            value={getValues("description")}
-          />
+          <textarea
+            {...register("description", {
+              required: { value: true, message: "Required" },
+            })}
+            className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            id="description"
+          ></textarea>
+          <p className="text-xs italic text-red-500">
+            {errors.description?.message}
+          </p>
         </div>
         <div className="col-span-2">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">

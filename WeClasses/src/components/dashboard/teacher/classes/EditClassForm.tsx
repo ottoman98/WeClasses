@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useContext, useEffect, useState } from "react";
 import { classe } from "../../../../types/classeTypes";
-import RichEditor from "../../../../utils/RichEditor";
 import { GetClasseById, putClasse } from "../../../../api/axiosClasses";
 import { valid } from "../../../../types/postResponse";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +23,6 @@ function EditClassesForm() {
     register,
     setValue,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm<classe>();
 
@@ -46,9 +44,7 @@ function EditClassesForm() {
       setValue("description", data.description);
       setValue("price", data.price);
       const date = new Date(data.date);
-
       const definite = getFormattedDateTime(date);
-
       setValue("date", definite);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -191,15 +187,19 @@ function EditClassesForm() {
         </div>
 
         <div className="col-span-2 ">
-          <label htmlFor="description" className="text-sm">
-            Description
+          <label htmlFor="" className="text-sm flex flex-col">
+            Descripción
           </label>
-          <RichEditor
-            set={(editorState: string) => {
-              setValue("description", editorState);
-            }}
-            value={getValues("description")}
-          />
+          <textarea
+            {...register("description", {
+              required: { value: true, message: "Required" },
+            })}
+            className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            id="description"
+          ></textarea>
+          <p className="text-xs italic text-red-500">
+            {errors.description?.message}
+          </p>
         </div>
         <div className="col-span-2 mt-10">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
