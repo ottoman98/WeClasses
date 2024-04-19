@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logos/Recurso 8@3x.png";
-//import { postPurchaseClasse } from "../../api/studentPurchases";
+
 import { classe } from "../../types/classeTypes";
 import PayPal from "../../utils/Paypal";
 
@@ -98,7 +98,7 @@ function Resume({ data }: { data: classe }) {
           </div>
         </div>
         <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
-          <PayPal price={`${data.price}`} />
+          <PayPal price={`${data.price}`} id={data._id} />
         </div>
       </div>
     </>
