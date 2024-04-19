@@ -43,7 +43,7 @@ function PayPal({ price, id }: { price: string; id: string }) {
       console.log(details);
       const name = details.payer.name.given_name;
       alert(`Transaction completed by ${name}`);
-      postPurchaseClasse(id);
+      postPurchaseClasse({ classe: id });
       setName("lessons");
       navigate("/profile");
     });
