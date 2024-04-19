@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logos/Recurso 8@3x.png";
-import { postPurchaseClasse } from "../../api/studentPurchases";
+//import { postPurchaseClasse } from "../../api/studentPurchases";
 import { classe } from "../../types/classeTypes";
+import PayPal from "../../utils/Paypal";
 
 function Resume({ data }: { data: classe }) {
   return (
@@ -97,16 +98,7 @@ function Resume({ data }: { data: classe }) {
           </div>
         </div>
         <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
-          <a
-            onClick={() => {
-              postPurchaseClasse({ classe: data._id });
-            }}
-            className="text-blue-800 font-bold bg-yellow-300 text-xl py-2 px-12 rounded-full "
-            //href={data.payment}
-            target="_blank"
-          >
-            Donate with Paypal
-          </a>
+          <PayPal />
         </div>
       </div>
     </>

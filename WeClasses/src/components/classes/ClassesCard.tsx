@@ -88,9 +88,12 @@ function ClassesCard({ data }: { data: classe }) {
           >
             Book Lesson
           </span>
-          <span className="bg-blue-950 text-white p-2 rounded">
-            <Link to={`/class/${data._id}`}>Details</Link>
-          </span>
+          <Link
+            to={`/class/${data._id}`}
+            className="bg-blue-950 text-white p-2 rounded"
+          >
+            Details
+          </Link>
         </div>
       </div>
     </div>
