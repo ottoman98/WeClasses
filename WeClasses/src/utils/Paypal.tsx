@@ -1,11 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postPurchaseClasse } from "../api/studentPurchases";
 import { useNavigate } from "react-router-dom";
+import { DataContextTabs } from "../context/studentsTab";
 function PayPal({ price, id }: { price: string; id: string }) {
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
+
+  const { setName } = useContext(DataContextTabs);
   const [currency, setCurrency] = useState(options.currency);
   const navigate = useNavigate();
 
@@ -41,7 +44,8 @@ function PayPal({ price, id }: { price: string; id: string }) {
       const name = details.payer.name.given_name;
       alert(`Transaction completed by ${name}`);
       postPurchaseClasse(id);
-      navigate("profile");
+      setName("lessons");
+      navigate("/profile");
     });
   };
 
