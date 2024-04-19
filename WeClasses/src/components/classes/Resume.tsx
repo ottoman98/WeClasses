@@ -98,7 +98,7 @@ function Resume({ data }: { data: classe }) {
           </div>
         </div>
         <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
-          <PayPal />
+          <PayPal price={`${data.price}`} />
         </div>
       </div>
     </>

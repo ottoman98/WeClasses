@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { useState } from "react";
-function PayPal() {
+function PayPal({ price }: { price: string }) {
   const [{ options, isPending }, dispatch] = usePayPalScriptReducer();
   const [currency, setCurrency] = useState(options.currency);
 
@@ -25,7 +25,7 @@ function PayPal() {
       purchase_units: [
         {
           amount: {
-            value: "8.99",
+            value: price,
           },
         },
       ],
@@ -34,6 +34,7 @@ function PayPal() {
 
   const onApproveOrder = (data, actions) => {
     return actions.order.capture().then((details) => {
+      console.log(details);
       const name = details.payer.name.given_name;
       alert(`Transaction completed by ${name}`);
     });

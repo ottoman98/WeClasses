@@ -9,8 +9,7 @@ import Resume from "./Resume";
 function ClassPayments() {
   const { id } = useParams();
 
-  // Add type check or default value assignment to ensure id is always a string
-  const classId: string | undefined = id ?? ""; // Assign default value if id is undefined
+  const classId: string | undefined = id ?? "";
 
   const data = GetClasseById(classId);
   const classeStatus = GetClasseStatus(classId);
@@ -36,8 +35,7 @@ function ClassPayments() {
     }
   }
 
-  // Add a default return statement to handle cases where data or classeStatus is not available
-  return null; // or any other fallback UI
+  return <>went wrong</>;
 }
 
 export default ClassPayments;
