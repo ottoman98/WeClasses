@@ -12,7 +12,9 @@ type teacherData = {
     video?: string,
     photo?: string,
     payment?: string,
-    description?: string
+    description?: string,
+    createdAt?: string,
+    score: Array<number>
 
 
 }

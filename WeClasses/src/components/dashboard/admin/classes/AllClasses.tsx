@@ -8,20 +8,13 @@ import ClassElement from "./ClassElement";
 function AllClasses() {
   const data = GetAllClassesTeacher();
 
-  const { name, setName } = useContext(DataContextTabsClasses);
-  console.log(name);
+  const { name } = useContext(DataContextTabsClasses);
 
   if (name == "") {
     return (
       <section className="md:max-w-[80rem] mx-auto flex flex-col py-4 gap-3">
         <h2 className="text-4xl">MyClasses</h2>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg flex flex-col">
-          <span
-            className="bg-blue-900 block cursor-pointer"
-            onClick={() => setName("add")}
-          >
-            Add Class
-          </span>
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>

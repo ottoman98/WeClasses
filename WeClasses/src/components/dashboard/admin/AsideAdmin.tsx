@@ -1,8 +1,12 @@
 import { Sidebar } from "flowbite-react";
 import { HiChartPie, HiInbox, HiUser } from "react-icons/hi";
 import logo from "../../../assets/logos/Recurso 7@3x.png";
+import { useContext } from "react";
+import { DataContextTabs } from "../../../context/studentsTab";
 
 function AsideAdmin() {
+  const { setName } = useContext(DataContextTabs);
+
   return (
     <Sidebar aria-label="Sidebar with multi-level dropdown example">
       <Sidebar.Items>
@@ -10,26 +14,75 @@ function AsideAdmin() {
           <Sidebar.Item href="#">
             <img src={logo} alt="" />
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiChartPie}>
+          <Sidebar.Item
+            className="cursor-pointer"
+            icon={HiChartPie}
+            onClick={() => {
+              setName("resume");
+            }}
+          >
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="#" icon={HiInbox}>
+          <Sidebar.Item
+            className="cursor-pointer"
+            icon={HiInbox}
+            onClick={() => {
+              setName("messages");
+            }}
+          >
             Messages
           </Sidebar.Item>
           <Sidebar.Collapse icon={HiUser} label="Users">
-            <Sidebar.Item href="#">Applicants </Sidebar.Item>
-            <Sidebar.Item href="#">Student</Sidebar.Item>
-            <Sidebar.Item href="#">Teachers</Sidebar.Item>
+            <Sidebar.Item
+              className="cursor-pointer"
+              onClick={() => {
+                setName("applicants");
+              }}
+            >
+              Applicants
+            </Sidebar.Item>
+            <Sidebar.Item
+              className="cursor-pointer"
+              onClick={() => {
+                setName("students");
+              }}
+            >
+              Students
+            </Sidebar.Item>
+            <Sidebar.Item
+              className="cursor-pointer"
+              onClick={() => {
+                setName("teachers");
+              }}
+            >
+              Teachers
+            </Sidebar.Item>
           </Sidebar.Collapse>
         </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="#" icon={HiInbox}>
+          <Sidebar.Item
+            onClick={() => {
+              setName("settings");
+            }}
+            icon={HiInbox}
+          >
             Settings
           </Sidebar.Item>
           <Sidebar.Collapse icon={HiUser} label="Classes">
-            <Sidebar.Item href="#">Add class </Sidebar.Item>
-            <Sidebar.Item href="#">All classes</Sidebar.Item>
-            <Sidebar.Item href="#">Teachers</Sidebar.Item>
+            <Sidebar.Item
+              onClick={() => {
+                setName("add");
+              }}
+            >
+              Add class{" "}
+            </Sidebar.Item>
+            <Sidebar.Item
+              onClick={() => {
+                setName("all");
+              }}
+            >
+              All classes
+            </Sidebar.Item>
           </Sidebar.Collapse>
         </Sidebar.ItemGroup>
       </Sidebar.Items>

@@ -13,7 +13,9 @@ type contact = {
     countryCode: string,
     nativeLanguage: string,
     languageToLearn: string,
-    photo?: string
+    photo?: string,
+    createdAt?: string,
+    birthDay?: string
 
 }
 
