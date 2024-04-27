@@ -24,68 +24,56 @@ import RegisterSuccessTeacher from "./pages/RegisterSuccessTeacher";
 import AdmissionTeacher from "./pages/AdmissionTeacher";
 import { DataProviderTabsSettings } from "./context/settings/settings";
 import Panel from "./components/dashboard/admin/Panel";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 function App() {
-  const initialOptions = {
-    clientId:
-      "AZrs3gaQNVE5DRnWHdyNLhOdPEYDdSE3UZcCLl2mQCOsheGYDpJ6ISceyJmBF-p5gv4mBJIbfHLhuBnc",
-    currency: "USD",
-    intent: "capture",
-  };
   return (
     <>
       <DataProviderSession>
         <DataProviderLanguage>
           <DataProviderTabs>
             <DataProviderTabsSettings>
-              <PayPalScriptProvider options={initialOptions}>
-                <HashRouter>
-                  <Routes>
-                    <Route path="/checkout/:id" element={<ClassPayments />} />
+              <HashRouter>
+                <Routes>
+                  <Route path="/checkout/:id" element={<ClassPayments />} />
+                  <Route path="/register/:name" element={<RegisterSuccess />} />
+                  <Route
+                    path="/registerTeacher/:name"
+                    element={<RegisterSuccessTeacher />}
+                  />
+                  <Route path="/admission/" element={<AdmissionTeacher />} />
+                  <Route
+                    path="/registerComplete/:name"
+                    element={<CompleteRegister />}
+                  />
+                  <Route element={<Home />}>
+                    <Route path="/" element={<Main />} />
+                    <Route path="/register" element={<Register />} />
                     <Route
-                      path="/register/:name"
-                      element={<RegisterSuccess />}
+                      path="/register_tutor"
+                      element={<RegisterTeachers />}
                     />
+                    <Route path="/user/:id" element={<UserRemainingForm />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/recover" element={<Recover />} />
+                    <Route path="/recover/:id" element={<ChangePassword />} />
                     <Route
-                      path="/registerTeacher/:name"
-                      element={<RegisterSuccessTeacher />}
+                      path="/tutor_info/:id"
+                      element={<TeacherRemainingForm />}
                     />
-                    <Route path="/admission/" element={<AdmissionTeacher />} />
-                    <Route
-                      path="/registerComplete/:name"
-                      element={<CompleteRegister />}
-                    />
-                    <Route element={<Home />}>
-                      <Route path="/" element={<Main />} />
-                      <Route path="/register" element={<Register />} />
-                      <Route
-                        path="/register_tutor"
-                        element={<RegisterTeachers />}
-                      />
-                      <Route path="/user/:id" element={<UserRemainingForm />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/recover" element={<Recover />} />
-                      <Route path="/recover/:id" element={<ChangePassword />} />
-                      <Route
-                        path="/tutor_info/:id"
-                        element={<TeacherRemainingForm />}
-                      />
-                      <Route path="/classes" element={<ClassesList />} />
-                      <Route path="/teacher/:id" element={<TeacherInfo />} />
-                      <Route path="/class/:id" element={<ClassInfo />} />
-                    </Route>
-                    //*LOGIN ROUTES
-                    <Route element={<ProtectedRoutes />}>
-                      //*STUDENTS ROUTES
-                      <Route path="/profile" element={<Profile />} />
-                      //*TEACHER ROUTES
-                      <Route path="/dashboard" element={<Dashboard />} />
-                      //*ADMIN ROUTES
-                      <Route path="/admin" element={<Panel />} />
-                    </Route>
-                  </Routes>
-                </HashRouter>
-              </PayPalScriptProvider>
+                    <Route path="/classes" element={<ClassesList />} />
+                    <Route path="/teacher/:id" element={<TeacherInfo />} />
+                    <Route path="/class/:id" element={<ClassInfo />} />
+                  </Route>
+                  //*LOGIN ROUTES
+                  <Route element={<ProtectedRoutes />}>
+                    //*STUDENTS ROUTES
+                    <Route path="/profile" element={<Profile />} />
+                    //*TEACHER ROUTES
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    //*ADMIN ROUTES
+                    <Route path="/admin" element={<Panel />} />
+                  </Route>
+                </Routes>
+              </HashRouter>
             </DataProviderTabsSettings>
           </DataProviderTabs>
         </DataProviderLanguage>

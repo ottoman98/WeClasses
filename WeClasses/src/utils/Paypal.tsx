@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import { useEffect } from "react";
 import { useContext, useState } from "react";
 import { postPurchaseClasse } from "../api/studentPurchases";
 import { useNavigate } from "react-router-dom";
@@ -27,47 +28,63 @@ function PayPal({ price, id }: { price: string; id: string }) {
     });
   };
   const onCreateOrder = (data, actions) => {
-    return actions.order.create({
-      purchase_units: [
-        {
-          amount: {
-            value: price,
+    try {
+      return actions.order.create({
+        purchase_units: [
+          {
+            amount: {
+              value: price,
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const onApproveOrder = (data, actions) => {
-    return actions.order.capture().then((details) => {
-      console.log(details);
-      const name = details.payer.name.given_name;
-      alert(`Transaction completed by ${name}`);
-      postPurchaseClasse({ classe: id });
-      setName("lessons");
-      navigate("/profile");
-    });
+    try {
+      return actions.order.capture().then((details) => {
+        console.log(details);
+        const name = details.payer.name.given_name;
+        alert(`Transaction completed by ${name}`);
+        postPurchaseClasse({ classe: id });
+        setName("lessons");
+        navigate("/profile");
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 5000);
+  }, []);
 
-  return (
-    <>
-      {isPending ? (
-        <p>LOADING...</p>
-      ) : (
+  if (!isPending) {
+    if (loading) {
+      return (
         <>
           <select value={currency} onChange={onCurrencyChange}>
             <option value="USD">💵 USD</option>
             <option value="EUR">💶 Euro</option>
+            <option value="">Seleccione su moneda</option>
           </select>
           <PayPalButtons
-            style={{ layout: "vertical" }}
             createOrder={(data, actions) => onCreateOrder(data, actions)}
             onApprove={(data, actions) => onApproveOrder(data, actions)}
           />
         </>
-      )}
-    </>
-  );
+      );
+    } else {
+      return <> ta Cargando el metodo de pago cojela suave...</>;
+    }
+  } else {
+    return <>Loading</>;
+  }
 }
 
 export default PayPal;
