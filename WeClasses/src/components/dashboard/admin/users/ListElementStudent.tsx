@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { teacherData } from "../../../../types/teacher";
+import profile from "../../../../assets/icons/profile.png";
+
 import { DataContextManage } from "../../../../context/teachers/manage";
 import { DataContextTabs } from "../../../../context/studentsTab";
+import { fullContact } from "../../../../types/userTypes";
 
-function ListElement({ data }: { data: teacherData }) {
+function ListElementStudent({ data }: { data: fullContact }) {
   const { setName } = useContext(DataContextManage);
   const tabs = useContext(DataContextTabs).setName;
 
@@ -11,31 +13,29 @@ function ListElement({ data }: { data: teacherData }) {
     return (
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
         <th className="flex justify-center">
-          <img className="aspect-square w-16" src={data.photo} alt="" />
+          <img
+            className="aspect-square w-16"
+            src={data.photo ? data.photo : profile}
+            alt=""
+          />
         </th>
         <th>{new Date(data.createdAt).toLocaleDateString()}</th>
         <th>{data.name}</th>
         <th>{data.lastName}</th>
         <th>{data.email}</th>
         <th>{data.phone}</th>
-        <th>{new Date(data.birthDay).toLocaleDateString()}</th>
-        <th className="flex flex-col">
-          {data.languages.map((x) => (
-            <span>{`${x.language}  (${x.level}`})</span>
-          ))}
-        </th>
+        <th>{data.country}</th>
+        <th>{data.nativeLanguage}</th>
         <th>
-          {data.score.length > 0
-            ? data.score.reduce((acc, currentValue) => acc + currentValue, 0) /
-              data.score.length
-            : "no tiene calificaciones aun"}
+          {data.languageToLearn} ({data.languageLevel})
         </th>
+
         <th>
           <button
             className="bg-blue-600 text-white"
             onClick={() => {
               setName(data._id);
-              tabs("manage");
+              tabs("manageStudent");
             }}
           >
             Gestionar
@@ -46,4 +46,4 @@ function ListElement({ data }: { data: teacherData }) {
   }
 }
 
-export default ListElement;
+export default ListElementStudent;

@@ -5,7 +5,7 @@ function Applicants() {
   const data = GetAllApplicants();
   console.log(data);
   if (data) {
-    return <List data={data} />;
+    return <List title="Applicants" data={data} />;
   }
 }
 

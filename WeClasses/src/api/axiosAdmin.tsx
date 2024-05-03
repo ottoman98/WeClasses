@@ -48,4 +48,21 @@ function GetAllApplicants(): Array<teacherData> | undefined {
   return first;
 }
 
-export { GetAllStudents, GetAllTeachers, GetAllApplicants };
+function approbation(id: string | undefined, data: { approved: boolean }) {
+  return axios.put(`${URL}/approving/${id}`, data, {
+    withCredentials: true,
+  });
+}
+function desactiveAccount(id: string | undefined) {
+  return axios.put(`${URL}/desactive/${id}`, {
+    withCredentials: true,
+  });
+}
+
+export {
+  GetAllStudents,
+  GetAllTeachers,
+  GetAllApplicants,
+  approbation,
+  desactiveAccount,
+};

@@ -5,7 +5,7 @@ function TeacherList() {
   const data = GetAllTeachers();
 
   if (data) {
-    return <List data={data} />;
+    return <List title="All Teachers" data={data} />;
   }
 }
 

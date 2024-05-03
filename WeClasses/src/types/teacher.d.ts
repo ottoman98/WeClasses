@@ -1,4 +1,5 @@
 type teacherData = {
+    _id?: string,
     name: string,
     lastName: string,
     email: string,
@@ -14,7 +15,9 @@ type teacherData = {
     payment?: string,
     description?: string,
     createdAt?: string,
-    score: Array<number>
+    score: Array<number>,
+    approved: boolean,
+    active?: boolean
 
 
 }

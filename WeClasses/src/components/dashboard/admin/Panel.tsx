@@ -9,6 +9,9 @@ import Settings from "./settings/Settings";
 import StudentsList from "./users/StudentsList";
 import TeacherList from "./users/TeacherList";
 import Applicants from "./users/Applicants";
+import ManageUser from "./users/ManageUser";
+import { DataProviderManage } from "../../../context/teachers/manage";
+import ManageUserStudent from "./users/ManageUserStudent";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -29,19 +32,25 @@ function Panel() {
         return <TeacherList />;
       case "applicants":
         return <Applicants />;
+      case "manage":
+        return <ManageUser />;
+      case "manageStudent":
+        return <ManageUserStudent />;
     }
   }
   return (
-    <DataProviderTabsClasses>
-      <nav className=" flex justify-between px-16">
-        <div></div>
-        <UserOptions />
-      </nav>
-      <div className="flex">
-        <AsideAdmin />
-        {tabs()}
-      </div>
-    </DataProviderTabsClasses>
+    <DataProviderManage>
+      <DataProviderTabsClasses>
+        <nav className=" flex justify-between px-16">
+          <div></div>
+          <UserOptions />
+        </nav>
+        <div className="flex">
+          <AsideAdmin />
+          {tabs()}
+        </div>
+      </DataProviderTabsClasses>
+    </DataProviderManage>
   );
 }
 
