@@ -132,6 +132,37 @@ async function passwordSettingsTutor(
     console.log(error);
   }
 }
+async function accountSettingsStudent(
+  id: string | undefined,
+  data: fullContact
+) {
+  try {
+    const form = new FormData();
+
+    // Check if data.description is defined before appending it to the form
+    if (data.country !== undefined) {
+      form.append("country", data.country);
+    }
+    if (data.countryCode !== undefined) {
+      form.append("countryCode", data.countryCode);
+    }
+
+    if (data.phone !== undefined) {
+      form.append("phone", data.phone);
+    }
+
+    if (data.photo !== undefined) {
+      form.append("photo", data.photo[0]);
+    }
+
+    return axios.put(`${URL}//account_student_settings/${id}`, form, {
+      withCredentials: true,
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 
 async function logout() {
   return axios.get(`${URL}/logout`, {
@@ -150,5 +181,6 @@ export {
   axiosGoogleLogin,
   accountSettingsTutor,
   passwordSettingsTutor,
+  accountSettingsStudent,
   logout,
 };

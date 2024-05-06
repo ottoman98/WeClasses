@@ -22,7 +22,7 @@ function GetProfileTeacher(id: string | undefined): teacherData | undefined {
 
   return first;
 }
-function GetProfileStudent(id: string): fullContact | undefined {
+function GetProfileStudent(id: string | undefined): fullContact | undefined {
   const [first, setFirst] = useState();
   useEffect(() => {
     axios
