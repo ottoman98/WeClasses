@@ -1,11 +1,11 @@
 import { GetAllTeachers } from "../../../../api/axiosAdmin";
-import List from "./List";
+import ListTeachers from "./ListTeachers";
 
 function TeacherList() {
   const data = GetAllTeachers();
 
   if (data) {
-    return <List title="All Teachers" data={data} />;
+    return <ListTeachers title="All Teachers" data={data} />;
   }
 }
 

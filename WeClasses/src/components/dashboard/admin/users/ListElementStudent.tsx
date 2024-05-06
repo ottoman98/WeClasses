@@ -29,6 +29,7 @@ function ListElementStudent({ data }: { data: fullContact }) {
         <th>
           {data.languageToLearn} ({data.languageLevel})
         </th>
+        <th>{data.active ? "active" : "banned"}</th>
 
         <th>
           <button

@@ -3,7 +3,7 @@ import { teacherData } from "../../../../types/teacher";
 import { DataContextManage } from "../../../../context/teachers/manage";
 import { DataContextTabs } from "../../../../context/studentsTab";
 
-function ListElement({ data }: { data: teacherData }) {
+function ListElementTeacher({ data }: { data: teacherData }) {
   const { setName } = useContext(DataContextManage);
   const tabs = useContext(DataContextTabs).setName;
 
@@ -30,6 +30,7 @@ function ListElement({ data }: { data: teacherData }) {
               data.score.length
             : "no tiene calificaciones aun"}
         </th>
+        <th>{data.active ? "activo" : "baneao"}</th>
         <th>
           <button
             className="bg-blue-600 text-white"
@@ -46,4 +47,4 @@ function ListElement({ data }: { data: teacherData }) {
   }
 }
 
-export default ListElement;
+export default ListElementTeacher;

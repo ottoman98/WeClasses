@@ -3,9 +3,11 @@ import { DataContextManage } from "../../../../context/teachers/manage";
 import { GetProfileStudent } from "../../../../api/axiosProfiles";
 import profile from "../../../../assets/icons/profile.png";
 import { desactiveAccount } from "../../../../api/axiosAdmin";
+import { DataContextTabs } from "../../../../context/studentsTab";
 
 function ManageUserStudent() {
   const { name } = useContext(DataContextManage);
+  const { setName } = useContext(DataContextTabs);
   const data = GetProfileStudent(name);
   console.log(data);
   if (data?.createdAt) {
@@ -30,13 +32,27 @@ function ManageUserStudent() {
 
           <span>status:{data.active}</span>
         </div>
-
-        <button
-          onClick={() => desactiveAccount(data._id)}
-          className="bg-red-800 text-white"
-        >
-          se va de baneada
-        </button>
+        {data.active ? (
+          <button
+            onClick={() => {
+              desactiveAccount(data._id, { active: false });
+              setName("students");
+            }}
+            className="bg-red-800 text-white"
+          >
+            se va de baneada
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              desactiveAccount(data._id, { active: true });
+              setName("students");
+            }}
+            className="bg-green-700 text-white"
+          >
+            Activar
+          </button>
+        )}
       </div>
     );
   } else {

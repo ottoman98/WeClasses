@@ -2,9 +2,12 @@ import { useContext } from "react";
 import { DataContextManage } from "../../../../context/teachers/manage";
 import { GetProfileTeacher } from "../../../../api/axiosProfiles";
 import { approbation, desactiveAccount } from "../../../../api/axiosAdmin";
+import { DataContextTabs } from "../../../../context/studentsTab";
 
 function ManageUser() {
   const { name } = useContext(DataContextManage);
+  const { setName } = useContext(DataContextTabs);
+
   const data = GetProfileTeacher(name);
   console.log(data);
   if (data?.createdAt) {
@@ -40,13 +43,19 @@ function ManageUser() {
         {!data.approved ? (
           <>
             <button
-              onClick={() => approbation(data._id, { approved: true })}
+              onClick={() => {
+                approbation(data._id, { approved: true });
+                setName("applicants");
+              }}
               className="bg-blue-900 text-white"
             >
               aprobar
             </button>
             <button
-              onClick={() => approbation(data._id, { approved: false })}
+              onClick={() => {
+                approbation(data._id, { approved: false });
+                setName("applicants");
+              }}
               className="bg-red-800 text-white"
             >
               rechazar
@@ -54,12 +63,29 @@ function ManageUser() {
           </>
         ) : (
           <>
-            <button
-              onClick={() => desactiveAccount(data._id)}
-              className="bg-red-800 text-white"
-            >
-              inhabilitar cuenta por cachon
-            </button>
+            {data.active ? (
+              <button
+                onClick={() => {
+                  desactiveAccount(data._id, { active: false });
+                  setName("resume");
+                  setName("teachers");
+                }}
+                className="bg-red-800 text-white"
+              >
+                se va de baneada
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  desactiveAccount(data._id, { active: true });
+                  setName("resume");
+                  setName("teachers");
+                }}
+                className="bg-green-700 text-white"
+              >
+                Activar
+              </button>
+            )}
           </>
         )}
       </div>

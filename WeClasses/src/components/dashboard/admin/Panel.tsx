@@ -9,7 +9,7 @@ import Settings from "./settings/Settings";
 import StudentsList from "./users/StudentsList";
 import TeacherList from "./users/TeacherList";
 import Applicants from "./users/Applicants";
-import ManageUser from "./users/ManageUser";
+import ManageUser from "./users/ManageTeacher";
 import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
 

@@ -53,8 +53,8 @@ function approbation(id: string | undefined, data: { approved: boolean }) {
     withCredentials: true,
   });
 }
-function desactiveAccount(id: string | undefined) {
-  return axios.put(`${URL}/desactive/${id}`, {
+function desactiveAccount(id: string | undefined, data: { active: boolean }) {
+  return axios.put(`${URL}/desactive/${id}`, data, {
     withCredentials: true,
   });
 }
