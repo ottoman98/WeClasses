@@ -13,7 +13,7 @@ function ClassesCard({ data }: { data: classe }) {
   const navigate = useNavigate();
   const { cookie } = useContext(DataContextSession);
   const classeStatus = GetClasseStatus(data._id);
-  console.log(classeStatus);
+
   const studentCount =
     classeStatus && classeStatus.data?.student.length == data.capacity;
 

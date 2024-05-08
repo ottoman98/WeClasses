@@ -1,5 +1,5 @@
 import { teacherData } from "../../../../types/teacher";
-import ListElementTeacher from "./ListElement";
+import ListElementTeacher from "./ListElementTeacher";
 
 function ListTeachers({
   data,

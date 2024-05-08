@@ -24,6 +24,7 @@ import RegisterSuccessTeacher from "./pages/RegisterSuccessTeacher";
 import AdmissionTeacher from "./pages/AdmissionTeacher";
 import { DataProviderTabsSettings } from "./context/settings/settings";
 import Panel from "./components/dashboard/admin/Panel";
+
 function App() {
   return (
     <>

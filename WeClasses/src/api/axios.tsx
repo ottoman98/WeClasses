@@ -132,6 +132,7 @@ async function passwordSettingsTutor(
     console.log(error);
   }
 }
+
 async function accountSettingsStudent(
   id: string | undefined,
   data: fullContact
@@ -139,7 +140,6 @@ async function accountSettingsStudent(
   try {
     const form = new FormData();
 
-    // Check if data.description is defined before appending it to the form
     if (data.country !== undefined) {
       form.append("country", data.country);
     }

@@ -3,7 +3,7 @@ import ListElementStudent from "./ListElementStudent";
 
 function StudentsList() {
   const data = GetAllStudents();
-  console.log(data);
+
   if (data) {
     return (
       <section className="md:max-w-[80rem] mx-auto flex flex-col py-4 gap-3">

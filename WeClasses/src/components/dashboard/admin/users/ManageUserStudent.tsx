@@ -9,7 +9,7 @@ function ManageUserStudent() {
   const { name } = useContext(DataContextManage);
   const { setName } = useContext(DataContextTabs);
   const data = GetProfileStudent(name);
-  console.log(data);
+
   if (data?.createdAt) {
     return (
       <div className="flex flex-col gap-8">
@@ -18,7 +18,6 @@ function ManageUserStudent() {
           src={data.photo ? data.photo : profile}
           alt=""
         />
-
         <div className="grid grid-cols-3 gap-4">
           <span>request: {new Date(data.createdAt).toLocaleDateString()}</span>
           <span>name: {data.name}</span>
@@ -35,8 +34,11 @@ function ManageUserStudent() {
         {data.active ? (
           <button
             onClick={() => {
+              setName("loading");
               desactiveAccount(data._id, { active: false });
-              setName("students");
+              setTimeout(() => {
+                setName("students");
+              }, 1000); // 1000 milisegundos = 1 segundo
             }}
             className="bg-red-800 text-white"
           >
@@ -45,8 +47,11 @@ function ManageUserStudent() {
         ) : (
           <button
             onClick={() => {
+              setName("loading");
               desactiveAccount(data._id, { active: true });
-              setName("students");
+              setTimeout(() => {
+                setName("students");
+              }, 1000); // 1000 milisegundos = 1 segundo;
             }}
             className="bg-green-700 text-white"
           >

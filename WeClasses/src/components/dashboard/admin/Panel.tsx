@@ -12,6 +12,7 @@ import Applicants from "./users/Applicants";
 import ManageUser from "./users/ManageTeacher";
 import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
+import Loading from "./users/Loading";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -36,8 +37,11 @@ function Panel() {
         return <ManageUser />;
       case "manageStudent":
         return <ManageUserStudent />;
+      case "loading":
+        return <Loading />;
     }
   }
+
   return (
     <DataProviderManage>
       <DataProviderTabsClasses>

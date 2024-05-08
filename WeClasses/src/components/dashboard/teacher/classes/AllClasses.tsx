@@ -9,7 +9,6 @@ function AllClasses() {
   const data = GetAllClassesTeacher();
 
   const { name, setName } = useContext(DataContextTabsClasses);
-  console.log(name);
 
   if (name == "") {
     return (
