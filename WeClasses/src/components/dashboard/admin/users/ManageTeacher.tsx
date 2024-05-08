@@ -4,7 +4,7 @@ import { GetProfileTeacher } from "../../../../api/axiosProfiles";
 import { approbation, desactiveAccount } from "../../../../api/axiosAdmin";
 import { DataContextTabs } from "../../../../context/studentsTab";
 
-function ManageUser() {
+function ManageUserTeacher() {
   const { name } = useContext(DataContextManage);
   const { setName } = useContext(DataContextTabs);
 
@@ -99,4 +99,4 @@ function ManageUser() {
   }
 }
 
-export default ManageUser;
+export default ManageUserTeacher;

@@ -9,7 +9,7 @@ import Settings from "./settings/Settings";
 import StudentsList from "./users/StudentsList";
 import TeacherList from "./users/TeacherList";
 import Applicants from "./users/Applicants";
-import ManageUser from "./users/ManageTeacher";
+import ManageUserTeacher from "./users/ManageTeacher";
 import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
 import Loading from "./users/Loading";
@@ -34,7 +34,7 @@ function Panel() {
       case "applicants":
         return <Applicants />;
       case "manage":
-        return <ManageUser />;
+        return <ManageUserTeacher />;
       case "manageStudent":
         return <ManageUserStudent />;
       case "loading":
