@@ -67,8 +67,10 @@ function ManageUser() {
               <button
                 onClick={() => {
                   desactiveAccount(data._id, { active: false });
-                  setName("resume");
-                  setName("teachers");
+                  setName("loading");
+                  setTimeout(() => {
+                    setName("teachers");
+                  }, 1000);
                 }}
                 className="bg-red-800 text-white"
               >
@@ -78,8 +80,10 @@ function ManageUser() {
               <button
                 onClick={() => {
                   desactiveAccount(data._id, { active: true });
-                  setName("resume");
-                  setName("teachers");
+                  setName("loading");
+                  setTimeout(() => {
+                    setName("teachers");
+                  }, 1000);
                 }}
                 className="bg-green-700 text-white"
               >

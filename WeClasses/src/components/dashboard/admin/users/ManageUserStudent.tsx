@@ -38,7 +38,7 @@ function ManageUserStudent() {
               desactiveAccount(data._id, { active: false });
               setTimeout(() => {
                 setName("students");
-              }, 1000); // 1000 milisegundos = 1 segundo
+              }, 1000);
             }}
             className="bg-red-800 text-white"
           >
@@ -51,7 +51,7 @@ function ManageUserStudent() {
               desactiveAccount(data._id, { active: true });
               setTimeout(() => {
                 setName("students");
-              }, 1000); // 1000 milisegundos = 1 segundo;
+              }, 1000);
             }}
             className="bg-green-700 text-white"
           >
