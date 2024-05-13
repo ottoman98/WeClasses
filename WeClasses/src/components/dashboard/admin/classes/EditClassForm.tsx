@@ -3,21 +3,21 @@ import { useContext, useEffect, useState } from "react";
 import { classe } from "../../../../types/classeTypes";
 import { GetClasseById, putClasse } from "../../../../api/axiosClasses";
 import { valid } from "../../../../types/postResponse";
-import { useNavigate } from "react-router-dom";
+
 import { DataContextTabsClasses } from "../../../../context/classes/classes";
 import getFormattedDateTime from "../../../../utils/FormattedDateTime";
 
 function EditClassesForm() {
-  const { name, setName } = useContext(DataContextTabsClasses);
-  const id = name;
+  const { name } = useContext(DataContextTabsClasses);
+  const setNameTabs = useContext(DataContextTabsClasses).setName;
 
-  const data: classe | undefined = GetClasseById(id);
-
+  const data: classe | undefined = GetClasseById(name);
   const [response, setResponse] = useState<valid | null>(null);
 
   if (response?.valid) {
-    setName("");
+    setNameTabs("");
   }
+  console.log(response);
 
   const {
     register,
@@ -25,14 +25,13 @@ function EditClassesForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<classe>();
+  if (response?.valid) {
+    setNameTabs("loading");
 
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (response && response.message) {
-      navigate("/dashboard/classes/");
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [response]);
+    setTimeout(() => {
+      setNameTabs("all");
+    }, 1000);
+  }
 
   useEffect(() => {
     if (data) {
@@ -55,7 +54,7 @@ function EditClassesForm() {
     <div>
       <form
         onSubmit={handleSubmit(async (x) => {
-          const data = await putClasse(id, x);
+          const data = await putClasse(name, x);
           setResponse(data.data);
         })}
         className="w-full grid grid-cols-2 gap-3  max-w-[90rem] mx-auto px-10 pt-10 pb-16"

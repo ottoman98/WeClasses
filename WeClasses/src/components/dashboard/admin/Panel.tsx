@@ -3,7 +3,7 @@ import AsideAdmin from "./AsideAdmin";
 import { DataContextTabs } from "../../../context/studentsTab";
 import UserOptions from "../../partials/UserOptions";
 import AllClasses from "./classes/AllClasses";
-import EditClassesForm from "./classes/EditClassForm";
+
 import { DataProviderTabsClasses } from "../../../context/classes/classes";
 import Settings from "./settings/Settings";
 import StudentsList from "./users/StudentsList";
@@ -13,6 +13,7 @@ import ManageUserTeacher from "./users/ManageTeacher";
 import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
 import Loading from "./users/Loading";
+import ClassesForm from "./classes/ClassesForm";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -24,7 +25,7 @@ function Panel() {
       case "all":
         return <AllClasses />;
       case "add":
-        return <EditClassesForm />;
+        return <ClassesForm />;
       case "settings":
         return <Settings />;
       case "students":

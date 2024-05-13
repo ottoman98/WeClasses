@@ -3,9 +3,11 @@ import { HiChartPie, HiInbox, HiUser } from "react-icons/hi";
 import logo from "../../../assets/logos/Recurso 7@3x.png";
 import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";
+import { DataContextTabsClasses } from "../../../context/classes/classes";
 
 function AsideAdmin() {
   const { setName } = useContext(DataContextTabs);
+  const classSetName = useContext(DataContextTabsClasses).setName;
 
   return (
     <Sidebar aria-label="Sidebar with multi-level dropdown example">
@@ -74,11 +76,12 @@ function AsideAdmin() {
                 setName("add");
               }}
             >
-              Add class{" "}
+              Add class
             </Sidebar.Item>
             <Sidebar.Item
               onClick={() => {
                 setName("all");
+                classSetName("");
               }}
             >
               All classes

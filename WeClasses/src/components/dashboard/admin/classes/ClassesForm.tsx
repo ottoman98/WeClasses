@@ -3,10 +3,11 @@ import { useContext, useState } from "react";
 import { classe } from "../../../../types/classeTypes";
 import { postClasse } from "../../../../api/axiosClasses";
 import { valid } from "../../../../types/postResponse";
-
-import { DataContextTabsClasses } from "../../../../context/classes/classes";
+import { DataContextTabs } from "../../../../context/studentsTab";
 
 function ClassesForm() {
+  const { setName } = useContext(DataContextTabs);
+
   const [response, setResponse] = useState<valid | null>(null);
   const {
     register,
@@ -14,21 +15,13 @@ function ClassesForm() {
     formState: { errors },
   } = useForm<classe>();
 
-  const { setName } = useContext(DataContextTabsClasses);
   if (response?.valid) {
-    setName("");
+    setName("all");
   }
 
   return (
     <div>
-      <button
-        className="bg-red-700 p-5"
-        onClick={() => {
-          setName("");
-        }}
-      >
-        pa atrás
-      </button>
+      <h2>Agregar Clase</h2>
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await postClasse(x);
