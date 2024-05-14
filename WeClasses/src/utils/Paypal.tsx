@@ -1,6 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import {
+  FUNDING,
+  PayPalButtons,
+  usePayPalScriptReducer,
+} from "@paypal/react-paypal-js";
 
 import { useContext, useState } from "react";
 import { postPurchaseClasse } from "../api/studentPurchases";
@@ -59,23 +63,19 @@ function PayPal({ price, id }: { price: string; id: string }) {
     }
   };
 
-  if (!isPending) {
-    return (
-      <>
-        <select value={currency} onChange={onCurrencyChange}>
-          <option value="USD">💵 USD</option>
-          <option value="EUR">💶 Euro</option>
-          <option value="">Seleccione su moneda</option>
-        </select>
+  return (
+    <>
+      {isPending ? (
+        <div className="spinner" />
+      ) : (
         <PayPalButtons
+          fundingSource={FUNDING.PAYPAL}
           createOrder={(data, actions) => onCreateOrder(data, actions)}
           onApprove={(data, actions) => onApproveOrder(data, actions)}
         />
-      </>
-    );
-  } else {
-    return <>Loading</>;
-  }
+      )}
+    </>
+  );
 }
 
 export default PayPal;
