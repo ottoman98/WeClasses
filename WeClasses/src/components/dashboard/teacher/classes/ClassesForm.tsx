@@ -5,6 +5,7 @@ import { postClasse } from "../../../../api/axiosClasses";
 import { valid } from "../../../../types/postResponse";
 
 import { DataContextTabsClasses } from "../../../../context/classes/classes";
+import { DataContextTabs } from "../../../../context/studentsTab";
 
 function ClassesForm() {
   const [response, setResponse] = useState<valid | null>(null);
@@ -15,8 +16,13 @@ function ClassesForm() {
   } = useForm<classe>();
 
   const { setName } = useContext(DataContextTabsClasses);
+  const tabs = useContext(DataContextTabs).setName;
   if (response?.valid) {
+    tabs("loading");
     setName("");
+    setTimeout(() => {
+      tabs("classes");
+    }, 1000);
   }
 
   return (
@@ -192,6 +198,10 @@ function ClassesForm() {
           </label>
           <textarea
             {...register("description", {
+              minLength: {
+                value: 10,
+                message: "min 10 caracteres",
+              },
               required: { value: true, message: "Required" },
             })}
             className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"

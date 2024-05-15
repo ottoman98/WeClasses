@@ -50,10 +50,7 @@ function PayPal({ price, id }: { price: string; id: string }) {
 
   const onApproveOrder = (data, actions) => {
     try {
-      return actions.order.capture().then((details) => {
-        console.log(details);
-        const name = details.payer.name.given_name;
-        alert(`Transaction completed by ${name}`);
+      return actions.order.capture().then(() => {
         postPurchaseClasse({ classe: id });
         setName("lessons");
         navigate("/profile");
@@ -66,13 +63,24 @@ function PayPal({ price, id }: { price: string; id: string }) {
   return (
     <>
       {isPending ? (
-        <div className="spinner" />
+        <div>loading</div>
       ) : (
-        <PayPalButtons
-          fundingSource={FUNDING.PAYPAL}
-          createOrder={(data, actions) => onCreateOrder(data, actions)}
-          onApprove={(data, actions) => onApproveOrder(data, actions)}
-        />
+        <>
+          <select value={currency} onChange={onCurrencyChange}>
+            <option value="">Select Currency</option>
+            <option value="USD">United States dollar</option>
+            <option value="EUR">Euro</option>
+          </select>
+          {currency ? (
+            <PayPalButtons
+              fundingSource={FUNDING.PAYPAL}
+              createOrder={(data, actions) => onCreateOrder(data, actions)}
+              onApprove={(data, actions) => onApproveOrder(data, actions)}
+            />
+          ) : (
+            "Selecione su currency"
+          )}
+        </>
       )}
     </>
   );

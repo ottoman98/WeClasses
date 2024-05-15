@@ -6,7 +6,7 @@ import { valid } from "../../../../types/postResponse";
 import { useNavigate } from "react-router-dom";
 import { DataContextTabsClasses } from "../../../../context/classes/classes";
 import getFormattedDateTime from "../../../../utils/FormattedDateTime";
-
+import { DataContextTabs } from "../../../../context/studentsTab";
 function EditClassesForm() {
   const { name, setName } = useContext(DataContextTabsClasses);
   const id = name;
@@ -14,9 +14,13 @@ function EditClassesForm() {
   const data: classe | undefined = GetClasseById(id);
 
   const [response, setResponse] = useState<valid | null>(null);
-
+  const tabs = useContext(DataContextTabs).setName;
   if (response?.valid) {
+    tabs("loading");
     setName("");
+    setTimeout(() => {
+      tabs("classes");
+    }, 1000);
   }
 
   const {

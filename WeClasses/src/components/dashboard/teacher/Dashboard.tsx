@@ -8,6 +8,8 @@ import { DataProviderTabsClasses } from "../../../context/classes/classes";
 import AllClassesBooked from "./classes/Booked/AllClassesBooked";
 import Settings from "./settings/Settings";
 import { DataProviderTabsSettings } from "../../../context/settings/settings";
+import Loading from "../../partials/Loading";
+import MyLessons from "./lessons/MyLessons";
 
 function Dashboard() {
   const { name } = useContext(DataContextTabs);
@@ -25,6 +27,10 @@ function Dashboard() {
         return <AllClassesBooked />;
       case "settings":
         return <Settings />;
+      case "loading":
+        return <Loading />;
+      case "purchase":
+        return <MyLessons />;
     }
   }
 

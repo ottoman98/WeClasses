@@ -6,18 +6,23 @@ import { valid } from "../../../../types/postResponse";
 
 import { DataContextTabsClasses } from "../../../../context/classes/classes";
 import getFormattedDateTime from "../../../../utils/FormattedDateTime";
+import { DataContextTabs } from "../../../../context/studentsTab";
 
 function EditClassesForm() {
   const { name } = useContext(DataContextTabsClasses);
-  const setNameTabs = useContext(DataContextTabsClasses).setName;
+  const { setName } = useContext(DataContextTabs);
+  const setId = useContext(DataContextTabsClasses).setName;
 
   const data: classe | undefined = GetClasseById(name);
   const [response, setResponse] = useState<valid | null>(null);
 
   if (response?.valid) {
-    setNameTabs("");
+    setName("loading");
+    setTimeout(() => {
+      setName("all");
+      setId("");
+    }, 1000);
   }
-  console.log(response);
 
   const {
     register,
@@ -25,13 +30,6 @@ function EditClassesForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<classe>();
-  if (response?.valid) {
-    setNameTabs("loading");
-
-    setTimeout(() => {
-      setNameTabs("all");
-    }, 1000);
-  }
 
   useEffect(() => {
     if (data) {

@@ -12,7 +12,7 @@ import Applicants from "./users/Applicants";
 import ManageUserTeacher from "./users/ManageTeacher";
 import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
-import Loading from "./users/Loading";
+import Loading from "../../partials/Loading";
 import ClassesForm from "./classes/ClassesForm";
 
 function Panel() {

@@ -6,6 +6,7 @@ import { DataContextTabs } from "../../../../context/studentsTab";
 function ListElementTeacher({ data }: { data: teacherData }) {
   const { setName } = useContext(DataContextManage);
   const tabs = useContext(DataContextTabs).setName;
+  const { name } = useContext(DataContextTabs);
 
   if (data.createdAt) {
     return (
@@ -30,7 +31,12 @@ function ListElementTeacher({ data }: { data: teacherData }) {
               data.score.length
             : "no tiene calificaciones aun"}
         </th>
-        <th>{data.active ? "activo" : "baneao"}</th>
+        {name == "applicants" ? (
+          ""
+        ) : (
+          <th>{data.active ? "activo" : "baneao"}</th>
+        )}
+
         <th>
           <button
             className="bg-blue-600 text-white"

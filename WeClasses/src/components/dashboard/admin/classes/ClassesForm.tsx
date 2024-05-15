@@ -185,6 +185,7 @@ function ClassesForm() {
           </label>
           <textarea
             {...register("description", {
+              minLength: { value: 10, message: "Min 10 caracteres" },
               required: { value: true, message: "Required" },
             })}
             className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"

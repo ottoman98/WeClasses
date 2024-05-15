@@ -3,8 +3,17 @@ import logo from "../../assets/logos/Recurso 8@3x.png";
 
 import { classe } from "../../types/classeTypes";
 import PayPal from "../../utils/Paypal";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+
+const initialOptions = {
+  clientId:
+    "AbS4AV48zNIpbLpHuBcTwmIQne0Y1KzqfT3fnIPwxIst6teeCVqUWgt8-C_v2pDwTh0sB4qvbKPmEmAo",
+  currency: "",
+  intent: "capture",
+};
 
 function Resume({ data }: { data: classe }) {
+  console.log(data);
   return (
     <>
       <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
@@ -98,7 +107,9 @@ function Resume({ data }: { data: classe }) {
           </div>
         </div>
         <div className="mt-10 bg-gray-50 px-4 pt-8 lg:mt-0">
-          <PayPal price={`${data.price}`} id={data._id} />
+          <PayPalScriptProvider options={initialOptions}>
+            <PayPal price={`${data.price}`} id={data._id} />
+          </PayPalScriptProvider>
         </div>
       </div>
     </>

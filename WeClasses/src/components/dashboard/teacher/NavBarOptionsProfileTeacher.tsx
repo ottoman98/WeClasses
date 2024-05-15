@@ -48,6 +48,16 @@ function NavBarOptionsProfileTeacher() {
           >
             Booked
           </li>
+          <li
+            className={`${
+              name == "purchase" ? "border-b-4 border-light-blue" : ""
+            } py-1 hover:cursor-pointer`}
+            onClick={() => {
+              setName("purchase");
+            }}
+          >
+            Purchase
+          </li>
         </ul>
       </nav>
     </>

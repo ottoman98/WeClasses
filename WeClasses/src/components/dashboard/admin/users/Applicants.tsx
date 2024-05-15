@@ -5,7 +5,12 @@ function Applicants() {
   const data = GetAllApplicants();
   console.log(data);
   if (data) {
-    return <ListTeachers title="Applicants" data={data} />;
+    return (
+      <div>
+        <h2 className="text-xl font-bold">Applicants</h2>
+        <ListTeachers title="Applicants" data={data} />
+      </div>
+    );
   }
 }
 

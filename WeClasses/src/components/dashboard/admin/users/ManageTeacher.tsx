@@ -45,7 +45,10 @@ function ManageUserTeacher() {
             <button
               onClick={() => {
                 approbation(data._id, { approved: true });
-                setName("applicants");
+                setName("loading");
+                setTimeout(() => {
+                  setName("applicants");
+                }, 1000);
               }}
               className="bg-blue-900 text-white"
             >
@@ -54,7 +57,10 @@ function ManageUserTeacher() {
             <button
               onClick={() => {
                 approbation(data._id, { approved: false });
-                setName("applicants");
+                setName("loading");
+                setTimeout(() => {
+                  setName("applicants");
+                }, 1000);
               }}
               className="bg-red-800 text-white"
             >
