@@ -14,11 +14,7 @@ function TeacherInfo() {
     return (
       <div className="px-10 py-12  flex flex-col gap-4">
         <div className="flex gap-4">
-          <img
-            className="w-36"
-            src="https://avatars.preply.com/i/logos/i/logos/avatar_i1m6j2viuod.jpg"
-            alt=""
-          />
+          <img className="w-36" src={data.photo} alt="" />
 
           <div className="flex flex-col gap-2">
             <h2 className="text-3xl">{data.name}</h2>
@@ -36,18 +32,13 @@ function TeacherInfo() {
         </div>
         <iframe
           className="w-[50rem] aspect-video mx-auto"
-          src="https://www.youtube.com/embed/QK8mJJJvaes?si=GWTOQJg2VRE4abOZ"
+          src={data.video?.replace("/watch?v=", "/embed/")}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
         <div className="flex flex-col gap-3">
           <h3 className="text-lg">Description</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut ipsam
-            distinctio labore sint tempora rerum, deleniti doloremque ea, quasi
-            fugiat repellendus beatae quis dolores eius. Rerum, neque! Facere,
-            id tempore.
-          </p>
+          <p>{data.description}</p>
         </div>
         <div>
           <h3 className="text-lg">{data.name}'s classes</h3>

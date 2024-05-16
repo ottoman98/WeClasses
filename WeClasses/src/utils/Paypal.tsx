@@ -52,8 +52,11 @@ function PayPal({ price, id }: { price: string; id: string }) {
     try {
       return actions.order.capture().then(() => {
         postPurchaseClasse({ classe: id });
-        setName("lessons");
         navigate("/profile");
+        setName("loading");
+        setTimeout(() => {
+          setName("lessons");
+        }, 1000);
       });
     } catch (e) {
       console.log(e);

@@ -20,7 +20,7 @@ function AsideAdmin() {
             className="cursor-pointer"
             icon={HiChartPie}
             onClick={() => {
-              setName("resume");
+              setName("home");
             }}
           >
             Dashboard

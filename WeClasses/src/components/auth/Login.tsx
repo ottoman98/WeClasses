@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { getCookies } from "../../utils/cookies";
 import { GoogleLogin } from "@react-oauth/google";
+import { DataContextTabs } from "../../context/studentsTab";
 
 function Login() {
   const [serverResponse, setServerResponse] = useState<{
@@ -21,10 +22,13 @@ function Login() {
 
   const navigate = useNavigate();
   const { setCookie } = useContext(DataContextSession);
+  const { setName } = useContext(DataContextTabs);
 
   if (serverResponse !== null && serverResponse.message == "tas logeado rey") {
     navigate("/dashboard");
     setCookie(getCookies("token"));
+    console.log("cookie");
+    setName("home");
   }
 
   return (

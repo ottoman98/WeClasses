@@ -33,11 +33,7 @@ function ClassInfo() {
           </ul>
         </div>
         <div className="flex justify-center">
-          <img
-            className="w-32 rounded-3xl"
-            src="https://avatars.preply.com/i/logos/i/logos/avatar_966e0g3tm3i.jpg"
-            alt=""
-          />
+          <img className="w-32 rounded-3xl" src={classe.photo} alt="" />
         </div>
 
         <div className="flex flex-col gap-2 col-span-2">

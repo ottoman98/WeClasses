@@ -6,11 +6,12 @@ import { FaClock } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 function ClassesCardProfile({ data }: { data: classe }) {
+  console.log(data);
   return (
     <div className="flex border rounded-md p-2">
       <img
         className="h-28  rounded-full aspect-square"
-        src="https://i.ebayimg.com/images/g/HyUAAOSwXSpgTlnV/s-l1200.webp"
+        src={data.photo}
         alt=""
       />
       <div className="w-1/2 flex flex-col gap-1 px-2">
@@ -21,7 +22,7 @@ function ClassesCardProfile({ data }: { data: classe }) {
             src="https://d13nnzzfr74buh.cloudfront.net/img/icons/trusted.svg"
             alt=""
           />
-          <Link to={`/teacher/${data.user}`}>{data.teacherName}r</Link>
+          <Link to={`/teacher/${data.user}`}>{data.teacherName}</Link>
         </div>
         <div className="flex gap-1">
           <FaGraduationCap size={17} />

@@ -20,7 +20,7 @@ function Panel() {
 
   function tabs() {
     switch (name) {
-      case "resume":
+      case "home":
         return "resume";
       case "all":
         return <AllClasses />;

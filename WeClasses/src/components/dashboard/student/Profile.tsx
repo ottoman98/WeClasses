@@ -6,6 +6,7 @@ import MyLessons from "./lessons/MyLessons";
 import Messages from "./messages/Messages";
 import Home from "./Home";
 import Settings from "./settings/Settings";
+import Loading from "../../partials/Loading";
 
 function Profile() {
   const { name } = useContext(DataContextTabs);
@@ -21,6 +22,8 @@ function Profile() {
         return <MyLessons />;
       case "settings":
         return <Settings />;
+      case "loading":
+        return <Loading />;
     }
   }
 
