@@ -8,7 +8,6 @@ import BecomeTutor from "./BecomeTutor";
 import AQ from "./AQ";
 import MobileBanner from "./MobileBanner";
 import Description from "./Description";
-import Articles from "./Articles";
 
 function Main() {
   return (
@@ -19,7 +18,7 @@ function Main() {
       <Stats />
       <Offers />
       <BecomeTutor />
-      <Articles />
+
       <MobileBanner />
       <AQ />
       <a

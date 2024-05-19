@@ -3,8 +3,8 @@ import spainFlag from "../../assets/icons/spain_flag.png";
 import usaFlag from "../../assets/icons/usa_flag.png";
 import { DataContextLanguage } from "../../context/language";
 import { useContext, useState } from "react";
-import spanish from "../../translations/spanish";
-import english from "../../translations/english";
+import spanish from "../../translations/spanish/spanish";
+import english from "../../translations/english/english";
 import { dataContextLanguage } from "../../types/contextTypes";
 
 function LanguageSwitch() {

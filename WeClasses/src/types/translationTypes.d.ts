@@ -1,8 +1,7 @@
 type translationType = {
     nav: {
-        home: string,
-        about: string,
-        contact: string,
+        find: string,
+        become: string,
         language: string,
         login: string
         register: string
@@ -15,24 +14,7 @@ type translationType = {
         french: string,
         german: string
     },
-    carousel: {
-        slide1: {
-            title: string,
-            button: string
 
-        },
-        slide2: {
-            title: string,
-            button: string
-
-        }
-        slide3: {
-            title: string,
-            button: string
-
-        },
-
-    },
     flags: {
         text: string
     }
@@ -60,6 +42,30 @@ type translationType = {
             bold: string,
             text: string
         }
+    },
+    offer: {
+
+        title: string,
+        content: Array<{
+            title: string,
+            body: string,
+            link: string
+        }>
+    }
+    ,
+    becomeTutor: {
+        title: string,
+        description: string,
+        items: Array<string>,
+        button: string,
+        link: string
+    },
+    mobileBanner: {
+        title: string
+    },
+    frequentlyQuestions: {
+        title: string,
+        QA: Array<{ question: string, answer: string }>
     }
     footer: {
         title: string,

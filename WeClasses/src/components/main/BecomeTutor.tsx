@@ -1,7 +1,10 @@
 import Button from "../partials/Button";
 import foto from "../../assets/images/dama.jpg";
+import { useContext } from "react";
+import { DataContextLanguage } from "../../context/language";
 
 function BecomeTutor() {
+  const { translation } = useContext(DataContextLanguage);
   return (
     <section className="md:p-5 max-w-[80rem] mx-auto bg-light-blue md:bg-white text-white md:text-blue-950">
       <div className="flex flex-col md:flex-row mx-auto md:rounded-xl md:border-[1px] border-light-blue bg-red">
@@ -11,19 +14,26 @@ function BecomeTutor() {
           alt=""
         />
         <div className="px-7 py-10  flex flex-col gap-6 md:w-1/2">
-          <h2 className="text-3xl md:text-7xl font-bold ">Become a tutor</h2>
-          <p>
-            Earn money sharing your expert knowledge with students. Sign up to
-            start tutoring online with WeClasses
-          </p>
+          <h2 className="text-3xl md:text-7xl font-bold ">
+            {translation.becomeTutor.title}
+          </h2>
+          <p>{translation.becomeTutor.description}</p>
           <ul className="list-disc font-bold text-2xl flex flex-col gap-4 pl-6">
-            <li>Find new students</li>
-            <li>Grow your business</li>
-            <li>Get paid securely</li>
+            <li>{translation.becomeTutor.items[0]}</li>
+            <li>
+              {" "}
+              <li>{translation.becomeTutor.items[1]}</li>
+            </li>
+            <li>
+              <li>{translation.becomeTutor.items[2]}</li>
+            </li>
           </ul>
-          <Button content="Become tutor" link="/register_tutor" />
+          <Button
+            content={translation.becomeTutor.button}
+            link="/register_tutor"
+          />
           <span className="text-center underline font-bold">
-            How out platform works
+            {translation.becomeTutor.link}
           </span>
         </div>
       </div>

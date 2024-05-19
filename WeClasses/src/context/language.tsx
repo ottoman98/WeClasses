@@ -1,6 +1,6 @@
 import { ReactNode, createContext, useState } from "react";
 import { dataContextLanguage } from "../types/contextTypes";
-import english from "../translations/english";
+import english from "../translations/english/english";
 import { translationType } from "../types/translationTypes";
 
 const DataContextLanguage = createContext<dataContextLanguage>({

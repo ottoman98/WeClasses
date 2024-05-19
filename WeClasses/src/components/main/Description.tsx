@@ -16,7 +16,7 @@ function Description() {
       <div className="md:w-1/2">
         <div className=" flex p-5  h-full flex-col gap-5">
           <h1 className="text-2xl text-center md:text-4xl font-bold">
-            {translation.carousel.slide1.title}
+            {translation.banner.title}
           </h1>
           <ul className="text-xs flex gap-3 flex-col">
             <li className="flex gap-2">
@@ -38,10 +38,7 @@ function Description() {
               </p>
             </li>
           </ul>
-          <Button
-            content={translation.carousel.slide1.button}
-            link="/register"
-          />
+          <Button content={translation.banner.button} link="/register" />
         </div>
       </div>
     </div>

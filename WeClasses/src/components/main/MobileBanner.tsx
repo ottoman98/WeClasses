@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { DataContextLanguage } from "../../context/language";
+
 function MobileBanner() {
+  const { translation } = useContext(DataContextLanguage);
   return (
     <section
       style={{
@@ -10,7 +14,7 @@ function MobileBanner() {
       <div className="max-w-[80rem] mx-auto flex justify-around ">
         <div className="w-1/3 py-5">
           <h2 className="text-4xl font-extrabold ">
-            WeClasses will be available soon on Android and iOS
+            {translation.mobileBanner.title}
           </h2>
           <div className="flex gap-5 py-3">
             <img

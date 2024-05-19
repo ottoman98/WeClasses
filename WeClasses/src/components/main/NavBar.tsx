@@ -31,10 +31,10 @@ function NavBarr() {
             className="flex items-center  hover:text-blue-950"
             hidden={decoded?.level == "teacher" ? true : false}
           >
-            <Link to="classes">Find a teacher</Link>
+            <Link to="classes">{translation.nav.find}</Link>
           </li>
           <li className="flex items-center  hover:text-blue-950">
-            <Link to="/register_tutor"> Become a teacher</Link>
+            <Link to="/register_tutor"> {translation.nav.become}</Link>
           </li>
           <li className="flex items-center  hover:text-blue-950">
             {translation.nav.help}
