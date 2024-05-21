@@ -17,11 +17,11 @@ const forms: register = {
         aside: {
             title: 'WeClasses',
             items: [
-                "Practica una conversación regular con tu profesor.",
-                "Pide comentarios sobre tu pronunciación y gramática.",
-                "Hacer ejercicios de escritura y actividades de comprensión auditiva.",
+                "Practica con tu profesor de forma dinámica.",
+                "Recibe comentarios sobre tu pronunciación y gramática.",
+                "Elabora ejercicios de escritura y actividades de comprensión auditiva.",
                 "Utiliza recursos como libros y vídeos recomendados por tu profesor.",
-                "Participar en actividades interactivas durante las clases."
+                "Participa en actividades interactivas durante las clases."
             ]
 
         },
