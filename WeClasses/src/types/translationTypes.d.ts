@@ -1,12 +1,12 @@
 
 
 type languages = {
-    languages: {
-        spanish: string,
-        english: string,
-        french: string,
-        german: string
-    },
+
+    spanish: string,
+    english: string,
+    french: string,
+    german: string
+
 }
 
 type main = {

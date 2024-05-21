@@ -1,10 +1,8 @@
 import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";
-import { DataContextLanguage } from "../../../context/language";
 
 function NavBarOptionsProfileTeacher() {
   const { name, setName } = useContext(DataContextTabs);
-  const { translation } = useContext(DataContextLanguage);
 
   return (
     <>
