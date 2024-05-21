@@ -1,12 +1,12 @@
-import UserOptions from "./UserOptions";
+import UserOptions from "../../partials/UserOptions";
 import { Link } from "react-router-dom";
 import { FcMoneyTransfer } from "react-icons/fc";
 import { FcComments } from "react-icons/fc";
 import { IoIosHelpCircle } from "react-icons/io";
 import { IoMdNotifications } from "react-icons/io";
 import logo from "../../../assets/logos/Recurso 6@3x.png";
-import LanguageSwitch from "./LanguageSwitch";
-import MobileAsideProfileTeacher from "./MobileAsideProfileTeacher";
+import LanguageSwitch from "../../partials/LanguageSwitch";
+import MobileAsideProfileTeacher from "../../partials/MobileAsideProfileTeacher";
 
 function NavBarProfileTeacher() {
   return (
