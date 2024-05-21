@@ -65,24 +65,30 @@ function Footer2() {
 
           <div className="grid grid-cols-2 gap-14 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <p className="font-medium">{translation.footer.contact.title}</p>
+              <p className="font-medium">
+                {translation.main.footer.contact.title}
+              </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-slate-100">
                 <span> davidsclasses1@gmail.com</span>
                 <span> +1 (470) 812-0999 </span>
               </nav>
             </div>
             <div>
-              <p className="font-medium">{translation.footer.about.title}</p>
+              <p className="font-medium">
+                {translation.main.footer.about.title}
+              </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a className="hover:opacity-75">WeClasses </a>
-                {translation.footer.contact.content.map((x) => {
+                {translation.main.footer.contact.content.map((x) => {
                   return <span>{x}</span>;
                 })}
               </nav>
             </div>
 
             <div>
-              <p className="font-medium">{translation.footer.follow.title}</p>
+              <p className="font-medium">
+                {translation.main.footer.follow.title}
+              </p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm  text-slate-100">
                 <a
                   className="hover:opacity-75"

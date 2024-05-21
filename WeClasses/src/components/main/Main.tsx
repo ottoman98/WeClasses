@@ -11,7 +11,7 @@ import Description from "./Description";
 
 function Main() {
   return (
-    <>
+    <div>
       <Description />
       <FlagsBar />
       <Banner2 />
@@ -31,7 +31,7 @@ function Main() {
           alt=""
         />
       </a>
-    </>
+    </div>
   );
 }
 

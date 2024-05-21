@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { GetAllClasses } from "../../api/axiosClasses";
 import ClassesCard from "./ClassesCard";
+import { DataContextLanguage } from "../../context/language";
 
 function ClassesList() {
   const minDate = new Date().toISOString().split("T")[0];
@@ -9,6 +10,8 @@ function ClassesList() {
   const [level, setLevel] = useState("");
   const [date, setDate] = useState("");
   const [dayTime, setDaytime] = useState(0);
+
+  const { translation } = useContext(DataContextLanguage);
 
   let filtered = classes;
 
@@ -51,9 +54,7 @@ function ClassesList() {
 
   return (
     <section className="px-2 md:px-20 py-10 flex flex-col gap-10 ">
-      <h2 className=" text-5xl text-center">
-        Online English tutors & teachers for private lessons
-      </h2>
+      <h2 className=" text-5xl text-center">{translation.classes.title}</h2>
       <div className=" flex flex-col gap-4 md:px-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-10 ">
           <select
@@ -66,9 +67,13 @@ function ClassesList() {
             }}
             value={language}
           >
-            <option value="">Todos los idiomas</option>
-            <option value="en">Ingles</option>
-            <option value="es">Español</option>
+            <option value="">{translation.classes.filters.language[0]}</option>
+            <option value="en">
+              {translation.classes.filters.language[1]}
+            </option>
+            <option value="es">
+              {translation.classes.filters.language[2]}
+            </option>
           </select>
           <select
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
@@ -80,10 +85,16 @@ function ClassesList() {
             }}
             value={level}
           >
-            <option value="">Todos los Niveles</option>
-            <option value="A1-A2">A1-A2</option>
-            <option value="B1-B2">B1-B2</option>
-            <option value="C1-C2">C1-C2</option>
+            <option value="">{translation.classes.filters.levels[0]}</option>
+            <option value="A1-A2">
+              {translation.classes.filters.levels[1]}
+            </option>
+            <option value="B1-B2">
+              {translation.classes.filters.levels[2]}
+            </option>
+            <option value="C1-C2">
+              {translation.classes.filters.levels[3]}
+            </option>
           </select>
           <input
             min={minDate}
@@ -106,10 +117,16 @@ function ClassesList() {
             }}
             value={dayTime}
           >
-            <option value={0}>Day Time</option>
-            <option value={6}>Mañana (6:00 am - 12:00 pm)</option>
-            <option value={12}>Tarde (12:00 - 07:00 pm)</option>
-            <option value={19}>Noche (7:00 pm - 6:00 am)</option>
+            <option value={0}>{translation.classes.filters.dayTime[0]}</option>
+            <option value={6}>
+              {translation.classes.filters.dayTime[1]} (6:00 am - 12:00 pm)
+            </option>
+            <option value={12}>
+              {translation.classes.filters.dayTime[2]} (12:00 - 07:00 pm)
+            </option>
+            <option value={19}>
+              {translation.classes.filters.dayTime[3]} (7:00 pm - 6:00 am)
+            </option>
           </select>
           <button
             onClick={() => {
@@ -119,12 +136,12 @@ function ClassesList() {
               setDaytime(0);
             }}
           >
-            Reset filters
+            {translation.classes.filters.reset}{" "}
           </button>
         </div>
         {filtered?.length && filtered.length > 0 ? (
           <span className="font-bold text-lg">
-            {filtered?.length} Classes that match your needs
+            {filtered?.length} {translation.classes.body.title}
           </span>
         ) : (
           ""
@@ -140,9 +157,9 @@ function ClassesList() {
       ) : (
         <div className="flex flex-col gap-4 px-2 md:px-20">
           <strong className="text-xl">
-            Looks like we can’t find any matches
+            {translation.classes.body.notMatch.title}
           </strong>
-          <span>Try removing some filters to see your top tutors</span>
+          <span> {translation.classes.body.notMatch.info}</span>
         </div>
       )}
     </section>

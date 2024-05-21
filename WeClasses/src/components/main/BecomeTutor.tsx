@@ -15,25 +15,24 @@ function BecomeTutor() {
         />
         <div className="px-7 py-10  flex flex-col gap-6 md:w-1/2">
           <h2 className="text-3xl md:text-7xl font-bold ">
-            {translation.becomeTutor.title}
+            {translation.main.becomeTutor.title}
           </h2>
-          <p>{translation.becomeTutor.description}</p>
+          <p>{translation.main.becomeTutor.description}</p>
           <ul className="list-disc font-bold text-2xl flex flex-col gap-4 pl-6">
-            <li>{translation.becomeTutor.items[0]}</li>
+            <li>{translation.main.becomeTutor.items[0]}</li>
             <li>
-              {" "}
-              <li>{translation.becomeTutor.items[1]}</li>
+              <li>{translation.main.becomeTutor.items[1]}</li>
             </li>
             <li>
-              <li>{translation.becomeTutor.items[2]}</li>
+              <li>{translation.main.becomeTutor.items[2]}</li>
             </li>
           </ul>
           <Button
-            content={translation.becomeTutor.button}
+            content={translation.main.becomeTutor.button}
             link="/register_tutor"
           />
           <span className="text-center underline font-bold">
-            {translation.becomeTutor.link}
+            {translation.main.becomeTutor.link}
           </span>
         </div>
       </div>

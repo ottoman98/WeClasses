@@ -14,7 +14,7 @@ function RegisterTeachers() {
     message: string;
     valid: string;
   } | null>(null);
-
+  console.log(translation.forms.teacher);
   const {
     register,
     handleSubmit,
@@ -73,14 +73,16 @@ function RegisterTeachers() {
           className="md:py-20 px-5 flex flex-col gap-10  md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
         >
           <p className="font-bold text-base">
-            Regístrate para saber como podemos ayudarte
+            {translation.forms.teacher.title}
           </p>
           <div className="grid grid-cols-2 text-base gap-6">
             <div className="flex flex-col">
               <label className="font-bold text-xs md:text-base" htmlFor="name">
-                Name <span className="text-red-600">*</span>
+                {translation.forms.teacher.inputs[0]}{" "}
+                <span className="text-red-600">*</span>
               </label>
               <input
+                placeholder={translation.forms.teacher.inputs[0]}
                 id="name"
                 {...register("name", {
                   required: {
@@ -89,7 +91,6 @@ function RegisterTeachers() {
                   },
                 })}
                 type="text"
-                placeholder={translation.register.form.name}
                 className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
               />
               <p className="text-xs italic text-red-500">
@@ -101,9 +102,11 @@ function RegisterTeachers() {
                 className="font-bold text-xs md:text-base"
                 htmlFor="lastName"
               >
-                LastName <span className="text-red-600">*</span>
+                {translation.forms.teacher.inputs[1]}
+                <span className="text-red-600">*</span>
               </label>
               <input
+                placeholder={translation.forms.teacher.inputs[1]}
                 {...register("lastName", {
                   required: {
                     value: true,
@@ -111,7 +114,6 @@ function RegisterTeachers() {
                   },
                 })}
                 type="text"
-                placeholder={translation.register.form.lastName}
                 className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                 id="lastName"
               />
@@ -122,10 +124,12 @@ function RegisterTeachers() {
             </div>
             <div className="col-span-2  flex flex-col">
               <label className="font-bold text-xs md:text-base" htmlFor="email">
-                Email <span className="text-red-600">*</span>
+                {translation.forms.teacher.inputs[2]}
+                <span className="text-red-600">*</span>
               </label>
 
               <input
+                placeholder={translation.forms.teacher.inputs[2]}
                 className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full text-xs md:text-base"
                 {...register("email", {
                   required: {
@@ -139,7 +143,6 @@ function RegisterTeachers() {
                   },
                 })}
                 type="email"
-                placeholder={translation.register.form.email}
               />
               <p className="text-xs italic text-red-500">
                 {serverResponse?.message}
@@ -150,7 +153,8 @@ function RegisterTeachers() {
             <div className="col-span-2 flex flex-row ">
               <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base">
                 <label className="font-bold" htmlFor="countryCode">
-                  Indicativo <span className="text-red-600">*</span>
+                  {translation.forms.teacher.inputs[3]}
+                  <span className="text-red-600">*</span>
                 </label>
                 <select
                   className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
@@ -159,7 +163,7 @@ function RegisterTeachers() {
                   })}
                 >
                   <option value="">
-                    {translation.register.form.countryCode}
+                    {translation.forms.teacher.inputs[3]}
                   </option>
                   {countries.map((x) => {
                     return (
@@ -179,9 +183,11 @@ function RegisterTeachers() {
                   className="font-bold text-xs md:text-base"
                   htmlFor="phone"
                 >
-                  Phone Number <span className="text-red-600">*</span>
+                  {translation.forms.teacher.inputs[4]}{" "}
+                  <span className="text-red-600">*</span>
                 </label>
                 <input
+                  placeholder={translation.forms.teacher.inputs[4]}
                   className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                   {...register("phone", {
                     required: {
@@ -190,7 +196,6 @@ function RegisterTeachers() {
                     },
                   })}
                   type="number"
-                  placeholder={translation.register.form.phone}
                 />
 
                 <p className="text-xs italic text-red-500">
@@ -204,7 +209,8 @@ function RegisterTeachers() {
                 className="font-bold text-xs md:text-base"
                 htmlFor="birthDay"
               >
-                BirthDay <span className="text-red-600">*</span>
+                {translation.forms.teacher.inputs[5]}{" "}
+                <span className="text-red-600">*</span>
               </label>
               <input
                 {...register("birthDay", {
@@ -222,7 +228,8 @@ function RegisterTeachers() {
                 className="font-bold text-xs md:text-base"
                 htmlFor="country"
               >
-                Country <span className="text-red-600">*</span>
+                {translation.forms.teacher.inputs[6]}
+                <span className="text-red-600">*</span>
               </label>
               <select
                 className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
@@ -243,7 +250,7 @@ function RegisterTeachers() {
             <div className="flex flex-col col-span-2 gap-1">
               <div className="flex gap-20">
                 <label htmlFor="" className="text-xs md:text-base font-bold">
-                  Languages
+                  {translation.forms.teacher.inputs[7]}
                 </label>
               </div>
 
@@ -262,7 +269,10 @@ function RegisterTeachers() {
                         setLanguages(onChangeValue);
                       }}
                     >
-                      <option value="">Seleccione idioma</option>
+                      <option value="">
+                        {" "}
+                        {translation.forms.teacher.inputs[8]}
+                      </option>
                       <option value="es">Español</option>
                       <option value="en">English</option>
                       <option value="fr">Français</option>
@@ -289,7 +299,10 @@ function RegisterTeachers() {
                         setLanguages(onChangeValue);
                       }}
                     >
-                      <option value="">Seleccione Nivel</option>
+                      <option value="">
+                        {" "}
+                        {translation.forms.teacher.inputs[9]}
+                      </option>
                       <option value="A1">A1: Beginner</option>
                       <option value="A2">A2: Elementary</option>
                       <option value="B1">B1: Intermediate</option>
@@ -309,7 +322,7 @@ function RegisterTeachers() {
                       }}
                     >
                       <MdDelete size={16} />
-                      Delete
+                      {translation.forms.teacher.inputs[10]}
                     </div>
                   </div>
                 );
@@ -323,7 +336,7 @@ function RegisterTeachers() {
                     setLanguages([...languages, { language: "", level: "" }]);
                   }}
                 >
-                  + Add another language
+                  + {translation.forms.teacher.inputs[11]}
                 </span>
               </div>
             </div>
@@ -336,17 +349,14 @@ function RegisterTeachers() {
                 id="privacy"
               />
               <label htmlFor="privacy" className="text-xs md:text-base">
-                Si, he leído y comprendido cómo EF procesa mis datos personales
-                tal y como establece la{" "}
-                <span className="font-bold text-blue-950">
-                  política de privacidad
-                </span>
+                {translation.forms.teacher.privacy}
+
                 <span className="text-red-600">*</span>
               </label>
             </div>
             <div className="col-span-2 flex">
               <button className="bg-blue-950 text-white px-10 py-1 text-xl mx-auto rounded-xl">
-                {translation.register.form.submit}
+                {translation.forms.teacher.button}
               </button>
             </div>
           </div>

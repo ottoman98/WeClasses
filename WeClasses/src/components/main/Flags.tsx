@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 function FlagsBar() {
   const { translation } = useContext(DataContextLanguage);
+  console.log(translation.languages);
   return (
     <section className="pt-5 max-w-[80rem] mx-auto">
       <div className="flex justify-around">
@@ -62,7 +63,7 @@ function FlagsBar() {
       </div>
 
       <small className="block text-center py-5 lg:text-[1.5rem] font-extrabold">
-        {translation.flags.text}
+        {translation.main.flags.text}
       </small>
     </section>
   );

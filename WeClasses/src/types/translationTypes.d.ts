@@ -1,4 +1,15 @@
-type translationType = {
+
+
+type languages = {
+    languages: {
+        spanish: string,
+        english: string,
+        french: string,
+        german: string
+    },
+}
+
+type main = {
     nav: {
         find: string,
         become: string,
@@ -8,12 +19,7 @@ type translationType = {
         help: string
 
 
-    }, languages: {
-        spanish: string,
-        english: string,
-        french: string,
-        german: string
-    },
+    }
 
     flags: {
         text: string
@@ -87,8 +93,51 @@ type translationType = {
             content: Array<string>
         },
 
-    }, register: {
+    },
+}
+type classes = {
+    title: string;
+    filters: {
+        language: string[];
+        levels: string[];
+        dayTime: string[];
+        reset: string;
+    };
+    body: {
+        title: string;
+        notMatch: {
+            title: string;
+            info: string;
+        };
+
+    };
+    card: {
+        book: string;
+        details: string;
+    };
+};
+
+
+type register = {
+
+
+    teacher: {
+        title: string;
+        privacy: string;
+        button: string,
+        inputs: string[];
+    },
+
+    student: {
+
         title: string,
+        subtitle: string,
+        privacy: string,
+        button: string,
+        aside: {
+            title: string,
+            items: Array<string>
+        }
         form: {
             name: string,
             lastName: string,
@@ -99,15 +148,32 @@ type translationType = {
             languageToLearn: string,
             submit: string
         }
-        complement: {
-            title: string,
-            text: string,
-            subtitle: string,
-            contact: string
-        }
 
     }
 
 }
 
-export { translationType }
+type description = {
+    class: {
+        items: Array<string>,
+        buttons: Array<string>
+    }, teacher: {
+        titles: Array<string>,
+        buttons: Array<string>
+    }
+
+}
+
+type translationType = {
+    languages: languages,
+    main: main,
+    classes: classes,
+    descriptions: description,
+    forms: register
+
+}
+
+
+
+
+export { translationType, description, register }

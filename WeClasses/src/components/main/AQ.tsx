@@ -11,7 +11,7 @@ function AQ() {
       </h2>
       <div className="pt-10 flex flex-col gap-3 text-customBlack text-lg max-w-[80rem] mx-auto w-full">
         {translation ? (
-          translation.frequentlyQuestions.QA.map((x) => {
+          translation.main.frequentlyQuestions.QA.map((x) => {
             return (
               <details
                 name="info"

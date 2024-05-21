@@ -14,7 +14,7 @@ function MobileBanner() {
       <div className="max-w-[80rem] mx-auto flex justify-around ">
         <div className="w-1/3 py-5">
           <h2 className="text-4xl font-extrabold ">
-            {translation.mobileBanner.title}
+            {translation.main.mobileBanner.title}
           </h2>
           <div className="flex gap-5 py-3">
             <img

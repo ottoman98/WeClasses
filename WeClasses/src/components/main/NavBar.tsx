@@ -21,7 +21,7 @@ function NavBarr() {
 
   return (
     <>
-      <nav className="flex p-3 justify-between border-b-[1px] text-slate-500 ">
+      <nav className="flex p-3 justify-between border-b-[1px] text-slate-500  w-full bg-white">
         <Link to="/">
           <img className="w-20 md:w-32" src={logo} alt="" />
         </Link>
@@ -31,13 +31,13 @@ function NavBarr() {
             className="flex items-center  hover:text-blue-950"
             hidden={decoded?.level == "teacher" ? true : false}
           >
-            <Link to="classes">{translation.nav.find}</Link>
+            <Link to="classes">{translation.main.nav.find}</Link>
           </li>
           <li className="flex items-center  hover:text-blue-950">
-            <Link to="/register_tutor"> {translation.nav.become}</Link>
+            <Link to="/register_tutor"> {translation.main.nav.become}</Link>
           </li>
           <li className="flex items-center  hover:text-blue-950">
-            {translation.nav.help}
+            {translation.main.nav.help}
           </li>
         </ul>
 
@@ -46,10 +46,10 @@ function NavBarr() {
             {!cookie ? (
               <>
                 <li className="flex items-center   text-blue-950">
-                  <Link to="/login">{translation.nav.login}</Link>
+                  <Link to="/login">{translation.main.nav.login}</Link>
                 </li>
                 <li className="flex items-center text-blue-950">
-                  <Link to="/register">{translation.nav.register}</Link>
+                  <Link to="/register">{translation.main.nav.register}</Link>
                 </li>
                 <LanguageSwitch />
               </>

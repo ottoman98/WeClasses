@@ -8,11 +8,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { GetClasseStatus } from "../../api/studentPurchases";
+import { DataContextLanguage } from "../../context/language";
 
 function ClassesCard({ data }: { data: classe }) {
   const navigate = useNavigate();
   const { cookie } = useContext(DataContextSession);
   const classeStatus = GetClasseStatus(data._id);
+  const { translation } = useContext(DataContextLanguage);
+  console.log(translation.classes);
 
   const studentCount =
     classeStatus && classeStatus.data?.student.length == data.capacity;
@@ -86,13 +89,13 @@ function ClassesCard({ data }: { data: classe }) {
               studentCount ? "hidden" : ""
             }`}
           >
-            Book Lesson
+            {translation.classes.card.book}
           </span>
           <Link
             to={`/class/${data._id}`}
             className="bg-blue-950 text-white p-2 rounded"
           >
-            Details
+            {translation.classes.card.details}
           </Link>
         </div>
       </div>
