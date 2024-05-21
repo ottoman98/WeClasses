@@ -11,12 +11,18 @@ const forms: register = {
 
     },
     student: {
-        title: 'The most effective language platform in the world.',
+        title: 'La plataforma de idiomas más eficaz del mundo.',
         subtitle: 'Improve your skills.',
         privacy: 'Si, he leído y comprendido cómo WeClasses procesa mis datos personales tal y como establece la política de privacidad*',
         aside: {
-            title: '',
-            items: ['Practice regular conversation with your teacher.', 'Ask for feedback on your pronunciation and grammar.', 'Do writing exercises and listening comprehension.', 'Use resources such as books and videos recommended by your teacher.', 'Engage in interactive activities during the classes.', ''],
+            title: 'WeClasses',
+            items: [
+                "Practica una conversación regular con tu profesor.",
+                "Pide comentarios sobre tu pronunciación y gramática.",
+                "Hacer ejercicios de escritura y actividades de comprensión auditiva.",
+                "Utiliza recursos como libros y vídeos recomendados por tu profesor.",
+                "Participar en actividades interactivas durante las clases."
+            ]
 
         },
         button: 'Register',
@@ -29,10 +35,26 @@ const forms: register = {
             phone: 'Teléfono',
             languageToLearn: 'Idioma de interés',
             submit: 'Registrarse'
+        },
+
+
+
+    },
+    login: {
+        title: 'Iniciar Sesión',
+        registerStudent: 'Regístrate como Estudiante',
+        registerTeacher: 'Regístrate como Profesor',
+        button: 'Iniciar sesión',
+        or: 'o',
+        form: {
+            email: 'Correo Electrónico',
+            password: 'Contraseña',
+            forgot: 'Olvidaste tu Contraseña?',
+            remember: 'Mantener Sesión'
         }
 
-
-    }
+    },
+    recover: { email: 'Correo Electrónico', button: 'Recuperar Contraseña' }
 
 
 }

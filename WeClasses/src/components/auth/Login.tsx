@@ -8,6 +8,7 @@ import { DataContextSession } from "../../context/session";
 import { getCookies } from "../../utils/cookies";
 import { GoogleLogin } from "@react-oauth/google";
 import { DataContextTabs } from "../../context/studentsTab";
+import { DataContextLanguage } from "../../context/language";
 
 function Login() {
   const [serverResponse, setServerResponse] = useState<{
@@ -31,23 +32,27 @@ function Login() {
     setName("home");
   }
 
+  const { translation } = useContext(DataContextLanguage);
+
   return (
     <section>
       <div className="px-10 md:w-[28rem] mx-auto flex flex-col">
-        <h3 className="pt-4 text-2xl text-center">Log in</h3>
+        <h3 className="pt-4 text-2xl text-center">
+          {translation.forms.login.title}
+        </h3>
         <div className="flex flex-row  justify-between py-5 text-xs md:text-base">
           <Link
             className="inline-block text-blue-500 align-baseline hover:text-blue-800 "
             to="/register"
           >
-            Sign Up as a student
+            {translation.forms.login.registerStudent}
           </Link>
 
           <Link
             className="inline-block text-blue-500 align-baseline hover:text-blue-800"
             to="/register"
           >
-            Sign Up as a tutor
+            {translation.forms.login.registerTeacher}
           </Link>
         </div>
 
@@ -64,7 +69,7 @@ function Login() {
             }}
           />
         </div>
-        <p className="text-center">or</p>
+        <p className="text-center"> {translation.forms.login.or}</p>
 
         <form
           onSubmit={handleSubmit(async (x) => {
@@ -83,7 +88,10 @@ function Login() {
           )}
           <div className="flex flex-col gap-2">
             <label htmlFor="email" className="text-sm">
-              Email
+              <p className="text-center">
+                {" "}
+                {translation.forms.login.form.email}
+              </p>
             </label>
             <input
               className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
@@ -100,7 +108,7 @@ function Login() {
               })}
               id="email"
               type="email"
-              placeholder="Your Email"
+              placeholder={translation.forms.login.form.email}
             />
             <p className="text-xs italic text-red-500">
               {errors.email?.message}
@@ -108,7 +116,7 @@ function Login() {
           </div>
           <div className="flex flex-col mb-1">
             <label htmlFor="password" className="text-sm">
-              Password
+              {translation.forms.login.form.password}
             </label>
             <input
               {...register("password", {
@@ -121,7 +129,7 @@ function Login() {
               className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
               id="password"
               type="password"
-              placeholder="Password"
+              placeholder={translation.forms.login.form.password}
             />
             <p className="text-xs italic text-red-500">
               {errors.password?.message}
@@ -131,7 +139,7 @@ function Login() {
             className="inline-block text-sm text-blue-950 align-baseline hover:text-light-blue mb-2 underline"
             to="/recover"
           >
-            Forgot Password?
+            {translation.forms.login.form.forgot}
           </Link>
           <div className="mb-4">
             <input
@@ -141,16 +149,18 @@ function Login() {
               {...register("keepSession")}
             />
 
-            <label className="text-sm ">Remember Me</label>
+            <label className="text-sm ">
+              {" "}
+              {translation.forms.login.form.remember}
+            </label>
           </div>
 
           <div className="mb-6 text-center">
             <button className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 ">
-              Sign In
+              {translation.forms.login.button}
             </button>
           </div>
           <hr className="mb-6 border-t" />
-          <div className="text-center"></div>
         </form>
       </div>
     </section>

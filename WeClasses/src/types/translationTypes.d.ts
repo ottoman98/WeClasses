@@ -149,6 +149,23 @@ type register = {
             submit: string
         }
 
+    },
+    login: {
+        title: string,
+        registerTeacher: string,
+        registerStudent: string,
+        or: string
+        form: {
+            email: string,
+            password: string,
+            forgot: string,
+            remember: string
+        }
+        button: string
+    },
+    recover: {
+        email: string,
+        button: string
     }
 
 }
