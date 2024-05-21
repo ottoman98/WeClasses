@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { axiosRecoverPassword } from "../../api/axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ModalWithButton from "./ModalWithButton";
+import { DataContextLanguage } from "../../context/language";
 function Recover() {
   const [response, setResponse] = useState<{
     message: string;
@@ -19,6 +20,7 @@ function Recover() {
   if (response !== null && response?.valid) {
     bool = true;
   }
+  const { translation } = useContext(DataContextLanguage);
 
   return (
     <>
@@ -37,7 +39,7 @@ function Recover() {
         })}
       >
         <div className="flex flex-col ">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">{translation.forms.recover.email}</label>
           <input
             {...register("email", {
               required: { value: true, message: "Required" },
@@ -45,10 +47,11 @@ function Recover() {
             className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 "
             id="name"
             type="text"
+            placeholder={translation.forms.recover.email}
           />
           <p className="text-xs italic text-red-500">{errors.email?.message}</p>
         </div>
-        <input type="submit" value="Recuperar contraseña" />
+        <input type="submit" value={translation.forms.recover.button} />
       </form>
     </>
   );

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import NavBarOptionsProfileTeacher from "./NavBarOptionsProfileTeacher";
-import NavBarProfileTeacher from "./NavbarProfileTeacher";
+import NavBarProfileTeacher from "../../partials/NavbarProfileTeacher";
 import ResumeTeacher from "./ResumeTeacher";
 import { DataContextTabs } from "../../../context/studentsTab";
 import AllClasses from "./classes/AllClasses";
