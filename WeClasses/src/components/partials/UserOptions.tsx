@@ -18,7 +18,7 @@ function UserOptions() {
   let url = "";
   let optionsT = "hidden";
   let optionsS = "hidden";
-  if (decoded?.level == "teacher") {
+  if (decoded?.level == "teacher" || decoded?.level == "admin") {
     data = GetProfileTeacher(decoded?.id);
     optionsT = "";
     optionsS = "hidden";
@@ -32,7 +32,7 @@ function UserOptions() {
 
     url = "/profile";
   }
-
+  console.log(data);
   return (
     <Dropdown
       arrowIcon={false}

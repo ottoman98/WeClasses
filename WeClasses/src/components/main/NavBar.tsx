@@ -43,6 +43,7 @@ function NavBarr() {
 
         <ul className="flex items-center">
           <li className="hidden md:flex gap-5">
+            <LanguageSwitch />
             {!cookie ? (
               <>
                 <li className="flex items-center   text-blue-950">
@@ -51,7 +52,6 @@ function NavBarr() {
                 <li className="flex items-center text-blue-950">
                   <Link to="/register">{translation.main.nav.register}</Link>
                 </li>
-                <LanguageSwitch />
               </>
             ) : (
               <UserOptions />

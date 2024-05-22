@@ -1,5 +1,5 @@
-import NavBarProfileStudent from "./NavbarProfileStudent";
 import NavBarOptionsProfile from "./NavBarOptionsProfile";
+NavBarProfile;
 import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";
 import MyLessons from "./lessons/MyLessons";
@@ -7,6 +7,7 @@ import Messages from "./messages/Messages";
 import Home from "./Home";
 import Settings from "./settings/Settings";
 import Loading from "../../partials/Loading";
+import NavBarProfile from "../../partials/NavbarProfile";
 
 function Profile() {
   const { name } = useContext(DataContextTabs);
@@ -29,7 +30,7 @@ function Profile() {
 
   return (
     <>
-      <NavBarProfileStudent />
+      <NavBarProfile />
       <NavBarOptionsProfile />
       {currentTab(name)}
     </>
