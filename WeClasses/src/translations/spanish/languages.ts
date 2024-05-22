@@ -1,8 +1,8 @@
 const languages = {
-    english: 'English',
-    spanish: 'Spanish',
-    french: 'French',
-    german: 'German'
+    english: 'Ingles',
+    spanish: 'Español',
+    french: 'Frances',
+    german: 'Alemán'
 }
 
 export default languages
