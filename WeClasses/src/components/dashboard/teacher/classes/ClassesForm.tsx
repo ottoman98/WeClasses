@@ -6,6 +6,7 @@ import { valid } from "../../../../types/postResponse";
 
 import { DataContextTabsClasses } from "../../../../context/classes/classes";
 import { DataContextTabs } from "../../../../context/studentsTab";
+import { DataContextLanguage } from "../../../../context/language";
 
 function ClassesForm() {
   const [response, setResponse] = useState<valid | null>(null);
@@ -14,6 +15,7 @@ function ClassesForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<classe>();
+  const { translation } = useContext(DataContextLanguage);
 
   const { setName } = useContext(DataContextTabsClasses);
   const tabs = useContext(DataContextTabs).setName;
@@ -33,7 +35,7 @@ function ClassesForm() {
           setName("");
         }}
       >
-        pa atrás
+        {translation.profiles.teacher.form.back}
       </button>
       <form
         onSubmit={handleSubmit(async (x) => {
@@ -46,7 +48,7 @@ function ClassesForm() {
       >
         <div className="flex flex-col ">
           <label htmlFor="name" className="text-sm">
-            Name
+            {translation.profiles.teacher.form.name}
           </label>
           <input
             {...register("name", {
@@ -55,13 +57,14 @@ function ClassesForm() {
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
             id="name"
             type="text"
+            placeholder={translation.profiles.teacher.form.name}
           />
           <p className="text-xs italic text-red-500">{errors.name?.message}</p>
         </div>
 
         <div className="flex flex-col">
           <label htmlFor="duration" className="text-sm">
-            Duration
+            {translation.profiles.teacher.form.duration}
           </label>
           <select
             {...register("duration", {
@@ -85,7 +88,7 @@ function ClassesForm() {
 
         <div className="flex flex-col">
           <label htmlFor="language" className="text-sm">
-            Language
+            {translation.profiles.teacher.form.language}
           </label>
           <select
             {...register("language", {
@@ -105,7 +108,7 @@ function ClassesForm() {
 
         <div className="flex flex-col">
           <label htmlFor="link" className="text-sm">
-            Link de la clase
+            {translation.profiles.teacher.form.link}
           </label>
           <input
             {...register("link", {
@@ -114,13 +117,14 @@ function ClassesForm() {
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
             id="link"
             type="url"
+            placeholder={translation.profiles.teacher.form.link}
           />
           <p className="text-xs italic text-red-500">{errors.link?.message}</p>
         </div>
 
         <div className="flex flex-col">
           <label htmlFor="level" className="text-sm">
-            Class level
+            {translation.profiles.teacher.form.level}
           </label>
           <select
             {...register("level", {
@@ -139,7 +143,7 @@ function ClassesForm() {
 
         <div className="flex flex-col">
           <label htmlFor="price" className="text-sm">
-            Precio
+            {translation.profiles.teacher.form.price}
           </label>
           <input
             {...register("price", {
@@ -149,13 +153,14 @@ function ClassesForm() {
             className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
             id="price"
             type="number"
+            placeholder={translation.profiles.teacher.form.price}
           />
           <p className="text-xs italic text-red-500">{errors.link?.message}</p>
         </div>
 
         <div className="flex flex-col">
           <label htmlFor="date" className="text-sm">
-            Date
+            {translation.profiles.teacher.form.date}
           </label>
           <input
             {...register("date", {
@@ -170,7 +175,7 @@ function ClassesForm() {
         </div>
         <div className="flex flex-col">
           <label htmlFor="date" className="text-sm">
-            Capacity
+            {translation.profiles.teacher.form.capacity}
           </label>
           <select
             {...register("capacity", {
@@ -194,7 +199,7 @@ function ClassesForm() {
 
         <div className=" col-span-2 h-[20rem]">
           <label htmlFor="" className="text-sm flex flex-col">
-            Descripción
+            {translation.profiles.teacher.form.description}
           </label>
           <textarea
             {...register("description", {
@@ -206,6 +211,7 @@ function ClassesForm() {
             })}
             className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
             id="description"
+            placeholder={translation.profiles.teacher.form.description}
           ></textarea>
           <p className="text-xs italic text-red-500">
             {errors.description?.message}
@@ -213,7 +219,7 @@ function ClassesForm() {
         </div>
         <div className="col-span-2">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-            Submit
+            {translation.profiles.teacher.form.button}
           </button>
         </div>
       </form>

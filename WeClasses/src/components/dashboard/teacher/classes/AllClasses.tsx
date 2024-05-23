@@ -4,32 +4,37 @@ import { DataContextTabsClasses } from "../../../../context/classes/classes";
 import EditClassesForm from "./EditClassForm";
 import ClassesForm from "./ClassesForm";
 import ClassElement from "./ClassElement";
+import { DataContextLanguage } from "../../../../context/language";
 
 function AllClasses() {
   const data = GetAllClassesTeacher();
 
   const { name, setName } = useContext(DataContextTabsClasses);
+  const { translation } = useContext(DataContextLanguage);
 
   if (name == "") {
     return (
       <section className="md:max-w-[80rem] mx-auto flex flex-col py-4 gap-3">
-        <h2 className="text-4xl">MyClasses</h2>
+        <h2 className="text-4xl">
+          {translation.profiles.teacher.classes.title}
+        </h2>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg flex flex-col">
           <span
             className="bg-blue-900 block cursor-pointer"
             onClick={() => setName("add")}
           >
-            Add Class
+            {translation.profiles.teacher.classes.add}
           </span>
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
-                  Created
+                  {translation.profiles.teacher.classes.table.created}
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <div className="flex items-center">
-                    Name
+                    {translation.profiles.teacher.classes.table.name}
+
                     <a href="#">
                       <svg
                         className="w-3 h-3 ms-1.5"
@@ -45,7 +50,8 @@ function AllClasses() {
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <div className="flex items-center">
-                    Language
+                    {translation.profiles.teacher.classes.table.language}
+
                     <a href="#">
                       <svg
                         className="w-3 h-3 ms-1.5"
@@ -61,7 +67,8 @@ function AllClasses() {
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <div className="flex items-center">
-                    Level
+                    {translation.profiles.teacher.classes.table.level}
+
                     <a href="#">
                       <svg
                         className="w-3 h-3 ms-1.5"
@@ -77,7 +84,8 @@ function AllClasses() {
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <div className="flex items-center">
-                    Class Date
+                    {translation.profiles.teacher.classes.table.date}
+
                     <a href="#">
                       <svg
                         className="w-3 h-3 ms-1.5"
@@ -93,7 +101,8 @@ function AllClasses() {
                 </th>
                 <th scope="col" className="px-6 py-3">
                   <div className="flex items-center">
-                    Duration
+                    {translation.profiles.teacher.classes.table.duration}
+
                     <a href="#">
                       <svg
                         className="w-3 h-3 ms-1.5"
@@ -108,7 +117,7 @@ function AllClasses() {
                   </div>
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  <span className="sr-only">Edit</span>
+                  <span className="sr-only"></span>
                 </th>
               </tr>
             </thead>

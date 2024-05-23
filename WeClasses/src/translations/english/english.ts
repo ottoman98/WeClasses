@@ -4,6 +4,7 @@ import languages from "./languages";
 import classes from "./classes";
 import descriptions from "./descriptions";
 import profileNav from "./navsProfile";
+import profiles from "./profile";
 
 
 
@@ -16,7 +17,10 @@ const english: translationType = {
     main,
     classes,
     forms,
-    descriptions, profileNav
+    descriptions,
+    profileNav,
+    profiles
+
 
 
 

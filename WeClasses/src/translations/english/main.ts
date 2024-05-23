@@ -1,7 +1,7 @@
 const main = {
     nav: {
         find: 'Find a Teacher',
-        become: 'About us',
+        become: 'Become a Teacher',
         language: 'English',
         login: 'Log In',
         register: 'Sign up',

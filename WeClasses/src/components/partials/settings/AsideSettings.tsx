@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import { DataContextTabsSettings } from "../../../../context/settings/settings";
-
+import { DataContextTabsSettings } from "../../../context/settings/settings";
 function AsideSettings() {
   const { name, setName } = useContext(DataContextTabsSettings);
 

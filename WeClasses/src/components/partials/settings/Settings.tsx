@@ -1,9 +1,8 @@
-import { DataContextTabsSettings } from "../../../../context/settings/settings";
-import Account from "./Account";
-import AsideSettings from "./AsideSettings";
+import { DataContextTabsSettings } from "../../../context/settings/settings";
 import { useContext } from "react";
 import Password from "./Password";
-
+import Account from "./Account";
+import AsideSettings from "./AsideSettings";
 function Settings() {
   const { name } = useContext(DataContextTabsSettings);
   function currentTab(tab: string) {

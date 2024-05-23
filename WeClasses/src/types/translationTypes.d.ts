@@ -201,7 +201,7 @@ type profileNav = {
     }
 }
 
-type profiles = {
+type profile = {
     home: {
         title: string,
         hoursTaken: string,
@@ -216,19 +216,44 @@ type profiles = {
     },
     student: {
 
-
-
         lesson: string
     },
     teacher: {
 
 
         home: string,
-        messages: {
-            all: string,
-            unread: string,
-            archived: string
-        },
+        classes: {
+            title: string
+            add: string,
+            table:
+            {
+                created: string,
+                name: string,
+                language: string,
+                level: string,
+                date: string,
+                duration: string
+            },
+            options: {
+                edit: string,
+                cancel: string
+            }
+        }
+        purchase: string,
+        form: {
+            name: string,
+            duration: string,
+            language: string,
+            link: string,
+            level: string,
+            price: string,
+            date: string,
+            capacity: string,
+            description: string,
+            button: string,
+            back: string
+        }
+
     }
 
 }
@@ -239,11 +264,12 @@ type translationType = {
     classes: classes,
     descriptions: description,
     forms: register,
-    profileNav: profileNav
+    profileNav: profileNav,
+    profiles: profile
 
 }
 
 
 
 
-export { translationType, description, register, profileNav }
+export { translationType, description, register, profileNav, profile }

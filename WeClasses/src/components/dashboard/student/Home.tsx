@@ -1,29 +1,37 @@
+import { useContext } from "react";
 import { GetAllClasses } from "../../../api/axiosClasses";
 
 import ClassesCard from "../../classes/ClassesCard";
+import { DataContextLanguage } from "../../../context/language";
 
 function Home() {
   const classes = GetAllClasses();
+  const { translation } = useContext(DataContextLanguage);
 
   return (
     <div className="max-w-[80rem] mx-auto py-10 flex flex-col gap-5">
       <ul className="md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] px-5 py-5 rounded-lg">
         <li className="text-xl font-bold">
-          Horas de clase tomadas:
+          {translation.profiles.home.classesTaken}
           <span className="text-red-700"> bastantes</span>
         </li>
         <li className="text-xl font-bold">
-          Cantidad de clases tomadas:
+          {translation.profiles.home.hoursTaken}
+
           <span className="text-red-700">las suficientes </span>
         </li>
         <li className="text-xl font-bold">
-          Tiempo de stories leídas:
+          {translation.profiles.home.storiesTime}
+
           <span className="text-red-700">poco y nada</span>
         </li>
       </ul>
 
       <div className="flex flex-col gap-3">
-        <h2 className="text-5xl font-bold">Classes recomendadas</h2>
+        <h2 className="text-5xl font-bold">
+          {" "}
+          {translation.profiles.home.title}
+        </h2>
         <div>
           {!classes
             ? "loading..."

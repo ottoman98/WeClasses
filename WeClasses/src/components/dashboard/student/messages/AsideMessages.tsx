@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import MessageCard from "./MessageCard";
 import { DataContextTabsMessages } from "../../../../context/messages/messages";
+import { DataContextLanguage } from "../../../../context/language";
 
 function AsideMessages() {
+  const { translation } = useContext(DataContextLanguage);
   const { name, setName } = useContext(DataContextTabsMessages);
   return (
     <aside className="border-r inline-block min-h-[86vh]">
@@ -16,7 +18,7 @@ function AsideMessages() {
               setName("all");
             }}
           >
-            All
+            {translation.profiles.messages.all}
           </li>
           <li
             className={`${
@@ -26,7 +28,7 @@ function AsideMessages() {
               setName("unread");
             }}
           >
-            Unread
+            {translation.profiles.messages.unread}
           </li>
           <li
             className={`${
@@ -36,7 +38,7 @@ function AsideMessages() {
               setName("archived");
             }}
           >
-            Archived
+            {translation.profiles.messages.archived}
           </li>
         </ul>
       </nav>

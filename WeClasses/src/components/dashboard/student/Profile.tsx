@@ -5,7 +5,7 @@ import { DataContextTabs } from "../../../context/studentsTab";
 import MyLessons from "./lessons/MyLessons";
 import Messages from "./messages/Messages";
 import Home from "./Home";
-import Settings from "./settings/Settings";
+import Settings from "../../partials/settings/Settings";
 import Loading from "../../partials/Loading";
 import NavBarProfile from "../../partials/NavbarProfile";
 

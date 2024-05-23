@@ -11,9 +11,11 @@ const profileNav = {
         myClasses: 'My Classes',
         booked: 'Booked',
         purchase: 'Purchase',
+        settings: 'Settings',
         myLessons: 'My Lessons',
         logOut: 'LogOut'
-    }
+    },
+
 }
 
 export default profileNav

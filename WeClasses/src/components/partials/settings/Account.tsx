@@ -1,11 +1,11 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { GetProfileStudent } from "../../../../api/axiosProfiles";
+import { GetProfileStudent } from "../../../api/axiosProfiles";
 import { decodeToken } from "react-jwt";
-import { DataContextSession } from "../../../../context/session";
-import countries from "../../../../utils/CountryCodes.json";
-import { accountSettingsStudent } from "../../../../api/axios";
-import { fullContact } from "../../../../types/userTypes";
+import { DataContextSession } from "../../../context/session";
+import countries from "../../../utils/CountryCodes.json";
+import { accountSettingsStudent } from "../../../api/axios";
+import { fullContact } from "../../../types/userTypes";
 
 function Account() {
   const { cookie } = useContext(DataContextSession);

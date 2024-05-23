@@ -3,6 +3,7 @@ import { translationType } from "../../types/translationTypes";
 import classes from "./classes";
 import descriptions from "./descriptions";
 import profileNav from "./navsProfile";
+import profiles from "./profile";
 
 
 
@@ -19,7 +20,8 @@ const spanish: translationType = {
     descriptions,
     classes,
     forms,
-    profileNav
+    profileNav,
+    profiles
 }
 
 export default spanish

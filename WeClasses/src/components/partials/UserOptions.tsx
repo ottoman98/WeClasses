@@ -85,7 +85,9 @@ function UserOptions() {
         }}
         to={url}
       >
-        <Dropdown.Item>Settings</Dropdown.Item>
+        <Dropdown.Item>
+          {translation.profileNav.optionsNav.settings}
+        </Dropdown.Item>
       </Link>
       <Dropdown.Divider />
       <Dropdown.Item
