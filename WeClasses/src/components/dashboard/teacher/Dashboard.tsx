@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import NavBarOptionsProfileTeacher from "./NavBarOptionsProfileTeacher";
 import NavBarProfileTeacher from "../../partials/NavbarProfile";
 import ResumeTeacher from "./ResumeTeacher";
 import { DataContextTabs } from "../../../context/studentsTab";
@@ -10,6 +9,7 @@ import Settings from "./settings/Settings";
 import { DataProviderTabsSettings } from "../../../context/settings/settings";
 import Loading from "../../partials/Loading";
 import MyLessons from "./lessons/MyLessons";
+import NavBarOptionsProfile from "../../partials/NavBarOptionsProfile";
 
 function Dashboard() {
   const { name } = useContext(DataContextTabs);
@@ -39,7 +39,7 @@ function Dashboard() {
       <DataProviderTabsSettings>
         <NavBarProfileTeacher />
       </DataProviderTabsSettings>
-      <NavBarOptionsProfileTeacher />
+      <NavBarOptionsProfile />
 
       {currentTab(name)}
     </DataProviderTabsClasses>

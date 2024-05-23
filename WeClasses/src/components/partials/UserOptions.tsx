@@ -6,10 +6,12 @@ import { DataContextSession } from "../../context/session";
 import { DataContextTabs } from "../../context/studentsTab";
 import { decodeToken } from "react-jwt";
 import { GetProfileStudent, GetProfileTeacher } from "../../api/axiosProfiles";
+import { DataContextLanguage } from "../../context/language";
 
 function UserOptions() {
   const { setCookie, cookie } = useContext(DataContextSession);
   const { setName } = useContext(DataContextTabs);
+  const { translation } = useContext(DataContextLanguage);
 
   const decoded: { id: string; level: string } | null = decodeToken(
     cookie as string
@@ -45,7 +47,7 @@ function UserOptions() {
         }}
         to={url}
       >
-        <Dropdown.Item>Home</Dropdown.Item>
+        <Dropdown.Item>{translation.profileNav.optionsNav.home}</Dropdown.Item>
       </Link>{" "}
       <Dropdown.Item className={`${optionsT}`}>
         <Link
@@ -54,18 +56,18 @@ function UserOptions() {
           }}
           to={url}
         >
-          Classes
+          {translation.profileNav.optionsNav.myClasses}
         </Link>{" "}
       </Dropdown.Item>
       <Dropdown.Item className={`${optionsT}`}>
         <Link
           onClick={() => {
-            setName("classes");
+            setName("purchase");
           }}
           to={url}
         >
-          Booked
-        </Link>
+          {translation.profileNav.optionsNav.purchase}
+        </Link>{" "}
       </Dropdown.Item>
       <Dropdown.Item className={`${optionsS}`}>
         <Link

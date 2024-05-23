@@ -1,20 +1,22 @@
 
 
-import languages from "../spanish/languages";
+import languages from "./languages";
 import classes from "./classes";
 import descriptions from "./descriptions";
+import profileNav from "./navsProfile";
 
 
 
 import forms from "./forms";
 import main from "./main";
+import { translationType } from "../../types/translationTypes";
 
-const english = {
+const english: translationType = {
     languages,
     main,
     classes,
     forms,
-    descriptions
+    descriptions, profileNav
 
 
 

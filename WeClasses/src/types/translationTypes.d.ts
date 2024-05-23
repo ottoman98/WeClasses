@@ -114,6 +114,7 @@ type classes = {
     card: {
         book: string;
         details: string;
+        join: string;
     };
 };
 
@@ -181,18 +182,68 @@ type description = {
 
 }
 
+type profileNav = {
+    nav: {
+        find: string,
+        balance: string,
+        suscribe: string,
+        refer: string,
+    },
+    optionsNav: {
+        home: string,
+        messages: string,
+        myClasses: string,
+        booked: string,
+        purchase: string,
+        myLessons: string,
+        settings: string
+        logOut: string
+    }
+}
 
+type profiles = {
+    home: {
+        title: string,
+        hoursTaken: string,
+        classesTaken: string,
+        storiesTime: string,
+
+    },
+    messages: {
+        all: string,
+        unread: string,
+        archived: string
+    },
+    student: {
+
+
+
+        lesson: string
+    },
+    teacher: {
+
+
+        home: string,
+        messages: {
+            all: string,
+            unread: string,
+            archived: string
+        },
+    }
+
+}
 
 type translationType = {
     languages: languages,
     main: main,
     classes: classes,
     descriptions: description,
-    forms: register
+    forms: register,
+    profileNav: profileNav
 
 }
 
 
 
 
-export { translationType, description, register }
+export { translationType, description, register, profileNav }

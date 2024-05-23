@@ -7,8 +7,12 @@ import { IoMdNotifications } from "react-icons/io";
 import logo from "../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "./LanguageSwitch";
 import MobileAsideProfileTeacher from "./MobileAsideProfileTeacher";
+import { useContext } from "react";
+import { DataContextLanguage } from "../../context/language";
 
 function NavBarProfileTeacher() {
+  const { translation } = useContext(DataContextLanguage);
+  console.log(translation);
   return (
     <nav className="flex  justify-between py-4 px-2">
       <div className=" flex flex-row gap-5">
@@ -16,23 +20,23 @@ function NavBarProfileTeacher() {
           <img src={logo} className="w-32" alt="WeClasses Logo" />
         </Link>
         <li className="hidden md:flex items-center">
-          <Link to="/classes">Find Tutors</Link>
+          <Link to="/classes">{translation.profileNav.nav.find}</Link>
         </li>
       </div>
       <div className="flex md:order-2 gap-10">
         <ul className="hidden md:flex gap-3">
           <li className="flex gap-1 text-blue-900 items-center">
             <FcMoneyTransfer size={20} className="mt-1" />
-            Balance : 100$
+            {translation.profileNav.nav.balance} : 100$
           </li>
           <li className="flex items-center">
             <span className="border-2 py-1 px-2 border-light-blue rounded-lg">
-              Subscribe
+              {translation.profileNav.nav.suscribe}
             </span>
           </li>
           <li className="flex items-center">
             <span className="border-2 py-1 px-2 border-light-blue rounded-lg">
-              Refer a Friend
+              {translation.profileNav.nav.refer}
             </span>
           </li>
         </ul>

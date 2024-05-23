@@ -11,6 +11,8 @@ function LanguageSwitch() {
   const { translation, setTranslation } =
     useContext<dataContextLanguage>(DataContextLanguage);
   const [language, setLanguage] = useState("English");
+
+  console.log(translation.languages);
   return (
     <>
       <Dropdown

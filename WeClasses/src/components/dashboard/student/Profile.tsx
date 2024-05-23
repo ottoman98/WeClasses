@@ -1,4 +1,4 @@
-import NavBarOptionsProfile from "./NavBarOptionsProfile";
+import NavBarOptionsProfile from "../../partials/NavBarOptionsProfile";
 NavBarProfile;
 import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";

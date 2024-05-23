@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa6";
 import { FaGraduationCap } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
@@ -15,8 +15,8 @@ function ClassesCard({ data }: { data: classe }) {
   const { cookie } = useContext(DataContextSession);
   const classeStatus = GetClasseStatus(data._id);
   const { translation } = useContext(DataContextLanguage);
-  console.log(translation.classes);
-
+  const location = useLocation();
+  console.log(data);
   const studentCount =
     classeStatus && classeStatus.data?.student.length == data.capacity;
 
@@ -77,20 +77,34 @@ function ClassesCard({ data }: { data: classe }) {
           </div>
         </div>
         <div className="flex flex-col gap-2 cursor-pointer">
-          <span
-            onClick={() => {
-              if (!cookie) {
-                navigate("/login");
-              } else {
-                navigate(`/checkout/${data._id}`);
-              }
-            }}
-            className={`bg-blue-950 text-white p-2 rounded ${
-              studentCount ? "hidden" : ""
-            }`}
-          >
-            {translation.classes.card.book}
-          </span>
+          {location.pathname == "/dashboard/" ||
+          location.pathname == "/profile/" ? (
+            <span
+              className={`bg-blue-950 text-white p-2 rounded ${
+                studentCount ? "hidden" : ""
+              }`}
+            >
+              <a href={data.link} target="_blank">
+                {translation.classes.card.join}
+              </a>
+            </span>
+          ) : (
+            <span
+              onClick={() => {
+                if (!cookie) {
+                  navigate("/login");
+                } else {
+                  navigate(`/checkout/${data._id}`);
+                }
+              }}
+              className={`bg-blue-950 text-white p-2 rounded ${
+                studentCount ? "hidden" : ""
+              }`}
+            >
+              {translation.classes.card.book}
+            </span>
+          )}
+
           <Link
             to={`/class/${data._id}`}
             className="bg-blue-950 text-white p-2 rounded"

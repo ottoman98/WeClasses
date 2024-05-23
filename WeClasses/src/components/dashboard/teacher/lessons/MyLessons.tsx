@@ -1,5 +1,5 @@
 import { GetAllPurchaseClasses } from "../../../../api/axiosClasses";
-import ClassesCard from "./ClassesCardProfile";
+import ClassesCard from "../../../classes/ClassesCard";
 import NoLessons from "./NoLessons";
 
 function MyLessons() {

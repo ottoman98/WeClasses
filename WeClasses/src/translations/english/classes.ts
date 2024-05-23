@@ -17,6 +17,7 @@ const classes = {
     }, card: {
         book: 'Book Lesson',
         details: 'Details',
+        join: 'join'
     }
 
 
