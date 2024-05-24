@@ -11,7 +11,7 @@ import Description from "./Description";
 
 function Main() {
   return (
-    <div>
+    <div className="pt-16">
       <Description />
       <FlagsBar />
       <Banner2 />

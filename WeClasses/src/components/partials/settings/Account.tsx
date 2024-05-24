@@ -1,6 +1,9 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { GetProfileStudent } from "../../../api/axiosProfiles";
+import {
+  GetProfileStudent,
+  GetProfileTeacher,
+} from "../../../api/axiosProfiles";
 import { decodeToken } from "react-jwt";
 import { DataContextSession } from "../../../context/session";
 import countries from "../../../utils/CountryCodes.json";
@@ -9,8 +12,17 @@ import { fullContact } from "../../../types/userTypes";
 
 function Account() {
   const { cookie } = useContext(DataContextSession);
-  const decoded: { id: string } | null = decodeToken(cookie as string);
-  const data = GetProfileStudent(decoded?.id);
+  const decoded: { id: string; level: string } | null = decodeToken(
+    cookie as string
+  );
+
+  let data;
+  if (decoded?.level == "student") {
+    data = GetProfileStudent(decoded?.id);
+  } else {
+    data = GetProfileTeacher(decoded?.id);
+  }
+  console.log(data);
 
   const {
     register,
@@ -31,7 +43,7 @@ const [serverResponse, setServerResponse] = useState<
 
   useEffect(() => {
     if (data) {
-      setValue("countryCode", "+" + data.countryCode);
+      setValue("countryCode", "+57");
       setValue("phone", data.phone);
       setValue("country", data.country);
     }

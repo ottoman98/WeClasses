@@ -4,6 +4,7 @@ import logo from "../../assets/logos/Recurso 8@3x.png";
 import { classe } from "../../types/classeTypes";
 import PayPal from "../../utils/Paypal";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { GetProfileTeacher } from "../../api/axiosProfiles";
 
 const initialOptions = {
   clientId:
@@ -13,7 +14,8 @@ const initialOptions = {
 };
 
 function Resume({ data }: { data: classe }) {
-  console.log(data);
+  const profile = GetProfileTeacher(data.user);
+  console.log(profile);
   return (
     <>
       <div className="flex flex-col items-center border-b bg-white py-4 sm:flex-row sm:px-10 lg:px-20 xl:px-32">
@@ -65,11 +67,7 @@ function Resume({ data }: { data: classe }) {
           <p className="text-gray-400">Check your items.</p>
           <div className="mt-8 space-y-3 rounded-lg border bg-white px-2 py-4 sm:px-6">
             <div className="flex gap-4">
-              <img
-                className="w-20"
-                src="https://avatars.preply.com/i/logos/i/logos/avatar_tk4lkw3cb3n.jpg"
-                alt=""
-              />
+              <img src={profile ? profile.photo : ""} className="w-20" alt="" />
               <div className="flex flex-col gap-2">
                 <span className="text-slate-500">
                   {data.language == "en" ? "English" : "spanish"}

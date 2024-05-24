@@ -64,16 +64,24 @@ function PayPal({ price, id }: { price: string; id: string }) {
   };
 
   return (
-    <>
+    <div className="">
+      <h2 className="font-bold text-xl">Payment Method</h2>
       {isPending ? (
         <div>loading</div>
       ) : (
         <>
-          <select value={currency} onChange={onCurrencyChange}>
-            <option value="">Select Currency</option>
-            <option value="USD">United States dollar</option>
-            <option value="EUR">Euro</option>
-          </select>
+          <div className="flex flex-col py-4">
+            <label htmlFor="">Currency</label>
+            <select
+              className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+              value={currency}
+              onChange={onCurrencyChange}
+            >
+              <option value="">Select Currency</option>
+              <option value="USD">United States dollar</option>
+              <option value="EUR">Euro</option>
+            </select>
+          </div>
           {currency ? (
             <PayPalButtons
               fundingSource={FUNDING.PAYPAL}
@@ -81,11 +89,11 @@ function PayPal({ price, id }: { price: string; id: string }) {
               onApprove={(data, actions) => onApproveOrder(data, actions)}
             />
           ) : (
-            "Selecione su currency"
+            <></>
           )}
         </>
       )}
-    </>
+    </div>
   );
 }
 

@@ -53,7 +53,7 @@ function ClassesList() {
   }
 
   return (
-    <section className="px-2 md:px-20 py-10 flex flex-col gap-10 ">
+    <section className="px-2 md:px-20 py-10 flex flex-col gap-10 pt-28">
       <h2 className=" text-5xl text-center">{translation.classes.title}</h2>
       <div className=" flex flex-col gap-4 md:px-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-10 ">
@@ -129,6 +129,7 @@ function ClassesList() {
             </option>
           </select>
           <button
+            className="bg-blue-900 text-white rounded-md py-2 hover:bg-blue-800"
             onClick={() => {
               setLanguage("");
               setLevel("");
@@ -136,7 +137,7 @@ function ClassesList() {
               setDaytime(0);
             }}
           >
-            {translation.classes.filters.reset}{" "}
+            {translation.classes.filters.reset}
           </button>
         </div>
         {filtered?.length && filtered.length > 0 ? (

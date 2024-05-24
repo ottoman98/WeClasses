@@ -35,7 +35,7 @@ function Register() {
 
   return (
     <>
-      <div className="py-20">
+      <div className="py-20 pt-24">
         <h2 className="text-4xl md:text-6xl text-center font-bold text-blue-950">
           {translation.forms.student.title}
         </h2>

@@ -35,7 +35,7 @@ function Login() {
   const { translation } = useContext(DataContextLanguage);
 
   return (
-    <section>
+    <section className="pt-24">
       <div className="px-10 md:w-[28rem] mx-auto flex flex-col">
         <h3 className="pt-4 text-2xl text-center">
           {translation.forms.login.title}

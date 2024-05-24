@@ -16,7 +16,7 @@ function TeacherInfo() {
     return <Loading />;
   } else {
     return (
-      <div className="px-10 py-12  flex flex-col gap-4">
+      <div className="px-10 py-12  flex flex-col gap-4 pt-28 max-w-[80rem] mx-auto">
         <div className="flex gap-4">
           <img className="w-36" src={data.photo} alt="" />
 
@@ -47,8 +47,8 @@ function TeacherInfo() {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
 
-        <div>
-          <h3 className="text-lg">
+        <div className="">
+          <h3 className="text-lg font-bold">
             {translation.descriptions.teacher.titles[1] == "Classes"
               ? data.name +
                 "'s" +

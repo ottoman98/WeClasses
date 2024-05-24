@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { GetClasseById } from "../../api/axiosClasses";
+import Loading from "../partials/Loading";
 
 function ClassInfo() {
   const { id } = useParams();
@@ -7,11 +8,11 @@ function ClassInfo() {
   const classe = GetClasseById(id);
 
   if (!classe) {
-    return <>Loading</>;
+    return <Loading />;
   }
   return (
     <>
-      <div className="grid grid-cols-2 gap-2 px-2 md:px-32 py-10">
+      <div className="grid grid-cols-2 gap-2 px-2 md:px-32 py-10 pt-28 max-w-[80rem] mx-auto">
         <div>
           <h2 className="text-3xl">{classe.name}</h2>
           <ul>

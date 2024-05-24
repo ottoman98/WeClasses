@@ -10,7 +10,7 @@ import linkedin from "../../assets/icons/linkedin.png";
 function Footer2() {
   const { translation } = useContext(DataContextLanguage);
   return (
-    <footer className="bg-blue-950 text-white mx-auto ">
+    <footer className="bg-blue-950 text-white mx-auto  bottom-0 w-full">
       <div className="px-4 py-16 mx-auto sm:px-6 lg:px-8 max-w-[80rem]">
         <div className="grid grid-cols-2 xs:grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
