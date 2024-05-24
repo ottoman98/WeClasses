@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import {
   GetProfileStudent,
   GetProfileTeacher,
@@ -13,9 +14,11 @@ import {
 } from "../../../api/axios";
 import { fullContact } from "../../../types/userTypes";
 import { tutorInfo } from "../../../types/teacher";
+import { DataContextTabs } from "../../../context/studentsTab";
 
 function Account() {
   const { cookie } = useContext(DataContextSession);
+  const { setName } = useContext(DataContextTabs);
   const decoded: { id: string; level: string } | null = decodeToken(
     cookie as string
   );
@@ -26,7 +29,6 @@ function Account() {
   } else {
     data = GetProfileTeacher(decoded?.id);
   }
-  console.log(data);
 
   const {
     register,
@@ -36,14 +38,20 @@ function Account() {
     handleSubmit,
   } = useForm<fullContact | tutorInfo>();
 
-  /*
-const [serverResponse, setServerResponse] = useState<
-| {
-    valid: string;
-}
-| undefined
->(undefined);
-*/
+  const [serverResponse, setServerResponse] = useState<
+    | {
+        valid: string;
+      }
+    | undefined
+  >(undefined);
+  if (serverResponse?.valid) {
+    setName("loading");
+    setTimeout(() => {
+      setName("settings");
+    }, 1000);
+  }
+
+  console.log(serverResponse);
 
   useEffect(() => {
     if (data) {
@@ -59,12 +67,13 @@ const [serverResponse, setServerResponse] = useState<
       <form
         encType="multipart/form-data"
         onSubmit={handleSubmit(async (x) => {
+          let res;
           if (decoded?.level == "student") {
-            await accountSettingsStudent(decoded?.id, x as fullContact);
+            res = await accountSettingsStudent(decoded?.id, x as fullContact);
           } else {
-            await accountSettingsTutor(decoded?.id, x as tutorInfo);
+            res = await accountSettingsTutor(decoded?.id, x as tutorInfo);
           }
-          console.log(x);
+          setServerResponse(res?.data);
         })}
         className="w-full "
       >

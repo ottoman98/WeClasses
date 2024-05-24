@@ -5,7 +5,7 @@ import UserOptions from "../../partials/UserOptions";
 import AllClasses from "./classes/AllClasses";
 
 import { DataProviderTabsClasses } from "../../../context/classes/classes";
-import Settings from "./settings/Settings";
+import Settings from "../../partials/settings/Settings";
 import StudentsList from "./users/StudentsList";
 import TeacherList from "./users/TeacherList";
 import Applicants from "./users/Applicants";
