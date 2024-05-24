@@ -7,8 +7,12 @@ import {
 import { decodeToken } from "react-jwt";
 import { DataContextSession } from "../../../context/session";
 import countries from "../../../utils/CountryCodes.json";
-import { accountSettingsStudent } from "../../../api/axios";
+import {
+  accountSettingsStudent,
+  accountSettingsTutor,
+} from "../../../api/axios";
 import { fullContact } from "../../../types/userTypes";
+import { tutorInfo } from "../../../types/teacher";
 
 function Account() {
   const { cookie } = useContext(DataContextSession);
@@ -30,7 +34,7 @@ function Account() {
     formState: { errors },
     setValue,
     handleSubmit,
-  } = useForm<fullContact>();
+  } = useForm<fullContact | tutorInfo>();
 
   /*
 const [serverResponse, setServerResponse] = useState<
@@ -55,7 +59,11 @@ const [serverResponse, setServerResponse] = useState<
       <form
         encType="multipart/form-data"
         onSubmit={handleSubmit(async (x) => {
-          await accountSettingsStudent(decoded?.id, x);
+          if (decoded?.level == "student") {
+            await accountSettingsStudent(decoded?.id, x as fullContact);
+          } else {
+            await accountSettingsTutor(decoded?.id, x as tutorInfo);
+          }
           console.log(x);
         })}
         className="w-full "
@@ -92,9 +100,6 @@ const [serverResponse, setServerResponse] = useState<
                 );
               })}
             </select>
-            <p className="text-xs italic text-red-500">
-              {errors.countryCode?.message}
-            </p>
           </div>
 
           <div className="flex flex-col w-2/3 md:w-full">
@@ -108,9 +113,7 @@ const [serverResponse, setServerResponse] = useState<
               placeholder="phone"
             />
 
-            <p className="text-xs italic text-red-500">
-              {errors.phone?.message}
-            </p>
+            <p className="text-xs italic text-red-500"></p>
           </div>
         </div>
         <div className="flex flex-col  text-xs md:text-base">
@@ -126,9 +129,7 @@ const [serverResponse, setServerResponse] = useState<
               return <option value={x.name}>{x.name}</option>;
             })}
           </select>
-          <p className="text-xs italic text-red-500">
-            {errors.country?.message}
-          </p>
+          <p className="text-xs italic text-red-500"></p>
         </div>
 
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
