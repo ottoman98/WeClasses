@@ -70,7 +70,7 @@ function RegisterTeachers() {
             const data = await axiosRegisterTeacher(x);
             setServerResponse(data.data);
           })}
-          className="md:py-20 px-5 flex flex-col gap-10  md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
+          className="p-16 md:py-20 px-5 flex flex-col gap-10  md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
         >
           <p className="font-bold text-base">
             {translation.forms.teacher.title}

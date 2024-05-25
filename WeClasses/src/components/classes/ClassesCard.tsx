@@ -1,6 +1,6 @@
 import { classe } from "../../types/classeTypes";
-import { FaStar } from "react-icons/fa6";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaStar, FaUser } from "react-icons/fa6";
+import { FaCalendarAlt, FaGraduationCap } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -23,17 +23,21 @@ function ClassesCard({ data }: { data: classe }) {
 
   return (
     <div
-      className={`flex border rounded-md p-2 ${
+      className={` flex-col justify-center md:flex-row flex border rounded-md p-2 ${
         studentCount ? "bg-gray-200" : ""
       }`}
     >
-      <img
-        className="h-28  rounded-full aspect-square"
-        src={teacher?.photo}
-        alt=""
-      />
-      <div className="w-1/2 flex flex-col gap-1 px-2">
-        <h3 className="text-lg font-bold">{data.name}</h3>
+      <div className="flex justify-center md:w-1/4">
+        <img
+          className="h-28  rounded-full aspect-square "
+          src={teacher?.photo}
+          alt=""
+        />
+      </div>
+      <div className="grid grid-cols-2 md:flex flex-col gap-1 px-2 justify-items-center md:w-1/4">
+        <h3 className=" text-lg font-bold col-span-2">
+          {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
+        </h3>
         <div className="flex flex-row ">
           <img
             className="w-5"
@@ -53,24 +57,34 @@ function ClassesCard({ data }: { data: classe }) {
 
         <span className="font-bold">{data.level}</span>
       </div>
-      <div className="flex flex-col justify-between py-4 w-2/3 ">
-        <div className="flex flex-col gap-1">
-          <div className="flex gap-1">
-            <FaStar size={17} />
-            <span>4.9</span>
+      <div className="flex flex-col justify-between py-4 w-2/3 gap-3  mx-auto">
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-1 justify-between px-2">
+            <div className="flex flex-row gap-1 text-lg">
+              <FaStar size={20} />
+              <span className="-mt-1 font-bold ">4.9</span>
+            </div>
+            <span className="text-xl font-bold">{data.price} $</span>
           </div>
+
+          {!data.date ? (
+            ""
+          ) : (
+            <div className="flex justify-between">
+              <span className="flex flex-row gap-1">
+                <FaCalendarAlt />
+                <span>{new Date(data.date).toLocaleDateString()}</span>
+              </span>
+              <span className="flex flex-row gap-1">
+                <FaClock />
+                <span>{new Date(data.date).toLocaleTimeString()}</span>
+              </span>
+            </div>
+          )}
+
           <div className="flex gap-1">
-            <span>
-              {!data.date
-                ? ""
-                : new Date(data.date).toLocaleDateString() +
-                  " - " +
-                  new Date(data.date).toLocaleTimeString()}
-            </span>
-          </div>
-          <div className="flex gap-1">
-            <span>{data.price} $</span>
-            <span>
+            <FaUser />
+            <span className="-mt-1">
               {classeStatus?.first
                 ? `0/${data.capacity}`
                 : `${classeStatus?.data?.student.length}/${data.capacity}`}
