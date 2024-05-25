@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { DataContextSession } from "../../context/session";
 import { GetClasseStatus } from "../../api/studentPurchases";
 import { DataContextLanguage } from "../../context/language";
+import { GetProfileTeacher } from "../../api/axiosProfiles";
 
 function ClassesCard({ data }: { data: classe }) {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function ClassesCard({ data }: { data: classe }) {
   const classeStatus = GetClasseStatus(data._id);
   const { translation } = useContext(DataContextLanguage);
   const location = useLocation();
-  console.log(data);
+  const teacher = GetProfileTeacher(data.user);
   const studentCount =
     classeStatus && classeStatus.data?.student.length == data.capacity;
 
@@ -28,7 +29,7 @@ function ClassesCard({ data }: { data: classe }) {
     >
       <img
         className="h-28  rounded-full aspect-square"
-        src={data.photo}
+        src={teacher?.photo}
         alt=""
       />
       <div className="w-1/2 flex flex-col gap-1 px-2">

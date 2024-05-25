@@ -15,9 +15,11 @@ import {
 import { fullContact } from "../../../types/userTypes";
 import { tutorInfo } from "../../../types/teacher";
 import { DataContextTabs } from "../../../context/studentsTab";
+import { DataContextTabsSettings } from "../../../context/settings/settings";
 
 function Account() {
   const { cookie } = useContext(DataContextSession);
+  const tab = useContext(DataContextTabsSettings).setName;
   const { setName } = useContext(DataContextTabs);
   const decoded: { id: string; level: string } | null = decodeToken(
     cookie as string
@@ -46,12 +48,13 @@ function Account() {
   >(undefined);
   if (serverResponse?.valid) {
     setName("loading");
+    tab("");
     setTimeout(() => {
+      tab("account");
+
       setName("settings");
     }, 1000);
   }
-
-  console.log(serverResponse);
 
   useEffect(() => {
     if (data) {

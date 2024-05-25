@@ -13,6 +13,7 @@ function ClassPayments() {
 
   const data = GetClasseById(classId);
   const classeStatus = GetClasseStatus(classId);
+  console.log("status:", classeStatus);
 
   const { cookie } = useContext(DataContextSession);
   const decoded: { id: string } | null = decodeToken(cookie as string);

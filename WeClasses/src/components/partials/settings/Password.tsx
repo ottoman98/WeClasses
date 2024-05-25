@@ -22,7 +22,7 @@ function Password() {
           placeholder="Password"
         />
         <p className="text-xs italic text-red-500"></p>
-      </div>{" "}
+      </div>
       <div className="flex flex-col mb-1">
         <label htmlFor="password" className="text-sm">
           New Password
