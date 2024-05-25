@@ -54,7 +54,9 @@ function ClassesList() {
 
   return (
     <section className="px-2 md:px-20 py-10 flex flex-col gap-10 pt-28">
-      <h2 className=" text-5xl text-center">{translation.classes.title}</h2>
+      <h2 className="text-2xl md:text-5xl text-center font-bold">
+        {translation.classes.title}
+      </h2>
       <div className=" flex flex-col gap-4 md:px-20">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-10 ">
           <select

@@ -196,7 +196,7 @@ function MobileAside() {
 
                 <li className="flex items-center  hover:text-blue-950 px-1">
                   <Link
-                    to="classes"
+                    to="/classes"
                     onClick={() => {
                       setShow(false);
                     }}

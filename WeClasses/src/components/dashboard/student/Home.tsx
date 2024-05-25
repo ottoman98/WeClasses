@@ -28,7 +28,7 @@ function Home() {
       </ul>
 
       <div className="flex flex-col gap-3">
-        <h2 className="text-5xl font-bold">
+        <h2 className="text-3xl text-center md:text-5xl font-bold">
           {" "}
           {translation.profiles.home.title}
         </h2>

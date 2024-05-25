@@ -78,15 +78,15 @@ function Account() {
           }
           setServerResponse(res?.data);
         })}
-        className="w-full "
+        className="w-60 md:w-full"
       >
         <div className="flex flex-col">
           <label htmlFor="name">Foto de perfil</label>
 
-          <img className="aspect-square w-32" src={data?.photo} alt="" />
+          <img className="aspect-square  w-32" src={data?.photo} alt="" />
           <input
             {...register("photo", {})}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
             id="name"
             type="file"
           />
