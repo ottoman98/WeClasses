@@ -120,9 +120,9 @@ async function accountSettingsTutor(id: string | undefined, data: tutorInfo) {
     console.log(error);
   }
 }
-async function passwordSettingsTutor(
+async function passwordSettings(
   id: string | undefined,
-  data: { password: string; password2: string; oldPassword: string }
+  data: { password: string; password2: string; oldPassword: string } | undefined
 ) {
   try {
     return axios.put(`${URL}/password_teacher_settings/${id}`, data, {
@@ -180,7 +180,7 @@ export {
   tutorAdmission,
   axiosGoogleLogin,
   accountSettingsTutor,
-  passwordSettingsTutor,
+  passwordSettings,
   accountSettingsStudent,
   logout,
 };

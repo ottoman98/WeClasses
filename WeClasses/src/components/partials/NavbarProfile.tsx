@@ -6,7 +6,7 @@ import { IoIosHelpCircle } from "react-icons/io";
 import { IoMdNotifications } from "react-icons/io";
 import logo from "../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "./LanguageSwitch";
-import MobileAsideProfileTeacher from "./MobileAsideProfileTeacher";
+import MobileAside from "./MobileAside";
 import { useContext } from "react";
 import { DataContextLanguage } from "../../context/language";
 
@@ -54,7 +54,7 @@ function NavBarProfileTeacher() {
             <IoMdNotifications size={20} />
           </li>
           <li className="flex items-center mt-1">
-            <MobileAsideProfileTeacher />
+            <MobileAside />
           </li>
         </ul>
         <div className="hidden md:block">

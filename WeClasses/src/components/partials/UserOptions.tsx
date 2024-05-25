@@ -41,14 +41,26 @@ function UserOptions() {
       inline
       label={<Avatar alt="User settings" img={`${data?.photo}`} rounded />}
     >
-      <Link
-        onClick={() => {
-          setName("home");
-        }}
-        to={url}
-      >
-        <Dropdown.Item>{translation.profileNav.optionsNav.home}</Dropdown.Item>
-      </Link>{" "}
+      <Dropdown.Item>
+        <Link
+          onClick={() => {
+            setName("home");
+          }}
+          to={url}
+        >
+          {translation.profileNav.optionsNav.home}
+        </Link>{" "}
+      </Dropdown.Item>
+      <Dropdown.Item className={`${optionsT}`}>
+        <Link
+          onClick={() => {
+            setName("messages");
+          }}
+          to={url}
+        >
+          {translation.profileNav.optionsNav.messages}
+        </Link>{" "}
+      </Dropdown.Item>
       <Dropdown.Item className={`${optionsT}`}>
         <Link
           onClick={() => {
@@ -68,6 +80,16 @@ function UserOptions() {
         >
           {translation.profileNav.optionsNav.purchase}
         </Link>{" "}
+      </Dropdown.Item>
+      <Dropdown.Item className={`${optionsS}`}>
+        <Link
+          onClick={() => {
+            setName("messages");
+          }}
+          to={url}
+        >
+          {translation.profileNav.optionsNav.messages}
+        </Link>
       </Dropdown.Item>
       <Dropdown.Item className={`${optionsS}`}>
         <Link

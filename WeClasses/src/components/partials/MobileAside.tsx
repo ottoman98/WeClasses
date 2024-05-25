@@ -8,12 +8,24 @@ import { logout } from "../../api/axios";
 import { Avatar } from "flowbite-react";
 import { FaRegUserCircle } from "react-icons/fa";
 import LanguageSwitch from "./LanguageSwitch";
+import { decodeToken } from "react-jwt";
+import { GetProfileStudent, GetProfileTeacher } from "../../api/axiosProfiles";
 
 function MobileAside() {
   const [show, setShow] = useState(false);
   const { setCookie } = useContext(DataContextSession);
   const { setName } = useContext(DataContextTabs);
   const { cookie } = useContext(DataContextSession);
+  const decoded: { id: string; level: string } | null = decodeToken(
+    cookie as string
+  );
+  let profile;
+
+  if (decoded?.level == "student") {
+    profile = GetProfileStudent(decoded?.id);
+  } else {
+    profile = GetProfileTeacher(decoded?.id);
+  }
 
   const [width, setWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -22,7 +34,6 @@ function MobileAside() {
       setShow(false);
     }
   }, [width]);
-
   return (
     <div>
       <IoMenu
@@ -44,14 +55,14 @@ function MobileAside() {
           <div className=" py-5 px-3 w-56   bg-white">
             <div className="flex justify-between">
               {cookie ? (
-                <div className="flex items-center">
+                <div className="flex items-center gap-1">
                   <Avatar
                     alt="User settings"
-                    img="https://i.kym-cdn.com/photos/images/original/002/301/340/1bf.png"
+                    img={profile?.photo}
                     rounded
                     size="xs"
                   />
-                  <p className="font-bold text-customBlack">El osman</p>
+                  <p className="font-bold text-customBlack">{profile?.name}</p>
                 </div>
               ) : (
                 <Link
@@ -87,24 +98,58 @@ function MobileAside() {
                 >
                   <li>Home</li>
                 </Link>
-                <Link
-                  className="hover:text-blue-950 rounded-md px-1"
-                  onClick={() => {
-                    setName("messages");
-                  }}
-                  to="/dashboard"
-                >
-                  Messages
-                </Link>{" "}
-                <Link
-                  className="hover:text-blue-950 rounded-md px-1"
-                  onClick={() => {
-                    setName("lessons");
-                  }}
-                  to="/dashboard"
-                >
-                  My lessons
-                </Link>
+                {decoded?.level == "student" ? (
+                  <>
+                    <Link
+                      className="hover:text-blue-950 rounded-md px-1"
+                      onClick={() => {
+                        setName("messages");
+                      }}
+                      to="/dashboard"
+                    >
+                      Messages
+                    </Link>{" "}
+                    <Link
+                      className="hover:text-blue-950 rounded-md px-1"
+                      onClick={() => {
+                        setName("lessons");
+                      }}
+                      to="/dashboard"
+                    >
+                      My lessons
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      className="hover:text-blue-950 rounded-md px-1"
+                      onClick={() => {
+                        setName("messages");
+                      }}
+                      to="/dashboard"
+                    >
+                      Messages
+                    </Link>
+                    <Link
+                      className="hover:text-blue-950 rounded-md px-1"
+                      onClick={() => {
+                        setName("classes");
+                      }}
+                      to="/dashboard"
+                    >
+                      My Classes
+                    </Link>
+                    <Link
+                      className="hover:text-blue-950 rounded-md px-1"
+                      onClick={() => {
+                        setName("purchase");
+                      }}
+                      to="/dashboard"
+                    >
+                      Purchase
+                    </Link>
+                  </>
+                )}
                 <Link
                   className="hover:text-blue-950 rounded-md px-1"
                   onClick={() => {
@@ -114,11 +159,16 @@ function MobileAside() {
                 >
                   Settings
                 </Link>
+
                 <li
-                  className="hover:text-blue-950 rounded-md px-1"
+                  className="hover:text-blue-950 rounded-md px-1 my-2 text-red-700"
                   onClick={() => {
                     setCookie("");
+                    document.cookie =
+                      "token" +
+                      "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                     logout();
+                    setShow(!show);
                   }}
                 >
                   Log out
