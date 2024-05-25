@@ -6,7 +6,7 @@ function ClassElement({ data: classe }: { data: classe }) {
   if (classe.createdAt) {
     return (
       <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <th>
+        <th className="hidden md:block">
           {new Date(classe.createdAt).toLocaleDateString() +
             " " +
             new Date(classe.createdAt).toLocaleTimeString()}
@@ -17,16 +17,16 @@ function ClassElement({ data: classe }: { data: classe }) {
         >
           {classe.name}
         </td>
-        <td className="px-6 py-4">
+        <td className="px-6 py-4 hidden md:block">
           {classe.language == "en" ? "English" : "Español"}
         </td>
-        <td className="px-6 py-4">{classe.level}</td>
+        <td className="px-6 py-4 hidden md:block">{classe.level}</td>
         <td className="px-6 py-4">
           {new Date(classe.date).toLocaleDateString() +
             " " +
             new Date(classe.date).toLocaleTimeString()}
         </td>
-        <td className="px-6 py-4">{classe.duration} horas</td>
+        <td className="px-6 py-4 hidden md:block">{classe.duration} horas</td>
         <td className="px-6 py-4 text-right flex gap-3">
           <ClassOptions id={classe._id} />
         </td>

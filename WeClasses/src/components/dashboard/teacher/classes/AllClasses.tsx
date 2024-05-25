@@ -14,21 +14,21 @@ function AllClasses() {
 
   if (name == "") {
     return (
-      <section className="md:max-w-[80rem] mx-auto flex flex-col py-4 gap-3">
+      <section className="md:max-w-[80rem] mx-auto flex ga flex-col py-4 gap-3">
         <h2 className="text-4xl">
           {translation.profiles.teacher.classes.title}
         </h2>
+        <span
+          className="w-1/4 bg-blue-900 hover:bg-blue-800 block cursor-pointer text-center text-white rounded-md m-2"
+          onClick={() => setName("add")}
+        >
+          {translation.profiles.teacher.classes.add}
+        </span>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg flex flex-col">
-          <span
-            className="bg-blue-900 block cursor-pointer"
-            onClick={() => setName("add")}
-          >
-            {translation.profiles.teacher.classes.add}
-          </span>
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="hidden md:block  px-6 py-3">
                   {translation.profiles.teacher.classes.table.created}
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -48,7 +48,7 @@ function AllClasses() {
                     </a>
                   </div>
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="hidden md:block px-6 py-3">
                   <div className="flex items-center">
                     {translation.profiles.teacher.classes.table.language}
 
@@ -65,7 +65,7 @@ function AllClasses() {
                     </a>
                   </div>
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="hidden md:block px-6 py-3">
                   <div className="flex items-center">
                     {translation.profiles.teacher.classes.table.level}
 
@@ -99,7 +99,7 @@ function AllClasses() {
                     </a>
                   </div>
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="hidden md:block px-6 py-3">
                   <div className="flex items-center">
                     {translation.profiles.teacher.classes.table.duration}
 
