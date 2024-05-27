@@ -18,7 +18,7 @@ function ClassElement({ data: classe }: { data: classe }) {
           {classe.name}
         </td>
         <td className="px-6 py-4 hidden md:block">
-          {classe.language == "en" ? "English" : "Español"}
+          {classe.language == "en" ? "English" : "Español"}a
         </td>
         <td className="px-6 py-4 hidden md:block">{classe.level}</td>
         <td className="px-6 py-4">
