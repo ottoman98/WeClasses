@@ -58,12 +58,13 @@ function Account() {
 
   useEffect(() => {
     if (data) {
-      setValue("countryCode", "+57");
+      setValue("countryCode", `+${data.countryCode}`);
       setValue("phone", data.phone);
       setValue("country", data.country);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
+  console.log(data);
 
   return (
     <div>
