@@ -90,6 +90,7 @@ function Account() {
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
             id="name"
             type="file"
+            accept="image/*"
           />
 
           <p className="text-xs italic text-red-500">{errors.photo?.message}</p>
