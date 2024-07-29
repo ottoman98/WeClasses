@@ -92,6 +92,7 @@ function EditClassesForm() {
             Duration
           </label>
           <select
+            disabled
             {...register("duration", {
               required: { value: true, message: "Required" },
             })}
@@ -112,6 +113,7 @@ function EditClassesForm() {
             Language
           </label>
           <select
+            disabled
             {...register("language", {
               required: { value: true, message: "Required" },
             })}
@@ -147,6 +149,7 @@ function EditClassesForm() {
             Class level
           </label>
           <select
+            disabled
             {...register("level", {
               required: { value: true, message: "Required" },
             })}
@@ -181,6 +184,7 @@ function EditClassesForm() {
             Date
           </label>
           <input
+            disabled
             {...register("date", {
               required: { value: true, message: "Required" },
             })}

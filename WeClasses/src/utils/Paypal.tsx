@@ -65,6 +65,18 @@ function PayPal({ price, id }: { price: string; id: string }) {
 
   return (
     <div className="">
+      <p
+        onClick={() => {
+          postPurchaseClasse({ classe: id });
+          navigate("/profile");
+          setName("loading");
+          setTimeout(() => {
+            setName("lessons");
+          }, 1000);
+        }}
+      >
+        Comprar
+      </p>
       <h2 className="font-bold text-xl">Payment Method</h2>
       {isPending ? (
         <div>loading</div>

@@ -40,4 +40,24 @@ function GetClasseStatus(id: string | undefined): classeStatus | undefined {
   return first;
 }
 
-export { postPurchaseClasse, GetAllPurchaseNames, GetClasseStatus };
+function GetPurchaseList(data: undefined | Array<string>) {
+  const [first, setFirst] = useState();
+  useEffect(() => {
+    axios
+      .post(`${URL}/purchaseUsersList`, data, {
+        withCredentials: true,
+      })
+      .then((x) => {
+        setFirst(x.data);
+      });
+  }, []);
+
+  return first;
+}
+
+export {
+  postPurchaseClasse,
+  GetAllPurchaseNames,
+  GetClasseStatus,
+  GetPurchaseList,
+};
