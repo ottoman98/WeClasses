@@ -102,7 +102,7 @@ function Account() {
                   }
                   if (fileExtension) {
                     if (!acceptedFormats.includes(fileExtension)) {
-                      return "Invalid file format. Only PDF files are allowed.";
+                      return "Invalid file format. Only .jpg, .png and jpeg files are allowed.";
                     }
                   }
                 }
