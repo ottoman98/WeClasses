@@ -26,6 +26,7 @@ function ClassesForm() {
       tabs("classes");
     }, 1000);
   }
+  const minDate = new Date().toISOString().slice(0, 16);
 
   return (
     <div>
@@ -155,7 +156,7 @@ function ClassesForm() {
             type="number"
             placeholder={translation.profiles.teacher.form.price}
           />
-          <p className="text-xs italic text-red-500">{errors.link?.message}</p>
+          <p className="text-xs italic text-red-500">{errors.price?.message}</p>
         </div>
 
         <div className="flex flex-col">
@@ -163,6 +164,7 @@ function ClassesForm() {
             {translation.profiles.teacher.form.date}
           </label>
           <input
+            min={minDate}
             {...register("date", {
               required: { value: true, message: "Required" },
               valueAsDate: true,
@@ -171,7 +173,7 @@ function ClassesForm() {
             id="date"
             type="datetime-local"
           />
-          <p className="text-xs italic text-red-500">{errors.link?.message}</p>
+          <p className="text-xs italic text-red-500">{errors.date?.message}</p>
         </div>
         <div className="flex flex-col">
           <label htmlFor="date" className="text-sm">
