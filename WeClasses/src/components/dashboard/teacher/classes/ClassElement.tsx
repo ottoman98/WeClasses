@@ -11,8 +11,8 @@ function ClassElement({ data: classe }: { data: classe }) {
   const classStatus = GetClasseStatus(classe._id);
   const [hidden, setHidden] = useState(false);
 
-  GetPurchaseList(["661dc639760fee76ed31c8d8", "661dc37e924711d5a1b07b33"]);
-  console.log(classStatus?.data);
+  const users = GetPurchaseList(classe._id);
+  console.log("data:", users);
 
   if (classe.createdAt) {
     return (
@@ -61,17 +61,36 @@ function ClassElement({ data: classe }: { data: classe }) {
           <>
             <tr>
               <td colSpan={6}>
-                <h4>Estudiantes</h4>
-                <table className="bg-blue-500 my-5">
-                  <th>
+                <table className="my-5">
+                  <caption>Estudiantes</caption>
+                  <thead>
                     <tr>
-                      <td>Nombre</td>
+                      <th></th>
+                      <th>Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
                     </tr>
-                  </th>
+                  </thead>
                   <tbody>
-                    <tr>
-                      <td></td>
-                    </tr>
+                    {!users
+                      ? ""
+                      : users.map((x) => {
+                          return (
+                            <tr>
+                              <td>
+                                {" "}
+                                <img
+                                  className="aspect-square w-14"
+                                  src={x.photo}
+                                  alt=""
+                                />
+                              </td>
+                              <td>{x.name}</td>
+                              <td>{x.lastName}</td>
+                              <td>{x.email}</td>
+                            </tr>
+                          );
+                        })}
                   </tbody>
                 </table>
               </td>
