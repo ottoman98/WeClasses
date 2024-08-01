@@ -45,7 +45,7 @@ function UserRemainingForm() {
     if (!serverResponse?.valid) {
       setDisabled(false);
     } else {
-      navigate(`/register/${getValues("name")}`);
+      navigate(`/registerComplete/${getValues("name")}`);
     }
   }, [serverResponse]);
 

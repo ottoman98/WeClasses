@@ -26,7 +26,8 @@ type fullContact = contact & {
     languageLevel: string,
     password: string
     password2?: string,
-    active: boolean
+    active: boolean,
+    description?: string
 
 }
 

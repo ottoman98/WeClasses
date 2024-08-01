@@ -17,7 +17,8 @@ type teacherData = {
     createdAt?: string,
     score: Array<number>,
     approved: boolean,
-    active?: boolean
+    active?: boolean,
+
 
 
 }

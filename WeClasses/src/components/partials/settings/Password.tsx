@@ -7,7 +7,11 @@ import { DataContextTabs } from "../../../context/studentsTab";
 import { DataContextTabsSettings } from "../../../context/settings/settings";
 function Password() {
   const { cookie } = useContext(DataContextSession);
-  const { register, handleSubmit } = useForm<{
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<{
     password: string;
     password2: string;
     oldPassword: string;
@@ -21,6 +25,7 @@ function Password() {
   const [response, setResponse] = useState<
     | {
         valid: string;
+        message: string;
       }
     | undefined
   >(undefined);
@@ -47,13 +52,14 @@ function Password() {
         }
       })}
     >
+      <p className="text-xs italic text-red-500">{response?.message}</p>
       <div className="flex flex-col mb-1">
         <label htmlFor="password" className="text-sm">
           Old Password
         </label>
         <input
           {...register("oldPassword", {
-            required: { value: true, message: "Ingrese un password" },
+            required: { value: true, message: "Ingrese su contraseña actual" },
             minLength: {
               value: 4,
               message: "debe ser superior a 8 la longitud sea serio",
@@ -64,7 +70,9 @@ function Password() {
           type="password"
           placeholder="Old Password"
         />
-        <p className="text-xs italic text-red-500"></p>
+        <p className="text-xs italic text-red-500">
+          {errors.oldPassword?.message}
+        </p>
       </div>
       <div className="flex flex-col mb-1">
         <label htmlFor="password" className="text-sm">
@@ -83,6 +91,9 @@ function Password() {
           type="password"
           placeholder="Password"
         />
+        <p className="text-xs italic text-red-500">
+          {errors.password?.message}
+        </p>
       </div>
       <div className="flex flex-col mb-1">
         <label htmlFor="password" className="text-sm">
@@ -101,6 +112,9 @@ function Password() {
           type="password"
           placeholder="Password"
         />
+        <p className="text-xs italic text-red-500">
+          {errors.password2?.message}
+        </p>
       </div>
       <button
         className="bg-blue-900 px-3 py-1 rounded-xl text-white"
