@@ -53,14 +53,14 @@ function ClassesList() {
   }
 
   return (
-    <section className="px-2 md:px-20 py-10 flex flex-col gap-10 pt-28">
+    <section className="px-2 md:px-20 py-10 flex flex-col gap-10 pt-28  max-w-[80rem] mx-auto">
       <h2 className="text-2xl md:text-5xl text-center font-bold">
         {translation.classes.title}
       </h2>
-      <div className=" flex flex-col gap-4 md:px-20">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-10 ">
+      <div className=" flex flex-col gap-4 ">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:gap-10 text-xs">
           <select
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
             name=""
             id=""
             onChange={(e) => {
@@ -78,7 +78,7 @@ function ClassesList() {
             </option>
           </select>
           <select
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs "
             name=""
             id=""
             onChange={(e) => {
@@ -104,13 +104,13 @@ function ClassesList() {
               const selected = e.target.value;
               setDate(selected);
             }}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
             type="date"
             value={date}
           />
 
           <select
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs"
             name=""
             id=""
             onChange={(e) => {
@@ -131,7 +131,7 @@ function ClassesList() {
             </option>
           </select>
           <button
-            className="bg-blue-900 text-white rounded-md py-2 hover:bg-blue-800"
+            className="bg-blue-900 text-white rounded-md py-2 hover:bg-blue-800 text-xs "
             onClick={() => {
               setLanguage("");
               setLevel("");
@@ -152,7 +152,7 @@ function ClassesList() {
       </div>
 
       {filtered?.length && filtered.length > 0 ? (
-        <div className="px-2 md:px-20 py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+        <div className="flex flex-col gap-5 ">
           {filtered?.map((x) => {
             return <ClassesCard data={x} key={x._id} />;
           })}

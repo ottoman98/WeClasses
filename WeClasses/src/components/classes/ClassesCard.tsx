@@ -1,7 +1,7 @@
 import { classe } from "../../types/classeTypes";
 import { FaStar, FaUser } from "react-icons/fa6";
-import { FaCalendarAlt, FaGraduationCap } from "react-icons/fa";
-import { FaClock } from "react-icons/fa6";
+import { FaCalendarAlt } from "react-icons/fa";
+import { IoLanguageSharp } from "react-icons/io5";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -23,13 +23,13 @@ function ClassesCard({ data }: { data: classe }) {
 
   return (
     <div
-      className={` flex-col justify-center md:flex-row flex border rounded-md p-2 ${
+      className={` flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-300 ${
         studentCount ? "bg-gray-200" : ""
       }`}
     >
       <div className="flex justify-center md:w-1/4">
         <img
-          className="h-28  rounded-full aspect-square "
+          className="h-36  rounded-xl aspect-square my-auto  "
           src={teacher?.photo}
           alt=""
         />
@@ -38,24 +38,18 @@ function ClassesCard({ data }: { data: classe }) {
         <h3 className=" text-lg font-bold col-span-2">
           {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
         </h3>
-        <div className="flex flex-row ">
-          <img
-            className="w-5"
-            src={"https://d13nnzzfr74buh.cloudfront.net/img/icons/trusted.svg"}
-            alt=""
-          />
-          <Link to={`/teacher/${data.user}`}>{data.teacherName}</Link>
-        </div>
-        <div className="flex gap-1">
-          <FaGraduationCap size={17} />
-          <span>{data.language == "en" ? "English" : "Español"}</span>
-        </div>
-        <div className="flex gap-1">
-          <FaClock />
-          <span>{data.duration} horas</span>
-        </div>
 
-        <span className="font-bold">{data.level}</span>
+        <Link className="" to={`/teacher/${data.user}`}>
+          Creado por:{" "}
+          <span className="text-blue-800 underline">{data.teacherName}</span>
+        </Link>
+
+        <div className="flex gap-1">
+          <IoLanguageSharp size={17} />
+          <span>
+            {data.language == "en" ? "English" : "Español"} ({data.level})
+          </span>
+        </div>
       </div>
       <div className="flex flex-col justify-between py-4 w-2/3 gap-3  mx-auto">
         <div className="flex flex-col gap-3">
@@ -73,23 +67,23 @@ function ClassesCard({ data }: { data: classe }) {
             <div className="flex justify-between">
               <span className="flex flex-row gap-1">
                 <FaCalendarAlt />
-                <span>{new Date(data.date).toLocaleDateString()}</span>
+                <span>
+                  {`${new Date(data.date).toLocaleDateString()}-
+                    ${new Date(data.date).toLocaleTimeString()}`}
+                </span>
               </span>
               <span className="flex flex-row gap-1">
-                <FaClock />
-                <span>{new Date(data.date).toLocaleTimeString()}</span>
+                <div className="flex gap-1">
+                  <FaUser />
+                  <span className="-mt-1">
+                    {classeStatus?.first
+                      ? `0/${data.capacity}`
+                      : `${classeStatus?.data?.student.length}/${data.capacity}`}
+                  </span>
+                </div>
               </span>
             </div>
           )}
-
-          <div className="flex gap-1">
-            <FaUser />
-            <span className="-mt-1">
-              {classeStatus?.first
-                ? `0/${data.capacity}`
-                : `${classeStatus?.data?.student.length}/${data.capacity}`}
-            </span>
-          </div>
         </div>
         <div className="flex flex-col gap-2 cursor-pointer">
           {location.pathname == "/dashboard/" ||
