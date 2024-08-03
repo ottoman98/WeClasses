@@ -13,7 +13,7 @@ import {
   accountSettingsTutor,
 } from "../../../api/axios";
 import { fullContact } from "../../../types/userTypes";
-import { tutorInfo } from "../../../types/teacher";
+import { teacherData, tutorInfo } from "../../../types/teacher";
 import { DataContextTabs } from "../../../context/studentsTab";
 import { DataContextTabsSettings } from "../../../context/settings/settings";
 
@@ -25,7 +25,7 @@ function Account() {
     cookie as string
   );
 
-  let data;
+  let data: fullContact | teacherData | undefined;
   if (decoded?.level == "student") {
     data = GetProfileStudent(decoded?.id);
   } else {
