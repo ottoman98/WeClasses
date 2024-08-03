@@ -43,6 +43,7 @@ function Account() {
   const [serverResponse, setServerResponse] = useState<
     | {
         valid: string;
+        message: string;
       }
     | undefined
   >(undefined);
@@ -69,6 +70,7 @@ function Account() {
 
   return (
     <div>
+      <p className="text-xs italic text-red-500">{serverResponse?.message}</p>
       <form
         encType="multipart/form-data"
         onSubmit={handleSubmit(async (x) => {

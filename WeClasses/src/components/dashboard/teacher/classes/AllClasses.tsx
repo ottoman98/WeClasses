@@ -14,7 +14,7 @@ function AllClasses() {
 
   if (name == "") {
     return (
-      <section className="md:max-w-[80rem] mx-auto flex ga flex-col py-4 gap-3">
+      <section className="md:max-w-[80rem] mx-auto flex ga flex-col py-4 gap-3 ">
         <h2 className="text-4xl">
           {translation.profiles.teacher.classes.title}
         </h2>
@@ -24,7 +24,7 @@ function AllClasses() {
         >
           {translation.profiles.teacher.classes.add}
         </span>
-        <div className="mx-auto">
+        <div className="overflow-auto px-10">
           <table>
             <thead>
               <tr>

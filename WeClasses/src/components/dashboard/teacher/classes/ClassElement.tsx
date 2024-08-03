@@ -60,39 +60,44 @@ function ClassElement({ data: classe }: { data: classe }) {
         ) : (
           <>
             <tr>
-              <td colSpan={6}>
-                <table className="my-5">
-                  <caption>Estudiantes</caption>
-                  <thead>
-                    <tr>
-                      <th></th>
-                      <th>Name</th>
-                      <th>Last Name</th>
-                      <th>Email</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {!users
-                      ? ""
-                      : users.map((x) => {
-                          return (
-                            <tr>
-                              <td>
-                                {" "}
-                                <img
-                                  className="aspect-square w-14"
-                                  src={x.photo}
-                                  alt=""
-                                />
-                              </td>
-                              <td>{x.name}</td>
-                              <td>{x.lastName}</td>
-                              <td>{x.email}</td>
-                            </tr>
-                          );
-                        })}
-                  </tbody>
-                </table>
+              <td colSpan={9}>
+                <div className="flex flex-row justify-between px-5 text-center">
+                  <div></div>
+                  <table className="my-5 border ">
+                    <caption>Estudiantes</caption>
+                    <thead>
+                      <tr>
+                        <th></th>
+                        <th>Name</th>
+
+                        <th>Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {!users
+                        ? ""
+                        : users.map((x) => {
+                            return (
+                              <tr>
+                                <td className="px-2">
+                                  {" "}
+                                  <img
+                                    className="aspect-square w-14"
+                                    src={x.photo}
+                                    alt=""
+                                  />
+                                </td>
+                                <td className="px-2">
+                                  {x.name} {x.lastName}
+                                </td>
+
+                                <td className="px-2">{x.email}</td>
+                              </tr>
+                            );
+                          })}
+                    </tbody>
+                  </table>
+                </div>
               </td>
             </tr>
           </>
