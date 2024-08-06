@@ -15,27 +15,30 @@ function AllClasses() {
   if (name == "") {
     return (
       <section className="md:max-w-[80rem] mx-auto flex ga flex-col py-4 gap-3 ">
-        <h2 className="text-4xl">
-          {translation.profiles.teacher.classes.title}
-        </h2>
-        <span
-          className="w-1/4 bg-blue-900 hover:bg-blue-800 block cursor-pointer text-center text-white rounded-md m-2"
-          onClick={() => setName("add")}
-        >
-          {translation.profiles.teacher.classes.add}
-        </span>
-        <div className="overflow-auto px-10">
-          <table>
-            <thead>
+        <div className="px-12 flex flex-col gap-4">
+          <h2 className="col-span-2 text-5xl font-bold text-light-blue">
+            {translation.profiles.teacher.classes.title}
+          </h2>
+          <span
+            className="text-white bg-blue-800   hover:bg-gradient-to-br focus:ring-4 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-32 cursor-pointer"
+            onClick={() => setName("add")}
+          >
+            {translation.profiles.teacher.classes.add}
+          </span>
+        </div>
+        <div className="overflow-auto px-10 ">
+          <table className="w-full text-sm text-left rtl:text-right rounded-2xl">
+            <thead className=" bg-blue-900 text-white">
               <tr>
-                <th className="px-10">Fecha de creación</th>
-                <th className="px-10">Nombre</th>
-                <th className="px-10">Idioma</th>
-                <th className="px-10">Nivel</th>
-                <th className="px-10">Fecha de la clase</th>
-                <th className="px-10">Duración</th>
-                <th className="px-10">Capacidad</th>
-                <th className="px-10">Estudiantes</th>
+                <th className="px-10 py-3">Fecha de creación</th>
+                <th className="px-6 py-3">Nombre</th>
+                <th className="px-10 py-3">Idioma</th>
+                <th className="px-6 py-3">Nivel</th>
+                <th className="px-10 py-3">Fecha de la clase</th>
+                <th className="px-6 py-3">Duración</th>
+                <th className="px-10 py-3">Capacidad</th>
+                <th className="px-6 py-3">Precio</th>
+                <th className="px-10 py-3">Actions</th>
               </tr>
             </thead>
             <tbody>

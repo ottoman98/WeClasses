@@ -57,14 +57,6 @@ function EditClassesForm() {
 
   return (
     <div>
-      <button
-        className="bg-red-700 p-5"
-        onClick={() => {
-          setName("");
-        }}
-      >
-        pa atras
-      </button>
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await putClasse(id, x);
@@ -72,15 +64,21 @@ function EditClassesForm() {
         })}
         className="w-full grid grid-cols-2 gap-3  max-w-[90rem] mx-auto px-10 pt-10 pb-16"
       >
+        <h2 className="col-span-2 text-3xl font-bold text-light-blue">
+          Editar Clase
+        </h2>
         <div className="flex flex-col ">
-          <label htmlFor="name" className="text-sm">
+          <label
+            htmlFor="name"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Name
           </label>
           <input
             {...register("name", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 "
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="name"
             type="text"
           />
@@ -88,7 +86,10 @@ function EditClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="duration" className="text-sm">
+          <label
+            htmlFor="duration"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Duration
           </label>
           <select
@@ -96,7 +97,7 @@ function EditClassesForm() {
             {...register("duration", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="duration"
           >
             <option value="">seleccione eso ombe</option>
@@ -109,7 +110,10 @@ function EditClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="language" className="text-sm">
+          <label
+            htmlFor="language"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Language
           </label>
           <select
@@ -117,7 +121,7 @@ function EditClassesForm() {
             {...register("language", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="language"
           >
             <option value="">Select a language </option>
@@ -130,14 +134,17 @@ function EditClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="link" className="text-sm">
+          <label
+            htmlFor="link"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Link de la clase
           </label>
           <input
             {...register("link", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="link"
             type="url"
           />
@@ -145,7 +152,10 @@ function EditClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="level" className="text-sm">
+          <label
+            htmlFor="level"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Class level
           </label>
           <select
@@ -153,7 +163,7 @@ function EditClassesForm() {
             {...register("level", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="name"
           >
             <option value="">Escoja el nivel de la clase</option>
@@ -165,14 +175,17 @@ function EditClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="link" className="text-sm">
+          <label
+            htmlFor="link"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Precio
           </label>
           <input
             {...register("price", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="link"
             type="number"
           />
@@ -180,7 +193,10 @@ function EditClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="link" className="text-sm">
+          <label
+            htmlFor="link"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Date
           </label>
           <input
@@ -188,21 +204,24 @@ function EditClassesForm() {
             {...register("date", {
               required: { value: true, message: "Required" },
             })}
-            className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="link"
             type="datetime-local"
           />
           <p className="text-xs italic text-red-500">{errors.link?.message}</p>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="date" className="text-sm">
+          <label
+            htmlFor="date"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Capacity
           </label>
           <select
             {...register("capacity", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="date"
           >
             <option value="">seleccione</option>
@@ -219,14 +238,17 @@ function EditClassesForm() {
         </div>
 
         <div className="col-span-2 ">
-          <label htmlFor="" className="text-sm flex flex-col">
+          <label
+            htmlFor=""
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             Descripción
           </label>
           <textarea
             {...register("description", {
               required: { value: true, message: "Required" },
             })}
-            className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-none"
             id="description"
           ></textarea>
           <p className="text-xs italic text-red-500">
@@ -235,8 +257,16 @@ function EditClassesForm() {
         </div>
 
         <div className="col-span-2 mt-10">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
             Submit
+          </button>
+          <button
+            className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            onClick={() => {
+              setName("");
+            }}
+          >
+            Cancelar
           </button>
         </div>
       </form>

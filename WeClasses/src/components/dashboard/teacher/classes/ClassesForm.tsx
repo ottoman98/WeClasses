@@ -30,14 +30,6 @@ function ClassesForm() {
 
   return (
     <div>
-      <button
-        className="bg-red-700 p-5"
-        onClick={() => {
-          setName("");
-        }}
-      >
-        {translation.profiles.teacher.form.back}
-      </button>
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await postClasse(x);
@@ -45,17 +37,23 @@ function ClassesForm() {
 
           setResponse(data.data);
         })}
-        className="w-full grid grid-cols-2 gap-3  max-w-[90rem] mx-auto px-10 pt-10 pb-16"
+        className="w-full grid grid-cols-2 gap-3  max-w-[90rem] mx-auto px-10 pt-10"
       >
-        <div className="flex flex-col ">
-          <label htmlFor="name" className="text-sm">
+        <h2 className="col-span-2 text-3xl font-bold text-light-blue">
+          Agregar Clase
+        </h2>
+        <div className="flex flex-col">
+          <label
+            htmlFor="name"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.name}
           </label>
           <input
             {...register("name", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="name"
             type="text"
             placeholder={translation.profiles.teacher.form.name}
@@ -64,14 +62,17 @@ function ClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="duration" className="text-sm">
+          <label
+            htmlFor="duration"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.duration}
           </label>
           <select
             {...register("duration", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="duration"
           >
             <option value="">Select Duration</option>
@@ -88,14 +89,17 @@ function ClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="language" className="text-sm">
+          <label
+            htmlFor="language"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.language}
           </label>
           <select
             {...register("language", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="language"
           >
             <option value="">Select a language </option>
@@ -108,14 +112,12 @@ function ClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="link" className="text-sm">
-            {translation.profiles.teacher.form.link}
-          </label>
+          <label htmlFor="link">{translation.profiles.teacher.form.link}</label>
           <input
             {...register("link", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="link"
             type="url"
             placeholder={translation.profiles.teacher.form.link}
@@ -124,14 +126,17 @@ function ClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="level" className="text-sm">
+          <label
+            htmlFor="level"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.level}
           </label>
           <select
             {...register("level", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="name"
           >
             <option value="">Escoja el nivel de la clase</option>
@@ -143,7 +148,10 @@ function ClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="price" className="text-sm">
+          <label
+            htmlFor="price"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.price}
           </label>
           <input
@@ -151,8 +159,7 @@ function ClassesForm() {
               required: { value: true, message: "Required" },
               valueAsNumber: true,
             })}
-            className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
-            id="price"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             type="number"
             placeholder={translation.profiles.teacher.form.price}
           />
@@ -160,7 +167,10 @@ function ClassesForm() {
         </div>
 
         <div className="flex flex-col">
-          <label htmlFor="date" className="text-sm">
+          <label
+            htmlFor="date"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.date}
           </label>
           <input
@@ -169,21 +179,24 @@ function ClassesForm() {
               required: { value: true, message: "Required" },
               valueAsDate: true,
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="date"
             type="datetime-local"
           />
           <p className="text-xs italic text-red-500">{errors.date?.message}</p>
         </div>
         <div className="flex flex-col">
-          <label htmlFor="date" className="text-sm">
+          <label
+            htmlFor="date"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.capacity}
           </label>
           <select
             {...register("capacity", {
               required: { value: true, message: "Required" },
             })}
-            className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="date"
           >
             <option value="">seleccione</option>
@@ -200,7 +213,10 @@ function ClassesForm() {
         </div>
 
         <div className=" col-span-2 h-[20rem]">
-          <label htmlFor="" className="text-sm flex flex-col">
+          <label
+            htmlFor=""
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
             {translation.profiles.teacher.form.description}
           </label>
           <textarea
@@ -211,7 +227,8 @@ function ClassesForm() {
               },
               required: { value: true, message: "Required" },
             })}
-            className="appearance-none border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+            rows={4}
+            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 resize-none"
             id="description"
             placeholder={translation.profiles.teacher.form.description}
           ></textarea>
@@ -220,8 +237,16 @@ function ClassesForm() {
           </p>
         </div>
         <div className="col-span-2">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-            {translation.profiles.teacher.form.button}
+          <button className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            Submit
+          </button>
+          <button
+            className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            onClick={() => {
+              setName("");
+            }}
+          >
+            Cancelar
           </button>
         </div>
       </form>

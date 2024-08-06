@@ -1,9 +1,11 @@
 import UserOptions from "./UserOptions";
 import { Link } from "react-router-dom";
-import { FcMoneyTransfer } from "react-icons/fc";
-import { FcComments } from "react-icons/fc";
-import { IoIosHelpCircle } from "react-icons/io";
-import { IoMdNotifications } from "react-icons/io";
+import { CiWallet } from "react-icons/ci";
+import { FaRegMessage } from "react-icons/fa6";
+import {
+  IoIosHelpCircleOutline,
+  IoMdNotificationsOutline,
+} from "react-icons/io";
 import logo from "../../assets/logos/Recurso 6@3x.png";
 import LanguageSwitch from "./LanguageSwitch";
 import MobileAside from "./MobileAside";
@@ -26,32 +28,32 @@ function NavBarProfileTeacher() {
       <div className="flex md:order-2 gap-10">
         <ul className="hidden md:flex gap-3">
           <li className="flex gap-1 text-blue-900 items-center">
-            <FcMoneyTransfer size={20} className="mt-1" />
+            <CiWallet size={20} />
             {translation.profileNav.nav.balance} : 100$
           </li>
           <li className="flex items-center">
-            <span className="border-2 py-1 px-2 border-light-blue rounded-lg">
+            <span className="py-1 px-2 rounded-sm bg-blue-900 text-white cursor-pointer hover:scale-105">
               {translation.profileNav.nav.suscribe}
             </span>
           </li>
           <li className="flex items-center">
-            <span className="border-2 py-1 px-2 border-light-blue rounded-lg">
+            <span className="border-2 py-1 px-2 text-light-blue border-light-blue rounded-lg cursor-pointer hover:scale-105">
               {translation.profileNav.nav.refer}
             </span>
           </li>
         </ul>
-        <ul className="flex gap-5 ">
+        <ul className="flex gap-3 ">
           <li className="hidden md:flex items-center">
             <LanguageSwitch />
           </li>
           <li className="flex items-center mt-1">
-            <FcComments size={20} />
+            <FaRegMessage className="mt-1" size={14} />
           </li>
           <li className="flex items-center mt-1">
-            <IoIosHelpCircle size={20} />
+            <IoIosHelpCircleOutline size={20} />
           </li>
           <li className="flex items-center mt-1">
-            <IoMdNotifications size={20} />
+            <IoMdNotificationsOutline size={20} />
           </li>
           <li className="flex items-center mt-1">
             <MobileAside />

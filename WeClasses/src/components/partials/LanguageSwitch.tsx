@@ -18,11 +18,6 @@ function LanguageSwitch() {
       <Dropdown
         label={
           <div className="flex gap-1">
-            <img
-              className="w-4"
-              src={language == "Español" ? spainFlag : usaFlag}
-              alt=""
-            />
             <span>{language}</span>
           </div>
         }

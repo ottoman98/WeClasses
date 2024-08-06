@@ -14,7 +14,7 @@ function NavBarOptionsProfile() {
   const { translation } = useContext(DataContextLanguage);
   return (
     <>
-      <nav className="hidden md:block border  px-4">
+      <nav className="hidden md:block border px-4 bg-blue-900 text-white">
         <ul className="flex flex-row gap-6">
           <li
             className={`${
