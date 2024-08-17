@@ -35,43 +35,19 @@ function Login() {
   const { translation } = useContext(DataContextLanguage);
 
   return (
-    <section className="pt-24">
-      <div className="px-10 md:w-[28rem] mx-auto flex flex-col">
-        <h3 className="pt-4 text-2xl text-center">
+    <section className="flex flex-row pt-16 min-h-[60rem]  max-w-[80rem] mx-auto">
+      <img
+        className="hidden md:block fil md:w-3/5 "
+        src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        alt=""
+      />
+      <div className="flex flex-col justify-center mx-auto object-contain">
+        <h3 className="font-bold text-xl text-center">
           {translation.forms.login.title}
         </h3>
-        <div className="flex flex-row  justify-between py-5 text-xs md:text-base">
-          <Link
-            className="inline-block text-blue-500 align-baseline hover:text-blue-800 "
-            to="/register"
-          >
-            {translation.forms.login.registerStudent}
-          </Link>
-
-          <Link
-            className="inline-block text-blue-500 align-baseline hover:text-blue-800"
-            to="/register"
-          >
-            {translation.forms.login.registerTeacher}
-          </Link>
-        </div>
-
-        <div className="flex justify-center">
-          <GoogleLogin
-            onSuccess={async (credentialResponse) => {
-              await axiosGoogleLogin(credentialResponse);
-
-              setCookie(getCookies("token"));
-              navigate("/profile");
-            }}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
-        </div>
-        <p className="text-center"> {translation.forms.login.or}</p>
 
         <form
+          className="py-8"
           onSubmit={handleSubmit(async (x) => {
             const data = await axiosLogin(x);
             setServerResponse(data.data);
@@ -86,15 +62,15 @@ function Login() {
               </p>
             </>
           )}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="email" className="text-sm">
-              <p className="text-center">
-                {" "}
-                {translation.forms.login.form.email}
-              </p>
+          <div className="flex flex-col gap-1">
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              <p>{translation.forms.login.form.email}</p>
             </label>
             <input
-              className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               {...register("email", {
                 required: {
                   value: true,
@@ -115,7 +91,10 @@ function Login() {
             </p>
           </div>
           <div className="flex flex-col mb-1">
-            <label htmlFor="password" className="text-sm">
+            <label
+              htmlFor="password"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
               {translation.forms.login.form.password}
             </label>
             <input
@@ -126,7 +105,7 @@ function Login() {
                   message: "debe ser superior a 8 la longitud sea serio",
                 },
               })}
-              className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               id="password"
               type="password"
               placeholder={translation.forms.login.form.password}
@@ -136,7 +115,7 @@ function Login() {
             </p>
           </div>
           <Link
-            className="inline-block text-sm text-blue-950 align-baseline hover:text-light-blue mb-2 underline"
+            className="inline-block text-xs text-blue-950 align-baseline hover:text-light-blue mb-2 underline text-right w-full"
             to="/recover"
           >
             {translation.forms.login.form.forgot}
@@ -149,8 +128,7 @@ function Login() {
               {...register("keepSession")}
             />
 
-            <label className="text-sm ">
-              {" "}
+            <label className="text-xs ">
               {translation.forms.login.form.remember}
             </label>
           </div>
@@ -161,6 +139,37 @@ function Login() {
             </button>
           </div>
           <hr className="mb-6 border-t" />
+          <div className="flex justify-center">
+            <GoogleLogin
+              onSuccess={async (credentialResponse) => {
+                await axiosGoogleLogin(credentialResponse);
+
+                setCookie(getCookies("token"));
+                navigate("/profile");
+              }}
+              onError={() => {
+                console.log("Login Failed");
+              }}
+            />
+          </div>
+
+          <div className="flex flex-row py-5 text-xs md:text-base gap-1">
+            <span className="text-xs">Need an account?</span>
+            <Link
+              className="inline-block text-blue-500 align-baseline hover:text-blue-800 text-xs  "
+              to="/register"
+            >
+              {translation.forms.login.registerStudent}
+            </Link>
+            <span className="text-xs">or</span>
+
+            <Link
+              className="inline-block text-blue-500 align-baseline hover:text-blue-800 text-xs"
+              to="/register"
+            >
+              {translation.forms.login.registerTeacher}
+            </Link>
+          </div>
         </form>
       </div>
     </section>

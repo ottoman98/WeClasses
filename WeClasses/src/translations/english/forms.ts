@@ -34,7 +34,7 @@ const forms: register = {
 
     },
     login: {
-        title: 'Login',
+        title: 'Log in to your account',
         registerStudent: 'Sign Up as a student',
         registerTeacher: 'Sign Up as a tutor',
         button: 'Login',
