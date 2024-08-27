@@ -11,6 +11,7 @@ import { GetClasseStatus } from "../../api/studentPurchases";
 import { DataContextLanguage } from "../../context/language";
 import { GetProfileTeacher } from "../../api/axiosProfiles";
 import Loading from "../partials/Loading";
+import VideoOverlay from "./VideoOverlay";
 
 function ClassesCard({ data }: { data: classe }) {
   const navigate = useNavigate();
@@ -34,6 +35,7 @@ function ClassesCard({ data }: { data: classe }) {
         setHidden(false);
       }}
     >
+      <VideoOverlay video={teacher?.video} />
       <div
         className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-300 w-2/3 ${
           studentCount ? "bg-gray-200" : ""
@@ -139,9 +141,9 @@ function ClassesCard({ data }: { data: classe }) {
         {!teacher ? (
           <Loading />
         ) : (
-          <div className="col-span-2 h-40 flex justify-center  px-3">
+          <div className="h-40 flex justify-center  ">
             <img
-              className={`aspect-video h-full ${hidden ? "" : "hidden"}`}
+              className={`h-full ${hidden ? "" : "hidden"}`}
               src={`http://img.youtube.com/vi/${teacher.video?.slice(
                 -11
               )}/0.jpg`}
