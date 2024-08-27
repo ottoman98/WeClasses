@@ -21,7 +21,7 @@ function NavBarr() {
 
   return (
     <>
-      <nav className="flex p-3 justify-between border-b-[1px] text-slate-500  w-full bg-white fixed">
+      <nav className="flex p-3 justify-between border-b-[1px] text-slate-500  w-full bg-white/90 fixed">
         <Link to="/">
           <img className="w-20 md:w-32" src={logo} alt="" />
         </Link>
@@ -40,7 +40,6 @@ function NavBarr() {
             {translation.main.nav.help}
           </li>
         </ul>
-
         <ul className="flex items-center">
           <li className="hidden md:flex gap-5">
             <LanguageSwitch />

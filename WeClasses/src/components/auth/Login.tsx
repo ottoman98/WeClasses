@@ -35,19 +35,19 @@ function Login() {
   const { translation } = useContext(DataContextLanguage);
 
   return (
-    <section className="flex flex-row pt-16 min-h-[60rem]  max-w-[80rem] mx-auto">
-      <img
-        className="hidden md:block fil md:w-3/5 "
-        src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        alt=""
-      />
-      <div className="flex flex-col justify-center mx-auto object-contain">
+    <section
+      className="flex flex-row md:pt-16 min-h-[60rem]  bg-center 
+    bg-[url('https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]
+    bg-cover
+    "
+    >
+      <div className="flex flex-col justify-center mx-auto object-contain backdrop-opacity-400 backdrop-filter-none bg-white/90">
         <h3 className="font-bold text-xl text-center">
           {translation.forms.login.title}
         </h3>
 
         <form
-          className="py-8"
+          className="py-8 px-10"
           onSubmit={handleSubmit(async (x) => {
             const data = await axiosLogin(x);
             setServerResponse(data.data);

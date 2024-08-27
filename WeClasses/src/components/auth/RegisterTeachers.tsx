@@ -5,7 +5,7 @@ import { DataContextLanguage } from "../../context/language";
 import countries from "../../utils/CountryCodes.json";
 import { teacherData } from "../../types/teacher";
 import { MdDelete } from "react-icons/md";
-
+import teacher from "../../assets/images/teacher.jpg";
 import { useNavigate } from "react-router-dom";
 
 function RegisterTeachers() {
@@ -64,20 +64,26 @@ function RegisterTeachers() {
 
   return (
     <>
-      <div className="flex justify-center py-10 md:py-24">
+      <div
+        className="flex justify-center py-10 md:py-24 bg-cover"
+        style={{ backgroundImage: `url(${teacher})` }}
+      >
         <form
           onSubmit={handleSubmit(async (x) => {
             const data = await axiosRegisterTeacher(x);
             setServerResponse(data.data);
           })}
-          className="p-16 md:py-20 px-5 flex flex-col gap-10  md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl"
+          className="p-16 md:py-20 px-5 flex flex-col gap-10  md:shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl bg-[rgba(23,37,84,0.9)]"
         >
-          <p className="font-bold text-base">
+          <p className="font-bold text-white text-2xl">
             {translation.forms.teacher.title}
           </p>
           <div className="grid grid-cols-2 text-base gap-6">
             <div className="flex flex-col">
-              <label className="font-bold text-xs md:text-base" htmlFor="name">
+              <label
+                className="font-bold text-xs md:text-base text-white"
+                htmlFor="name"
+              >
                 {translation.forms.teacher.inputs[0]}{" "}
                 <span className="text-red-600">*</span>
               </label>
@@ -91,7 +97,7 @@ function RegisterTeachers() {
                   },
                 })}
                 type="text"
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base text-white"
               />
               <p className="text-xs italic text-red-500">
                 {errors.name?.message}
@@ -114,7 +120,7 @@ function RegisterTeachers() {
                   },
                 })}
                 type="text"
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base text-white"
                 id="lastName"
               />
 
@@ -123,7 +129,10 @@ function RegisterTeachers() {
               </p>
             </div>
             <div className="col-span-2  flex flex-col">
-              <label className="font-bold text-xs md:text-base" htmlFor="email">
+              <label
+                className="font-bold text-xs md:text-base text-white"
+                htmlFor="email"
+              >
                 {translation.forms.teacher.inputs[2]}
                 <span className="text-red-600">*</span>
               </label>
@@ -151,8 +160,8 @@ function RegisterTeachers() {
             </div>
 
             <div className="col-span-2 flex flex-row ">
-              <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base">
-                <label className="font-bold" htmlFor="countryCode">
+              <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base text-white">
+                <label className="font-bold text-white" htmlFor="countryCode">
                   {translation.forms.teacher.inputs[3]}
                   <span className="text-red-600">*</span>
                 </label>
@@ -180,7 +189,7 @@ function RegisterTeachers() {
 
               <div className="flex flex-col w-2/3 md:w-full">
                 <label
-                  className="font-bold text-xs md:text-base"
+                  className="font-bold text-xs md:text-base text-white"
                   htmlFor="phone"
                 >
                   {translation.forms.teacher.inputs[4]}{" "}
@@ -206,7 +215,7 @@ function RegisterTeachers() {
 
             <div className="flex flex-col ">
               <label
-                className="font-bold text-xs md:text-base"
+                className="font-bold text-xs md:text-base text-white"
                 htmlFor="birthDay"
               >
                 {translation.forms.teacher.inputs[5]}{" "}
@@ -225,7 +234,7 @@ function RegisterTeachers() {
             </div>
             <div className="flex flex-col ">
               <label
-                className="font-bold text-xs md:text-base"
+                className="font-bold text-xs md:text-base text-white"
                 htmlFor="country"
               >
                 {translation.forms.teacher.inputs[6]}
@@ -248,15 +257,18 @@ function RegisterTeachers() {
             </div>
 
             <div className="flex flex-col col-span-2 gap-1">
-              <div className="flex gap-20">
-                <label htmlFor="" className="text-xs md:text-base font-bold">
+              <div className="flex gap-20 justify-center ">
+                <label
+                  htmlFor=""
+                  className="text-xs md:text-base font-bold text-white"
+                >
                   {translation.forms.teacher.inputs[7]}
                 </label>
               </div>
 
               {languages.map((x, i) => {
                 return (
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 justify-center">
                     <select
                       className=" w-1/2 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
                       id="language"
@@ -348,14 +360,17 @@ function RegisterTeachers() {
                 type="checkbox"
                 id="privacy"
               />
-              <label htmlFor="privacy" className="text-xs md:text-base">
+              <label
+                htmlFor="privacy"
+                className="text-xs md:text-base text-white"
+              >
                 {translation.forms.teacher.privacy}
 
                 <span className="text-red-600">*</span>
               </label>
             </div>
             <div className="col-span-2 flex">
-              <button className="bg-blue-950 text-white px-10 py-1 text-xl mx-auto rounded-xl">
+              <button className="bg-white hover:scale-105 px-10 py-1 text-xl mx-auto rounded-xl">
                 {translation.forms.teacher.button}
               </button>
             </div>

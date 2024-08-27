@@ -31,18 +31,17 @@ function Register() {
       navigate(`/register/${getValues("name")}`);
     }
   }, [serverResponse]);
-  console.log(translation.forms.student.form);
 
   return (
     <>
-      <section className="py-20 pt-24 bg-[url('https://images.unsplash.com/photo-1481026469463-66327c86e544?q=80&w=2108&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center h-screen ">
+      <section className="py-20 pt-24 bg-[url('https://images.unsplash.com/photo-1481026469463-66327c86e544?q=80&w=2108&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center h-screen">
         <div className="max-w-[80rem] mx-auto">
           <h2 className="text-4xl md:text-6xl text-center font-bold text-blue-950">
             {translation.forms.student.title}
           </h2>
           <div className="flex flex-col-reverse md:flex-row gap-10 justify-around md:p-10 ">
-            <div className="md:border-4  p-5  border-light-blue rounded-lg text-xl md:w-1/3  flex flex-col gap-2">
-              <h3 className=" font-bold text-blue-950">
+            <div className="p-5 rounded-lg text-xl md:w-1/3  flex flex-col gap-2 bg-[rgba(23,37,84,0.9)] text-white">
+              <h3 className=" font-bold ">
                 {" "}
                 {translation.forms.student.aside.title}
               </h3>
@@ -66,11 +65,11 @@ function Register() {
                 const data = await axiosRegisterStudent(x);
                 setServerResponse(data.data);
               })}
-              className=" py-20 px-5 flex flex-col gap-10 md:w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl "
+              className=" py-20 px-5 flex flex-col gap-10 md:w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl bg-[rgba(23,37,84,0.9)]"
             >
               <div className="grid grid-cols-2 text-xs md:text-base gap-6 ">
                 <div className="flex flex-col">
-                  <label className="font-bold" htmlFor="name">
+                  <label className="font-bold text-white " htmlFor="name">
                     {translation.forms.student.form.name}{" "}
                     <span className="text-red-600">*</span>
                   </label>
@@ -92,7 +91,7 @@ function Register() {
                   </p>
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-bold" htmlFor="lastName">
+                  <label className="font-bold text-white" htmlFor="lastName">
                     {translation.forms.student.form.lastName}{" "}
                     <span className="text-red-600">*</span>
                   </label>
@@ -114,7 +113,7 @@ function Register() {
                   </p>
                 </div>
                 <div className="col-span-2  flex flex-col">
-                  <label className="font-bold" htmlFor="email">
+                  <label className="font-bold text-white" htmlFor="email">
                     {translation.forms.student.form.email}{" "}
                     <span className="text-red-600">*</span>
                   </label>
@@ -142,7 +141,7 @@ function Register() {
 
                 <div className="col-span-2 flex flex-row gap-1">
                   <div className="flex flex-col w-1/3 md:w-1/4">
-                    <label className="font-bold " htmlFor="code">
+                    <label className="font-bold text-white" htmlFor="code">
                       Indicativo <span className="text-red-600">*</span>
                     </label>
                     <select
@@ -168,7 +167,7 @@ function Register() {
                   </div>
 
                   <div className="flex flex-col w-2/3 md:w-full">
-                    <label className="font-bold" htmlFor="phone">
+                    <label className="font-bold text-white" htmlFor="phone">
                       {translation.forms.student.form.phone}
                       <span className="text-red-600">*</span>
                     </label>
@@ -191,7 +190,10 @@ function Register() {
                 </div>
 
                 <div className="flex flex-col">
-                  <label className="font-bold" htmlFor="languageToLearn">
+                  <label
+                    className="font-bold text-white"
+                    htmlFor="languageToLearn"
+                  >
                     {translation.forms.student.form.languageToLearn}
                     <span className="text-red-600">*</span>
                   </label>
@@ -219,7 +221,10 @@ function Register() {
                   </p>
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-bold" htmlFor="nativeLanguage">
+                  <label
+                    className="font-bold text-white"
+                    htmlFor="nativeLanguage"
+                  >
                     {translation.forms.student.form.nativeLanguage}
                     <span className="text-red-600">*</span>
                   </label>
@@ -260,10 +265,10 @@ function Register() {
                     id="privacy"
                     required
                   />
-                  <label htmlFor="privacy">
+                  <label className="text-white" htmlFor="privacy">
                     {translation.forms.student.privacy}
 
-                    <span className="font-bold text-blue-950">
+                    <span className="font-bold text-light-blue">
                       {" "}
                       politica de privacidad
                     </span>
@@ -271,7 +276,7 @@ function Register() {
                   </label>
                 </div>
                 <div className="col-span-2 flex">
-                  <button className="bg-blue-950 text-white px-10 py-1 text-xl mx-auto rounded-xl">
+                  <button className="bg-white px-10 py-1 text-xl mx-auto rounded-xl hover:scale-105">
                     {translation.forms.student.button}
                   </button>
                 </div>
