@@ -1,11 +1,38 @@
-function VideoOverlay({ video }: { video: string | undefined }) {
+import { Button, Modal } from "flowbite-react";
+import { useState } from "react";
+
+function VideoOverlay({
+  img,
+  video,
+  hidden,
+}: {
+  img: string | undefined;
+  video: string | undefined;
+  hidden: boolean | undefined;
+}) {
+  const [openModal, setOpenModal] = useState(false);
+
   return (
-    <div className="absolute bg-black/10 min-h-screen top-0 left-0 min-w-full flex items-center justify-center">
-      <iframe
-        className="aspect-video w-full h-full max-w-screen-lg max-h-screen-lg"
-        src={video?.replace("/watch?v=", "/embed/")}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      ></iframe>
+    <div
+      onClick={() => setOpenModal(!openModal)}
+      className="h-40 flex justify-center cursor-pointer "
+    >
+      <img
+        className={`h-full ${hidden ? "" : "hidden"}`}
+        src={`http://img.youtube.com/vi/${video?.slice(-11)}/0.jpg`}
+        alt=""
+      />
+
+      <Modal size={"4xl"} show={openModal} onClose={() => setOpenModal(false)}>
+        <Modal.Body>
+          <iframe
+            className="w-full aspect-video mx-auto"
+            src={video?.replace("/watch?v=", "/embed/")}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          ></iframe>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 }

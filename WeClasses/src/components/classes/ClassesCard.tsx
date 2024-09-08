@@ -24,6 +24,7 @@ function ClassesCard({ data }: { data: classe }) {
     classeStatus && classeStatus.data?.student.length == data.capacity;
 
   const [hidden, setHidden] = useState(false);
+  const [video, setVideo] = useState(false);
 
   return (
     <div
@@ -35,7 +36,6 @@ function ClassesCard({ data }: { data: classe }) {
         setHidden(false);
       }}
     >
-      <VideoOverlay video={teacher?.video} />
       <div
         className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-300 w-2/3 ${
           studentCount ? "bg-gray-200" : ""
@@ -141,13 +141,15 @@ function ClassesCard({ data }: { data: classe }) {
         {!teacher ? (
           <Loading />
         ) : (
-          <div className="h-40 flex justify-center  ">
-            <img
-              className={`h-full ${hidden ? "" : "hidden"}`}
-              src={`http://img.youtube.com/vi/${teacher.video?.slice(
-                -11
-              )}/0.jpg`}
-              alt=""
+          <div
+            onClick={() => {
+              setVideo(true);
+            }}
+          >
+            <VideoOverlay
+              hidden={hidden}
+              img={teacher?.photo}
+              video={teacher?.video}
             />
           </div>
         )}
