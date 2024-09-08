@@ -24,7 +24,6 @@ function ClassesCard({ data }: { data: classe }) {
     classeStatus && classeStatus.data?.student.length == data.capacity;
 
   const [hidden, setHidden] = useState(false);
-  const [video, setVideo] = useState(false);
 
   return (
     <div
@@ -141,17 +140,7 @@ function ClassesCard({ data }: { data: classe }) {
         {!teacher ? (
           <Loading />
         ) : (
-          <div
-            onClick={() => {
-              setVideo(true);
-            }}
-          >
-            <VideoOverlay
-              hidden={hidden}
-              img={teacher?.photo}
-              video={teacher?.video}
-            />
-          </div>
+          <VideoOverlay hidden={hidden} video={teacher?.video} />
         )}
       </div>
     </div>

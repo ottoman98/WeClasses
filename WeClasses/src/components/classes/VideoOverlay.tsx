@@ -1,12 +1,10 @@
-import { Button, Modal } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import { useState } from "react";
 
 function VideoOverlay({
-  img,
   video,
   hidden,
 }: {
-  img: string | undefined;
   video: string | undefined;
   hidden: boolean | undefined;
 }) {
