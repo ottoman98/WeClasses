@@ -7,12 +7,15 @@ import Offers from "./Offers";
 import BecomeTutor from "./BecomeTutor";
 import AQ from "./AQ";
 import MobileBanner from "./MobileBanner";
-import Description from "./Description";
+import Proposal from "./Proposal";
+//import Description from "./Description";
 
 function Main() {
   return (
     <div className="pt-16">
-      <Description />
+      {/*<Description />*/}
+      <Proposal />
+
       <FlagsBar />
       <Banner2 />
       <Stats />

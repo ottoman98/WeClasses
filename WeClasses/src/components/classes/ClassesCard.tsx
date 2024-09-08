@@ -43,7 +43,7 @@ function ClassesCard({ data }: { data: classe }) {
         <div className="flex justify-center md:w-1/4">
           <img
             className="h-36  rounded-xl aspect-square my-auto  "
-            src={teacher?.photo}
+            src="https://images01.military.com/sites/default/files/styles/full/public/2021-04/chucknorris.jpeg.jpg"
             alt=""
           />
         </div>

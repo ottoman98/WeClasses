@@ -1,5 +1,6 @@
 import { Modal } from "flowbite-react";
 import { useState } from "react";
+import { FaPlay } from "react-icons/fa";
 
 function VideoOverlay({
   video,
@@ -15,11 +16,16 @@ function VideoOverlay({
       onClick={() => setOpenModal(!openModal)}
       className="h-40 flex justify-center cursor-pointer "
     >
-      <img
-        className={`h-full ${hidden ? "" : "hidden"}`}
-        src={`http://img.youtube.com/vi/${video?.slice(-11)}/0.jpg`}
-        alt=""
-      />
+      <div className={`relative  block ${hidden ? "" : "hidden"}`}>
+        <img
+          className="h-full"
+          src={`http://img.youtube.com/vi/${video?.slice(-11)}/0.jpg`}
+          alt=""
+        />
+        <div className="bg-blue-900 absolute bottom-4 right-4 p-3 rounded-full">
+          <FaPlay size={20} className="text-white" />
+        </div>
+      </div>
 
       <Modal size={"4xl"} show={openModal} onClose={() => setOpenModal(false)}>
         <Modal.Body>

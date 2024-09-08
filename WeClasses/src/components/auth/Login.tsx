@@ -37,7 +37,7 @@ function Login() {
   return (
     <section
       className="flex flex-row md:pt-16 min-h-[60rem]  bg-center 
-    bg-[url('https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')]
+    bg-[url('https://4kwallpapers.com/images/walls/thumbs_3t/5720.jpg')]
     bg-cover
     "
     >

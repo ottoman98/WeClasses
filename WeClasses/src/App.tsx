@@ -34,6 +34,7 @@ function App() {
             <DataProviderTabsSettings>
               <HashRouter>
                 <Routes>
+                  <Route path="*" element={<>nalgas</>} />
                   <Route path="/checkout/:id" element={<ClassPayments />} />
                   <Route path="/register/:name" element={<RegisterSuccess />} />
                   <Route
