@@ -24,6 +24,7 @@ import RegisterSuccessTeacher from "./pages/RegisterSuccessTeacher";
 import AdmissionTeacher from "./pages/AdmissionTeacher";
 import { DataProviderTabsSettings } from "./context/settings/settings";
 import Panel from "./components/dashboard/admin/Panel";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
             <DataProviderTabsSettings>
               <HashRouter>
                 <Routes>
-                  <Route path="*" element={<>nalgas</>} />
+                  <Route path="*" element={<NotFound />} />
                   <Route path="/checkout/:id" element={<ClassPayments />} />
                   <Route path="/register/:name" element={<RegisterSuccess />} />
                   <Route
