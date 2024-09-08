@@ -161,7 +161,7 @@ function ClassesList() {
         {filtered?.length && filtered.length > 0 ? (
           <div className="flex flex-col gap-5 ">
             {filtered?.map((x) => {
-              return <ClassesCard data={x} key={x._id} />;
+              return <ClassesCard complement={true} data={x} key={x._id} />;
             })}
           </div>
         ) : (

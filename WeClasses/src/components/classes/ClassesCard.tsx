@@ -13,7 +13,13 @@ import { GetProfileTeacher } from "../../api/axiosProfiles";
 import Loading from "../partials/Loading";
 import VideoOverlay from "./VideoOverlay";
 
-function ClassesCard({ data }: { data: classe }) {
+function ClassesCard({
+  data,
+  complement,
+}: {
+  data: classe;
+  complement: boolean | undefined;
+}) {
   const navigate = useNavigate();
   const { cookie } = useContext(DataContextSession);
   const classeStatus = GetClasseStatus(data._id);
@@ -36,9 +42,9 @@ function ClassesCard({ data }: { data: classe }) {
       }}
     >
       <div
-        className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-300 w-2/3 ${
-          studentCount ? "bg-gray-200" : ""
-        }`}
+        className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-300 ${
+          !complement ? "w-full" : "w-2/3"
+        } ${studentCount ? "bg-gray-200" : ""}`}
       >
         <div className="flex justify-center md:w-1/4">
           <img
@@ -136,7 +142,7 @@ function ClassesCard({ data }: { data: classe }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className={!complement ? "hidden" : "block"}>
         {!teacher ? (
           <Loading />
         ) : (
