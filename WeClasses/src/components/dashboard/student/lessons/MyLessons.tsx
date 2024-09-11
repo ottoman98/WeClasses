@@ -17,7 +17,7 @@ function MyLessons() {
         ) : (
           classes.map((x) => {
             if (x) {
-              return <ClassesCard data={x} />;
+              return <ClassesCard complement={false} data={x} />;
             }
           })
         )}

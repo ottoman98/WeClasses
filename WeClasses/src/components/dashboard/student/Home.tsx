@@ -36,7 +36,7 @@ function Home() {
           {!classes
             ? "loading..."
             : classes.map((x) => {
-                return <ClassesCard data={x} />;
+                return <ClassesCard complement={false} data={x} />;
               })}
         </div>
       </div>
