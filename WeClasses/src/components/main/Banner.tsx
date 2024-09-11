@@ -6,7 +6,7 @@ import Button from "../partials/Button";
 function Banner2() {
   const { translation } = useContext(DataContextLanguage);
   return (
-    <section className="bg-light-blue text-white   flex flex-col justify-center items-center gap-4 p-5 xs:text-[0.5rem] md:text-[1rem] xl:text-[1.5rem]">
+    <section className="bg-gradient-to-tr from-blue-900 to-light-blue text-white   flex flex-col justify-center items-center gap-4 p-5 xs:text-[0.5rem] md:text-[1rem] xl:text-[1.5rem]">
       <h2 className="text-lg md:text-2xl font-black text-center">
         {translation.main.banner.title}
       </h2>

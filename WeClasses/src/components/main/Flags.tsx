@@ -19,9 +19,9 @@ function FlagsBar() {
               src={usaFlag}
               alt=""
             />
-            <strong className="text-center ">
+            <span className="text-center text-gray-500 ">
               {translation.languages.english}
-            </strong>
+            </span>
           </div>
         </Link>
         <Link to="/classes">
@@ -31,9 +31,9 @@ function FlagsBar() {
               src={germanyFlag}
               alt=""
             />
-            <strong className="text-center">
+            <span className="text-center text-gray-500">
               {translation.languages.german}
-            </strong>
+            </span>
           </div>
         </Link>
         <Link to="/classes">
@@ -43,9 +43,9 @@ function FlagsBar() {
               src={spainFlag}
               alt=""
             />
-            <strong className="text-center">
+            <span className="text-center text-gray-500">
               {translation.languages.spanish}
-            </strong>
+            </span>
           </div>
         </Link>
         <Link to="/classes">
@@ -55,14 +55,14 @@ function FlagsBar() {
               src={franceFlag}
               alt=""
             />
-            <strong className="text-center">
+            <span className="text-center text-gray-500">
               {translation.languages.french}
-            </strong>
+            </span>
           </div>
         </Link>
       </div>
 
-      <small className="block text-center py-5 lg:text-[1.5rem] font-extrabold">
+      <small className="block text-center py-5 text-base font-semibold">
         {translation.main.flags.text}
       </small>
     </section>

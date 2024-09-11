@@ -3,7 +3,7 @@ import { DataProviderSession } from "./context/session";
 import Home from "./pages/Home";
 import Dashboard from "./components/dashboard/teacher/Dashboard";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
-import Main from "./components/main/Main";
+//import Main from "./components/main/Main";
 import Register from "./components/auth/RegisterStudent";
 import UserRemainingForm from "./components/auth/UserRemainingForm";
 import Login from "./components/auth/Login";
@@ -25,6 +25,7 @@ import AdmissionTeacher from "./pages/AdmissionTeacher";
 import { DataProviderTabsSettings } from "./context/settings/settings";
 import Panel from "./components/dashboard/admin/Panel";
 import NotFound from "./pages/NotFound";
+import Main from "./components/v3/main/Main";
 
 function App() {
   return (
