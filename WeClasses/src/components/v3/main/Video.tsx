@@ -1,7 +1,7 @@
 function Video() {
   return (
     <>
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-gray-100 dark:bg-gray-900">
         <div className="container px-6 py-10 mx-auto">
           <h1 className="text-2xl font-semibold text-gray-700 capitalize lg:text-3xl dark:text-white">
             explore our <br /> awesome{" "}
@@ -10,7 +10,7 @@ function Video() {
           </h1>
 
           <iframe
-            className="min-w-full mt-12 h-64 md:h-[450px] rounded-xl overflow-hidden"
+            className="w-[50rem] mx-auto mt-12 h-64 md:h-[450px] rounded-xl overflow-hidden"
             src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=d-2QHUxDMeMI-dJh"
             allow="autoplay; fullscreen"
           ></iframe>

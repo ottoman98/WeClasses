@@ -81,7 +81,7 @@ function RegisterTeachers() {
           <div className="grid grid-cols-2 text-base gap-6">
             <div className="flex flex-col">
               <label
-                className="font-bold text-xs md:text-base text-white"
+                className="block text-sm font-medium leading-6 text-white"
                 htmlFor="name"
               >
                 {translation.forms.teacher.inputs[0]}{" "}
@@ -97,7 +97,7 @@ function RegisterTeachers() {
                   },
                 })}
                 type="text"
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base text-white"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               <p className="text-xs italic text-red-500">
                 {errors.name?.message}
@@ -105,7 +105,7 @@ function RegisterTeachers() {
             </div>
             <div className="flex flex-col">
               <label
-                className="font-bold text-xs md:text-base"
+                className="block text-sm font-medium leading-6 text-white"
                 htmlFor="lastName"
               >
                 {translation.forms.teacher.inputs[1]}
@@ -120,7 +120,7 @@ function RegisterTeachers() {
                   },
                 })}
                 type="text"
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base text-white"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 id="lastName"
               />
 
@@ -130,7 +130,7 @@ function RegisterTeachers() {
             </div>
             <div className="col-span-2  flex flex-col">
               <label
-                className="font-bold text-xs md:text-base text-white"
+                className="block text-sm font-medium leading-6 text-white"
                 htmlFor="email"
               >
                 {translation.forms.teacher.inputs[2]}
@@ -139,7 +139,7 @@ function RegisterTeachers() {
 
               <input
                 placeholder={translation.forms.teacher.inputs[2]}
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full text-xs md:text-base"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 {...register("email", {
                   required: {
                     value: true,
@@ -160,20 +160,21 @@ function RegisterTeachers() {
             </div>
 
             <div className="col-span-2 flex flex-row ">
-              <div className="flex flex-col w-1/3 md:w-1/4 text-xs md:text-base text-white">
-                <label className="font-bold text-white" htmlFor="countryCode">
+              <div className="flex flex-col w-1/2 text-xs md:text-base text-white">
+                <label
+                  className="block text-sm font-medium leading-6 text-white"
+                  htmlFor="countryCode"
+                >
                   {translation.forms.teacher.inputs[3]}
                   <span className="text-red-600">*</span>
                 </label>
                 <select
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 "
                   {...register("countryCode", {
                     required: { value: true, message: "Required" },
                   })}
                 >
-                  <option value="">
-                    {translation.forms.teacher.inputs[3]}
-                  </option>
+                  <option value="">Select</option>
                   {countries.map((x) => {
                     return (
                       <option value={x.dial_code}>
@@ -187,17 +188,16 @@ function RegisterTeachers() {
                 </p>
               </div>
 
-              <div className="flex flex-col w-2/3 md:w-full">
+              <div className="flex flex-col w-1/2 ">
                 <label
-                  className="font-bold text-xs md:text-base text-white"
+                  className="block text-sm font-medium leading-6 text-white"
                   htmlFor="phone"
                 >
                   {translation.forms.teacher.inputs[4]}{" "}
                   <span className="text-red-600">*</span>
                 </label>
                 <input
-                  placeholder={translation.forms.teacher.inputs[4]}
-                  className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   {...register("phone", {
                     required: {
                       value: true,
@@ -215,7 +215,7 @@ function RegisterTeachers() {
 
             <div className="flex flex-col ">
               <label
-                className="font-bold text-xs md:text-base text-white"
+                className="block text-sm font-medium leading-6 text-white"
                 htmlFor="birthDay"
               >
                 {translation.forms.teacher.inputs[5]}{" "}
@@ -225,7 +225,7 @@ function RegisterTeachers() {
                 {...register("birthDay", {
                   required: { value: true, message: "Required" },
                 })}
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 type="date"
               />
               <p className="text-xs italic text-red-500">
@@ -234,14 +234,14 @@ function RegisterTeachers() {
             </div>
             <div className="flex flex-col ">
               <label
-                className="font-bold text-xs md:text-base text-white"
+                className="block text-sm font-medium leading-6 text-white"
                 htmlFor="country"
               >
                 {translation.forms.teacher.inputs[6]}
                 <span className="text-red-600">*</span>
               </label>
               <select
-                className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 {...register("country", {
                   required: { value: true, message: "Required" },
                 })}
@@ -260,7 +260,7 @@ function RegisterTeachers() {
               <div className="flex gap-20 justify-center ">
                 <label
                   htmlFor=""
-                  className="text-xs md:text-base font-bold text-white"
+                  className="block text-sm font-medium leading-6 text-white"
                 >
                   {translation.forms.teacher.inputs[7]}
                 </label>
@@ -270,7 +270,7 @@ function RegisterTeachers() {
                 return (
                   <div className="flex gap-2 justify-center">
                     <select
-                      className=" w-1/2 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       id="language"
                       value={x.language}
                       onChange={(e) => {
@@ -301,7 +301,7 @@ function RegisterTeachers() {
                       <option value="vi">Tiếng Việt (Vietnamita)</option>
                     </select>
                     <select
-                      className="w-2/5 border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       id="level"
                       value={x.level}
                       onChange={(e) => {
@@ -344,6 +344,7 @@ function RegisterTeachers() {
               </p>
               <div className="mt-2 text-light-blue text-xs md:text-base">
                 <span
+                  className="cursor-pointer"
                   onClick={() => {
                     setLanguages([...languages, { language: "", level: "" }]);
                   }}
@@ -362,7 +363,7 @@ function RegisterTeachers() {
               />
               <label
                 htmlFor="privacy"
-                className="text-xs md:text-base text-white"
+                className="block text-sm font-medium leading-6 text-white"
               >
                 {translation.forms.teacher.privacy}
 

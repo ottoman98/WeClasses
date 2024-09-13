@@ -6,7 +6,7 @@ import { DataContextLanguage } from "../../context/language";
 function BecomeTutor() {
   const { translation } = useContext(DataContextLanguage);
   return (
-    <section className="md:p-5 max-w-[80rem] mx-auto bg-light-blue md:bg-white text-white md:text-blue-950">
+    <section className="md:p-5 max-w-[80rem] mx-auto bg-gray-100 text-white md:text-blue-950">
       <div className="flex flex-col md:flex-row mx-auto md:rounded-xl md:border-[1px] border-light-blue bg-red">
         <img
           className="md:w-1/2 md:rounded-l-xl object-cover"

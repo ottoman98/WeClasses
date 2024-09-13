@@ -2,8 +2,7 @@ import { useParams } from "react-router-dom";
 import { axiosChangePassword } from "../../api/axios";
 import { useForm } from "react-hook-form";
 import { fullContact } from "../../types/userTypes";
-import { ReactNode, useState } from "react";
-import ModalWithButton from "./ModalWithButton";
+import { useState } from "react";
 
 function ChangePassword() {
   const {
@@ -17,22 +16,8 @@ function ChangePassword() {
     valid: string;
   } | null>(null);
 
-  let bool = false;
-
-  if (serverResponse !== null && serverResponse.valid) {
-    //navigate("/dashboard");
-    bool = true;
-  }
-
-  const message: ReactNode = (
-    <>
-      <p>Su Contraseña de cambio exitosamente</p>
-    </>
-  );
-
   return (
     <>
-      <ModalWithButton message={message} show={bool} />
       <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
         <div className="container max-w-screen-lg mx-auto">
           <div>
@@ -58,12 +43,17 @@ function ChangePassword() {
                     className="w-full grid grid-cols-1 gap-2 md:grid-cols-2 "
                   >
                     <div className="flex flex-col">
-                      <label htmlFor="name">Password*</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="name"
+                      >
+                        Password*
+                      </label>
                       <input
                         {...register("password", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="name"
                         type="password"
                       />

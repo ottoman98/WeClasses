@@ -10,7 +10,7 @@ function FlagsBar() {
   const { translation } = useContext(DataContextLanguage);
   console.log(translation.languages);
   return (
-    <section className="pt-5 max-w-[80rem] mx-auto">
+    <section className="pt-5 max-w-[80rem] mx-auto ">
       <div className="flex justify-around">
         <Link to="/classes">
           <div className="flex flex-col p-2   items-center">

@@ -1,7 +1,7 @@
 function Testimonials() {
   return (
     <>
-      <section className="bg-white dark:bg-gray-700">
+      <section className=" dark:bg-gray-700">
         <div className="container px-6 py-10 mx-auto">
           <h1 className="text-2xl font-semibold text-center text-gray-700 capitalize lg:text-3xl dark:text-white">
             What our <span className="text-light-blue ">clients</span> say
@@ -25,13 +25,13 @@ function Testimonials() {
               <div className="flex items-center mt-8 -mx-2">
                 <img
                   className="object-cover mx-2 rounded-full w-14 shrink-0 h-14 ring-4 ring-gray-300 dark:ring-gray-700"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfzyzj9ddXtSSH29ADg-Wd5uBvgZaHhjZ_vg&s"
+                  src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80"
                   alt=""
                 />
 
                 <div className="mx-2">
                   <h1 className="font-semibold text-gray-800 dark:text-white">
-                    El Patron
+                    Juana
                   </h1>
                   <span className="text-sm text-gray-500">
                     CEO, Medellin Company

@@ -40,7 +40,7 @@ function Register() {
             {translation.forms.student.title}
           </h2>
           <div className="flex flex-col-reverse md:flex-row gap-10 justify-around md:p-10 ">
-            <div className="p-5 rounded-lg text-xl md:w-1/3  flex flex-col gap-2 bg-[rgba(23,37,84,0.9)] text-white">
+            <div className="p-5 rounded-lg text-xl md:w-1/3  flex flex-col gap-2 bg-gradient-to-tr from-blue-900 to-slate-500 text-white">
               <h3 className=" font-bold ">
                 {" "}
                 {translation.forms.student.aside.title}
@@ -65,11 +65,14 @@ function Register() {
                 const data = await axiosRegisterStudent(x);
                 setServerResponse(data.data);
               })}
-              className=" py-20 px-5 flex flex-col gap-10 md:w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl bg-[rgba(23,37,84,0.9)]"
+              className=" py-20 px-5 flex flex-col gap-10 md:w-2/3 shadow-[0_3px_10px_rgb(0,0,0,0.2)] rounded-xl bg-gradient-to-tr from-blue-900 to-slate-500 ]"
             >
               <div className="grid grid-cols-2 text-xs md:text-base gap-6 ">
                 <div className="flex flex-col">
-                  <label className="font-bold text-white " htmlFor="name">
+                  <label
+                    className="block text-sm font-medium leading-6 text-white"
+                    htmlFor="name"
+                  >
                     {translation.forms.student.form.name}{" "}
                     <span className="text-red-600">*</span>
                   </label>
@@ -83,15 +86,17 @@ function Register() {
                       },
                     })}
                     type="text"
-                    placeholder={translation.forms.student.form.name}
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                   <p className="text-xs italic text-red-500">
                     {errors.name?.message}
                   </p>
                 </div>
                 <div className="flex flex-col">
-                  <label className="font-bold text-white" htmlFor="lastName">
+                  <label
+                    className="block text-sm font-medium leading-6 text-white"
+                    htmlFor="lastName"
+                  >
                     {translation.forms.student.form.lastName}{" "}
                     <span className="text-red-600">*</span>
                   </label>
@@ -104,7 +109,7 @@ function Register() {
                     })}
                     type="text"
                     placeholder={translation.forms.student.form.lastName}
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     id="lastName"
                   />
 
@@ -113,12 +118,15 @@ function Register() {
                   </p>
                 </div>
                 <div className="col-span-2  flex flex-col">
-                  <label className="font-bold text-white" htmlFor="email">
+                  <label
+                    className="block text-sm font-medium leading-6 text-white"
+                    htmlFor="email"
+                  >
                     {translation.forms.student.form.email}{" "}
                     <span className="text-red-600">*</span>
                   </label>
                   <input
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full text-xs md:text-base"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     {...register("email", {
                       required: {
                         value: true,
@@ -131,7 +139,6 @@ function Register() {
                       },
                     })}
                     type="email"
-                    placeholder={translation.forms.student.form.email}
                   />
                   <p className="text-xs italic text-red-500">
                     {errors.email?.message}
@@ -140,19 +147,20 @@ function Register() {
                 </div>
 
                 <div className="col-span-2 flex flex-row gap-1">
-                  <div className="flex flex-col w-1/3 md:w-1/4">
-                    <label className="font-bold text-white" htmlFor="code">
+                  <div className="flex flex-col w-1/2">
+                    <label
+                      className="block text-sm font-medium leading-6 text-white"
+                      htmlFor="code"
+                    >
                       Indicativo <span className="text-red-600">*</span>
                     </label>
                     <select
-                      className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       {...register("countryCode", {
                         required: { value: true, message: "Required" },
                       })}
                     >
-                      <option value="">
-                        {translation.forms.student.form.countryCode}
-                      </option>
+                      <option value="">Select</option>
                       {countries.map((x) => {
                         return (
                           <option value={x.dial_code}>
@@ -166,13 +174,16 @@ function Register() {
                     </p>
                   </div>
 
-                  <div className="flex flex-col w-2/3 md:w-full">
-                    <label className="font-bold text-white" htmlFor="phone">
+                  <div className="flex flex-col w-1/2 md:w-full">
+                    <label
+                      className="block text-sm font-medium leading-6 text-white"
+                      htmlFor="phone"
+                    >
                       {translation.forms.student.form.phone}
                       <span className="text-red-600">*</span>
                     </label>
                     <input
-                      className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base "
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       {...register("phone", {
                         required: {
                           value: true,
@@ -180,7 +191,6 @@ function Register() {
                         },
                       })}
                       type="number"
-                      placeholder={translation.forms.student.form.phone}
                     />
 
                     <p className="text-xs italic text-red-500">
@@ -191,14 +201,14 @@ function Register() {
 
                 <div className="flex flex-col">
                   <label
-                    className="font-bold text-white"
+                    className="block text-sm font-medium leading-6 text-white"
                     htmlFor="languageToLearn"
                   >
                     {translation.forms.student.form.languageToLearn}
                     <span className="text-red-600">*</span>
                   </label>
                   <select
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     {...register("languageToLearn", {
                       required: { value: true, message: "Required" },
                       validate: (value) => {
@@ -210,9 +220,7 @@ function Register() {
                     })}
                     id="name"
                   >
-                    <option value="">
-                      {translation.forms.student.form.languageToLearn}
-                    </option>
+                    <option value="">Select</option>
                     <option value="es">Español</option>
                     <option value="en">English</option>
                   </select>
@@ -222,22 +230,20 @@ function Register() {
                 </div>
                 <div className="flex flex-col">
                   <label
-                    className="font-bold text-white"
+                    className="block text-sm font-medium leading-6 text-white"
                     htmlFor="nativeLanguage"
                   >
                     {translation.forms.student.form.nativeLanguage}
                     <span className="text-red-600">*</span>
                   </label>
                   <select
-                    className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs md:text-base"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     {...register("nativeLanguage", {
                       required: { value: true, message: "Required" },
                     })}
                     id="name"
                   >
-                    <option value="">
-                      {translation.forms.student.form.nativeLanguage}
-                    </option>
+                    <option value="">Select</option>
                     <option value="es">Español</option>
                     <option value="en">English</option>
                     <option value="fr">Français</option>

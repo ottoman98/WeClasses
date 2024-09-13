@@ -13,7 +13,7 @@ import Video from "./Video";
 
 function Main() {
   return (
-    <>
+    <main className="bg-gray-100">
       <Hero />
       <FlagsBar />
       <Benefits />
@@ -26,7 +26,7 @@ function Main() {
       <BecomeTutor />
       <MobileBanner />
       <Faq />
-    </>
+    </main>
   );
 }
 

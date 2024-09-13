@@ -34,13 +34,11 @@ function TeacherRemainingForm() {
             <p className="text-gray-500 mb-6">
               Completa tus datos y empieza a aprender hoy mismo!
             </p>
-
             <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
               <div className="text-sm ">
                 <div className="text-gray-600 mb-6">
                   <p>Please fill out all the fields.</p>
                 </div>
-
                 <div className="lg:col-span-2">
                   <form
                     encType="multipart/form-data"

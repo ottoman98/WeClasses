@@ -4,13 +4,7 @@ import { DataContextLanguage } from "../../context/language";
 function MobileBanner() {
   const { translation } = useContext(DataContextLanguage);
   return (
-    <section
-      style={{
-        backgroundImage:
-          'url("https://scdn.italki.com/ng/static/image/milkway/homepage/bg.svg")',
-      }}
-      className="  justify-around bg-blue-950 text-white pt-16 hidden md:flex"
-    >
+    <section className="bg-gradient-to-br from-light-blue to-blue-900  justify-around text-white pt-16 hidden md:flex">
       <div className="max-w-[80rem] mx-auto flex justify-around ">
         <div className="w-1/3 py-5">
           <h2 className="text-4xl font-extrabold ">

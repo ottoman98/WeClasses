@@ -37,12 +37,12 @@ function Login() {
   return (
     <section
       className="flex flex-row md:pt-16 min-h-[60rem]  bg-center 
-    bg-[url('https://4kwallpapers.com/images/walls/thumbs_3t/5720.jpg')]
-    bg-cover
+   
+    bg-gray-100
     "
     >
-      <div className="flex flex-col justify-center mx-auto object-contain backdrop-opacity-400 backdrop-filter-none bg-white/90">
-        <h3 className="font-bold text-xl text-center">
+      <div className="flex flex-col justify-center mx-auto object-contain bg-white/90">
+        <h3 className="font-bold text-xl text-center text-customBlack">
           {translation.forms.login.title}
         </h3>
 
@@ -65,12 +65,12 @@ function Login() {
           <div className="flex flex-col gap-1">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block text-sm font-medium leading-6 text-customBlack"
             >
               <p>{translation.forms.login.form.email}</p>
             </label>
             <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               {...register("email", {
                 required: {
                   value: true,
@@ -93,7 +93,7 @@ function Login() {
           <div className="flex flex-col mb-1">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block text-sm font-medium leading-6 text-customBlack"
             >
               {translation.forms.login.form.password}
             </label>
@@ -105,7 +105,7 @@ function Login() {
                   message: "debe ser superior a 8 la longitud sea serio",
                 },
               })}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               id="password"
               type="password"
               placeholder={translation.forms.login.form.password}
@@ -115,7 +115,7 @@ function Login() {
             </p>
           </div>
           <Link
-            className="inline-block text-xs text-blue-950 align-baseline hover:text-light-blue mb-2 underline text-right w-full"
+            className="inline-block text-xs align-baseline hover:text-light-blue mb-2 underline text-right w-full text-blue-900"
             to="/recover"
           >
             {translation.forms.login.form.forgot}
@@ -128,13 +128,13 @@ function Login() {
               {...register("keepSession")}
             />
 
-            <label className="text-xs ">
+            <label className="text-xs text-blue-900">
               {translation.forms.login.form.remember}
             </label>
           </div>
 
           <div className="mb-6 text-center">
-            <button className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 ">
+            <button className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 hover:scale-105 cursor-pointer">
               {translation.forms.login.button}
             </button>
           </div>
@@ -156,7 +156,7 @@ function Login() {
           <div className="flex flex-row py-5 text-xs md:text-base gap-1">
             <span className="text-xs">Need an account?</span>
             <Link
-              className="inline-block text-blue-500 align-baseline hover:text-blue-800 text-xs  "
+              className="inline-block text-blue-900 align-baseline hover:text-light-blue text-xs  "
               to="/register"
             >
               {translation.forms.login.registerStudent}
@@ -164,7 +164,7 @@ function Login() {
             <span className="text-xs">or</span>
 
             <Link
-              className="inline-block text-blue-500 align-baseline hover:text-blue-800 text-xs"
+              className="inline-block text-blue-900 align-baseline hover:text-light-blue text-xs"
               to="/register"
             >
               {translation.forms.login.registerTeacher}
