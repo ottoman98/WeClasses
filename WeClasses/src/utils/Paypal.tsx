@@ -1,10 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import {
-  FUNDING,
-  PayPalButtons,
-  usePayPalScriptReducer,
-} from "@paypal/react-paypal-js";
+import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 import { useContext, useState } from "react";
 import { postPurchaseClasse } from "../api/studentPurchases";
@@ -96,7 +92,7 @@ function PayPal({ price, id }: { price: string; id: string }) {
           </div>
           {currency ? (
             <PayPalButtons
-              fundingSource={FUNDING.PAYPAL}
+              style={{ layout: "vertical" }}
               createOrder={(data, actions) => onCreateOrder(data, actions)}
               onApprove={(data, actions) => onApproveOrder(data, actions)}
             />
