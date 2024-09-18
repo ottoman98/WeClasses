@@ -98,9 +98,12 @@ function ClassesCard({
                 </div>
               )}
               <div className="flex justify-between">
-                <span className="font-bold text-base text-green-600">
-                  USD {data.price}.00
-                </span>
+                <div className="flex gap-2 font-bold ">
+                  <span className=" text-red-600 line-through">
+                    USD {data.price}.00
+                  </span>
+                  <span className=" text-green-600">USD {data.price}.00</span>
+                </div>
                 <span className="flex flex-row gap-1">
                   <div className="flex gap-1">
                     <FaUser size={15} className="text-light-blue" />
