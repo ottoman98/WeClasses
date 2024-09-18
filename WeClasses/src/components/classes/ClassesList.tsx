@@ -53,7 +53,7 @@ function ClassesList() {
   }
 
   return (
-    <section className="flex flex-col gap-10 pt-16  mx-auto">
+    <section className="flex flex-col gap-10 pt-16  mx-auto bg-gray-100">
       <div className="bg-[url('https://cdn.pixabay.com/photo/2024/03/29/17/43/ai-generated-8663299_1280.png')] bg-cover bg-center py-56">
         <h2 className="text-2xl md:text-5xl text-center font-bold text-white">
           {translation.classes.title}
@@ -138,7 +138,7 @@ function ClassesList() {
               </option>
             </select>
             <button
-              className="bg-blue-900 text-white rounded-md py-2 hover:bg-blue-800 text-xs "
+              className="bg-light-blue text-white rounded-md py-2 hover:bg-blue-800 text-xs "
               onClick={() => {
                 setLanguage("");
                 setLevel("");

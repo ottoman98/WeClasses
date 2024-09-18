@@ -14,7 +14,7 @@ function VideoOverlay({
   return (
     <div
       onClick={() => setOpenModal(!openModal)}
-      className="h-40 flex justify-center cursor-pointer "
+      className="h-56 flex justify-center cursor-pointer "
     >
       <div className={`relative  block ${hidden ? "" : "hidden"}`}>
         <img

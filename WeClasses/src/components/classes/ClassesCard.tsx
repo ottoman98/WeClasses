@@ -42,59 +42,69 @@ function ClassesCard({
       }}
     >
       <div
-        className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-300 ${
+        className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-900 bg-white ${
           !complement ? "w-full" : "w-2/3"
         } ${studentCount ? "bg-gray-200" : ""}`}
       >
-        <div className="flex justify-center md:w-1/4">
+        <div className="flex flex-col items-center md:w-1/4">
           <img
-            className="h-36  rounded-xl aspect-square my-auto  "
+            className="h-24 aspect-square my-auto rounded-full "
             src="https://images01.military.com/sites/default/files/styles/full/public/2021-04/chucknorris.jpeg.jpg"
             alt=""
           />
-        </div>
-        <div className="grid grid-cols-2 md:flex flex-col gap-1 px-2 justify-items-center md:w-1/4">
-          <h3 className=" text-lg font-bold col-span-2">
-            {data.name.length > 20 ? data.name.slice(0, 20) + "..." : data.name}
-          </h3>
-
-          <Link className="" to={`/teacher/${data.user}`}>
-            Creado por:{" "}
-            <span className="text-blue-800 underline">{data.teacherName}</span>
-          </Link>
-
-          <div className="flex gap-1">
-            <IoLanguageSharp size={17} />
-            <span>
-              {data.language == "en" ? "English" : "Español"} ({data.level})
-            </span>
+          <div className="flex flex-row gap-1 text-lg text-yellow-300">
+            <FaStar size={12} />
+            <span className="-mt-2">4.9</span>
           </div>
+          <span className="">46 classes dictadas</span>
         </div>
-        <div className="flex flex-col justify-between py-4 w-2/3 gap-3  mx-auto">
-          <div className="flex flex-col gap-3">
-            <div className="flex gap-1 justify-between px-2">
-              <div className="flex flex-row gap-1 text-lg">
-                <FaStar size={20} />
-                <span className="-mt-1 font-bold ">4.9</span>
-              </div>
-              <span className="text-xl font-bold">{data.price} $</span>
-            </div>
+        <div className="w-full px-10 ">
+          <div className="flex flex-col gap-1">
+            <h3 className="text-customBlack text-xl font-semibold">
+              {data.name.length > 40
+                ? data.name.slice(0, 40) + "..."
+                : data.name}
+            </h3>
+            <div className="flex justify-between py-2">
+              <Link className="" to={`/teacher/${data.user}`}>
+                Creado por:{" "}
+                <span className="text-light-blue underline hover:text-blue-900">
+                  {data.teacherName}
+                </span>
+              </Link>
 
-            {!data.date ? (
-              ""
-            ) : (
-              <div className="flex justify-between">
-                <span className="flex flex-row gap-1">
-                  <FaCalendarAlt />
-                  <span>
-                    {`${new Date(data.date).toLocaleDateString()}-
+              <div className="flex gap-1">
+                <IoLanguageSharp className="text-light-blue" size={15} />
+                <span>
+                  {data.language == "en" ? "English" : "Español"} ({data.level})
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-5 ">
+            <div className=" flex flex-col gap-3">
+              {!data.date ? (
+                ""
+              ) : (
+                <div>
+                  <div className="flex flex-row gap-1 ">
+                    <FaCalendarAlt size={15} className="text-light-blue" />
+                    <span className="font-semibold">
+                      {`${new Date(data.date).toLocaleDateString()}-
                     ${new Date(data.date).toLocaleTimeString()}`}
-                  </span>
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className="flex justify-between">
+                <span className="font-bold text-base text-green-600">
+                  USD {data.price}.00
                 </span>
                 <span className="flex flex-row gap-1">
                   <div className="flex gap-1">
-                    <FaUser />
-                    <span className="-mt-1">
+                    <FaUser size={15} className="text-light-blue" />
+                    <span className="">
                       {classeStatus?.first
                         ? `0/${data.capacity}`
                         : `${classeStatus?.data?.student.length}/${data.capacity}`}
@@ -102,47 +112,47 @@ function ClassesCard({
                   </div>
                 </span>
               </div>
-            )}
-          </div>
-          <div className="flex flex-col gap-2 cursor-pointer">
-            {location.pathname == "/dashboard/" ||
-            location.pathname == "/profile/" ? (
-              <span
-                className={`bg-blue-950 text-white p-2 rounded ${
-                  studentCount ? "hidden" : ""
-                }`}
-              >
-                <a href={data.link} target="_blank">
-                  {translation.classes.card.join}
-                </a>
-              </span>
-            ) : (
-              <span
-                onClick={() => {
-                  if (!cookie) {
-                    navigate("/login");
-                  } else {
-                    navigate(`/checkout/${data._id}`);
-                  }
-                }}
-                className={`bg-blue-950 text-white p-2 rounded ${
-                  studentCount ? "hidden" : ""
-                }`}
-              >
-                {translation.classes.card.book}
-              </span>
-            )}
+            </div>
+            <div className="flex  gap-2   ">
+              {location.pathname == "/dashboard/" ||
+              location.pathname == "/profile/" ? (
+                <span
+                  className={`bg-blue-950 text-white p-2 rounded ${
+                    studentCount ? "hidden" : ""
+                  }`}
+                >
+                  <a href={data.link} target="_blank">
+                    {translation.classes.card.join}
+                  </a>
+                </span>
+              ) : (
+                <span
+                  onClick={() => {
+                    if (!cookie) {
+                      navigate("/login");
+                    } else {
+                      navigate(`/checkout/${data._id}`);
+                    }
+                  }}
+                  className={`bg-gray-200 text-customBlack hover:bg-gray-300  p-2 rounded cursor-pointer ${
+                    studentCount ? "hidden" : ""
+                  }`}
+                >
+                  {translation.classes.card.book}
+                </span>
+              )}
 
-            <Link
-              to={`/class/${data._id}`}
-              className="bg-blue-950 text-white p-2 rounded"
-            >
-              {translation.classes.card.details}
-            </Link>
+              <Link
+                to={`/class/${data._id}`}
+                className="bg-gray-200 hover:bg-gray-300  text-customBlack p-2 rounded cursor-pointer"
+              >
+                {translation.classes.card.details}
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-      <div className={!complement ? "hidden" : "block"}>
+      <div className={!complement ? "hidden" : "flex  items-center"}>
         {!teacher ? (
           <Loading />
         ) : (

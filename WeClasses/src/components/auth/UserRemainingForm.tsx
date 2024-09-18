@@ -51,19 +51,14 @@ function UserRemainingForm() {
 
   return (
     <>
-      <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center ">
+      <div className="min-h-screen p-6 bg-gradient-to-tr from-blue-900 to-light-blue flex items-center justify-center ">
         <div className="container max-w-screen-lg mx-auto">
-          <div>
-            <h2 className="font-semibold text-xl text-gray-600">
+          <div className="flex flex-col gap-10 ">
+            <h2 className="font-semibold text-6xl text-white text-center">
               Completa tus datos y empieza a aprender hoy mismo!
             </h2>
-            <div className="bg-white  shadow-lg p-4 px-4 md:p-8 mb-6 rounded-xl">
+            <div className="bg-gray-100  shadow-lg p-4 px-4 md:p-8 mb-6 rounded-xl">
               <div className="text-sm ">
-                <div className="text-gray-600 mb-6">
-                  <p className="font-medium text-lg">Personal Details</p>
-                  <p>Please fill out all the fields.</p>
-                </div>
-
                 <div className="lg:col-span-2 ">
                   <form
                     onSubmit={handleSubmit(async (x) => {
@@ -74,13 +69,18 @@ function UserRemainingForm() {
                     className="w-full grid grid-cols-1 gap-2 md:grid-cols-2 "
                   >
                     <div className="flex flex-col ">
-                      <label htmlFor="name">Name</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="name"
+                      >
+                        Name
+                      </label>
                       <input
                         disabled={disabled}
                         {...register("name", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="name"
                         type="text"
                       />
@@ -89,13 +89,18 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="lastName">Last Name</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="lastName"
+                      >
+                        Last Name
+                      </label>
                       <input
                         disabled={disabled}
                         {...register("lastName", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="lastName"
                         type="text"
                       />
@@ -104,14 +109,19 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="email">Email</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="email"
+                      >
+                        Email
+                      </label>
 
                       <input
                         disabled={disabled}
                         {...register("email", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="email"
                         type="text"
                       />
@@ -120,13 +130,18 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="country">Country</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="country"
+                      >
+                        Country
+                      </label>
                       <select
                         disabled={disabled}
                         {...register("country", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="country"
                       >
                         <option value="">Select </option>
@@ -140,11 +155,16 @@ function UserRemainingForm() {
                     </div>
                     <div className="flex flex-row gap-1">
                       <div className="flex flex-col w-1/3 gap">
-                        <label htmlFor="countryCode">Indicativo</label>
+                        <label
+                          className="block text-sm font-medium leading-6 text-customBlack"
+                          htmlFor="countryCode"
+                        >
+                          Indicativo
+                        </label>
 
                         <select
                           disabled={disabled}
-                          className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                           id="countryCode"
                           {...register("countryCode", {
                             required: { value: true, message: "Required" },
@@ -164,13 +184,18 @@ function UserRemainingForm() {
                         </p>
                       </div>
                       <div className="w-2/3 md:w-full">
-                        <label htmlFor="phone">Phone</label>
+                        <label
+                          className="block text-sm font-medium leading-6 text-customBlack"
+                          htmlFor="phone"
+                        >
+                          Phone
+                        </label>
                         <input
                           disabled={disabled}
                           {...register("phone", {
                             required: { value: true, message: "Required" },
                           })}
-                          className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl w-full"
+                          className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                           id="name"
                           type="text"
                         />
@@ -181,13 +206,18 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="nativeLanguage">Native Language</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="nativeLanguage"
+                      >
+                        Native Language
+                      </label>
                       <select
                         disabled={disabled}
                         {...register("nativeLanguage", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="name"
                       >
                         <option value="">Escoja su idioma nativo</option>
@@ -212,13 +242,18 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="languageToLearn">Language to learn</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="languageToLearn"
+                      >
+                        Language to learn
+                      </label>
                       <select
                         disabled={disabled}
                         {...register("languageToLearn", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="name"
                       >
                         <option value="">
@@ -232,14 +267,19 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="languageLevel">Language Level</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="languageLevel"
+                      >
+                        Language Level
+                      </label>
                       <select
                         disabled={disabled}
                         {...register("languageLevel", {
                           required: { value: true, message: "Required" },
                         })}
                         id="name"
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       >
                         <option value="">Escoja uno</option>
                         <option value="A1-A2">A1-A2</option>
@@ -252,13 +292,18 @@ function UserRemainingForm() {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="password">Password</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="password"
+                      >
+                        Password
+                      </label>
                       <input
                         disabled={disabled}
                         {...register("password", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="name"
                         type="password"
                       />
@@ -272,13 +317,18 @@ function UserRemainingForm() {
                       </p>
                     </div>
                     <div className="flex flex-col">
-                      <label htmlFor="password2">Repeat Password</label>
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor="password2"
+                      >
+                        Repeat Password
+                      </label>
                       <input
                         disabled={disabled}
                         {...register("password2", {
                           required: { value: true, message: "Required" },
                         })}
-                        className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
+                        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         id="name"
                         type="password"
                       />
@@ -286,16 +336,25 @@ function UserRemainingForm() {
                         {errors.password2?.message}
                       </p>
                     </div>
-                    <div className="flex flex-col">
-                      <input disabled={disabled} type="checkbox" required />
-                      <label htmlFor="">
+                    <div className="flex flex-row py-4">
+                      <input
+                        className="mr-2 leading-tight checked:bg-blue-950 rounded-xl"
+                        disabled={disabled}
+                        type="checkbox"
+                        required
+                      />
+                      <label
+                        className="block text-sm font-medium leading-6 text-customBlack"
+                        htmlFor=""
+                      >
                         Políticas de privacidad etc demás, bla bla
                       </label>
                     </div>
-
-                    <button className="bg-light-blue hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
-                      Submit
-                    </button>
+                    <div className="col-span-2 flex justify-center ">
+                      <button className=" px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 hover:scale-105 cursor-pointer ">
+                        Submit
+                      </button>
+                    </div>
                   </form>
                 </div>
               </div>

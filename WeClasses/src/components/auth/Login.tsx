@@ -9,7 +9,7 @@ import { getCookies } from "../../utils/cookies";
 import { GoogleLogin } from "@react-oauth/google";
 import { DataContextTabs } from "../../context/studentsTab";
 import { DataContextLanguage } from "../../context/language";
-
+import logo from "../../assets/logos/Recurso 7@3x.png";
 function Login() {
   const [serverResponse, setServerResponse] = useState<{
     message: string;
@@ -42,6 +42,7 @@ function Login() {
     "
     >
       <div className="flex flex-col justify-center mx-auto object-contain bg-white/90">
+        <img className="w-32 mx-auto" src={logo} alt="" />
         <h3 className="font-bold text-xl text-center text-customBlack">
           {translation.forms.login.title}
         </h3>
