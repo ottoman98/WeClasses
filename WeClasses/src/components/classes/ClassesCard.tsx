@@ -100,14 +100,14 @@ function ClassesCard({
               <div className="flex justify-between">
                 <div className="flex gap-2 font-bold ">
                   <span className=" text-red-600 line-through">
-                    USD {data.price}.00
+                    USD {data.price + data.price * 0.2}
                   </span>
-                  <span className=" text-green-600">USD {data.price}.00</span>
+                  <span className=" text-green-600">USD {data.price}</span>
                 </div>
                 <span className="flex flex-row gap-1">
                   <div className="flex gap-1">
                     <FaUser size={15} className="text-light-blue" />
-                    <span className="">
+                    <span>
                       {classeStatus?.first
                         ? `0/${data.capacity}`
                         : `${classeStatus?.data?.student.length}/${data.capacity}`}
