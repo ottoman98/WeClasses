@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logos/Recurso 8@3x.png";
+import logo from "../../assets/logos/Recurso 6@3x.png";
 
 import { classe } from "../../types/classeTypes";
 import PayPal from "../../utils/Paypal";
@@ -24,7 +24,7 @@ function Resume({ data }: { data: classe }) {
 
   const profile = GetProfileTeacher(data.user);
   if (decoded?.id == data.user) {
-    return <>no puede compra ru prpia clase</>;
+    return <>no puede compra tu prpia clase</>;
   } else {
     return (
       <>

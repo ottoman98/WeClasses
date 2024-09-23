@@ -21,7 +21,7 @@ function ClassInfo() {
         <div className="w-3/4 mx-auto flex flex-col gap-2">
           <img
             className="rounded-sm border-blue-300 "
-            src={classe.photo}
+            src="https://blademag.com/wp-content/uploads/what-is-the-knife-from-the-commando-movie.jpg"
             alt=""
           />
 
@@ -30,7 +30,7 @@ function ClassInfo() {
           <p>
             Creado por:{" "}
             <Link
-              className="text-blue-800 underline"
+              className="text-light-blue hover:text-blue-900 underline"
               to={`/teacher/${classe.user}`}
             >
               {classe && classe.teacherName
@@ -40,19 +40,28 @@ function ClassInfo() {
             </Link>{" "}
           </p>
           <span className=" flex flex-row gap-1">
-            <TbWorld size={16} className="-mt-[2px]" />
+            <TbWorld size={15} className=" text-light-blue" />
             {classe.language == "en" ? "English" : "Español"} ({classe.level})
           </span>
           <span className=" flex flex-row gap-1">
-            <FaCalendar size={16} className="-mt-[2px]" />
-            {`${new Date(classe.date).toLocaleDateString()} -
+            <FaCalendar size={15} className="text-light-blue" />
+            <span className="font-semibold">
+              {`${new Date(classe.date).toLocaleDateString()} -
               ${new Date(classe.date).toLocaleTimeString()} (${
-              classe.duration
-            } ${classe.duration > 1 ? "Horas" : "Hora"})`}
+                classe.duration
+              } ${classe.duration > 1 ? "Horas" : "Hora"})`}
+            </span>
           </span>
 
           <div className="flex flex-col gap-2 col-span-2 pt-8">
-            <span className="font-bold text-xl">{classe.price}.00 $</span>
+            <div className="flex  gap-2">
+              <span className="font-bold text-xl text-red-600 line-through">
+                {classe.price}$
+              </span>
+              <span className="font-bold text-xl text-green-600">
+                {classe.price}$
+              </span>
+            </div>
             <button
               onClick={() => {
                 if (!cookie) {

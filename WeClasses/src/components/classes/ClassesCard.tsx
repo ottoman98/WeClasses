@@ -60,11 +60,13 @@ function ClassesCard({
         </div>
         <div className="w-full px-10 ">
           <div className="flex flex-col gap-1">
-            <h3 className="text-customBlack text-xl font-semibold">
-              {data.name.length > 40
-                ? data.name.slice(0, 40) + "..."
-                : data.name}
-            </h3>
+            <Link to={`/checkout/${data._id}`}>
+              <h3 className="text-customBlack text-xl font-semibold underline hover:text-light-blue">
+                {data.name.length > 40
+                  ? data.name.slice(0, 40) + "..."
+                  : data.name}
+              </h3>
+            </Link>
             <div className="flex justify-between py-2">
               <Link className="" to={`/teacher/${data.user}`}>
                 Creado por:{" "}
