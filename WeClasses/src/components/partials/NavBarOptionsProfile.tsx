@@ -26,16 +26,6 @@ function NavBarOptionsProfile() {
           >
             {translation.profileNav.optionsNav.home}
           </li>
-          <li
-            className={`${
-              name == "messages" ? "border-b-4 border-light-blue" : ""
-            } py-1 hover:cursor-pointer`}
-            onClick={() => {
-              setName("messages");
-            }}
-          >
-            {translation.profileNav.optionsNav.messages}
-          </li>
 
           {decoded?.level == "teacher" ? (
             <>

@@ -35,14 +35,16 @@ function Dashboard() {
   }
 
   return (
-    <DataProviderTabsClasses>
-      <DataProviderTabsSettings>
-        <NavBarProfileTeacher />
-      </DataProviderTabsSettings>
-      <NavBarOptionsProfile />
+    <section className="bg-gray-100 min-h-screen">
+      <DataProviderTabsClasses>
+        <DataProviderTabsSettings>
+          <NavBarProfileTeacher />
+        </DataProviderTabsSettings>
+        <NavBarOptionsProfile />
 
-      {currentTab(name)}
-    </DataProviderTabsClasses>
+        {currentTab(name)}
+      </DataProviderTabsClasses>
+    </section>
   );
 }
 

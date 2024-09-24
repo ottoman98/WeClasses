@@ -26,19 +26,19 @@ function AllClasses() {
             {translation.profiles.teacher.classes.add}
           </span>
         </div>
-        <div className="overflow-auto px-10 ">
-          <table className="w-full text-sm text-left rtl:text-right rounded-2xl">
-            <thead className=" bg-blue-900 text-white">
+        <div className="overflow-auto px-10">
+          <table className="w-full text-sm text-center  bg-white border text-customBlack">
+            <thead className="text-customBlack font-normal border bg-gray-100">
               <tr>
-                <th className="px-10 py-3">Fecha de creación</th>
-                <th className="px-6 py-3">Nombre</th>
-                <th className="px-10 py-3">Idioma</th>
-                <th className="px-6 py-3">Nivel</th>
-                <th className="px-10 py-3">Fecha de la clase</th>
-                <th className="px-6 py-3">Duración</th>
-                <th className="px-10 py-3">Capacidad</th>
-                <th className="px-6 py-3">Precio</th>
-                <th className="px-10 py-3">Actions</th>
+                <th className="px-1 py-3 font-normal">Fecha de creación</th>
+                <th className="px-1 py-3 font-normal">Nombre</th>
+                <th className="px-1 py-3 font-normal">Idioma</th>
+
+                <th className="px-1 py-3 font-normal">Fecha de la clase</th>
+                <th className="px-1 py-3 font-normal">Duración</th>
+                <th className="px-1 py-3 font-normal">Capacidad</th>
+                <th className="px-1 py-3 font-normal">Precio</th>
+                <th className="px-1 py-3 font-normal">Actions</th>
               </tr>
             </thead>
             <tbody>

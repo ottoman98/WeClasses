@@ -2,6 +2,7 @@ import { Dropdown } from "flowbite-react";
 import { useContext } from "react";
 import { DataContextTabsClasses } from "../../context/classes/classes";
 import { DataContextLanguage } from "../../context/language";
+import { HiDotsVertical } from "react-icons/hi";
 function ClassOptions({ id }: { id: string }) {
   const { setName } = useContext(DataContextTabsClasses);
   const { translation } = useContext(DataContextLanguage);
@@ -11,7 +12,9 @@ function ClassOptions({ id }: { id: string }) {
       label=""
       dismissOnClick={false}
       renderTrigger={() => (
-        <span className=" text-blue-700 underline cursor-pointer">Edit</span>
+        <span className=" text-blue-700 underline cursor-pointer">
+          <HiDotsVertical />
+        </span>
       )}
     >
       <Dropdown.Item
