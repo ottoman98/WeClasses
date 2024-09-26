@@ -14,6 +14,7 @@ import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
 import Loading from "../../partials/Loading";
 import ClassesForm from "./classes/ClassesForm";
+import RichEditor from "../../../utils/Editor/RichEditor";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -21,7 +22,7 @@ function Panel() {
   function tabs() {
     switch (name) {
       case "home":
-        return "resume";
+        return <RichEditor />;
       case "all":
         return <AllClasses />;
       case "add":
