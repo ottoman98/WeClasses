@@ -8,40 +8,33 @@ import {
 
 const data = [
   {
-    subject: "Math",
-    A: 120,
-    B: 110,
+    subject: "full",
+    A: 7,
+    B: 10,
     fullMark: 150,
   },
   {
-    subject: "Chinese",
-    A: 98,
-    B: 130,
+    subject: "Writing",
+    A: 5,
+    B: 7,
     fullMark: 150,
   },
   {
-    subject: "English",
-    A: 86,
-    B: 130,
+    subject: "Listening",
+    A: 5,
+    B: 10,
     fullMark: 150,
   },
   {
-    subject: "Geography",
-    A: 99,
-    B: 100,
+    subject: "Speaking",
+    A: 6,
+    B: 10,
     fullMark: 150,
   },
   {
-    subject: "Physics",
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-  {
-    subject: "History",
-    A: 65,
-    B: 85,
-    fullMark: 150,
+    subject: "Reading",
+    A: 3,
+    B: 10,
   },
 ];
 
@@ -50,7 +43,7 @@ function RadarGraph() {
     <RadarChart
       cx={300}
       cy={250}
-      outerRadius={150}
+      outerRadius={100}
       width={500}
       height={500}
       data={data}

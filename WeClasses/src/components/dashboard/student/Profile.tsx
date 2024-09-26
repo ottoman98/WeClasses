@@ -29,11 +29,11 @@ function Profile() {
   }
 
   return (
-    <>
+    <main>
       <NavBarProfile />
       <NavBarOptionsProfile />
       {currentTab(name)}
-    </>
+    </main>
   );
 }
 

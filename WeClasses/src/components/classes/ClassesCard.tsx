@@ -12,6 +12,7 @@ import { DataContextLanguage } from "../../context/language";
 import { GetProfileTeacher } from "../../api/axiosProfiles";
 import Loading from "../partials/Loading";
 import VideoOverlay from "./VideoOverlay";
+import { DataContextTabs } from "../../context/studentsTab";
 
 function ClassesCard({
   data,
@@ -31,6 +32,8 @@ function ClassesCard({
 
   const [hidden, setHidden] = useState(false);
 
+  const { name } = useContext(DataContextTabs);
+
   return (
     <div
       className="flex gap-5 flex-row "
@@ -42,7 +45,7 @@ function ClassesCard({
       }}
     >
       <div
-        className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-900 bg-white ${
+        className={`col-span-3 flex-col justify-center md:flex-row flex border rounded-md p-2 hover:border-blue-900 bg-white shadow-[0_3px_10px_rgb(0,0,0,0.2)]  ${
           !complement ? "w-full" : "w-2/3"
         } ${studentCount ? "bg-gray-200" : ""}`}
       >
@@ -120,7 +123,7 @@ function ClassesCard({
             </div>
             <div className="flex  gap-2   ">
               {location.pathname == "/dashboard/" ||
-              location.pathname == "/profile/" ? (
+              (location.pathname == "/profile/" && name != "home") ? (
                 <span
                   className={`bg-blue-950 text-white p-2 rounded ${
                     studentCount ? "hidden" : ""

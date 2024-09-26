@@ -11,7 +11,7 @@ function MyLessons() {
   return (
     <section className="max-w-[80rem]  mx-auto flex flex-col gap-5 py-6">
       <h2 className=" text-4xl">{translation.profiles.student.lesson}</h2>
-      <div className="flex flex-col gap-3">
+      <div className="grid grid-cols-2 gap-3">
         {!classes ? (
           <NoLessons />
         ) : (
