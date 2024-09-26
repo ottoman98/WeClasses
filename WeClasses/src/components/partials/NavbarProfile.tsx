@@ -32,7 +32,7 @@ function NavBarProfileTeacher() {
             {translation.profileNav.nav.balance} : 100$
           </li>
           <li className="flex items-center">
-            <span className="py-1 px-2 rounded-sm bg-blue-900 text-white cursor-pointer hover:scale-105">
+            <span className="w-full px-4 py-2  text-white bg-blue-950 rounded-full focus:border-red-600 hover:scale-105 cursor-pointer">
               {translation.profileNav.nav.suscribe}
             </span>
           </li>

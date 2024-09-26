@@ -9,8 +9,10 @@ function MyLessons() {
   const { translation } = useContext(DataContextLanguage);
 
   return (
-    <section className="max-w-[80rem]  mx-auto flex flex-col gap-5 py-6">
-      <h2 className=" text-4xl">{translation.profiles.student.lesson}</h2>
+    <section className="max-w-[80rem]  mx-auto flex flex-col gap-5 py-6 min-h-screen">
+      <h2 className=" text-4xl text-light-blue font-semibold">
+        {translation.profiles.student.lesson}
+      </h2>
       <div className="grid grid-cols-2 gap-3">
         {!classes ? (
           <NoLessons />
