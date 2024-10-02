@@ -4,7 +4,8 @@ type story = {
     language: string,
     status: string,
     readingTime: string,
-    dialogue: string
+    dialogue: string,
+    labels: string,
     level: string,
     createdAt?: string
 
