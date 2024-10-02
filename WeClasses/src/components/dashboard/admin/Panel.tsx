@@ -15,6 +15,7 @@ import ManageUserStudent from "./users/ManageUserStudent";
 import Loading from "../../partials/Loading";
 import ClassesForm from "./classes/ClassesForm";
 import RichEditor from "../../../utils/Editor/RichEditor";
+import AddStory from "./stories/AddStory";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -40,6 +41,10 @@ function Panel() {
       case "manageStudent":
         return <ManageUserStudent />;
       case "loading":
+        return <Loading />;
+      case "addStory":
+        return <AddStory />;
+      case "allStories":
         return <Loading />;
     }
   }

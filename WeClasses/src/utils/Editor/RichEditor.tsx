@@ -24,7 +24,7 @@ const editorConfig = {
 
 function RichEditor() {
   return (
-    <div className="bg-red-500 w-full pt-32">
+    <div className="">
       <LexicalComposer initialConfig={editorConfig}>
         <div className="editor-container">
           <ToolbarPlugin />

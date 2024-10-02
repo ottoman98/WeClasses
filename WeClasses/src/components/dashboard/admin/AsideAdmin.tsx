@@ -87,6 +87,23 @@ function AsideAdmin() {
               All classes
             </Sidebar.Item>
           </Sidebar.Collapse>
+          <Sidebar.Collapse icon={HiUser} label="Stories">
+            <Sidebar.Item
+              onClick={() => {
+                setName("addStory");
+              }}
+            >
+              Add Story
+            </Sidebar.Item>
+            <Sidebar.Item
+              onClick={() => {
+                setName("allStories");
+                classSetName("");
+              }}
+            >
+              All Stories
+            </Sidebar.Item>
+          </Sidebar.Collapse>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>
