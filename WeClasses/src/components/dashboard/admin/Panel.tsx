@@ -14,8 +14,8 @@ import { DataProviderManage } from "../../../context/teachers/manage";
 import ManageUserStudent from "./users/ManageUserStudent";
 import Loading from "../../partials/Loading";
 import ClassesForm from "./classes/ClassesForm";
-import RichEditor from "../../../utils/Editor/RichEditor";
 import AddStory from "./stories/AddStory";
+import { DataProviderRichEditor } from "../../../context/stories/stories";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -23,7 +23,7 @@ function Panel() {
   function tabs() {
     switch (name) {
       case "home":
-        return <RichEditor />;
+        return <>aa</>;
       case "all":
         return <AllClasses />;
       case "add":
@@ -52,14 +52,16 @@ function Panel() {
   return (
     <DataProviderManage>
       <DataProviderTabsClasses>
-        <nav className=" flex justify-between px-16">
-          <div></div>
-          <UserOptions />
-        </nav>
-        <div className="flex">
-          <AsideAdmin />
-          {tabs()}
-        </div>
+        <DataProviderRichEditor>
+          <nav className=" flex justify-between px-16">
+            <div></div>
+            <UserOptions />
+          </nav>
+          <div className="flex">
+            <AsideAdmin />
+            {tabs()}
+          </div>
+        </DataProviderRichEditor>
       </DataProviderTabsClasses>
     </DataProviderManage>
   );

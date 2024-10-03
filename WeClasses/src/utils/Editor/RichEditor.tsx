@@ -6,11 +6,12 @@ import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import "./style.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { $generateHtmlFromNodes } from "@lexical/html";
 import { RootNode } from "lexical";
 import ExampleTheme from "./Theme";
 import ToolbarPlugin from "./ToolbarPlugin";
+import { DataContextRichEditor } from "../../context/stories/stories";
 
 const placeholder = "Enter some rich text...";
 
@@ -33,12 +34,9 @@ function MyOnChangePlugin({
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
       editorState.read(() => {
-        const htmlString = $generateHtmlFromNodes(editor); // Generamos el HTML desde los nodos
-        console.log("Generated HTML:", htmlString); // Imprimimos el HTML generado
+        const htmlString = $generateHtmlFromNodes(editor);
         onChange(htmlString);
       });
-
-      // Lee el estado del editor para convertir todo el contenido en HTML
     });
   }, [editor, onChange]);
 
@@ -46,11 +44,10 @@ function MyOnChangePlugin({
 }
 
 function RichEditor() {
-  const [editorState, setEditorState] = useState<string>("");
   function onChange(editorState: string) {
-    setEditorState(editorState);
+    setName(editorState);
   }
-  console.log(editorState);
+  const { setName } = useContext(DataContextRichEditor);
 
   return (
     <div className="">

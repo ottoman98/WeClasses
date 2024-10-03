@@ -1,14 +1,31 @@
+import { useContext, useEffect, useState } from "react";
 import { postStory } from "../../../../api/axiosStories";
 import { story } from "../../../../types/storyTypes";
 import RichEditor from "../../../../utils/Editor/RichEditor";
 import { useForm } from "react-hook-form";
+import { DataContextRichEditor } from "../../../../context/stories/stories";
+import { valid } from "../../../../types/postResponse";
+import { DataContextTabs } from "../../../../context/studentsTab";
 
 function AddStory() {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm<story>();
+  const { name } = useContext(DataContextRichEditor);
+  useEffect(() => {
+    setValue("dialogue", name);
+  }, [name]);
+  const { setName } = useContext(DataContextTabs);
+  const [response, setResponse] = useState<valid | null>();
+  if (response?.valid) {
+    setName("loading");
+    setTimeout(() => {
+      setName("allStories");
+    }, 1000);
+  }
 
   return (
     <section className="flex flex-col items-center w-full">
@@ -16,6 +33,7 @@ function AddStory() {
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await postStory(x);
+          setResponse(data.data);
           console.log(data);
         })}
         className="grid grid-cols-2 w-3/4 gap-2"

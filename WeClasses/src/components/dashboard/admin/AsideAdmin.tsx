@@ -87,6 +87,7 @@ function AsideAdmin() {
               All classes
             </Sidebar.Item>
           </Sidebar.Collapse>
+
           <Sidebar.Collapse icon={HiUser} label="Stories">
             <Sidebar.Item
               onClick={() => {

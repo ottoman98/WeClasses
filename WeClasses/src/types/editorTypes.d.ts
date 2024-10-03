@@ -1,6 +1,7 @@
-interface RichEditorProps {
-    set: (value: string) => void;
-    value?: string;
+type editor = {
+    name: string,
+    setName: Dispatch<SetStateAction<string | undefined>>,
+
 }
 
-export default RichEditorProps
+export { editor }
