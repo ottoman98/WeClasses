@@ -63,7 +63,7 @@ function AddStory() {
             Estatus
           </label>
           <select
-            {...register("language", {
+            {...register("status", {
               required: { value: true, message: "Requerido" },
             })}
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
@@ -89,9 +89,9 @@ function AddStory() {
             id="level"
           >
             <option value="">Escoja uno</option>
-            <option value="">A1-A2</option>
-            <option value="">B1-B2</option>
-            <option value="">C1-C2</option>
+            <option value="A1-A2">A1-A2</option>
+            <option value="B1-B2">B1-B2</option>
+            <option value="C1-C2">C1-C2</option>
           </select>
           <p className="text-xs italic text-red-500">{errors.level?.message}</p>
         </div>
@@ -107,10 +107,10 @@ function AddStory() {
             id="labels"
           >
             <option value="">Escoja</option>
-            <option value="">Dialogo</option>
-            <option value="">Lectura</option>
-            <option value="">Historia</option>
-            <option value="">Etc</option>
+            <option value="Dialogo">Dialogo</option>
+            <option value="Lectura">Lectura</option>
+            <option value="Historia">Historia</option>
+            <option value="Etc">Etc</option>
           </select>
           <p className="text-xs italic text-red-500">
             {errors.labels?.message}

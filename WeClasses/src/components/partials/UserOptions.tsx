@@ -34,7 +34,7 @@ function UserOptions() {
 
     url = "/profile";
   }
-  console.log(data);
+
   return (
     <Dropdown
       arrowIcon={false}
