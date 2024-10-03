@@ -8,7 +8,6 @@ import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext
 import "./style.css";
 import { useEffect, useState } from "react";
 import { $generateHtmlFromNodes } from "@lexical/html";
-import { $getRoot } from "lexical";
 import { RootNode } from "lexical";
 import ExampleTheme from "./Theme";
 import ToolbarPlugin from "./ToolbarPlugin";
@@ -19,24 +18,27 @@ const editorConfig = {
   namespace: "React.js Demo",
   nodes: [RootNode],
   theme: ExampleTheme,
-  onError(error) {
+  onError(error: Error) {
     throw error;
   },
 };
 
-function MyOnChangePlugin({ onChange }) {
+function MyOnChangePlugin({
+  onChange,
+}: {
+  onChange: (editorState: string) => void;
+}) {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
-      onChange(editorState);
-
-      // Lee el estado del editor para convertir todo el contenido en HTML
       editorState.read(() => {
-        const root = $getRoot(); // Obtenemos el nodo raíz (todo el contenido)
         const htmlString = $generateHtmlFromNodes(editor); // Generamos el HTML desde los nodos
         console.log("Generated HTML:", htmlString); // Imprimimos el HTML generado
+        onChange(htmlString);
       });
+
+      // Lee el estado del editor para convertir todo el contenido en HTML
     });
   }, [editor, onChange]);
 
@@ -44,10 +46,11 @@ function MyOnChangePlugin({ onChange }) {
 }
 
 function RichEditor() {
-  const [editorState, setEditorState] = useState();
-  function onChange(editorState) {
+  const [editorState, setEditorState] = useState<string>("");
+  function onChange(editorState: string) {
     setEditorState(editorState);
   }
+  console.log(editorState);
 
   return (
     <div className="">
