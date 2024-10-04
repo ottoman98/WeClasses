@@ -37,6 +37,9 @@ function NavBarr() {
             <Link to="/register_tutor"> {translation.main.nav.become}</Link>
           </li>
           <li className="flex items-center  hover:text-blue-950">
+            <Link to="/stories"> Stories</Link>
+          </li>
+          <li className="flex items-center  hover:text-blue-950">
             {translation.main.nav.help}
           </li>
         </ul>
