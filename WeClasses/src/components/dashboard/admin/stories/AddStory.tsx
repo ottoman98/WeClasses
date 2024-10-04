@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { DataContextRichEditor } from "../../../../context/stories/stories";
 import { valid } from "../../../../types/postResponse";
 import { DataContextTabs } from "../../../../context/studentsTab";
+import { DataContextRichRaw } from "../../../../context/stories/rawStory";
 
 function AddStory() {
   const {
@@ -15,8 +16,10 @@ function AddStory() {
     setValue,
   } = useForm<story>();
   const { name } = useContext(DataContextRichEditor);
+  const raw = useContext(DataContextRichRaw).name;
   useEffect(() => {
     setValue("dialogue", name);
+    setValue("raw", JSON.stringify(raw));
   }, [name]);
   const { setName } = useContext(DataContextTabs);
   const [response, setResponse] = useState<valid | null>();

@@ -12,25 +12,34 @@ import { RootNode } from "lexical";
 import ExampleTheme from "./Theme";
 import ToolbarPlugin from "./ToolbarPlugin";
 import { DataContextRichEditor } from "../../context/stories/stories";
-import { $getRoot, $createParagraphNode, $createTextNode } from "lexical";
+import { DataContextRichRaw } from "../../context/stories/rawStory";
 
 const placeholder = "Enter some rich text...";
+const defaultValue =
+  '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1}],"direction":null,"format":"","indent":0,"type":"root","version":1}}';
 
 function MyOnChangePlugin({
   onChange,
+  onRawStateChange,
 }: {
   onChange: (editorState: string) => void;
+  onRawStateChange: (rawState: unknown) => void; // Nueva función para el estado crudo
 }) {
   const [editor] = useLexicalComposerContext();
 
   useEffect(() => {
     return editor.registerUpdateListener(({ editorState }) => {
+      // Guardar el estado crudo directamente
+      const rawState = editorState.toJSON(); // Obtiene el estado crudo serializado
+      onRawStateChange(rawState);
+
+      // Leer el estado y generar el HTML
       editorState.read(() => {
         const htmlString = $generateHtmlFromNodes(editor);
         onChange(htmlString);
       });
     });
-  }, [editor, onChange]);
+  }, [editor, onChange, onRawStateChange]);
 
   return null;
 }
@@ -40,21 +49,24 @@ function RichEditor({ text }: { text?: string }) {
     namespace: "React.js Demo",
     nodes: [RootNode],
     theme: ExampleTheme,
+    editorState: !text ? defaultValue : text,
     onError(error: Error) {
       throw error;
     },
-    editorState: () => {
-      const root = $getRoot();
-      root.clear();
-      const p = $createParagraphNode();
-      p.append($createTextNode(text));
-      root.append(p);
-    },
   };
+
+  const { setName } = useContext(DataContextRichEditor);
+  const setRaw = useContext(DataContextRichRaw).setName; // Nuevo contexto para el estado crudo
+
+  // Función para manejar cambios de HTML
   function onChange(editorState: string) {
     setName(editorState);
   }
-  const { setName } = useContext(DataContextRichEditor);
+
+  // Función para manejar cambios de estado crudo
+  function onRawStateChange(rawState: unknown) {
+    setRaw(rawState); // Almacena el estado crudo serializado
+  }
 
   return (
     <div className="">
@@ -78,10 +90,13 @@ function RichEditor({ text }: { text?: string }) {
             <AutoFocusPlugin />
           </div>
         </div>
-        <MyOnChangePlugin onChange={onChange} />
+        {/* Pasar ambas funciones: onChange y onRawStateChange */}
+        <MyOnChangePlugin
+          onChange={onChange}
+          onRawStateChange={onRawStateChange}
+        />
       </LexicalComposer>
     </div>
   );
 }
-
 export default RichEditor;

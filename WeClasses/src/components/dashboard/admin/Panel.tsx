@@ -19,6 +19,7 @@ import { DataProviderRichEditor } from "../../../context/stories/stories";
 import AllStories from "./stories/AllStories";
 import { DataProviderStoryId } from "../../../context/stories/storyId";
 import EditStory from "./stories/EditStory";
+import { DataProviderRichRaw } from "../../../context/stories/rawStory";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -58,16 +59,18 @@ function Panel() {
     <DataProviderManage>
       <DataProviderTabsClasses>
         <DataProviderStoryId>
-          <DataProviderRichEditor>
-            <nav className=" flex justify-between px-16">
-              <div></div>
-              <UserOptions />
-            </nav>
-            <div className="flex">
-              <AsideAdmin />
-              {tabs()}
-            </div>
-          </DataProviderRichEditor>
+          <DataProviderRichRaw>
+            <DataProviderRichEditor>
+              <nav className=" flex justify-between px-16">
+                <div></div>
+                <UserOptions />
+              </nav>
+              <div className="flex">
+                <AsideAdmin />
+                {tabs()}
+              </div>
+            </DataProviderRichEditor>
+          </DataProviderRichRaw>
         </DataProviderStoryId>
       </DataProviderTabsClasses>
     </DataProviderManage>

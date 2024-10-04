@@ -62,7 +62,7 @@ function putStory(id: string | undefined, data: story) {
   return axios.put(`${URL}/story/${id}`, data, {});
 }
 
-function deleteStory(id: string) {
+function deleteStory(id: string | undefined) {
   return axios.delete(`${URL}/story/${id}`, {
     withCredentials: true,
   });

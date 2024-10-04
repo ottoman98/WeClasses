@@ -5,6 +5,7 @@ type story = {
     status: string,
     readingTime: string,
     dialogue: string,
+    raw: string,
     labels: string,
     level: string,
     createdAt?: string

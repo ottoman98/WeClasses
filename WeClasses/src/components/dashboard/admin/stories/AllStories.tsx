@@ -5,6 +5,7 @@ import { Fragment, useContext } from "react";
 import { FaEye } from "react-icons/fa";
 import { DataContextTabs } from "../../../../context/studentsTab";
 import { DataContextStoryId } from "../../../../context/stories/storyId";
+import DeleteStory from "./DeleteStory";
 
 function AllStories() {
   const response: Array<story> | undefined = GetAllStories();
@@ -48,7 +49,9 @@ function AllStories() {
                     >
                       Editar
                     </p>
-                    <p className="text-sm leading-6 text-gray-900">Delete</p>
+                    <div>
+                      <DeleteStory story={x} />
+                    </div>
                     <p className="cursor-pointer flex flex-col items-center leading-6 text-gray-900 text-xs">
                       <FaEye /> Preview
                     </p>
