@@ -16,6 +16,9 @@ import Loading from "../../partials/Loading";
 import ClassesForm from "./classes/ClassesForm";
 import AddStory from "./stories/AddStory";
 import { DataProviderRichEditor } from "../../../context/stories/stories";
+import AllStories from "./stories/AllStories";
+import { DataProviderStoryId } from "../../../context/stories/storyId";
+import EditStory from "./stories/EditStory";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -44,24 +47,28 @@ function Panel() {
         return <Loading />;
       case "addStory":
         return <AddStory />;
+      case "editStory":
+        return <EditStory />;
       case "allStories":
-        return <Loading />;
+        return <AllStories />;
     }
   }
 
   return (
     <DataProviderManage>
       <DataProviderTabsClasses>
-        <DataProviderRichEditor>
-          <nav className=" flex justify-between px-16">
-            <div></div>
-            <UserOptions />
-          </nav>
-          <div className="flex">
-            <AsideAdmin />
-            {tabs()}
-          </div>
-        </DataProviderRichEditor>
+        <DataProviderStoryId>
+          <DataProviderRichEditor>
+            <nav className=" flex justify-between px-16">
+              <div></div>
+              <UserOptions />
+            </nav>
+            <div className="flex">
+              <AsideAdmin />
+              {tabs()}
+            </div>
+          </DataProviderRichEditor>
+        </DataProviderStoryId>
       </DataProviderTabsClasses>
     </DataProviderManage>
   );

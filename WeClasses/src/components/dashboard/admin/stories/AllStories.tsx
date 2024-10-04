@@ -1,12 +1,15 @@
-import { GetAllStories } from "../../../api/axiosStories";
+import { GetAllStories } from "../../../../api/axiosStories";
 import { Badge } from "flowbite-react";
-import { story } from "../../../types/storyTypes";
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
-import ModalDelete from "./Modal";
+import { story } from "../../../../types/storyTypes";
+import { Fragment, useContext } from "react";
+import { FaEye } from "react-icons/fa";
+import { DataContextTabs } from "../../../../context/studentsTab";
+import { DataContextStoryId } from "../../../../context/stories/storyId";
 
 function AllStories() {
   const response: Array<story> | undefined = GetAllStories();
+  const { setName } = useContext(DataContextTabs);
+  const setId = useContext(DataContextStoryId).setName;
 
   if (response) {
     return (
@@ -36,11 +39,18 @@ function AllStories() {
                     </p>
                   </div>
                   <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-                    <p className="text-sm leading-6 text-gray-900">
-                      <Link to={`/dashboard/story/${x._id}`}>Editar</Link>
+                    <p
+                      onClick={() => {
+                        setName("editStory");
+                        setId(x._id);
+                      }}
+                      className="text-sm leading-6 text-gray-900"
+                    >
+                      Editar
                     </p>
-                    <p className="text-sm leading-6 text-gray-900">
-                      <ModalDelete story={x} />
+                    <p className="text-sm leading-6 text-gray-900">Delete</p>
+                    <p className="cursor-pointer flex flex-col items-center leading-6 text-gray-900 text-xs">
+                      <FaEye /> Preview
                     </p>
                   </div>
                 </li>

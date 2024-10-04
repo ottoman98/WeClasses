@@ -12,17 +12,9 @@ import { RootNode } from "lexical";
 import ExampleTheme from "./Theme";
 import ToolbarPlugin from "./ToolbarPlugin";
 import { DataContextRichEditor } from "../../context/stories/stories";
+import { $getRoot, $createParagraphNode, $createTextNode } from "lexical";
 
 const placeholder = "Enter some rich text...";
-
-const editorConfig = {
-  namespace: "React.js Demo",
-  nodes: [RootNode],
-  theme: ExampleTheme,
-  onError(error: Error) {
-    throw error;
-  },
-};
 
 function MyOnChangePlugin({
   onChange,
@@ -43,7 +35,22 @@ function MyOnChangePlugin({
   return null;
 }
 
-function RichEditor() {
+function RichEditor({ text }: { text?: string }) {
+  const editorConfig = {
+    namespace: "React.js Demo",
+    nodes: [RootNode],
+    theme: ExampleTheme,
+    onError(error: Error) {
+      throw error;
+    },
+    editorState: () => {
+      const root = $getRoot();
+      root.clear();
+      const p = $createParagraphNode();
+      p.append($createTextNode(text));
+      root.append(p);
+    },
+  };
   function onChange(editorState: string) {
     setName(editorState);
   }
