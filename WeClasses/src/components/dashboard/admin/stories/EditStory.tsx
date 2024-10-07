@@ -8,6 +8,7 @@ import { valid } from "../../../../types/postResponse";
 import { DataContextTabs } from "../../../../context/studentsTab";
 import { DataContextStoryId } from "../../../../context/stories/storyId";
 import Loading from "../../../partials/Loading";
+import { DataContextRichRaw } from "../../../../context/stories/rawStory";
 
 function EditStory() {
   const {
@@ -30,7 +31,7 @@ function EditStory() {
   }
   const id = useContext(DataContextStoryId).name;
   const story: story | undefined = GetStoryById(id);
-
+  const raw = useContext(DataContextRichRaw).name;
   useEffect(() => {
     if (story) {
       setValue("title", story.title);
@@ -42,6 +43,13 @@ function EditStory() {
     }
   }, [story]);
 
+  useEffect(() => {
+    if (raw) {
+      setValue("raw", JSON.stringify(raw));
+    }
+  }, [raw]);
+
+  console.log(raw);
   if (story) {
     return (
       <section className="flex flex-col items-center w-full">
@@ -50,7 +58,7 @@ function EditStory() {
           onSubmit={handleSubmit(async (x) => {
             const data = await putStory(id, x);
             setResponse(data.data);
-            console.log(data);
+            console.log(x);
           })}
           className="grid grid-cols-2 w-3/4 gap-2"
           action=""
@@ -157,13 +165,13 @@ function EditStory() {
           <div className="col-span-2">
             <RichEditor text={story.raw} />
           </div>
+          <div className="col-span-2">
+            <input
+              className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 hover:scale-105 cursor-pointer"
+              type="submit"
+            />
+          </div>
         </form>
-        <div className="col-span-2">
-          <input
-            className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 hover:scale-105 cursor-pointer"
-            type="submit"
-          />
-        </div>
       </section>
     );
   } else {
