@@ -26,8 +26,9 @@ import { DataProviderTabsSettings } from "./context/settings/settings";
 import Panel from "./components/dashboard/admin/Panel";
 import NotFound from "./pages/NotFound";
 import Main from "./components/v3/main/Main";
-import AllStories from "./components/stories/AllStories";
+import StoriesMain from "./components/stories/StoriesMain";
 import Story from "./components/stories/Story";
+import AllStories from "./components/stories/AllStories";
 
 function App() {
   return (
@@ -51,8 +52,10 @@ function App() {
                     element={<CompleteRegister />}
                   />
                   <Route element={<Home />}>
-                    <Route path="/stories" element={<AllStories />} />
-                    <Route path="/story/:id" element={<Story />} />
+                    <Route element={<StoriesMain />}>
+                      <Route path="/story/:id" element={<Story />} />
+                      <Route path="/stories" element={<AllStories />} />
+                    </Route>
                     <Route path="/" element={<Main />} />
                     <Route path="/register" element={<Register />} />
                     <Route
