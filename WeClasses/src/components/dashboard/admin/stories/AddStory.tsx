@@ -71,9 +71,18 @@ function AddStory() {
             className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl"
             id="language"
           >
-            <option value="">Escoja uno</option>
-            <option value="es">Español</option>
-            <option value="en">Ingles</option>
+            <option value="">Selecciona un idioma</option>
+            <option value="mandarin">Mandarín</option>
+            <option value="espanol">Español</option>
+            <option value="ingles">Inglés</option>
+            <option value="arabe">Árabe</option>
+            <option value="portugues">Portugués</option>
+            <option value="ruso">Ruso</option>
+            <option value="japones">Japonés</option>
+            <option value="frances">Francés</option>
+            <option value="aleman">Alemán</option>
+            <option value="turco">Turco</option>
+            <option value="italiano">Italiano</option>
           </select>
           <p className="text-xs italic text-red-500">
             {errors.language?.message}

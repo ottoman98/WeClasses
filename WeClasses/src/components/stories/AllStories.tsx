@@ -68,11 +68,12 @@ function AllStories() {
                 <Loading />
               ) : (
                 data.map((x) => {
-                  return (
-                    <div className="bgr">
-                      <StoryCard story={x} />
-                    </div>
-                  );
+                  if (x.level == "A1-A2")
+                    return (
+                      <div className="bgr">
+                        <StoryCard story={x} />
+                      </div>
+                    );
                 })
               )}
             </div>
@@ -83,15 +84,14 @@ function AllStories() {
               {!data ? (
                 <Loading />
               ) : (
-                data
-                  .filter((x) => x.level == "B1-B2")
-                  .map((x) => {
+                data.map((x) => {
+                  if (x.level == "B1-B2")
                     return (
                       <div className="bgr">
                         <StoryCard story={x} />
                       </div>
                     );
-                  })
+                })
               )}
             </div>
           </div>
@@ -101,11 +101,9 @@ function AllStories() {
               {!data ? (
                 <Loading />
               ) : (
-                data
-                  .filter((x) => x.level == "C1-C2")
-                  .map((x) => {
-                    return <StoryCard story={x} />;
-                  })
+                data.map((x) => {
+                  if (x.level == "C1-C2") return <StoryCard story={x} />;
+                })
               )}
             </div>
           </div>
