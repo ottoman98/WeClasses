@@ -72,17 +72,17 @@ function AddStory() {
             id="language"
           >
             <option value="">Selecciona un idioma</option>
-            <option value="mandarin">Mandarín</option>
-            <option value="espanol">Español</option>
-            <option value="ingles">Inglés</option>
-            <option value="arabe">Árabe</option>
-            <option value="portugues">Portugués</option>
-            <option value="ruso">Ruso</option>
-            <option value="japones">Japonés</option>
-            <option value="frances">Francés</option>
-            <option value="aleman">Alemán</option>
-            <option value="turco">Turco</option>
-            <option value="italiano">Italiano</option>
+            <option value="zh">Mandarín</option>
+            <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="ar">Árabe</option>
+            <option value="pt">Portugués</option>
+            <option value="ru">Ruso</option>
+            <option value="ja">Japonés</option>
+            <option value="fr">Francés</option>
+            <option value="de">Alemán</option>
+            <option value="tr">Turco</option>
+            <option value="it">Italiano</option>
           </select>
           <p className="text-xs italic text-red-500">
             {errors.language?.message}
