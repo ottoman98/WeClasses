@@ -20,6 +20,7 @@ import AllStories from "./stories/AllStories";
 import { DataProviderStoryId } from "../../../context/stories/storyId";
 import EditStory from "./stories/EditStory";
 import { DataProviderRichRaw } from "../../../context/stories/rawStory";
+import Stats from "./Stats";
 
 function Panel() {
   const { name } = useContext(DataContextTabs);
@@ -27,7 +28,7 @@ function Panel() {
   function tabs() {
     switch (name) {
       case "home":
-        return <>aa</>;
+        return <Stats />;
       case "all":
         return <AllClasses />;
       case "add":
