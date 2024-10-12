@@ -29,6 +29,7 @@ import Main from "./components/v3/main/Main";
 import StoriesMain from "./components/stories/StoriesMain";
 import Story from "./components/stories/Story";
 import AllStories from "./components/stories/AllStories";
+import { DataProviderStoriesLanguage } from "./context/stories/storiesLanguage";
 
 function App() {
   return (
@@ -36,56 +37,61 @@ function App() {
       <DataProviderSession>
         <DataProviderLanguage>
           <DataProviderTabs>
-            <DataProviderTabsSettings>
-              <HashRouter>
-                <Routes>
-                  <Route path="*" element={<NotFound />} />
-                  <Route path="/checkout/:id" element={<ClassPayments />} />
-                  <Route path="/register/:name" element={<RegisterSuccess />} />
-                  <Route
-                    path="/registerTeacher/:name"
-                    element={<RegisterSuccessTeacher />}
-                  />
-                  <Route path="/admission/" element={<AdmissionTeacher />} />
-                  <Route
-                    path="/registerComplete/:name"
-                    element={<CompleteRegister />}
-                  />
-                  <Route element={<Home />}>
-                    <Route element={<StoriesMain />}>
-                      <Route path="/story/:id" element={<Story />} />
-                      <Route path="/stories" element={<AllStories />} />
+            <DataProviderStoriesLanguage>
+              <DataProviderTabsSettings>
+                <HashRouter>
+                  <Routes>
+                    <Route path="*" element={<NotFound />} />
+                    <Route path="/checkout/:id" element={<ClassPayments />} />
+                    <Route
+                      path="/register/:name"
+                      element={<RegisterSuccess />}
+                    />
+                    <Route
+                      path="/registerTeacher/:name"
+                      element={<RegisterSuccessTeacher />}
+                    />
+                    <Route path="/admission/" element={<AdmissionTeacher />} />
+                    <Route
+                      path="/registerComplete/:name"
+                      element={<CompleteRegister />}
+                    />
+                    <Route element={<Home />}>
+                      <Route element={<StoriesMain />}>
+                        <Route path="/story/:id" element={<Story />} />
+                        <Route path="/stories" element={<AllStories />} />
+                      </Route>
+                      <Route path="/" element={<Main />} />
+                      <Route path="/register" element={<Register />} />
+                      <Route
+                        path="/register_tutor"
+                        element={<RegisterTeachers />}
+                      />
+                      <Route path="/user/:id" element={<UserRemainingForm />} />
+                      <Route path="/login" element={<Login />} />
+                      <Route path="/recover" element={<Recover />} />
+                      <Route path="/recover/:id" element={<ChangePassword />} />
+                      <Route
+                        path="/tutor_info/:id"
+                        element={<TeacherRemainingForm />}
+                      />
+                      <Route path="/classes" element={<ClassesList />} />
+                      <Route path="/teacher/:id" element={<TeacherInfo />} />
+                      <Route path="/class/:id" element={<ClassInfo />} />
                     </Route>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route
-                      path="/register_tutor"
-                      element={<RegisterTeachers />}
-                    />
-                    <Route path="/user/:id" element={<UserRemainingForm />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/recover" element={<Recover />} />
-                    <Route path="/recover/:id" element={<ChangePassword />} />
-                    <Route
-                      path="/tutor_info/:id"
-                      element={<TeacherRemainingForm />}
-                    />
-                    <Route path="/classes" element={<ClassesList />} />
-                    <Route path="/teacher/:id" element={<TeacherInfo />} />
-                    <Route path="/class/:id" element={<ClassInfo />} />
-                  </Route>
-                  //*LOGIN ROUTES
-                  <Route element={<ProtectedRoutes />}>
-                    //*STUDENTS ROUTES
-                    <Route path="/profile" element={<Profile />} />
-                    //*TEACHER ROUTES
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    //*ADMIN ROUTES
-                    <Route path="/admin" element={<Panel />} />
-                  </Route>
-                </Routes>
-              </HashRouter>
-            </DataProviderTabsSettings>
+                    //*LOGIN ROUTES
+                    <Route element={<ProtectedRoutes />}>
+                      //*STUDENTS ROUTES
+                      <Route path="/profile" element={<Profile />} />
+                      //*TEACHER ROUTES
+                      <Route path="/dashboard" element={<Dashboard />} />
+                      //*ADMIN ROUTES
+                      <Route path="/admin" element={<Panel />} />
+                    </Route>
+                  </Routes>
+                </HashRouter>
+              </DataProviderTabsSettings>
+            </DataProviderStoriesLanguage>
           </DataProviderTabs>
         </DataProviderLanguage>
       </DataProviderSession>

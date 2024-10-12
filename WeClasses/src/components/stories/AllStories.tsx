@@ -1,14 +1,23 @@
 import Loading from "../partials/Loading";
 import StoryCard from "./StoryCard";
 import { GetAllStories } from "../../api/axiosStories";
+import { useContext } from "react";
+import { DataContextStoriesLanguage } from "../../context/stories/storiesLanguage";
 
 function AllStories() {
   const data = GetAllStories();
-  console.log(data);
+  let filter;
+  const { name } = useContext(DataContextStoriesLanguage);
+
+  if (data) {
+    filter = data.filter((x) => x.language == name);
+  }
+  console.log(name);
+
   return (
     <section className="flex flex-col px-10 py-5">
       <div className="flex gap-3 flex-col">
-        <h3 className="text-2xl font-semibold">
+        <h3 className="text-2xl font-semibold text-light-blue">
           Textos en inglés con ejercicios de comprensión lectora
         </h3>
         <div className="grid grid-cols-2 ">
@@ -53,10 +62,10 @@ function AllStories() {
       </div>
       <div className="py-8 relative ">
         <ul className="flex gap-2 ml-2 top-4  z-20 absolute ">
-          <li className="rounded-t-md px-1 border-x-4 border-t-4 border-light-blue bg-gray-100 cursor-pointer">
+          <li className="rounded-t-md px-1 border-x-4 border-t-4 border-light-blue bg-gray-100 cursor-pointer font-semibold">
             Todos las Stories
           </li>
-          <li className="rounded-t-md px-1 border-x-4 border-t-4 border-light-blue bg-gray-100 cursor-pointer">
+          <li className="rounded-t-md px-1 border-x-4 border-t-4 bord border-light-blue bg-gray-100 cursor-pointer font-semibold">
             Nuevas Stories
           </li>
         </ul>
@@ -64,10 +73,10 @@ function AllStories() {
           <div className="py-5 px-3 flex flex-col justify-center gap-2">
             <h2 className="text-xl font-semibold">A1-A2</h2>
             <div className="grid grid-cols-2 gap-x-4  ">
-              {!data ? (
+              {!filter ? (
                 <Loading />
               ) : (
-                data.map((x) => {
+                filter.map((x) => {
                   if (x.level == "A1-A2")
                     return (
                       <div className="bgr">
@@ -81,10 +90,10 @@ function AllStories() {
           <div className="py-5 px-3 flex flex-col justify-center gap-2">
             <h2 className="text-xl font-semibold">B1-B2</h2>
             <div className="grid grid-cols-2 gap-x-4  ">
-              {!data ? (
+              {!filter ? (
                 <Loading />
               ) : (
-                data.map((x) => {
+                filter.map((x) => {
                   if (x.level == "B1-B2")
                     return (
                       <div className="bgr">
@@ -98,10 +107,10 @@ function AllStories() {
           <div className="py-5 px-3 flex flex-col justify-center gap-2">
             <h2 className="text-xl font-semibold">C1-C2</h2>
             <div className="grid grid-cols-2 gap-x-4  ">
-              {!data ? (
+              {!filter ? (
                 <Loading />
               ) : (
-                data.map((x) => {
+                filter.map((x) => {
                   if (x.level == "C1-C2") return <StoryCard story={x} />;
                 })
               )}

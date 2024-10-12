@@ -19,7 +19,9 @@ function StoryCard({ story }: { story: story }) {
       </div>
       <div className="flex flex-row ">
         <div className="text-blue-900 border  flex justify-center items-center border-x-blue-900 px-2">
-          <IoIosArrowDroprightCircle size={20} />
+          <Link to={`/story/${story._id}`}>
+            <IoIosArrowDroprightCircle size={20} />
+          </Link>
         </div>
         <div className="text-blue-900  h-full flex justify-center items-center px-2">
           <GrDocumentPdf size={20} />
