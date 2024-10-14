@@ -1,113 +1,131 @@
-import { Sidebar } from "flowbite-react";
 import { HiChartPie, HiInbox, HiUser } from "react-icons/hi";
 import logo from "../../../assets/logos/Recurso 7@3x.png";
 import { useContext } from "react";
 import { DataContextTabs } from "../../../context/studentsTab";
-import { DataContextTabsClasses } from "../../../context/classes/classes";
-
+import { IoMdSettings } from "react-icons/io";
+import { MdOutlineClass } from "react-icons/md";
+import { LuFileSpreadsheet } from "react-icons/lu";
 function AsideAdmin() {
   const { setName } = useContext(DataContextTabs);
-  const classSetName = useContext(DataContextTabsClasses).setName;
 
   return (
-    <Sidebar aria-label="Sidebar with multi-level dropdown example">
-      <Sidebar.Items>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item href="#">
-            <img src={logo} alt="" />
-          </Sidebar.Item>
-          <Sidebar.Item
-            className="cursor-pointer"
-            icon={HiChartPie}
-            onClick={() => {
-              setName("home");
-            }}
-          >
-            Dashboard
-          </Sidebar.Item>
-          <Sidebar.Item
-            className="cursor-pointer"
-            icon={HiInbox}
-            onClick={() => {
-              setName("messages");
-            }}
-          >
-            Messages
-          </Sidebar.Item>
-          <Sidebar.Collapse icon={HiUser} label="Users">
-            <Sidebar.Item
-              className="cursor-pointer"
+    <>
+      <ul className="px-4 w-44 flex flex-col gap-4 bg-red-600">
+        <li
+          className=""
+          onClick={() => {
+            setName("home");
+          }}
+        >
+          <img src={logo} alt="" />
+        </li>
+        <li
+          className="cursor-pointer flex flex-row items-center gap-1 font-semibold hover:scale-105"
+          onClick={() => {
+            setName("home");
+          }}
+        >
+          <HiChartPie className="text-light-blue" />
+          <span>Dashboard</span>
+        </li>
+        <li
+          className="cursor-pointer flex flex-row items-center gap-1 font-semibold hover:scale-105"
+          onClick={() => {
+            setName("messages");
+          }}
+        >
+          <HiInbox className="text-light-blue" />
+          <span>Messages</span>
+        </li>
+        <li>
+          <span className="flex flex-row items-center gap-1 font-semibold">
+            <HiUser className="text-light-blue" />
+            Users
+          </span>
+          <ul className="px-4 py-2 ">
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1 hover:scale-105"
               onClick={() => {
                 setName("applicants");
               }}
             >
-              Applicants
-            </Sidebar.Item>
-            <Sidebar.Item
-              className="cursor-pointer"
+              <span>Applicants</span>
+            </li>
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("students");
               }}
             >
-              Students
-            </Sidebar.Item>
-            <Sidebar.Item
-              className="cursor-pointer"
+              <span>Students</span>
+            </li>
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("teachers");
               }}
             >
-              Teachers
-            </Sidebar.Item>
-          </Sidebar.Collapse>
-        </Sidebar.ItemGroup>
-        <Sidebar.ItemGroup>
-          <Sidebar.Item
-            onClick={() => {
-              setName("settings");
-            }}
-            icon={HiInbox}
-          >
-            Settings
-          </Sidebar.Item>
-          <Sidebar.Collapse icon={HiUser} label="Classes">
-            <Sidebar.Item
+              <span>Teachers</span>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <li className="flex flex-row items-center gap-1">
+            <MdOutlineClass className="text-light-blue" /> Classes
+          </li>
+          <ul className="px-4 py-2">
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("add");
               }}
             >
-              Add class
-            </Sidebar.Item>
-            <Sidebar.Item
+              <span>Add Class</span>
+            </li>
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("all");
-                classSetName("");
               }}
             >
-              All classes
-            </Sidebar.Item>
-          </Sidebar.Collapse>
-
-          <Sidebar.Collapse icon={HiUser} label="Stories">
-            <Sidebar.Item
+              <span>All Classes</span>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <li className="flex flex-row items-center gap-1">
+            <LuFileSpreadsheet className="text-light-blue" /> Stories
+          </li>
+          <ul className="px-4 py-2">
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("addStory");
               }}
             >
-              Add Story
-            </Sidebar.Item>
-            <Sidebar.Item
+              <span>Add Stories</span>
+            </li>
+            <li
+              className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("allStories");
-                classSetName("");
               }}
             >
-              All Stories
-            </Sidebar.Item>
-          </Sidebar.Collapse>
-        </Sidebar.ItemGroup>
-      </Sidebar.Items>
-    </Sidebar>
+              <span>All Stories</span>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="cursor-pointer flex flex-row items-center font-semibold gap-1  hover:scale-105"
+          onClick={() => {
+            setName("settings");
+          }}
+        >
+          <IoMdSettings className="text-light-blue" /> <span> Settings</span>
+        </li>
+      </ul>
+    </>
   );
 }
 
