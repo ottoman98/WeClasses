@@ -5,8 +5,10 @@ import { DataContextTabs } from "../../../context/studentsTab";
 import { IoMdSettings } from "react-icons/io";
 import { MdOutlineClass } from "react-icons/md";
 import { LuFileSpreadsheet } from "react-icons/lu";
+import { DataContextTabsClasses } from "../../../context/classes/classes";
 function AsideAdmin() {
   const { setName } = useContext(DataContextTabs);
+  const classe = useContext(DataContextTabsClasses).setName;
 
   return (
     <>
@@ -79,6 +81,7 @@ function AsideAdmin() {
               className="cursor-pointer flex flex-row items-center gap-1  hover:scale-105"
               onClick={() => {
                 setName("all");
+                classe("");
               }}
             >
               <span>All Classes</span>

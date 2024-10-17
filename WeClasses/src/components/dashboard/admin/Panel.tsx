@@ -71,7 +71,7 @@ function Panel() {
                   <UserOptions />
                 </div>
               </nav>
-              <div className="flex max-w-[90rem] mx-auto gap-2">
+              <div className="flex max-w-[100rem] mx-auto gap-2">
                 <div className="w-1/5 border-r ">
                   <AsideAdmin />
                 </div>

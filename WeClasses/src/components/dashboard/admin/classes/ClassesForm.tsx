@@ -21,7 +21,9 @@ function ClassesForm() {
 
   return (
     <div>
-      <h2>Agregar Clase</h2>
+      <h2 className="text text-4xl text-light-blue font-semibold">
+        Agregar Clase
+      </h2>
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await postClasse(x);
