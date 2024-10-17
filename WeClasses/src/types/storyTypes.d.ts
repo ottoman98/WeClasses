@@ -8,7 +8,7 @@ type story = {
     raw: string,
     labels: string,
     level: string,
-    createdAt?: string
+    createdAt?: Date
 
 }
 

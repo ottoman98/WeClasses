@@ -50,6 +50,7 @@ function EditClassesForm() {
 
   return (
     <div>
+      <h2>Editar Clase</h2>
       <form
         onSubmit={handleSubmit(async (x) => {
           const data = await putClasse(name, x);

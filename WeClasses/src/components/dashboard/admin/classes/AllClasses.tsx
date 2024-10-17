@@ -13,7 +13,7 @@ function AllClasses() {
   if (name == "") {
     return (
       <section className="md:max-w-[80rem] mx-auto flex flex-col py-4 gap-3">
-        <h2 className="text-4xl">MyClasses</h2>
+        <h2 className="text-4xl font-semibold text-light-blue">MyClasses</h2>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg flex flex-col">
           <table className="w-full text-sm text-center  bg-white border text-customBlack">
             <thead className="text-customBlack font-normal border bg-gray-100">

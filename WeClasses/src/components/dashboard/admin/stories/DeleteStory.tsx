@@ -19,13 +19,10 @@ function DeleteStory({ story }: { story: story | undefined }) {
   return (
     <div
       onClick={() => setOpenModal(!openModal)}
-      className=" flex justify-center cursor-pointer "
+      className=" flex justify-center cursor-pointer hover:bg-light-blue rounded-xl "
     >
       <div>
         <p>Delete</p>
-        <div className="bg-blue-900 absolute bottom-4 right-4 p-3 rounded-full">
-          <FaPlay size={20} className="text-white" />
-        </div>
       </div>
 
       <Modal size={"4xl"} show={openModal} onClose={() => setOpenModal(false)}>
