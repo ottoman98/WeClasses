@@ -8,12 +8,13 @@ import { GrDocumentPdf } from "react-icons/gr";
 function Story() {
   const { id } = useParams();
   const data = GetStoryById(id);
+  console.log(data);
   if (!data) {
     return <Loading />;
   } else {
     return (
       <div className="py-32 min-h-screen">
-        <div className=" w-1/2 mx-auto flex flex-col gap-3">
+        <div className=" w-1/2 mx-auto flex flex-col gap-3  p-10 border-4 rounded-lg border-light-blue">
           <div className="flex flex-row justify-between">
             <div className="flex flex-row gap-1 text-light-blue">
               <IoReturnUpBackSharp />
@@ -21,6 +22,10 @@ function Story() {
                 Volver
               </Link>
             </div>
+            <span className="text-light-blue">
+              {Math.ceil(Number(data.readingTime) / 400)} min
+            </span>
+
             <div className="flex flex-row gap-1 text-light-blue">
               <GrDocumentPdf className="-mt-1" size={20} />
               <span className="underline cursor-pointer">Descargar</span>

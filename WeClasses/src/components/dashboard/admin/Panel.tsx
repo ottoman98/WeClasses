@@ -3,7 +3,7 @@ import AsideAdmin from "./AsideAdmin";
 import { DataContextTabs } from "../../../context/studentsTab";
 import UserOptions from "../../partials/UserOptions";
 import AllClasses from "./classes/AllClasses";
-
+import { Link } from "react-router-dom";
 import { DataProviderTabsClasses } from "../../../context/classes/classes";
 import Settings from "../../partials/settings/Settings";
 import StudentsList from "./users/StudentsList";
@@ -21,7 +21,7 @@ import { DataProviderStoryId } from "../../../context/stories/storyId";
 import EditStory from "./stories/EditStory";
 import { DataProviderRichRaw } from "../../../context/stories/rawStory";
 import Stats from "./Stats";
-
+import logo from "../../../assets/logos/Recurso 7@3x.png";
 function Panel() {
   const { name } = useContext(DataContextTabs);
 
@@ -62,13 +62,20 @@ function Panel() {
         <DataProviderStoryId>
           <DataProviderRichRaw>
             <DataProviderRichEditor>
-              <nav className=" flex justify-between px-16">
-                <div></div>
-                <UserOptions />
+              <nav className="flex justify-between px-6 ">
+                <Link to="/">
+                  <img className="w-32" src={logo} alt="" />
+                </Link>
+
+                <div>
+                  <UserOptions />
+                </div>
               </nav>
-              <div className="flex">
-                <AsideAdmin />
-                {tabs()}
+              <div className="flex ">
+                <div className="w-1/5">
+                  <AsideAdmin />
+                </div>
+                <div className="w-4/5 ">{tabs()}</div>
               </div>
             </DataProviderRichEditor>
           </DataProviderRichRaw>

@@ -63,10 +63,10 @@ function AllStories() {
       <div className="py-8 relative ">
         <ul className="flex gap-2 ml-2 top-4  z-20 absolute ">
           <li className="rounded-t-md px-1 border-x-4 border-t-4 border-light-blue bg-gray-100 cursor-pointer font-semibold">
-            Todos las Stories
+            Gratuitas
           </li>
-          <li className="rounded-t-md px-1 border-x-4 border-t-4 bord border-light-blue bg-gray-100 cursor-pointer font-semibold">
-            Nuevas Stories
+          <li className="rounded-t-md px-1 border-x-4 border-t-4  border-light-blue cursor-pointer font-semibold bg bg-yellow-200">
+            Premium
           </li>
         </ul>
         <div className=" border-4 border-light-blue p-2 rounded-md px-1">

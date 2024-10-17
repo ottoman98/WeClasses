@@ -52,7 +52,7 @@ function ClassesCard({
         <div className="flex flex-col items-center md:w-1/4">
           <img
             className="h-24 aspect-square my-auto rounded-full "
-            src="https://images01.military.com/sites/default/files/styles/full/public/2021-04/chucknorris.jpeg.jpg"
+            src={data.photo}
             alt=""
           />
           <div className="flex flex-row gap-1 text-lg text-yellow-300">

@@ -21,14 +21,14 @@ function ClassInfo() {
         <div className="w-3/4 mx-auto flex flex-col gap-2">
           <img
             className="rounded-sm border-blue-300 "
-            src="https://blademag.com/wp-content/uploads/what-is-the-knife-from-the-commando-movie.jpg"
+            src={classe.photo}
             alt=""
           />
 
           <h2 className="text-3xl font-bold">{classe.name}</h2>
           <p>{classe.description}</p>
           <p>
-            Creado por:{" "}
+            Creado por:
             <Link
               className="text-light-blue hover:text-blue-900 underline"
               to={`/teacher/${classe.user}`}

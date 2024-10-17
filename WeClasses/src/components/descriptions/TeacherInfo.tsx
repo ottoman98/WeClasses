@@ -22,7 +22,7 @@ function TeacherInfo() {
         <div className="flex gap-4 bg-white p-2  rounded-lg border border-light-blue shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
           <img
             className="h-36 rounded-full aspect-square"
-            src="https://preview.redd.it/lz7oyq5be0t91.jpg?width=1080&crop=smart&auto=webp&s=72a44c6f9e5b272d747bde2e904a03943f72e03e"
+            src={data.photo}
             alt=""
           />
 
