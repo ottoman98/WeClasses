@@ -1,5 +1,5 @@
 import { GetAllApplicants } from "../../../../api/axiosAdmin";
-import ListTeachers from "./ListTeachers";
+import ListTeachersApplicants from "./ListTeachersApplicants";
 
 function Applicants() {
   const data = GetAllApplicants();
@@ -7,8 +7,8 @@ function Applicants() {
   if (data) {
     return (
       <div>
-        <h2 className="text-xl font-bold">Applicants</h2>
-        <ListTeachers title="Applicants" data={data} />
+        <h2 className="text-2xl font-semibold text-light-blue">Applicants</h2>
+        <ListTeachersApplicants title="Applicants" data={data} />
       </div>
     );
   }

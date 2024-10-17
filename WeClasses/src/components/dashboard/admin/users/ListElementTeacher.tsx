@@ -1,53 +1,59 @@
-import { useContext } from "react";
 import { teacherData } from "../../../../types/teacher";
-import { DataContextManage } from "../../../../context/teachers/manage";
+import { useContext } from "react";
 import { DataContextTabs } from "../../../../context/studentsTab";
+import { DataContextManage } from "../../../../context/teachers/manage";
 
 function ListElementTeacher({ data }: { data: teacherData }) {
-  const { setName } = useContext(DataContextManage);
-  const tabs = useContext(DataContextTabs).setName;
-  const { name } = useContext(DataContextTabs);
-
+  const { setName } = useContext(DataContextTabs);
+  const manage = useContext(DataContextManage).setName;
+  console.log();
   if (data.createdAt) {
     return (
-      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-        <th className="flex justify-center">
-          <img className="aspect-square w-16" src={data.photo} alt="" />
-        </th>
-        <th>{new Date(data.createdAt).toLocaleDateString()}</th>
-        <th>{data.name}</th>
-        <th>{data.lastName}</th>
-        <th>{data.email}</th>
-        <th>{data.phone}</th>
-        <th>{new Date(data.birthDay).toLocaleDateString()}</th>
-        <th className="flex flex-col">
-          {data.languages.map((x) => (
-            <span>{`${x.language}  (${x.level}`})</span>
-          ))}
-        </th>
-        <th>
-          {data.score.length > 0
-            ? data.score.reduce((acc, currentValue) => acc + currentValue, 0) /
-              data.score.length
-            : "no tiene calificaciones aun"}
-        </th>
-        {name == "applicants" ? (
-          ""
-        ) : (
-          <th>{data.active ? "activo" : "baneao"}</th>
-        )}
+      <tr
+        className={` border-gray-200 dark:border-gray-700 hover:bg-gray-100 $`}
+      >
+        <td className="px-6 py-4">
+          {new Date(data.createdAt).toLocaleDateString()}
+        </td>
+        <td className="px-6 py-4 ">
+          <span> {data.name}</span>
+        </td>
+        <td className="px-6 py-4 ">
+          <div className="flex flex-col">
+            <span> {data.lastName}</span>
+          </div>
+        </td>
+        <td className="px-6 py-4 text-center text-light-blue">
+          <span> {data.email}</span>
+        </td>
+        <td className="px-6 py-4 text-center">
+          <span> {data.phone}</span>
+        </td>
 
-        <th>
-          <button
-            className="bg-blue-600 text-white"
+        <td className=" px-6 py-4 text-green-600   text-center">
+          <span> {new Date(data.birthDay).toLocaleDateString()}</span>
+        </td>
+        <td className="px-6 py-4 text-center">
+          <span>
+            {data.approved === undefined
+              ? "Sin gestionar aun"
+              : data.approved === false
+              ? "Rejected"
+              : ""}
+          </span>
+        </td>
+
+        <td className="px-6 py-4 text-center">
+          <span
+            className="w-full px-4 py-2 font-bold text-white bg-blue-950 rounded-full focus:border-red-600 hover:scale-105 cursor-pointer"
             onClick={() => {
-              setName(data._id);
-              tabs("manage");
+              setName("manage");
+              manage(data._id);
             }}
           >
-            Gestionar
-          </button>
-        </th>
+            gestionar
+          </span>
+        </td>
       </tr>
     );
   }

@@ -1,6 +1,5 @@
 import BarsChart from "../../charts/BarsChart";
 import LinesGraph from "../../charts/LinesGraph";
-import PositiveAndNegativeGraph from "../../charts/PositiveAndNegativeGraph";
 
 function Stats() {
   return (
@@ -8,10 +7,9 @@ function Stats() {
       <h2 className="text-center text-xl font-semibold text-light-blue">
         Overview
       </h2>
-      <div className="grid grid-cols-2 ">
-        <PositiveAndNegativeGraph />
-        <LinesGraph />
-        <BarsChart />
+      <div className="">
+        <LinesGraph /> classes vendidad
+        <BarsChart /> ingesos provenientes de
       </div>
     </div>
   );

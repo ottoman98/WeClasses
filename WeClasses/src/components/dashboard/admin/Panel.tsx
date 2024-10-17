@@ -62,7 +62,7 @@ function Panel() {
         <DataProviderStoryId>
           <DataProviderRichRaw>
             <DataProviderRichEditor>
-              <nav className="flex justify-between px-6 ">
+              <nav className="flex justify-between px-6 py-5">
                 <Link to="/">
                   <img className="w-32" src={logo} alt="" />
                 </Link>
@@ -71,8 +71,8 @@ function Panel() {
                   <UserOptions />
                 </div>
               </nav>
-              <div className="flex ">
-                <div className="w-1/5">
+              <div className="flex max-w-[90rem] mx-auto gap-2">
+                <div className="w-1/5 border-r ">
                   <AsideAdmin />
                 </div>
                 <div className="w-4/5 ">{tabs()}</div>
