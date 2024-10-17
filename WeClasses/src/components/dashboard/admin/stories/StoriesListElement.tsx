@@ -36,8 +36,18 @@ function StoriesListElement({ data }: { data: story }) {
                 : data.language}
             </span>
           </td>
-          <td>{data.readingTime}</td>
-          <td>{data.status}</td>
+          <td>{Math.ceil(Number(data.readingTime) / 400)} min</td>
+          <td>
+            <p
+              className={`${
+                data.status == "free"
+                  ? "bg-green-300 text-green-700"
+                  : "bg-yellow-300 text-yellow-700"
+              }  p-1 rounded-md w-full`}
+            >
+              {data.status}
+            </p>
+          </td>
           <td>{data.level}</td>
 
           <td className=" flex flex-col  gap-2 px-6 py-4 text-center">

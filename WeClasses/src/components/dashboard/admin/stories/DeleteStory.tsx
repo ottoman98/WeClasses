@@ -1,6 +1,5 @@
 import { Modal } from "flowbite-react";
 import { useContext, useState } from "react";
-import { FaPlay } from "react-icons/fa";
 import { story } from "../../../../types/storyTypes";
 import { deleteStory } from "../../../../api/axiosStories";
 import { valid } from "../../../../types/postResponse";
