@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <>
@@ -30,7 +31,7 @@ function Hero() {
               </div>
             </div>
             <div className="text-center">
-              <h1 className="text-4xl font-bold tracking-tight  sm:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight text-white  sm:text-6xl">
                 Break language barriers and connect with the world
               </h1>
               <p className="mt-6 text-lg leading-8 ">
@@ -39,15 +40,18 @@ function Hero() {
                 fugiat aliqua.
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="#"
+                <Link
+                  to="/classes"
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Encuentra tu profesor ideal
-                </a>
-                <a href="#" className="text-sm font-semibold leading-6 ">
+                </Link>
+                <Link
+                  to="/classes"
+                  className="text-sm font-semibold leading-6 "
+                >
                   Learn more <span aria-hidden="true">→</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
