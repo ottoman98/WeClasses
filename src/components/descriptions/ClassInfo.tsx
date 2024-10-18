@@ -20,7 +20,7 @@ function ClassInfo() {
       <div className="gap-2 px-2 md:px-32 py-10 pt-28 max-w-[80rem] mx-auto ">
         <div className="w-3/4 mx-auto flex flex-col gap-2">
           <img
-            className="rounded-sm border-blue-300 "
+            className=" border-blue-300 rounded-full w-56 mx-auto"
             src={classe.photo}
             alt=""
           />

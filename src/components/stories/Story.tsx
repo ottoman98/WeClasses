@@ -2,13 +2,16 @@ import { Link, useParams } from "react-router-dom";
 import { GetStoryById } from "../../api/axiosStories";
 import Loading from "../partials/Loading";
 import { IoReturnUpBackSharp } from "react-icons/io5";
-
+import generatePDF from "../../utils/pdfGenerator";
 import { GrDocumentPdf } from "react-icons/gr";
+import { useRef } from "react";
 
 function Story() {
   const { id } = useParams();
   const data = GetStoryById(id);
   console.log(data);
+  const contentRef = useRef<HTMLDivElement>(null);
+
   if (!data) {
     return <Loading />;
   } else {
@@ -28,16 +31,30 @@ function Story() {
 
             <div className="flex flex-row gap-1 text-light-blue">
               <GrDocumentPdf className="-mt-1" size={20} />
-              <span className="underline cursor-pointer">Descargar</span>
+              <span
+                onClick={() => {
+                  generatePDF(contentRef, data?.title);
+                }}
+                className="underline cursor-pointer"
+              >
+                Descargar
+              </span>
             </div>
           </div>
-          <h3 className="text-3xl text-center font-semibold text-light-blue">
-            {data.title}
-          </h3>
+
           <div
-            className="text-lg"
-            dangerouslySetInnerHTML={{ __html: data.dialogue }}
-          ></div>
+            className="flex flex-col gap-3 py-8"
+            id="content"
+            ref={contentRef}
+          >
+            <h3 className="text-3xl text-center font-semibold text-light-blue">
+              {data.title}
+            </h3>
+            <div
+              className="text-lg"
+              dangerouslySetInnerHTML={{ __html: data.dialogue }}
+            ></div>
+          </div>
         </div>
       </div>
     );
