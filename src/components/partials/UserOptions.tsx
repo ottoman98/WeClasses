@@ -48,7 +48,7 @@ function UserOptions() {
           }}
           to={url}
         >
-          {translation.profileNav.optionsNav.home}
+          Dashboard
         </Link>{" "}
       </Dropdown.Item>
       <Dropdown.Item className={`${optionsT}`}>

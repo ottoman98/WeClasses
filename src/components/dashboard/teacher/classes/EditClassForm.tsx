@@ -124,9 +124,18 @@ function EditClassesForm() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             id="language"
           >
-            <option value="">Select a language </option>
-            <option value="en">English</option>
+            <option value="">Selecciona un idioma</option>
+            <option value="zh">Mandarín</option>
             <option value="es">Español</option>
+            <option value="en">Inglés</option>
+            <option value="ar">Árabe</option>
+            <option value="pt">Portugués</option>
+            <option value="ru">Ruso</option>
+            <option value="ja">Japonés</option>
+            <option value="fr">Francés</option>
+            <option value="de">Alemán</option>
+            <option value="tr">Turco</option>
+            <option value="it">Italiano</option>
           </select>
           <p className="text-xs italic text-red-500">
             {errors.language?.message}

@@ -3,6 +3,17 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { useContext, useState } from "react";
 import { DataContextStoriesLanguage } from "../../context/stories/storiesLanguage";
 
+import english from "../../assets/flags/gb.svg";
+import german from "../../assets/flags/de.svg";
+import spanish from "../../assets/flags/es.svg";
+import french from "../../assets/flags/fr.svg";
+import chinese from "../../assets/flags/cn.svg";
+import arab from "../../assets/flags/sa.svg";
+import japanese from "../../assets/flags/jp.svg";
+import russian from "../../assets/flags/ru.svg";
+import italian from "../../assets/flags/it.svg";
+import turkish from "../../assets/flags/tr.svg";
+
 function StoriesMain() {
   const [show, setShow] = useState(false);
   const { setName, name } = useContext(DataContextStoriesLanguage);
@@ -75,11 +86,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/gb.svg"
-                alt=""
-              />
+              <img className="w-12" src={english} alt="" />
               <span>Ingles</span>
             </div>
             <div
@@ -88,11 +95,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/cn.svg"
-                alt=""
-              />
+              <img className="w-12" src={chinese} alt="" />
               <span>Chino</span>
             </div>
             <div
@@ -101,11 +104,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/fr.svg"
-                alt=""
-              />
+              <img className="w-12" src={french} alt="" />
               <span>Frances</span>
             </div>
             <div
@@ -114,11 +113,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/es.svg"
-                alt=""
-              />
+              <img className="w-12" src={spanish} alt="" />
               <span>Español</span>
             </div>
             <div
@@ -127,12 +122,8 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/sa.svg"
-                alt=""
-              />
-              <span>Arabe</span>
+              <img className="w-12" src={arab} alt="" />
+              <span>Árabe</span>
             </div>
             <div
               onClick={() => {
@@ -140,11 +131,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/ru.svg"
-                alt=""
-              />
+              <img className="w-12" src={russian} alt="" />
               <span>Ruso</span>
             </div>
             <div
@@ -153,11 +140,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/jp.svg"
-                alt=""
-              />
+              <img className="w-12" src={japanese} alt="" />
               <span>Japones</span>
             </div>
             <div
@@ -166,11 +149,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/de.svg"
-                alt=""
-              />
+              <img className="w-12" src={german} alt="" />
               <span>Alemán</span>
             </div>
             <div
@@ -179,11 +158,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/tr.svg"
-                alt=""
-              />
+              <img className="w-12" src={turkish} alt="" />
               <span>Turco</span>
             </div>
             <div
@@ -192,11 +167,7 @@ function StoriesMain() {
               }}
               className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
             >
-              <img
-                className="w-12"
-                src="https://cdn.jsdelivr.net/gh/hampusborgos/country-flags@main/svg/it.svg"
-                alt=""
-              />
+              <img className="w-12" src={italian} alt="" />
               <span>Italiano</span>
             </div>
           </div>

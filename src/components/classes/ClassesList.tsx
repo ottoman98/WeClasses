@@ -72,15 +72,18 @@ function ClassesList() {
               }}
               value={language}
             >
-              <option value="">
-                {translation.classes.filters.language[0]}
-              </option>
-              <option value="en">
-                {translation.classes.filters.language[1]}
-              </option>
-              <option value="es">
-                {translation.classes.filters.language[2]}
-              </option>
+              <option value="">Selecciona un idioma</option>
+              <option value="zh">Mandarín</option>
+              <option value="es">Español</option>
+              <option value="en">Inglés</option>
+              <option value="ar">Árabe</option>
+              <option value="pt">Portugués</option>
+              <option value="ru">Ruso</option>
+              <option value="ja">Japonés</option>
+              <option value="fr">Francés</option>
+              <option value="de">Alemán</option>
+              <option value="tr">Turco</option>
+              <option value="it">Italiano</option>
             </select>
             <select
               className="border-2 placeholder-slate-300 border-slate-200 hover:border-blue-900 focus:to-blue-950 rounded-xl text-xs "

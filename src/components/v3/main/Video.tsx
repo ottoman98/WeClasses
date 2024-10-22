@@ -70,7 +70,7 @@ function Video() {
 
                 <div className="mt-4 md:mx-4 md:mt-0">
                   <h1 className="text-xl font-medium text-gray-700 capitalize dark:text-white">
-                    Zero Hidden Payments
+                    Native Tutors
                   </h1>
 
                   <p className="mt-3 text-gray-500 dark:text-gray-300">
@@ -109,7 +109,7 @@ function Video() {
 
                 <div className="mt-4 md:mx-4 md:mt-0">
                   <h1 className="text-xl font-medium text-gray-700 capitalize dark:text-white">
-                    Certified Tutors
+                    Certifies tutors
                   </h1>
 
                   <p className="mt-3 text-gray-500 dark:text-gray-300">
