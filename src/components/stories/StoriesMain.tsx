@@ -2,17 +2,18 @@ import { Outlet } from "react-router-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useContext, useState } from "react";
 import { DataContextStoriesLanguage } from "../../context/stories/storiesLanguage";
-
+import { Link } from "react-router-dom";
 import english from "../../assets/flags/gb.svg";
 import german from "../../assets/flags/de.svg";
 import spanish from "../../assets/flags/es.svg";
 import french from "../../assets/flags/fr.svg";
 import chinese from "../../assets/flags/cn.svg";
-import arab from "../../assets/flags/sa.svg";
+import arab from "../../assets/flags/arab.png";
 import japanese from "../../assets/flags/jp.svg";
 import russian from "../../assets/flags/ru.svg";
 import italian from "../../assets/flags/it.svg";
 import turkish from "../../assets/flags/tr.svg";
+import portuguese from "../../assets/flags/pt.svg";
 
 function StoriesMain() {
   const [show, setShow] = useState(false);
@@ -21,38 +22,69 @@ function StoriesMain() {
   return (
     <main className="py-16 max-w-[80rem] mx-auto">
       <nav className=" bg-white py-2 ">
-        <ul className="flex flex-row text-lg justify-between px-6 bg-slate-100 py-2">
+        <ul className="flex flex-row text-lg justify-between px-6  py-2">
           <li
             onClick={() => {
               setShow(!show);
             }}
             className="flex flex-row items-center text-customBlack cursor-pointer px-5"
           >
-            <span className="min-w-20">
-              {name === "en"
-                ? "English"
-                : name === "es"
-                ? "Spanish"
-                : name === "zh"
-                ? "Chinese"
-                : name === "ar"
-                ? "Arabic"
-                : name === "pt"
-                ? "Portuguese"
-                : name === "ru"
-                ? "Russian"
-                : name === "ja"
-                ? "Japanese"
-                : name === "fr"
-                ? "French"
-                : name === "de"
-                ? "German"
-                : name === "tr"
-                ? "Turkish"
-                : name === "it"
-                ? "Italian"
-                : "Unknown Language"}
-            </span>
+            <div className="min-w-20 flex flex-row ">
+              <img
+                className="w-8 rounded-full "
+                src={
+                  name === "en"
+                    ? english
+                    : name === "es"
+                    ? spanish
+                    : name === "zh"
+                    ? chinese
+                    : name === "ar"
+                    ? arab
+                    : name === "pt"
+                    ? portuguese
+                    : name === "ru"
+                    ? russian
+                    : name === "ja"
+                    ? japanese
+                    : name === "fr"
+                    ? french
+                    : name === "de"
+                    ? german
+                    : name === "tr"
+                    ? turkish
+                    : name === "it"
+                    ? italian
+                    : "Unknown Language"
+                }
+                alt=""
+              />
+              <span>
+                {name === "en"
+                  ? "English"
+                  : name === "es"
+                  ? "Spanish"
+                  : name === "zh"
+                  ? "Chinese"
+                  : name === "ar"
+                  ? "Arabic"
+                  : name === "pt"
+                  ? "Portuguese"
+                  : name === "ru"
+                  ? "Russian"
+                  : name === "ja"
+                  ? "Japanese"
+                  : name === "fr"
+                  ? "French"
+                  : name === "de"
+                  ? "German"
+                  : name === "tr"
+                  ? "Turkish"
+                  : name === "it"
+                  ? "Italian"
+                  : "Unknown Language"}
+              </span>
+            </div>
             <IoMdArrowDropdown />
           </li>
           <li className="hover:bg-light-blue rounded-md py-1 px-2 cursor-pointer">
@@ -80,7 +112,8 @@ function StoriesMain() {
             Que idioma quires aprender
           </h3>
           <div className="grid grid-cols-5 gap-2">
-            <div
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("en");
               }}
@@ -88,8 +121,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={english} alt="" />
               <span>Ingles</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("zh");
               }}
@@ -97,8 +131,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={chinese} alt="" />
               <span>Chino</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("fr");
               }}
@@ -106,8 +141,19 @@ function StoriesMain() {
             >
               <img className="w-12" src={french} alt="" />
               <span>Frances</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
+              onClick={() => {
+                setName("pt");
+              }}
+              className="bg-slate-200 p-2 flex flex-row items-center rounded-md gap-2 hover:bg-light-blue cursor-pointer w-36"
+            >
+              <img className="w-12" src={portuguese} alt="" />
+              <span>Portuguese</span>
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("es");
               }}
@@ -115,8 +161,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={spanish} alt="" />
               <span>Español</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("ar");
               }}
@@ -124,8 +171,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={arab} alt="" />
               <span>Árabe</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("ru");
               }}
@@ -133,8 +181,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={russian} alt="" />
               <span>Ruso</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("ja");
               }}
@@ -142,8 +191,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={japanese} alt="" />
               <span>Japones</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("de");
               }}
@@ -151,8 +201,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={german} alt="" />
               <span>Alemán</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("tr");
               }}
@@ -160,8 +211,9 @@ function StoriesMain() {
             >
               <img className="w-12" src={turkish} alt="" />
               <span>Turco</span>
-            </div>
-            <div
+            </Link>
+            <Link
+              to="/stories"
               onClick={() => {
                 setName("it");
               }}
@@ -169,7 +221,7 @@ function StoriesMain() {
             >
               <img className="w-12" src={italian} alt="" />
               <span>Italiano</span>
-            </div>
+            </Link>
           </div>
         </div>
       </nav>

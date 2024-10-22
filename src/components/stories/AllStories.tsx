@@ -96,7 +96,7 @@ function AllStories() {
                 filter.map((x) => {
                   if (x.level == "B1-B2")
                     return (
-                      <div className="bgr">
+                      <div className="">
                         <StoryCard story={x} />
                       </div>
                     );
